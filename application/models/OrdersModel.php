@@ -1,0 +1,39 @@
+<?php
+class OrdersModel extends CI_Model{
+
+    public function getOrdersList()
+	{
+		
+        $contact       = $this->input->get('contact');
+        $from          = $this->input->get('from');
+        $to            = $this->input->get('to');
+        $message       = $this->input->get('smsBody');
+        $smsStatusCode = $this->input->get('smsStatusCode');
+
+	
+		$leaderSQL = "select * from (SELECT 
+tbl_customer_order.Order_code as OrderCode,
+tbl_customer_order.Delivery_date as DeliveryDate,
+tbl_customer_order.payment_status as PaymentStatus,
+client_info.name as ClientName,
+client_info.Client_code as ClientCode,
+client_info.virtual_account_no as VirtualAccountNo,
+employee_info.name as EmployeeName
+FROM `tbl_customer_order`
+left join client_info on  tbl_customer_order.taker_id =client_info.id
+left join employees on tbl_customer_order.taker_id = employees.id
+left join employee_info on employees.info_id = employee_info.id) as myOderList
+";
+       // $this->db->select($leaderSQL);
+
+
+        $resource = $this->db->query($leaderSQL);
+		
+		// echo $this->db->last_query();
+        // die();
+
+
+        return $resource->result_array();
+    }
+}	
+?>
