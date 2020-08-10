@@ -37,6 +37,8 @@ class ClientModel extends CI_Model
     public function createClient($formArray)
     {
         $this->db->insert('client_info', $formArray);
+        $info = $this->db->insert_id();
+        return $info;
     }
 
 //    public function getDSR(){

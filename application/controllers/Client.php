@@ -76,8 +76,6 @@ class Client extends CI_Controller
 //            echo print_r($this->input->post());
 
 
-            $this->ClientModel->createClient($formArray);
-            $this->session->set_flashdata('success', 'Client successfully created');
             if ($this->input->post('is_user') == true) {
 
                 $userArray = array();
@@ -88,6 +86,9 @@ class Client extends CI_Controller
                 $this->ClientModel->createUserIfActive($userArray);
                 $this->session->set_flashdata('success_on_user_client', 'User successfully created');
             }
+            $formArray['user_id'] = $this->ClientModal->createUserIfActive();
+            $this->ClientModel->createClient($formArray);
+            $this->session->set_flashdata('success', 'Client successfully created');
             redirect(base_url() . 'client/clientList');
 
             // $datas['content'] = $this->load->view('client/clientShow.php',array('getDSRs'=>$getDSRs),true);
