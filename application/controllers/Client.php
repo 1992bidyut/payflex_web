@@ -1,11 +1,13 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
-class Client extends CI_Controller{
+class Client extends CI_Controller
+{
 
-    function __construct() {
+    function __construct()
+    {
         parent::__construct();
 
-        if(!$this->session->userdata('user_id')){
+        if (!$this->session->userdata('user_id')) {
             return redirect('login');
         }
 
@@ -13,9 +15,10 @@ class Client extends CI_Controller{
         $this->load->config('infobuzzerConfig');
 
     }
-    
 
-    public function clientList(){
+
+    public function clientList()
+    {
         $this->load->model('ClientModel');
         $client_array = $this->ClientModel->getAllClient();
         // echo "<pre>";
@@ -23,18 +26,19 @@ class Client extends CI_Controller{
         // die();
 
         $coded_ids['getDSRs'] = $this->ClientModel->getAllDSR();
-        $getDSRs=$this->ClientModel->getAllDSR();
+        $getDSRs = $this->ClientModel->getAllDSR();
 
-        $datas['content'] = $this->load->view('client/clientShow', 
+        $datas['content'] = $this->load->view('client/clientShow',
             array(
-                'allClient'=>$client_array,
-                'getDSRs'=>$getDSRs
+                'allClient' => $client_array,
+                'getDSRs' => $getDSRs
             ), true);
-        $this->load->view( 'layouts/main_template',$datas);
+        $this->load->view('layouts/main_template', $datas);
     }
 
 
-    public function createClient(){
+    public function createClient()
+    {
         $this->load->model('ClientModel');
         $this->form_validation->set_rules('name', 'Distributor Name', 'required');
         $this->form_validation->set_rules('representative_name', 'Representative Name', 'required');
@@ -55,7 +59,7 @@ class Client extends CI_Controller{
 
         //     $getDSRs=$this->ClientModel->getAllDSR();
 
-        //     $datas['content'] = $this->load->view('client/clientShow', 
+        //     $datas['content'] = $this->load->view('client/clientShow',
         //         array(
         //             'allClient'=>$client_array,
         //             'getDSRs'=>$getDSRs
@@ -68,12 +72,23 @@ class Client extends CI_Controller{
             $formArray['representative_name'] = $this->input->post('representative_name');
             $formArray['client_code'] = $this->input->post('client_code');
             $formArray['virtual_account_no'] = $this->input->post('virtual_account_no');
-            
-            echo print_r($this->input->post());
 
-            // $this->ClientModel->createClient($formArray);
-            // $this->session->set_flashdata('success', 'Client successfully created');
-            // redirect(base_url() . 'client/clientList');
+//            echo print_r($this->input->post());
+
+
+            $this->ClientModel->createClient($formArray);
+            $this->session->set_flashdata('success', 'Client successfully created');
+            if ($this->input->post('is_user') == true) {
+
+                $userArray = array();
+                $userArray['username'] = $this->input->post('username');
+                $userArray['password'] = sha1($this->input->post('passsword'));
+                $userArray['user_type'] = 4;
+                $userArray['created_at'] = date('Y-m-d');
+                $this->ClientModel->createUserIfActive($userArray);
+                $this->session->set_flashdata('success_on_user_client', 'User successfully created');
+            }
+            redirect(base_url() . 'client/clientList');
 
             // $datas['content'] = $this->load->view('client/clientShow.php',array('getDSRs'=>$getDSRs),true);
             // $this->load->view('layouts/main_template',$datas);

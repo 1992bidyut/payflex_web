@@ -6,7 +6,7 @@
                     <i class="fa fa-cogs"></i>ALL Client LIST SHOW
                 </div>
                 <div class="actions">
-                    <a href="#<?php echo base_url('client/createClient');?>" data-toggle="modal"
+                    <a href="#<?php echo base_url('client/createClient'); ?>" data-toggle="modal"
                        data-target="#createNewClient" class="btn btn-default btn-sm">
                         <i class="fa fa-plus"></i> Create New Client </a>
 
@@ -27,130 +27,147 @@
                         </div> -->
                         <div class="modal-body">
                             <!-- Modal Body starts-->
-                            <div class="row">
-                                <div class="col-md-12 border" style="border-color: grey;">
-                                    <form class='form' method='post' action='<?php echo base_url('client/createClient'); ?>' >
-                                        <div class="row">
-                                            <h1 class="border" style="border-color: grey; ">New Client Registration</h1>
-                                        </div>
-                                        <!--			Distributor name-->
-                                        <div class="form-group row">
-                                            <label for="name" class="col-sm-2 col-form-label">Distributor Name: </label>
-                                            <input type="text" name="name" id="client_name" class="form-control col-md-10"
-                                                   style="width:80%;" placeholder="Organization /Name"
-                                                   aria-describedby="helpId"/>
-                                        </div>
-                                        <!--			Representative name-->
-                                        <div class="form-group row">
-                                            <label for="representative_name" class="col-sm-4 col-form-label">Representative Name: </label>
-                                            <input type="text" name="representative_name" id="client_representative_name" class="form-control col-md-12"
-                                                   style="width:40%;" placeholder="Representative Name"
-                                                   aria-describedby="helpId"/>
-
-                                        </div>
-                                        <!--			Client and Virtual A/C-->
-                                        <div class="form-group row">
-                                            <label for="client_code" class="col-md-2 col-form-label">Client Code</label>
-                                            <input type="text" name="client_code" id="client_code" class="form-control col-md-3"
-                                                   style="width:25%;" placeholder=""
-                                                   aria-describedby="helpId"/><span>*</span>
-                                            <label for="virtual_account_no" class="col-md-2 col-form-label">Virtual A/C No</label>
-                                            <input type="text" name="virtual_account_no" id="" class="form-control col-md-3"
-                                                   style="width:25%;" placeholder=""
-                                                   aria-describedby="helpId"/><span>*</span>
-                                        </div>
-                                        <!--			Assign DSR-->
-                                        <div class="form-group row">
-                                            <label for="" class="col-md-2 col-form-label">Assign DSR</label>
-                                            <select name="assign_dsr" class="form-control col-sm-10">
-                                                <!-- thete was an error -->
-                                                <option value="">Select DSR....</option>
-                                                <!-- <option value="t">2</option> -->
-
-                                                <?php foreach($getDSRs as $getDSR){?>
-                                                <option value=<?php echo "\"".$getDSR['coded_employeeId'] ."\"";?>><?php echo $getDSR['name']; ?></option>
-                                                <?php } ?>
-                                            </select>
-                                        </div>
-                                        <div class="row border"
-                                             style="padding-right: 2px !important;border-color: grey; padding-left: 2px !important; margin-bottom: 2px;">
-                                            <h3>Contact</h3>
-                                        </div>
-                                        <!--			Contact value 1-->
-                                        <div class="row border" style="border-color: #808080; margin-bottom: 2px;">
-                                            <div class="form-group col-sm-6">
-                                                <label for="" class="col-form-label">Contact Value</label>
-                                                <input type="text" name="" id="" class="form-control"
-                                                       placeholder="Organization /Name"
-                                                       aria-describedby="helpId"/>
-                                            </div>
-                                            <!--			Contact value 2-->
-                                            <div class="form-group col-sm-6">
-                                                <label for="" class="col-form-label">Contact Type</label><br>
-                                                <select name="" class="form-control col-sm-12">
-                                                    <option value="">Phone</option>
-                                                    <option value="">Email</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="row border" style="border-color: grey">
-
-                                            <!--			Contact value 2-->
-                                            <div class="form-group col-sm-6">
-                                                <label for="" class="col-form-label">Contact Value</label>
-                                                <input type="text" name="" id="" class="form-control"
-                                                       placeholder="Organization /Name"
-                                                       aria-describedby="helpId"/>
-                                            </div>
-                                            <!--			Contact value 2-->
-                                            <div class="form-group col-sm-6">
-                                                <label for="" class="col-form-label">Contact Type</label><br>
-                                                <select name="" class="form-control col-sm-12">
-                                                    <option value="">Phone</option>
-                                                    <option value="">Email</option>
-                                                </select>
-                                            </div>
-
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-offset-8 col-md-4switch-field">
-                                                <input type="radio" id="radio-one" name="activeStatus" value="yes"
-                                                       checked/>
-                                                <label for="radio-one">Active</label>
-                                                <input type="radio" id="radio-two" name="activeStatus" value="no"/>
-                                                <label for="radio-two">Inactive</label>
-                                            </div>
-                                        </div>
-                                        <div class="row">
+                                <div class="row">
+                                    <div class="col-md-12 border" style="border-color: grey;">
+                                        <form class='form' method='post'
+                                              action='<?php echo base_url('client/createClient'); ?>'>
                                             <div class="row">
-                                                <div class="col-md-12">
-                                                    <p>Is this client user</p><input type="checkbox" name="is_user" id="" />
+                                                <h1 class="border" style="border-color: grey; ">New Client
+                                                    Registration</h1>
+                                            </div>
+                                            <!--			Distributor name-->
+                                            <div class="form-group row">
+                                                <label for="name" class="col-sm-2 col-form-label">Distributor
+                                                    Name: </label>
+                                                <input type="text" name="name" id="client_name"
+                                                       class="form-control col-md-10"
+                                                       style="width:80%;" placeholder="Organization /Name"
+                                                       aria-describedby="helpId"/>
+                                            </div>
+                                            <!--			Representative name-->
+                                            <div class="form-group row">
+                                                <label for="representative_name" class="col-sm-4 col-form-label">Representative
+                                                    Name: </label>
+                                                <input type="text" name="representative_name"
+                                                       id="client_representative_name" class="form-control col-md-12"
+                                                       style="width:40%;" placeholder="Representative Name"
+                                                       aria-describedby="helpId"/>
+
+                                            </div>
+                                            <!--			Client and Virtual A/C-->
+                                            <div class="form-group row">
+                                                <label for="client_code" class="col-md-2 col-form-label">Client
+                                                    Code</label>
+                                                <input type="text" name="client_code" id="client_code"
+                                                       class="form-control col-md-3"
+                                                       style="width:25%;" placeholder=""
+                                                       aria-describedby="helpId"/><span>*</span>
+                                                <label for="virtual_account_no" class="col-md-2 col-form-label">Virtual
+                                                    A/C No</label>
+                                                <input type="text" name="virtual_account_no" id=""
+                                                       class="form-control col-md-3"
+                                                       style="width:25%;" placeholder=""
+                                                       aria-describedby="helpId"/><span>*</span>
+                                            </div>
+                                            <!--			Assign DSR-->
+                                            <div class="form-group row">
+                                                <label for="" class="col-md-2 col-form-label">Assign DSR</label>
+                                                <select name="assign_dsr" class="form-control col-sm-10">
+                                                    <!-- thete was an error -->
+                                                    <option value="">Select DSR....</option>
+                                                    <!-- <option value="t">2</option> -->
+
+                                                    <?php foreach ($getDSRs as $getDSR) { ?>
+                                                        <option value=<?php echo "\"" . $getDSR['coded_employeeId'] . "\""; ?>><?php echo $getDSR['name']; ?></option>
+                                                    <?php } ?>
+                                                </select>
+                                            </div>
+                                            <div class="row border"
+                                                 style="padding-right: 2px !important;border-color: grey; padding-left: 2px !important; margin-bottom: 2px;">
+                                                <h3>Contact</h3>
+                                            </div>
+                                            <!--			Contact value 1-->
+                                            <div class="row border" style="border-color: #808080; margin-bottom: 2px;">
+                                                <div class="form-group col-sm-6">
+                                                    <label for="" class="col-form-label">Contact Value</label>
+                                                    <input type="text" name="" id="" class="form-control"
+                                                           placeholder="Organization /Name"
+                                                           aria-describedby="helpId"/>
+                                                </div>
+                                                <!--			Contact type 1-->
+                                                <div class="form-group col-sm-6">
+                                                    <label for="" class="col-form-label">Contact Type</label><br>
+                                                    <select name="" class="form-control col-sm-12">
+                                                        <option value="">Phone</option>
+                                                        <option value="">Email</option>
+                                                    </select>
                                                 </div>
                                             </div>
-                                            <div class="form-group row">
-                                                <div class="col-md-6"><label class=""
-                                                                             for="username">Username:</label></div>
-                                                <div class="col-md-6"><input class="form-control" type="text"
-                                                                             name="username" id=""></div>
+                                            <div class="row border" style="border-color: grey">
+                                                <!--			Contact value 2-->
+                                                <div class="form-group col-sm-6">
+                                                    <label for="" class="col-form-label">Contact Value</label>
+                                                    <input type="text" name="" id="" class="form-control"
+                                                           placeholder="Organization /Name"
+                                                           aria-describedby="helpId"/>
+                                                </div>
+                                                <!--			Contact type 2-->
+                                                <div class="form-group col-sm-6">
+                                                    <label for="" class="col-form-label">Contact Type</label><br>
+                                                    <select name="" class="form-control col-sm-12">
+                                                        <option value="">Phone</option>
+                                                        <option value="">Email</option>
+                                                    </select>
+                                                </div>
+
                                             </div>
-                                            <div class="form-group row">
-                                                <div class="col-md-6"><label class=""
-                                                                             for="password">Password:</label></div>
-                                                <div class="col-md-6"><input class="form-control" type="password"
-                                                                             name="password" id=""></div>
+                                            <div class="row">
+                                                <div class="col-md-offset-8 col-md-4switch-field">
+                                                    <input type="radio" id="radio-one" name="activeStatus" value="1"
+                                                           checked/>
+                                                    <label for="radio-one">Active</label>
+                                                    <input type="radio" id="radio-two" name="activeStatus" value="0"/>
+                                                    <label for="radio-two">Inactive</label>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <!-- form submitt -->
-                                        <div class="modal-footer">
-                                            <button type="cancel" class="btn btn-default" data-dismiss="modal">Close</button>
-                                            <button type='submit' class='btn btn-primary' id='submit'>+ Create</button>
-                                        </div>
-                                    </form>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>Is this client user</p>
+                                                    <input type="checkbox" name="is_user" id="is_user" onclick="enableCreateUser()" />
+                                                </div>
+                                            </div>
+                                            <div class="row" id="user_register">
+                                                <div class="form-group row">
+                                                    <div class="col-md-6">
+                                                        <label class="" for="username">Username:</label>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <input class="form-control" type="text" name="username" id="user_res" disabled />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <div class="col-md-6">
+                                                        <label class="" for="password">Password:</label>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <input class="form-control" type="password" name="password" id="pass" disabled />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- form submit -->
+                                            <div class="modal-footer">
+                                                <button type="cancel" class="btn btn-default" data-dismiss="modal">
+                                                    Close
+                                                </button>
+                                                <button type='submit' class='btn btn-primary' id='submit'>+ Create
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
                                 </div>
-                            </div>
                             <!--Modal body ends-->
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
@@ -168,7 +185,8 @@
                         <th> Clint Code</th>
                         <th> Status</th>
                         <th> Action</th>
-                    </tr>allClient
+                    </tr>
+                    allClient
 
                     </thead>
                     <tbody>
@@ -248,23 +266,32 @@
             });
     }
 
-    $(document).ready(function(){
-    $("#submitt").click(function(){
-      var name = $("#client_name").val();
-      // var url = base_url + '/index.php/home/redeeming_form_value';
-      console.alert("test");
-        // $.ajax({
-        //   type : 'POST',
-        //   dataType: 'json',
-        //   url : url,
-        //   data :'myvalue='+test,
-        //   success: function(data){
-        //      msg= eval(data);
-        //      amount= msg.amount;
-        //      alert(amount);
-        //      }
-        //   });
+    $(document).ready(function () {
+        $("#submitt").click(function () {
+            var name = $("#client_name").val();
+            // var url = base_url + '/index.php/home/redeeming_form_value';
+            console.alert("test");
+            // $.ajax({
+            //   type : 'POST',
+            //   dataType: 'json',
+            //   url : url,
+            //   data :'myvalue='+test,
+            //   success: function(data){
+            //      msg= eval(data);
+            //      amount= msg.amount;
+            //      alert(amount);
+            //      }
+            //   });
         });
     });
-
+    function enableCreateUser() {
+        if (document.getElementById("is_user").checked) {
+            document.getElementById("user_res").disabled = false;
+            document.getElementById("pass").disabled = false;
+        }
+        if (!document.getElementById("is_user").checked) {
+            document.getElementById("user_res").disabled = true;
+            document.getElementById("pass").disabled = true;
+        }
+    }
 </script>

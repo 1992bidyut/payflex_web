@@ -59,6 +59,13 @@ class ClientModel extends CI_Model
 
         return $result->result_array();
     }
+
+    public function insertClientPairAndHandlerID(){
+
+    }
+    public function createUserIfActive($userArray){
+        $this->db->insert('tbl_user',$userArray);
+    }
 }
 
 
