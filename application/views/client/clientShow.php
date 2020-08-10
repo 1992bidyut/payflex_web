@@ -133,7 +133,7 @@
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <p>Is this client user</p>
-                                                    <input type="checkbox" name="is_user" id="is_user" onclick="enableCreateUser()" />
+                                                    <input type="checkbox" name="is_user" value="true" id="is_user" onclick="enableCreateUser()" />
                                                 </div>
                                             </div>
                                             <div class="row" id="user_register">
