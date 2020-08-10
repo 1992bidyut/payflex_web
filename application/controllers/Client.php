@@ -83,7 +83,7 @@ class Client extends CI_Controller
                 $userArray = array();
                 $userArray['username'] = $this->input->post('username');
                 $userArray['password'] = sha1($this->input->post('passsword'));
-                $userArray['user_type'] = 4;
+                $userArray['user_type'] = 3;
                 $userArray['created_at'] = date('Y-m-d');
                 $this->ClientModel->createUserIfActive($userArray);
                 $this->session->set_flashdata('success_on_user_client', 'User successfully created');
