@@ -86,6 +86,16 @@ class Client extends CI_Controller
                 $this->ClientModel->createUserIfActive($userArray);
                 $this->session->set_flashdata('success_on_user_client', 'User successfully created');
             }
+            //client employee relation
+            $ceRelation = array();
+            $ceRelation['client_pairID'] = $this->input->post('assign_dsr');
+            $explodedString = explode($ceRelation['client_pairID']);
+            $ceRelation['handler_id']= end($explodedString);
+            $this->ClientModel->insertClientPairAndHandlerID($ceRelation);
+            $this->session->set_flashdata('success_clientPaid_handler_insertion', 'Client successfully created');
+
+
+            //user id insertion into client_info from tbl_user
             $formArray['user_id'] = $this->ClientModal->createUserIfActive();
             $this->ClientModel->createClient($formArray);
             $this->session->set_flashdata('success', 'Client successfully created');

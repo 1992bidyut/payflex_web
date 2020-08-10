@@ -37,8 +37,7 @@ class ClientModel extends CI_Model
     public function createClient($formArray)
     {
         $this->db->insert('client_info', $formArray);
-        $info = $this->db->insert_id();
-        return $info;
+
     }
 
 //    public function getDSR(){
@@ -50,6 +49,7 @@ class ClientModel extends CI_Model
 //
 //        return $result->result_array();
 //    }
+    //fixed by Bidyut
     public function getAllDSR()
     {
         $this->db->select('employee_info.id,employee_info.name,employees.coded_employeeId')
@@ -62,12 +62,17 @@ class ClientModel extends CI_Model
         return $result->result_array();
     }
 
-    public function insertClientPairAndHandlerID(){
-
+    //insert into client_employee_relation by Mohsin
+    public function insertClientPairAndHandlerID($formArray){
+        $this->db->insert('tbl_client_employee_relation',$formArray);
     }
+    //create user from client creation form by Mohsin
     public function createUserIfActive($userArray){
         $this->db->insert('tbl_user',$userArray);
+        $info = $this->db->insert_id();
+        return $info;
     }
+
 }
 
 
