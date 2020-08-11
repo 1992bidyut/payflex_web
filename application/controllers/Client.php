@@ -40,6 +40,7 @@ class Client extends CI_Controller
     public function createClient()
     {
         $this->load->model('ClientModel');
+        $this->load->library('form_validation');
         $this->form_validation->set_rules('name', 'Distributor Name', 'required');
         $this->form_validation->set_rules('representative_name', 'Representative Name', 'required');
         $this->form_validation->set_rules('client_code', 'Client Code', 'required');
@@ -49,30 +50,37 @@ class Client extends CI_Controller
         // $client_array = $this->ClientModel->getAllClient();
         // $getDSRs=$this->ClientModel->getAllDSR();
 
-        if($this->form_validation->run()==false){    
-            $this->session->set_flashdata('success', 'Client successfully created');
-            redirect(base_url() . 'client/clientList');
-        }else{
+        // if($this->form_validation->run()==false){    
+        //     $this->session->set_flashdata('success', 'Client successfully created');
+        //     echo "Info Not Validated!";
+        //     echo validation_errors();
+        //     // redirect(base_url() . 'client/clientList');
+        // }else
+        {
+            // echo "Info validated!";
             $formArray = array();
             $formArray['name'] = $this->input->post('name');
             $formArray['representative_name'] = $this->input->post('representative_name');
             $formArray['client_code'] = $this->input->post('client_code');
             $formArray['virtual_account_no'] = $this->input->post('virtual_account_no');
 
-            if ($this->input->post('is_user') == true) {
-
-                $userArray = array();
-                $this->form_validation->set_rules('username', 'Username', 'required');
-                $this->form_validation->set_rules('password', 'Password', 'required|min_length[3]');
-                $this->form_validation->set_rules('confirm_password', 'Confirm Password', 'required|matches[password]');
-
-
-                $userArray['username'] = $this->input->post('username');
-                $userArray['password'] = sha1($this->input->post('passsword'));
-                $userArray['user_type'] = 3;
-                $userArray['created_time'] = date('Y-m-d');
-                $formArray['user_id'] = $this->ClientModel->createUserIfActive($userArray);
-
+            // if ($this->input->post('is_user') == false) {
+            //         echo "User not validated!";
+            //         echo validation_errors();
+            //     }else
+                {
+                    // echo "User Validated!";
+                    $userArray = array();
+                    $this->form_validation->set_rules('username', 'Username', 'required');
+                    $this->form_validation->set_rules('password', 'Password', 'required|min_length[3]');
+                    $this->form_validation->set_rules('confirm_password', 'Confirm Password', 'required|matches[password]');
+                    if ($this->form_validation->run()==true) {
+                        $userArray['username'] = $this->input->post('username');
+                        $userArray['password'] = sha1($this->input->post('passsword'));
+                        $userArray['user_type'] = 3;
+                        $userArray['created_time'] = date('Y-m-d');
+                        $formArray['user_id'] = $this->ClientModel->createUserIfActive($userArray);
+                    }
             }
 
             $formArray['catagory_id'] = 1;
@@ -92,7 +100,7 @@ class Client extends CI_Controller
             $this->ClientModel->insertClientPairAndHandlerID($ceRelation);
 
             $this->session->set_flashdata('success', 'Client successfully created');
-            redirect(base_url() . 'client/clientList');
+            // redirect(base_url() . 'client/clientList');
         }
     }
 }
