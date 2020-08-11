@@ -45,21 +45,12 @@ class ClientModel extends CI_Model
     //fixed by Bidyut
     public function getAllDSR()
     {
-<<<<<<< HEAD
         $this->db->select('employee_info.id,employee_info.name,tbl_empolyees_relation.coded_employeeId')
             ->from('tbl_empolyees_relation')
             ->join('employee_designation', 'employee_designation.id = tbl_empolyees_relation.designation', 'left')
             ->join('employee_info', 'employee_info.id = tbl_empolyees_relation.info_id', 'left')
             ->where('tbl_empolyees_relation.designation', 5);
-=======
-        $this->db->select('employee_info.id,employee_info.name,tbl_employees_relation.coded_employeeId')
-            ->from('tbl_employees_relation')
-            ->join('employee_designation', 'employee_designation.id = tbl_employees_relation.designation', 'left')
-            ->join('employee_info', 'employee_info.id = tbl_employees_relation.info_id', 'left')
-            ->where('tbl_employees_relation.designation', 5);
->>>>>>> 7cefb6806a2bd59ad2244b576ab6dcbdb242a622
         $result = $this->db->get();
-
         return $result->result_array();
     }
 

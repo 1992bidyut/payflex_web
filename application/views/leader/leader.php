@@ -93,7 +93,7 @@
 								if(!empty($data['image_name']))
 								{
 									$imageName =$data['image_name'];
-									$imagePath = 'https://demo.onuserver.com/payFlex/asset/images/lohagara.client@total.com/';
+									$imagePath = 'https://demo.onuserver.com/payFlex/asset/images/359/';
 									$imagePath .= $imageName;
 									echo '<img style="width: 100%; hight:10px;" src="'.$imagePath.'" alt="'.$imageName.'">';
 								}
