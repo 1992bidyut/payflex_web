@@ -53,7 +53,9 @@
                             <input type="checkbox" class="group-checkable" data-set="#sample_3 .checkboxes" />
                         </th>
                         <th> clientName </th>
-                        <th> EmployeeName </th>
+                        <th> Manager </th>
+                        <th> Officer </th>
+                        <th> DSR </th>
                         <th> Order Code </th>
                         <th> orderID </th>
                         <th> paymentID </th>
@@ -78,7 +80,9 @@
                         <tr class="odd gradeX">
                             <td><input type="checkbox" class="checkboxes" value="1" /></td>
                             <td> <?php echo $data['clientName'] ?>  </td>
-							<td> <?php echo $data['EmployeeName'] ?>  </td>
+                            <td> <?php echo $data['manager'] ?>  </td>
+                            <td> <?php echo $data['officer'] ?>  </td>
+							<td> <?php echo $data['dsr'] ?>  </td>
 							<td> <?php echo $data['order_code'] ?>  </td>
                             <td> <?php echo $data['orderID'] ?>  </td>
 							<td> <?php echo $data['paymentID'] ?>  </td>
