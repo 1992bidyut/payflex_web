@@ -46,16 +46,12 @@ class Client extends CI_Controller
         $this->form_validation->set_rules('virtual_account_code', 'Virtual A/C no.', 'required');
 
 
-        $client_array = $this->ClientModel->getAllClient();
-        $getDSRs=$this->ClientModel->getAllDSR();
+        // $client_array = $this->ClientModel->getAllClient();
+        // $getDSRs=$this->ClientModel->getAllDSR();
 
         if($this->form_validation->run()==false){    
-            $datas['content'] = $this->load->view('client/clientShow',
-                array(
-                    'allClient'=>$client_array,
-                    'getDSRs'=>$getDSRs
-                ), true);
-            $this->load->view( 'layouts/main_template',$datas);
+            $this->session->set_flashdata('success', 'Client successfully created');
+            redirect(base_url() . 'client/clientList');
         }else{
             $formArray = array();
             $formArray['name'] = $this->input->post('name');
