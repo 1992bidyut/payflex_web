@@ -47,26 +47,16 @@ class Client extends CI_Controller
 
 
         $client_array = $this->ClientModel->getAllClient();
-        $coded_ids['getDSRs'] = $this->ClientModel->getAllDSR();
+        $getDSRs=$this->ClientModel->getAllDSR();
 
-        // if($this->form_validation->run()==false){
-        //     $coded_ids = array();
-        //     // $coded_ids['getDSRs'] = $this->ClientModel->getAllDSR();
-        //     // $getDSRs=$this->ClientModel->getAllDSR();
-
-        //     // $datas['content'] = $this->load->view('client/clientShow.php',array('getDSRs'=>$getDSRs),true);
-        //     // $this->load->view('layouts/main_template',$datas);
-
-        //     $getDSRs=$this->ClientModel->getAllDSR();
-
-        //     $datas['content'] = $this->load->view('client/clientShow',
-        //         array(
-        //             'allClient'=>$client_array,
-        //             'getDSRs'=>$getDSRs
-        //         ), true);
-        //     $this->load->view( 'layouts/main_template',$datas);
-        // }else
-        {
+        if($this->form_validation->run()==false){    
+            $datas['content'] = $this->load->view('client/clientShow',
+                array(
+                    'allClient'=>$client_array,
+                    'getDSRs'=>$getDSRs
+                ), true);
+            $this->load->view( 'layouts/main_template',$datas);
+        }else{
             $formArray = array();
             $formArray['name'] = $this->input->post('name');
             $formArray['representative_name'] = $this->input->post('representative_name');
