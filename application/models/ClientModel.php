@@ -38,17 +38,10 @@ class ClientModel extends CI_Model
     {
         $this->db->insert('client_info', $formArray);
 
+        $query = $this->db->query('SELECT LAST_INSERT_ID()');
+        $row = $query->row_array();
+        return $row['LAST_INSERT_ID()'];
     }
-
-//    public function getDSR(){
-//        $this->db->select('employees.id','employees.name', 'employee_info.coded_employeeId')
-//            ->from('employee_info')
-//            ->join('employees','employee_info.id=employees.info_id','left')
-//            ->where("employee.designation",'5');
-//        $result = $this->db->get();
-//
-//        return $result->result_array();
-//    }
     //fixed by Bidyut
     public function getAllDSR()
     {
@@ -69,8 +62,8 @@ class ClientModel extends CI_Model
     //create user from client creation form by Mohsin
     public function createUserIfActive($userArray){
         $this->db->insert('tbl_user',$userArray);
-//        $info = $this->db->insert_id();
-//        return $info;
+       // $info = $this->db->insert_id();
+       // return $info;
         $query = $this->db->query('SELECT LAST_INSERT_ID()');
         $row = $query->row_array();
         return $row['LAST_INSERT_ID()'];
