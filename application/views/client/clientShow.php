@@ -42,32 +42,6 @@
                         <i class="fa fa-print"></i> Print </a>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-12" style="padding-top: 10px;">
-                    <?php
-                    $success = $this->session->userdata('success');
-                    if($success !=""){
-                        ?>
-                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                            <strong><?php echo $success;?></strong>
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                    <?php }	?>
-                    <?php
-                    $failure = $this->session->userdata('failure');
-                    if($failure !=""){
-                        ?>
-                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                            <strong><?php echo $failure;?></strong>
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                    <?php }	?>
-                </div>
-            </div>
             <div class="modal fade" id="createNewClient" tabindex="-1" role="dialog" aria-labelledby="largeModal"
                  aria-hidden="true">
                 <div class="modal-dialog modal-lg">
