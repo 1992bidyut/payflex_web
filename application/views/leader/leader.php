@@ -74,7 +74,6 @@
                     <tbody>
                     <?php if ($paymentInfoArray>0): ?>
                     <?php
-					//
                         foreach($paymentInfoArray as $data){
                     ?>
                         <tr class="odd gradeX">
