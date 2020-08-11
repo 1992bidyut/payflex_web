@@ -16,7 +16,32 @@
                         <i class="fa fa-print"></i> Print </a>
                 </div>
             </div>
-
+            <div class="row">
+                <div class="col-md-12" style="padding-top: 10px;">
+                    <?php
+                    $success = $this->session->userdata('success');
+                    if($success !=""){
+                        ?>
+                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                            <strong><?php echo $success;?></strong>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    <?php }	?>
+                    <?php
+                    $failure = $this->session->userdata('failure');
+                    if($failure !=""){
+                        ?>
+                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                            <strong><?php echo $failure;?></strong>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    <?php }	?>
+                </div>
+            </div>
             <div class="modal fade" id="createNewClient" tabindex="-1" role="dialog" aria-labelledby="largeModal"
                  aria-hidden="true">
                 <div class="modal-dialog modal-lg">
@@ -27,8 +52,24 @@
                         </div> -->
                         <div class="modal-body">
                             <!-- Modal Body starts-->
+
                                 <div class="row">
                                     <div class="col-md-12 border" style="border-color: grey;">
+                                        <?php if(!empty(form_error('name')) || !empty(form_error('representative_name')) || !empty(form_error('client_code')) || !empty(form_error('virtual_account_code')) || !empty(form_error('username')) || !empty(form_error('password')) || !empty(form_error('confirm_password')) ){ ?>
+
+                                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                                <strong><?php echo form_error('name') ?></strong>
+                                                <strong><?php echo form_error('representative_name') ?></strong>
+                                                <strong><?php echo form_error('client_code') ?></strong>
+                                                <strong><?php echo form_error('virtual_account_code') ?></strong>
+                                                <strong><?php echo form_error('username') ?></strong>
+                                                <strong><?php echo form_error('password') ?></strong>
+                                                <strong><?php echo form_error('confirm_password') ?></strong>
+                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                        <?php }?>
                                         <form class='form' method='post'
                                               action='<?php echo base_url('client/createClient'); ?>'>
                                             <div class="row">
@@ -151,6 +192,14 @@
                                                     </div>
                                                     <div class="col-md-6">
                                                         <input class="form-control" type="password" name="password" id="pass" disabled />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <div class="col-md-6">
+                                                        <label class="" for="confirm_password">Confirm Password:</label>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <input class="form-control" type="password" name="confirm_password" id="confirm_pass" disabled />
                                                     </div>
                                                 </div>
                                             </div>
@@ -288,10 +337,12 @@
         if (document.getElementById("is_user").checked) {
             document.getElementById("user_res").disabled = false;
             document.getElementById("pass").disabled = false;
+            document.getElementById("confirm_pass").disabled = false;
         }
         if (!document.getElementById("is_user").checked) {
             document.getElementById("user_res").disabled = true;
             document.getElementById("pass").disabled = true;
+            document.getElementById("confirm_pass").disabled = true;
         }
     }
 </script>

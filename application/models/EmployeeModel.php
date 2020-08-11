@@ -24,9 +24,9 @@ class EmployeeModel extends CI_Model
     public function getAllEmployee()
     {
         $this->db->select('*')
-            ->from('employees')
-            ->join('employee_designation', 'employee_designation.id = employees.designation', 'left')
-            ->join('employee_info', 'employee_info.id = employees.info_id', 'left');
+            ->from('tbl_empolyees_relation')
+            ->join('employee_designation', 'employee_designation.id = tbl_empolyees_relation.designation', 'left')
+            ->join('employee_info', 'employee_info.id = tbl_empolyees_relation.info_id', 'left');
         $result = $this->db->get();
 
 //		echo $this->db->last_query();
