@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="571daff3-120e-4fae-92da-81dcf9e1bc68" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a3f70133-5dc2-4a2a-88df-62907115f18b.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a3f70133-5dc2-4a2a-88df-62907115f18b.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/config/database.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/Client.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Client.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/models/ClientModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/ClientModel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/models/EmployeeModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/EmployeeModel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/client/clientShow.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/client/clientShow.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +56,7 @@
       <workItem from="1597076139624" duration="498000" />
       <workItem from="1597115412819" duration="1543000" />
       <workItem from="1597155321416" duration="846000" />
-      <workItem from="1597167800540" duration="8178000" />
+      <workItem from="1597167800540" duration="8890000" />
     </task>
     <servers />
   </component>
