@@ -1087,7 +1087,7 @@
     <table id="345" parent="4" name="tbl_customer_order">
       <Collation>latin1_swedish_ci</Collation>
     </table>
-    <table id="346" parent="4" name="tbl_empolyee_relation">
+    <table id="346" parent="4" name="tbl_empolyees_relation">
       <Collation>latin1_swedish_ci</Collation>
     </table>
     <table id="347" parent="4" name="tbl_financial_institution_list">
