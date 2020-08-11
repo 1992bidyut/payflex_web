@@ -95,8 +95,10 @@
 							<?php //echo $data['image_name'] 
 								if(!empty($data['image_name']))
 								{
-									$imageName =$data['image_name'];
-									$imagePath = 'https://demo.onuserver.com/payFlex/asset/images/359/';
+									$localImgageBasePath="http://localhost/payflex/asset/images/";
+									$remorteImageBasePath="https://demo.onuserver.com/payFlex/asset/images/";
+								    $imageName =$data['image_name'];
+									$imagePath = $localImgageBasePath.$data['clientId']."/";
 									$imagePath .= $imageName;
 									echo '<img style="width: 100%; hight:10px;" src="'.$imagePath.'" alt="'.$imageName.'">';
 								}

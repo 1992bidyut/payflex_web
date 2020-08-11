@@ -16,13 +16,14 @@ class Search extends CI_Controller{
     
     public function searchData(){
         $this->load->model('SearchModel');
-        $key = $this->input->post('name');
-        $results = $this->SearchModel->search($key);
-       // $this->load->view('leader/leader',$data);
-        $data['content'] = $this->load->view('leader/leader', array('result'=>$results), true);
-        $this->load->view( 'layouts/main_template',$data);
-    }
+        $paymentFrom=$this->input->post('paymentFrom');
+        $paymentTo=$this->input->post('paymentTo');
+        $leaderBoardData = $this->SearchModel->searchDateFilteredPaymentInfo($paymentFrom,$paymentTo);
+        $dataArray = array('paymentInfoArray'=>$leaderBoardData);
 
+        $datas['content'] = $this->load->view('leader/leader', $dataArray, true);
+        $this->load->view( 'layouts/main_template',$datas);
+    }
 
     public function showData(){
         $this->load->model('SearchModel');
