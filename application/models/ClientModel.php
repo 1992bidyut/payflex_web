@@ -69,8 +69,11 @@ class ClientModel extends CI_Model
     //create user from client creation form by Mohsin
     public function createUserIfActive($userArray){
         $this->db->insert('tbl_user',$userArray);
-        $info = $this->db->insert_id();
-        return $info;
+//        $info = $this->db->insert_id();
+//        return $info;
+        $query = $this->db->query('SELECT LAST_INSERT_ID()');
+        $row = $query->row_array();
+        return $row['LAST_INSERT_ID()'];
     }
 
 }
