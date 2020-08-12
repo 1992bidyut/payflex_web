@@ -8,10 +8,8 @@ class Search extends CI_Controller{
         if(!$this->session->userdata('user_id')){
             return redirect('login');
         }
-
         $this->load->model('user_model');
         $this->load->config('infobuzzerConfig');
-
     }
     
     public function searchData(){
@@ -35,9 +33,6 @@ class Search extends CI_Controller{
         $this->load->view( 'layouts/main_template',$data);
 
     }
-
-
-	
 }
 
 ?>
