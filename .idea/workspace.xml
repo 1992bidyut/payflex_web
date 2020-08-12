@@ -19,10 +19,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="571daff3-120e-4fae-92da-81dcf9e1bc68" name="Default Changelist" comment="payment date filter set on leaderboard">
+    <list default="true" id="571daff3-120e-4fae-92da-81dcf9e1bc68" name="Default Changelist" comment="demo database add">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/config/database.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/Search.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Search.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +86,7 @@
       <workItem from="1597167800540" duration="14279000" />
       <workItem from="1597167800540" duration="9143000" />
       <workItem from="1597182746518" duration="2100000" />
-      <workItem from="1597192289388" duration="56000" />
+      <workItem from="1597192289388" duration="772000" />
     </task>
     <task id="LOCAL-00001" summary="employee order set on leaderboard">
       <created>1597183979092</created>
@@ -118,7 +116,14 @@
       <option name="project" value="LOCAL" />
       <updated>1597189607968</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="demo database add">
+      <created>1597192529004</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1597192529004</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -139,7 +144,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="employee order set on leaderboard" />
     <MESSAGE value="payment date filter set on leaderboard" />
-    <option name="LAST_COMMIT_MESSAGE" value="payment date filter set on leaderboard" />
+    <MESSAGE value="demo database add" />
+    <option name="LAST_COMMIT_MESSAGE" value="demo database add" />
   </component>
   <component name="WindowStateProjectService">
     <state x="361" y="70" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1597050480867">
@@ -154,18 +160,18 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="391" y="81" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1597032242364" />
-    <state x="361" y="137" key="Vcs.Push.Dialog.v2" timestamp="1597189628945">
+    <state x="361" y="137" key="Vcs.Push.Dialog.v2" timestamp="1597192674216">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="361" y="137" key="Vcs.Push.Dialog.v2/0.0.1536.834/1920.0.1366.738@0.0.1536.834" timestamp="1597189628945" />
+    <state x="361" y="137" key="Vcs.Push.Dialog.v2/0.0.1536.834/1920.0.1366.738@0.0.1536.834" timestamp="1597192674216" />
     <state x="561" y="232" width="413" height="352" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog" timestamp="1597174798873">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="561" y="232" width="413" height="352" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog/0.0.1536.824@0.0.1536.824" timestamp="1597174798873" />
-    <state x="579" y="331" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1597185047600">
+    <state x="579" y="331" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1597193064700">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="579" y="331" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.834/1920.0.1366.738@0.0.1536.834" timestamp="1597185047600" />
+    <state x="579" y="331" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.834/1920.0.1366.738@0.0.1536.834" timestamp="1597193064700" />
     <state x="477" y="11" width="581" height="801" key="find.popup" timestamp="1597029999478">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
