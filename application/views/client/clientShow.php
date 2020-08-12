@@ -133,7 +133,7 @@
                                                 <label for="contact_value_1" class="col-form-label">Contact
                                                     Value</label>
                                                 <input type="text" name="contact_value_1" id="" class="form-control"
-                                                       placeholder="Organization /Name"
+                                                       placeholder="Organization / Name"
                                                        aria-describedby="helpId"/>
                                             </div>
                                             <!--			Contact type 1-->
@@ -142,7 +142,9 @@
                                                     Type</label><br>
                                                 <select name="contact_type_id_1" class="form-control col-sm-12">
                                                     <?php foreach ($contacts as $contact) { ?>
-                                                        <option value=<?php echo "\"" . $contact['id'] . "\""; ?>><?php echo $contact['contact_type']; ?></option>
+                                                        <option value=<?php echo "\"" . $contact['id'] . "\""; ?>>
+                                                            <?php echo $contact['contact_type']; ?>
+                                                        </option>
                                                     <?php } ?>
                                                 </select>
                                             </div>
@@ -162,7 +164,9 @@
                                                     Type</label><br>
                                                 <select name="contact_type_id_2" class="form-control col-sm-12">
                                                     <?php foreach ($contacts as $contact) { ?>
-                                                        <option value=<?php echo "\"" . $contact['id'] . "\""; ?>><?php echo $contact['contact_type']; ?></option>
+                                                        <option value=<?php echo "\"" . $contact['id'] . "\""; ?>>
+                                                            <?php echo $contact['contact_type']; ?>
+                                                        </option>
                                                     <?php } ?>
                                                 </select>
                                             </div>
@@ -170,10 +174,10 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-md-offset-8 col-md-4switch-field">
-                                                <input type="radio" id="radio-one" name="activeStatus" value="1"
+                                                <input type="radio" id="radio-one" name="is_active" value="1"
                                                        checked/>
                                                 <label for="radio-one">Active</label>
-                                                <input type="radio" id="radio-two" name="activeStatus" value="0"/>
+                                                <input type="radio" id="radio-two" name="is_active" value="0"/>
                                                 <label for="radio-two">Inactive</label>
                                             </div>
                                         </div>

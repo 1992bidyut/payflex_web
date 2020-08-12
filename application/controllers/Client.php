@@ -34,7 +34,7 @@ class Client extends CI_Controller
             array(
                 'allClient' => $client_array,
                 'getDSRs' => $getDSRs,
-                'contacts'=>$contactsType
+                'contacts' => $contactsType
             ), true);
         $this->load->view('layouts/main_template', $datas);
     }
@@ -44,10 +44,10 @@ class Client extends CI_Controller
     {
         $this->load->model('ClientModel');
         $this->load->library('form_validation');
-        $this->form_validation->set_rules('name', 'Distributor Name', 'required');
-        $this->form_validation->set_rules('representative_name', 'Representative Name', 'required');
-        $this->form_validation->set_rules('client_code', 'Client Code', 'required');
-        $this->form_validation->set_rules('virtual_account_code', 'Virtual A/C no.', 'required');
+//        $this->form_validation->set_rules('name', 'Distributor Name', 'required');
+//        $this->form_validation->set_rules('representative_name', 'Representative Name', 'required');
+//        $this->form_validation->set_rules('client_code', 'Client Code', 'required');
+//        $this->form_validation->set_rules('virtual_account_code', 'Virtual A/C no.', 'required');
 
 
         // $client_array = $this->ClientModel->getAllClient();
@@ -77,6 +77,7 @@ class Client extends CI_Controller
                 $this->form_validation->set_rules('username', 'Username', 'required');
                 $this->form_validation->set_rules('password', 'Password', 'required|min_length[3]');
                 $this->form_validation->set_rules('confirm_password', 'Confirm Password', 'required|matches[password]');
+                //  if ($this->input->post('is_user') == true) {
                 if ($this->form_validation->run() == true) {
                     $userArray['username'] = $this->input->post('username');
                     $userArray['password'] = sha1($this->input->post('passsword'));
@@ -84,13 +85,18 @@ class Client extends CI_Controller
                     $userArray['created_time'] = date('Y-m-d');
                     $formArray['user_id'] = $this->ClientModel->createUserIfActive($userArray);
                 }
+
+                //}
             }
 
             $formArray['catagory_id'] = 1;
             $formArray['office_id'] = 0;
             $formArray['client_parent_id'] = 0;
+            $formArray['is_active'] = $this->input->post('is_active');
             //user id insertion into client_info from tbl_user and get user_is for pari table
+            //if ($this->form_validation->run('createClient') == true) {
             $client_inserted_id = $this->ClientModel->createClient($formArray);
+            //}
 
             //contact insertion
             $contactArray = array();
@@ -104,7 +110,9 @@ class Client extends CI_Controller
                     'contact_type_id' => $this->input->post('contact_type_id_2')
                 ]
             ];
+            //if ($this->form_validation->run('contactValue') == TRUE) {
             $this->ClientModel->createContacts($contactArray);
+            //}
             //client employee relation = $ceRelation
             $ceRelation = array();
             $ceRelation['client_id'] = $client_inserted_id;
