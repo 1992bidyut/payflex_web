@@ -72,7 +72,7 @@ class ClientModel extends CI_Model
         return $row['LAST_INSERT_ID()'];
     }
 
-    public function createContact($formArray)
+    public function createContacts($formArray)
     {
         $this->db->insert_batch('tbl_contact', $formArray);
     }

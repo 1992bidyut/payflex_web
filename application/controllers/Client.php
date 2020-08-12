@@ -103,11 +103,15 @@ class Client extends CI_Controller
             $contactArray = [
                 [
                     'contact_value' => $this->input->post('contact_value_1'),
-                    'contact_type_id' => $this->input->post('contact_type_id_1')
+                    'contact_type_id' => $this->input->post('contact_type_id_1'),
+                    'owner_id'=>$client_inserted_id,
+                    'owner_type'=>3
                 ],
                 [
                     'contact_value' => $this->input->post('contact_value_2'),
-                    'contact_type_id' => $this->input->post('contact_type_id_2')
+                    'contact_type_id' => $this->input->post('contact_type_id_2'),
+                    'owner_id'=>$client_inserted_id,
+                    'owner_type'=>3
                 ]
             ];
             //if ($this->form_validation->run('contactValue') == TRUE) {
@@ -124,7 +128,7 @@ class Client extends CI_Controller
             $this->ClientModel->insertClientPairAndHandlerID($ceRelation);
 
             $this->session->set_flashdata('success', 'Client successfully created');
-            // redirect(base_url() . 'client/clientList');
+            redirect(base_url() . 'client/clientList');
         }
     }
 }
