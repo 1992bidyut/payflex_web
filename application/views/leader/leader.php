@@ -66,7 +66,6 @@
 						<th> amount </th>
 						<th> action_flag </th>
 						<th> image_name </th>
-						<th> pirid </th>
 						<th> ProductQuantityString </th>
 						<th> Action </th>
                     </tr>
@@ -109,7 +108,6 @@
 							
 							
 							?>  </td>
-							<td> <?php echo $data['pirid'] ?>  </td>
 							<td> <?php echo $data['ProductQuantityString'] ?>  </td>
 							
 							<!-- ----------------------- the action buttons for payments -----------------  -->
