@@ -53,7 +53,9 @@
                             <input type="checkbox" class="group-checkable" data-set="#sample_3 .checkboxes" />
                         </th>
                         <th> clientName </th>
-                        <th> EmployeeName </th>
+                        <th> Manager </th>
+                        <th> Officer </th>
+                        <th> DSR </th>
                         <th> Order Code </th>
                         <th> orderID </th>
                         <th> paymentID </th>
@@ -72,13 +74,14 @@
                     <tbody>
                     <?php if ($paymentInfoArray>0): ?>
                     <?php
-					
                         foreach($paymentInfoArray as $data){
                     ?>
                         <tr class="odd gradeX">
                             <td><input type="checkbox" class="checkboxes" value="1" /></td>
                             <td> <?php echo $data['clientName'] ?>  </td>
-							<td> <?php echo $data['EmployeeName'] ?>  </td>
+                            <td> <?php echo $data['manager'] ?>  </td>
+                            <td> <?php echo $data['officer'] ?>  </td>
+							<td> <?php echo $data['dsr'] ?>  </td>
 							<td> <?php echo $data['order_code'] ?>  </td>
                             <td> <?php echo $data['orderID'] ?>  </td>
 							<td> <?php echo $data['paymentID'] ?>  </td>
@@ -92,8 +95,10 @@
 							<?php //echo $data['image_name'] 
 								if(!empty($data['image_name']))
 								{
-									$imageName =$data['image_name'];
-									$imagePath = 'https://demo.onuserver.com/payFlex/asset/images/lohagara.client@total.com/';
+									$localImgageBasePath="http://localhost/payflex/asset/images/";
+									$remorteImageBasePath="https://demo.onuserver.com/payFlex/asset/images/";
+								    $imageName =$data['image_name'];
+									$imagePath = $localImgageBasePath.$data['clientId']."/";
 									$imagePath .= $imageName;
 									echo '<img style="width: 100%; hight:10px;" src="'.$imagePath.'" alt="'.$imageName.'">';
 								}
