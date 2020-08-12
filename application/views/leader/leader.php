@@ -97,7 +97,7 @@
 									$localImgageBasePath="http://localhost/payflex/asset/images/";
 									$remorteImageBasePath="https://demo.onuserver.com/payFlex/asset/images/";
 								    $imageName =$data['image_name'];
-									$imagePath = $localImgageBasePath.$data['clientId']."/";
+									$imagePath = $remorteImageBasePath.$data['clientId']."/";
 									$imagePath .= $imageName;
 									echo '<img style="width: 100%; hight:10px;" src="'.$imagePath.'" alt="'.$imageName.'">';
 								}
