@@ -42,6 +42,7 @@ class ClientModel extends CI_Model
         $row = $query->row_array();
         return $row['LAST_INSERT_ID()'];
     }
+
     //fixed by Bidyut
     public function getAllDSR()
     {
@@ -55,17 +56,35 @@ class ClientModel extends CI_Model
     }
 
     //insert into client_employee_relation by Mohsin
-    public function insertClientPairAndHandlerID($formArray){
-        $this->db->insert('tbl_client_employee_relation',$formArray);
+    public function insertClientPairAndHandlerID($formArray)
+    {
+        $this->db->insert('tbl_client_employee_relation', $formArray);
     }
+
     //create user from client creation form by Mohsin
-    public function createUserIfActive($userArray){
-        $this->db->insert('tbl_user',$userArray);
-       // $info = $this->db->insert_id();
-       // return $info;
+    public function createUserIfActive($userArray)
+    {
+        $this->db->insert('tbl_user', $userArray);
+        // $info = $this->db->insert_id();
+        // return $info;
         $query = $this->db->query('SELECT LAST_INSERT_ID()');
         $row = $query->row_array();
         return $row['LAST_INSERT_ID()'];
+    }
+
+    public function createContacts($formArray)
+    {
+        $this->db->insert_batch('tbl_contact', $formArray);
+    }
+
+    public function getClientsContactType()
+    {
+        $this->db->select('tbl_contact_type.id,tbl_contact_type.contact_type')//right
+//        $this->db->select('tbl_contact_type.id', 'tbl_contact_type.contact_type')//syntax error
+            ->from('tbl_contact_type')
+            ->where('tbl_contact_type.user_type', 3);
+        $result = $this->db->get();
+        return $result->result_array();
     }
 
 }
