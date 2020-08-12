@@ -27,13 +27,14 @@ class Client extends CI_Controller
 
         $coded_ids['getDSRs'] = $this->ClientModel->getAllDSR();
         $getDSRs = $this->ClientModel->getAllDSR();
-        $UserContacts['contacts'] = $this->ClientModel->getContactTypeId();
-        $contacts = $this->ClientModel->getContactTypeId();
+        $UserContacts['contacts'] = $this->ClientModel->getClientsContactType();
+        $contactsType = $this->ClientModel->getClientsContactType();
+//        echo print_r($contactsType);
         $datas['content'] = $this->load->view('client/clientShow',
             array(
                 'allClient' => $client_array,
                 'getDSRs' => $getDSRs,
-                'contacts'=>$contacts
+                'contacts'=>$contactsType
             ), true);
         $this->load->view('layouts/main_template', $datas);
     }

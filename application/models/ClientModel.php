@@ -77,9 +77,10 @@ class ClientModel extends CI_Model
         $this->db->insert_batch('tbl_contact', $formArray);
     }
 
-    public function getContactTypeId()
+    public function getClientsContactType()
     {
-        $this->db->select('tbl_contact_type.id', 'tbl_contact_type.contact_type')
+        $this->db->select('tbl_contact_type.id,tbl_contact_type.contact_type')//right
+//        $this->db->select('tbl_contact_type.id', 'tbl_contact_type.contact_type')//syntax error
             ->from('tbl_contact_type')
             ->where('tbl_contact_type.user_type', 3);
         $result = $this->db->get();
