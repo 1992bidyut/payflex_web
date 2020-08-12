@@ -113,6 +113,31 @@ class LeaderBoardModel extends CI_Model{
         // die();
         return $resource->result_array();
     }
+
+    public function getFinancierExportData($date){
+        $reportSQL= "SELECT 
+            client_info.client_code,
+            client_info.name,
+            tbl_financial_institution_list.id,
+            tbl_financial_institution_list.bank_name,
+            tbl_payment_mode.id,
+            tbl_payment_mode.methode_name,
+            tbl_payment.amount,
+            tbl_payment.submitted_date
+            FROM tbl_payment
+            LEFT JOIN tbl_financial_institution_list ON tbl_financial_institution_list.id=tbl_payment.financial_institution_id
+            LEFT JOIN tbl_payment_mode ON tbl_payment_mode.id=tbl_payment.payment_mode_id
+            LEFT JOIN tbl_customer_order ON tbl_customer_order.order_code=tbl_payment.order_code
+            LEFT JOIN client_info ON client_info.id=tbl_customer_order.order_for_client_id
+            
+            WHERE tbl_payment.submitted_date>='".$date." 00:00:00'";
+
+        $resource = $this->db->query($reportSQL);
+        // echo $this->db->last_query();
+        // die();
+        return $resource->result_array();
+
+    }
 }
 
 

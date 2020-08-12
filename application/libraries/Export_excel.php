@@ -1,18 +1,12 @@
 <?php
 	
 //include_once("db.php");
-
-class ExportToExcel
+if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+class Export_excel
 {
-	function exportData($data)
+	public function exportData($data)
 	{
-		// echo "<pre>";
-		// print_r($deliveryDataArray);
-		// echo "</pre>";
-		// die('Library');
-		
-		// file name for download
-		$filename = "reveneu_report_" . date('Ymd') . ".xls";
+		$filename = "finance_report_" . date('Ymd') . ".xls";
 
 		header("Content-Disposition: attachment; filename=\"$filename\"");
 		header('Content-Description: File Transfer');
@@ -25,17 +19,12 @@ class ExportToExcel
 		{
 			if(!$flag) 
 			{
-				// display field/column names as first row
 				echo implode("\t", array_keys($row)) . "\n";
 				$flag = true;
 			}
-			//array_walk($row, __NAMESPACE__ . '\cleanData');
 			echo implode("\t", array_values($row)) . "\n";
 		}
-		
 		exit;
 	}
-	
 }
-	
 ?>
