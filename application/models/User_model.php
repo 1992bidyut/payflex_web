@@ -4,17 +4,17 @@ class User_model extends CI_Model
 {
 	//FOR LOGIN USER BY SANKER
 	public function loginValid($username,$password){
-
-		$query = $this->db->where(['username'=>$username,'password'=>$password])
-				->get('tbl_user');
-
+		$query = $this->db->select('*')
+			->from('tbl_user')
+			->where('tbl_user.username',$username)
+			->where('tbl_user.password',$password)
+			->get();
 		if($query->num_rows() === 1 )
 		{
 			$sqlReturn = $query->row_array();
 		}else{
 			$sqlReturn = false;
 		}
-		
 	//	die($this->db->last_query());
 		return $sqlReturn;
 	}
