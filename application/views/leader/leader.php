@@ -40,7 +40,7 @@
                 <div class="caption">
                     <i class="fa fa-cogs"></i>Leaderboard (Payment) </div>
                 <div class="actions">
-                    <a href="javascript:;" class="btn btn-default btn-sm">
+                    <a href="<?php echo base_url('LeaderBoard/exportFinanceData')?>" class="btn btn-default btn-sm">
                         <i class="fa fa-download"></i> Export/Download </a>
                 </div>
             </div>
