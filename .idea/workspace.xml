@@ -19,8 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="571daff3-120e-4fae-92da-81dcf9e1bc68" name="Default Changelist" comment="marge bdn_dev">
-      <change beforePath="$PROJECT_DIR$/application/views/leader/leader.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/leader/leader.php" afterDir="false" />
+    <list default="true" id="571daff3-120e-4fae-92da-81dcf9e1bc68" name="Default Changelist" comment="cpanel.yml">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/models/OrdersModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/OrdersModel.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,6 +88,7 @@
       <workItem from="1597167800540" duration="9143000" />
       <workItem from="1597182746518" duration="2100000" />
       <workItem from="1597192289388" duration="772000" />
+      <workItem from="1597231552482" duration="619000" />
     </task>
     <task id="LOCAL-00001" summary="employee order set on leaderboard">
       <created>1597183979092</created>
@@ -160,7 +162,9 @@
     <MESSAGE value="payment date filter set on leaderboard" />
     <MESSAGE value="demo database add" />
     <MESSAGE value="marge bdn_dev" />
-    <option name="LAST_COMMIT_MESSAGE" value="marge bdn_dev" />
+    <MESSAGE value="remote image path set" />
+    <MESSAGE value="cpanel.yml" />
+    <option name="LAST_COMMIT_MESSAGE" value="cpanel.yml" />
   </component>
   <component name="WindowStateProjectService">
     <state x="361" y="70" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1597050480867">
