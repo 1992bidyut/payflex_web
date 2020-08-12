@@ -79,10 +79,11 @@ class ClientModel extends CI_Model
 
     public function getContactTypeId()
     {
-        $result = $this->db->select('tbl_contact_type.id', 'tbl_contact_type.contact_type')
+        $this->db->select('tbl_contact_type.id', 'tbl_contact_type.contact_type')
             ->from('tbl_contact_type')
-            ->where('user_type', 3);
-        return $result;
+            ->where('tbl_contact_type.user_type', 3);
+        $result = $this->db->get();
+        return $result->result_array();
     }
 
 }
