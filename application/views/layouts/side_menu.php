@@ -116,7 +116,7 @@
                         </a>
                     </li>
                     <li class="nav-item  ">
-                        <a href="#" data-toggle="modal" data-target="#createNewClient" class="nav-link ">
+                        <a href="<?php echo site_url('client/createClient2');?>" class="nav-link ">
                             <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
                             <span class="title">Add New Client</span>
                         </a>

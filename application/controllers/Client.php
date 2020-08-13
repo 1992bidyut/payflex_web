@@ -104,14 +104,14 @@ class Client extends CI_Controller
                 [
                     'contact_value' => $this->input->post('contact_value_1'),
                     'contact_type_id' => $this->input->post('contact_type_id_1'),
-                    'owner_id'=>$client_inserted_id,
-                    'owner_type'=>3
+                    'owner_id' => $client_inserted_id,
+                    'owner_type' => 3
                 ],
                 [
                     'contact_value' => $this->input->post('contact_value_2'),
                     'contact_type_id' => $this->input->post('contact_type_id_2'),
-                    'owner_id'=>$client_inserted_id,
-                    'owner_type'=>3
+                    'owner_id' => $client_inserted_id,
+                    'owner_type' => 3
                 ]
             ];
             //if ($this->form_validation->run('contactValue') == TRUE) {
@@ -124,6 +124,93 @@ class Client extends CI_Controller
             $explodedString = explode(".", $ceRelation['client_pairID']);
             $ceRelation['handler_id'] = end($explodedString);
             //$this->session->set_flashdata('success_clientPaid_handler_insertion', 'Client successfully created');
+            $ceRelation['is_active'] = 1;
+            $this->ClientModel->insertClientPairAndHandlerID($ceRelation);
+
+            $this->session->set_flashdata('success', 'Client successfully created');
+            redirect(base_url() . 'client/clientList');
+        }
+    }
+
+    public function createClient2()
+    {
+
+        $this->load->model('ClientModel');
+        $this->load->library('form_validation');
+        $this->form_validation->set_rules('name', 'Distributor Name', 'required');
+        $this->form_validation->set_rules('representative_name', 'Representative Name', 'required');
+        $this->form_validation->set_rules('client_code', 'Client Code', 'required');
+        $this->form_validation->set_rules('virtual_account_code', 'Virtual A/C no.', 'required');
+        $this->form_validation->set_rules('username', 'Username', 'required');
+        $this->form_validation->set_rules('password', 'Password', 'required|min_length[3]');
+        $this->form_validation->set_rules('confirm_password', 'Confirm Password', 'required|matches[password]');
+
+        // echo "Info validated!";
+        $formArray = array();
+        $formArray['name'] = $this->input->post('name');
+        $formArray['representative_name'] = $this->input->post('representative_name');
+        $formArray['client_code'] = $this->input->post('client_code');
+        $formArray['virtual_account_no'] = $this->input->post('virtual_account_no');
+
+        $client_array = $this->ClientModel->getAllClient();
+        $coded_ids['getDSRs'] = $this->ClientModel->getAllDSR();
+        $getDSRs = $this->ClientModel->getAllDSR();
+        $UserContacts['contacts'] = $this->ClientModel->getClientsContactType();
+        $contactsType = $this->ClientModel->getClientsContactType();
+//        echo print_r($contactsType);
+
+
+        //  if ($this->input->post('is_user') == true) {
+        if ($this->form_validation->run() == false) {
+            $datas['content'] = $this->load->view('client/createClient',
+                array(
+                    'allClient' => $client_array,
+                    'getDSRs' => $getDSRs,
+                    'contacts' => $contactsType
+                ), true);
+            $this->load->view('layouts/main_template', $datas);
+        }else{
+            $formArray['catagory_id'] = 1;
+            $formArray['office_id'] = 0;
+            $formArray['client_parent_id'] = 0;
+            $formArray['is_active'] = $this->input->post('is_active');
+            //user id insertion into client_info from tbl_user and get user_is for pari table
+            //if ($this->form_validation->run('createClient') == true) {
+            $client_inserted_id = $this->ClientModel->createClient($formArray);
+            $userArray = array();
+
+            if ($this->form_validation->run() == true) {
+                $userArray['username'] = $this->input->post('username');
+                $userArray['password'] = sha1($this->input->post('passsword'));
+                $userArray['user_type'] = 3;
+                $userArray['created_time'] = date('Y-m-d');
+                $formArray['user_id'] = $this->ClientModel->createUserIfActive($userArray);
+            }
+            //contact insertion
+            $contactArray = array();
+            $contactArray = [
+                [
+                    'contact_value' => $this->input->post('contact_value_1'),
+                    'contact_type_id' => $this->input->post('contact_type_id_1'),
+                    'owner_id' => $client_inserted_id,
+                    'owner_type' => 3
+                ],
+                [
+                    'contact_value' => $this->input->post('contact_value_2'),
+                    'contact_type_id' => $this->input->post('contact_type_id_2'),
+                    'owner_id' => $client_inserted_id,
+                    'owner_type' => 3
+                ]
+            ];
+            if ($this->form_validation->run('contactValue') == TRUE) {
+                $this->ClientModel->createContacts($contactArray);
+            }
+            //client employee relation = $ceRelation
+            $ceRelation = array();
+            $ceRelation['client_id'] = $client_inserted_id;
+            $ceRelation['client_pairID'] = $this->input->post('assign_dsr');
+            $explodedString = explode(".", $ceRelation['client_pairID']);
+            $ceRelation['handler_id'] = end($explodedString);
             $ceRelation['is_active'] = 1;
             $this->ClientModel->insertClientPairAndHandlerID($ceRelation);
 

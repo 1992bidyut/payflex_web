@@ -206,7 +206,7 @@
 
                                         </div>
                                         <div class="row">
-                                            <div class="col-md-offset-8 col-md-4switch-field">
+                                            <div class="col-md-offset-8 col-md-4 switch-field">
                                                 <input type="radio" id="radio-one" name="is_active" value="1"
                                                        checked/>
                                                 <label for="radio-one">Active</label>

@@ -20,10 +20,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="571daff3-120e-4fae-92da-81dcf9e1bc68" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/application/views/client/createClient.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_12_2020_8_01_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_12_2020_8_01_PM__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_13_2020_8_43_AM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_13_2020_8_43_AM__Default_Changelist_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/config/database.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Client.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Client.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/views/client/clientShow.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/client/clientShow.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/layouts/side_menu.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/layouts/side_menu.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +61,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
@@ -88,6 +91,7 @@
       <workItem from="1597233818926" duration="3696000" />
       <workItem from="1597243318428" duration="7477000" />
       <workItem from="1597292377482" duration="3709000" />
+      <workItem from="1597322077924" duration="2953000" />
     </task>
     <servers />
   </component>
@@ -115,10 +119,14 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="147" y="65" key="MergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1597240988122" />
-    <state x="380" y="106" key="SettingsEditor" timestamp="1597243598075">
+    <state x="604" y="332" key="NewPhpFileDialog" timestamp="1597323368425">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="380" y="106" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1597243598075" />
+    <state x="604" y="332" key="NewPhpFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1597323368425" />
+    <state x="380" y="106" key="SettingsEditor" timestamp="1597323342006">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="380" y="106" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1597323342006" />
     <state x="561" y="232" width="413" height="352" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog" timestamp="1597174798873">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
