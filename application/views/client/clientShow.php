@@ -75,16 +75,15 @@
                                         </div>
                                     </div>
 
-                                    <form class='form' method='post'
-                                          action='<?php echo base_url('client/createClient'); ?>'>
+                                    <form class='form' method='post' action="<?php echo site_url('client/createClient');?>">
                                         <!--			Distributor name-->
                                         <div class="row">
                                             <div class="form-group">
                                                 <div class="col-md-2">
-                                                    <label for="name" class="form-label">Distributor Name: </label>
+                                                    <label for="name" class="form-label">Distributor Name:</label>
                                                 </div>
                                                 <div class="col-md-10">
-                                                    <input type="text" name="name" id="client_name"
+                                                    <input type="text" name="name" id="client_name" value=""
                                                            class="form-control "
                                                            placeholder="Organization /Name"
                                                            aria-describedby="helpId" width="auto"/>
@@ -97,10 +96,10 @@
                                             <div class="form-group">
                                                 <div class="col-sm-2">
                                                     <label for="representative_name" class="form-label">Representative
-                                                        Name: </label>
+                                                        Name:</label>
                                                 </div>
                                                 <div class="col-md-10">
-                                                    <input type="text" name="representative_name"
+                                                    <input type="text" name="representative_name" value=""
                                                            id="client_representative_name" class="form-control "
                                                            placeholder="Representative Name"
                                                            aria-describedby="helpId"/>
@@ -112,11 +111,10 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="col-md-6">
-                                                    <label for="client_code" class="form-label text-left">Client
-                                                        Code: *</label>
+                                                    <label for="client_code" class="form-label text-left">Client Code:</label>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <input type="text" name="client_code" id="client_code"
+                                                    <input type="text" name="client_code" id="client_code" value=""
                                                            class="form-control"
                                                            placeholder=""
                                                            aria-describedby="helpId"/>
@@ -124,11 +122,10 @@
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="col-md-6">
-                                                    <label for="virtual_account_no" class="form-label text-left">Virtual
-                                                        A/C No: *</label>
+                                                    <label for="virtual_account_no" class="form-label text-left">Virtual A/C No:</label>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <input type="text" name="virtual_account_no" id=""
+                                                    <input type="text" name="virtual_account_no" id="" value=""
                                                            class="form-control"
                                                            placeholder=""
                                                            aria-describedby="helpId"/>
@@ -142,7 +139,7 @@
                                                 <label for="assign_dsr" class="col-form-label text-left">Assign DSR</label>
                                             </div>
                                             <div class="col-md-10">
-                                                <select name="assign_dsr" class="form-control">
+                                                <select name="assign_dsr" class="form-control" value="">
                                                     <!-- thete was an error -->
                                                     <option value="">Select DSR....</option>
                                                     <!-- <option value="t">2</option> -->

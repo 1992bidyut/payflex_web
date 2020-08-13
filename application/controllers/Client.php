@@ -43,35 +43,42 @@ class Client extends CI_Controller
     public function createClient()
     {
         $this->load->model('ClientModel');
-        $this->load->library('form_validation');
-//        $this->form_validation->set_rules('name', 'Distributor Name', 'required');
-//        $this->form_validation->set_rules('representative_name', 'Representative Name', 'required');
-//        $this->form_validation->set_rules('client_code', 'Client Code', 'required');
-//        $this->form_validation->set_rules('virtual_account_code', 'Virtual A/C no.', 'required');
+
+        $this->load->helper(array('form', 'url'));//required
+        $this->load->library('form_validation');//required
+
+        $this->form_validation->set_rules('name', 'Distributor Name:', 'required');
+        $this->form_validation->set_rules('representative_name', 'Representative Name:', 'required');
+        $this->form_validation->set_rules('client_code', 'Client Code:', 'required');
+        $this->form_validation->set_rules('virtual_account_no', 'Virtual A/C No:', 'required');
+        $this->form_validation->set_rules('assign_dsr', 'Assign DSR', 'required');
 
 
-        // $client_array = $this->ClientModel->getAllClient();
-        // $getDSRs=$this->ClientModel->getAllDSR();
+         $client_array = $this->ClientModel->getAllClient();
+         $getDSRs=$this->ClientModel->getAllDSR();
+         $UserContacts['contacts'] = $this->ClientModel->getClientsContactType();
+         $contactsType = $this->ClientModel->getClientsContactType();
 
-        // if($this->form_validation->run()==false){    
-        //     $this->session->set_flashdata('success', 'Client successfully created');
-        //     echo "Info Not Validated!";
-        //     echo validation_errors();
-        //     // redirect(base_url() . 'client/clientList');
-        // }else
+         if($this->form_validation->run() == FALSE){
+             $datas['content'] = $this->load->view('client/clientShow',
+                 array(
+                     'allClient' => $client_array,
+                     'getDSRs' => $getDSRs,
+                     'contacts' => $contactsType
+                 ), true);
+             $this->load->view('layouts/main_template', $datas);
+         }else
         {
-            // echo "Info validated!";
             $formArray = array();
             $formArray['name'] = $this->input->post('name');
             $formArray['representative_name'] = $this->input->post('representative_name');
             $formArray['client_code'] = $this->input->post('client_code');
             $formArray['virtual_account_no'] = $this->input->post('virtual_account_no');
 
-            // if ($this->input->post('is_user') == false) {
-            //         echo "User not validated!";
-            //         echo validation_errors();
-            //     }else
-            {
+             if ($this->input->post('is_user') == false) {
+                     echo "User not validated!";
+                     echo validation_errors();
+             }else {
                 // echo "User Validated!";
                 $userArray = array();
                 $this->form_validation->set_rules('username', 'Username', 'required');
