@@ -8,21 +8,20 @@ class Search extends CI_Controller{
         if(!$this->session->userdata('user_id')){
             return redirect('login');
         }
-
         $this->load->model('user_model');
         $this->load->config('infobuzzerConfig');
-
     }
     
     public function searchData(){
         $this->load->model('SearchModel');
-        $key = $this->input->post('name');
-        $results = $this->SearchModel->search($key);
-       // $this->load->view('leader/leader',$data);
-        $data['content'] = $this->load->view('leader/leader', array('result'=>$results), true);
-        $this->load->view( 'layouts/main_template',$data);
-    }
+        $paymentFrom=$this->input->post('paymentFrom');
+        $paymentTo=$this->input->post('paymentTo');
+        $leaderBoardData = $this->SearchModel->searchDateFilteredPaymentInfo($paymentFrom,$paymentTo);
+        $dataArray = array('paymentInfoArray'=>$leaderBoardData);
 
+        $datas['content'] = $this->load->view('leader/leader', $dataArray, true);
+        $this->load->view( 'layouts/main_template',$datas);
+    }
 
     public function showData(){
         $this->load->model('SearchModel');
@@ -34,9 +33,6 @@ class Search extends CI_Controller{
         $this->load->view( 'layouts/main_template',$data);
 
     }
-
-
-	
 }
 
 ?>

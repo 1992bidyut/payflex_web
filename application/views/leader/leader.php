@@ -40,7 +40,7 @@
                 <div class="caption">
                     <i class="fa fa-cogs"></i>Leaderboard (Payment) </div>
                 <div class="actions">
-                    <a href="javascript:;" class="btn btn-default btn-sm">
+                    <a href="<?php echo base_url('LeaderBoard/exportFinanceData')?>" class="btn btn-default btn-sm">
                         <i class="fa fa-download"></i> Export/Download </a>
                 </div>
             </div>
@@ -66,7 +66,6 @@
 						<th> amount </th>
 						<th> action_flag </th>
 						<th> image_name </th>
-						<th> pirid </th>
 						<th> ProductQuantityString </th>
 						<th> Action </th>
                     </tr>
@@ -74,7 +73,6 @@
                     <tbody>
                     <?php if ($paymentInfoArray>0): ?>
                     <?php
-					
                         foreach($paymentInfoArray as $data){
                     ?>
                         <tr class="odd gradeX">
@@ -96,8 +94,10 @@
 							<?php //echo $data['image_name'] 
 								if(!empty($data['image_name']))
 								{
-									$imageName =$data['image_name'];
-									$imagePath = 'https://demo.onuserver.com/payFlex/asset/images/359/';
+									$localImgageBasePath="http://localhost/payflex/asset/images/";
+									$remorteImageBasePath="https://demo.onuserver.com/payFlex/asset/images/";
+								    $imageName =$data['image_name'];
+									$imagePath = $localImgageBasePath.$data['clientId']."/";
 									$imagePath .= $imageName;
 									echo '<img style="width: 100%; hight:10px;" src="'.$imagePath.'" alt="'.$imageName.'">';
 								}
@@ -108,7 +108,6 @@
 							
 							
 							?>  </td>
-							<td> <?php echo $data['pirid'] ?>  </td>
 							<td> <?php echo $data['ProductQuantityString'] ?>  </td>
 							
 							<!-- ----------------------- the action buttons for payments -----------------  -->
