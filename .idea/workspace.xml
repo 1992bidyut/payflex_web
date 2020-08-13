@@ -19,16 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="571daff3-120e-4fae-92da-81dcf9e1bc68" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/application/views/Test/TestView.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_13_2020_8_43_AM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_13_2020_8_43_AM__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/config/database.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/Client.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Client.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/Test.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Test.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/client/clientShow.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/client/clientShow.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/user/loginPage.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/user/loginPage.php" afterDir="false" />
-    </list>
+    <list default="true" id="571daff3-120e-4fae-92da-81dcf9e1bc68" name="Default Changelist" comment="validation bug fix and make an new example testView" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -94,6 +85,14 @@
       <workItem from="1597292377482" duration="3709000" />
       <workItem from="1597322077924" duration="2953000" />
     </task>
+    <task id="LOCAL-00001" summary="validation bug fix and make an new example testView">
+      <created>1597333094672</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1597333094672</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -111,15 +110,24 @@
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="validation bug fix and make an new example testView" />
+    <option name="LAST_COMMIT_MESSAGE" value="validation bug fix and make an new example testView" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="361" y="70" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1597050480867">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="361" y="70" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1597050480867" />
-    <state x="147" y="65" key="MergeDialog" timestamp="1597240988122">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="147" y="66" key="MergeDialog" timestamp="1597333331959">
+      <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="147" y="65" key="MergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1597240988122" />
+    <state x="147" y="66" key="MergeDialog/0.0.1536.834/1920.0.1366.738@0.0.1536.834" timestamp="1597333331959" />
+    <state x="657" y="285" width="488" height="264" key="MultipleFileMergeDialog" timestamp="1597333331997">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="657" y="285" width="488" height="264" key="MultipleFileMergeDialog/0.0.1536.834/1920.0.1366.738@0.0.1536.834" timestamp="1597333331997" />
     <state x="604" y="336" key="NewPhpFileDialog" timestamp="1597327754886">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
@@ -129,6 +137,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="380" y="106" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1597323342006" />
+    <state x="361" y="137" key="Vcs.Push.Dialog.v2" timestamp="1597333117994">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="361" y="137" key="Vcs.Push.Dialog.v2/0.0.1536.834/1920.0.1366.738@0.0.1536.834" timestamp="1597333117994" />
     <state x="561" y="232" width="413" height="352" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog" timestamp="1597174798873">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -141,6 +153,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="477" y="11" width="581" height="801" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1597029999478" />
+    <state x="530" y="205" key="git4idea.merge.GitMergeDialog" timestamp="1597333315518">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="530" y="205" key="git4idea.merge.GitMergeDialog/0.0.1536.834/1920.0.1366.738@0.0.1536.834" timestamp="1597333315518" />
     <state x="425" y="187" key="run.anything.popup" timestamp="1597253903389">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
