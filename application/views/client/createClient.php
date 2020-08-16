@@ -1,49 +1,56 @@
 <div class="row">
     <div class="col-md-12" style="padding-top: 10px;">
-        <?php
-        $success = $this->session->userdata('success');
-        if ($success != "") {
-            ?>
-            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <?php $success = $this->session->userdata('success');
+        if ($success != "") {?>
+            <div class="alert alert-success alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <strong><?php echo $success; ?></strong>
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-        <?php } ?>
+        <?php }?>
         <?php
         $failure = $this->session->userdata('failure');
         if ($failure != "") {
             ?>
-            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <div class="alert alert-warning alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <strong><?php echo $failure; ?></strong>
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-        <?php } ?>
+        <?php }?>
     </div>
 </div>
 <div class="container-fluid">
     <div class="row">
         <div class="row">
             <div class="col-md-12">
-                <?php if (!empty(form_error('name')) || !empty(form_error('representative_name')) || !empty(form_error('client_code')) || !empty(form_error('virtual_account_code')) || !empty(form_error('username')) || !empty(form_error('password')) || !empty(form_error('confirm_password'))) { ?>
-                    <div class="alert alert-danger alert-dismissible fade show"
-                         role="alert">
+                <?php if (!empty(form_error('name'))
+                        || !empty(form_error('representative_name'))
+                        || !empty(form_error('client_code'))
+                        || !empty(form_error('virtual_account_no'))
+                        || !empty(form_error('username'))
+                        || !empty(form_error('password'))
+                        || !empty(form_error('confirm_password'))) {?>
+                    <div class="alert alert-warning alert-dismissible" role="alert">
+
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+
                         <strong><?php echo form_error('name') ?></strong><br>
                         <strong><?php echo form_error('representative_name') ?></strong><br>
                         <strong><?php echo form_error('client_code') ?></strong><br>
-                        <strong><?php echo form_error('virtual_account_code') ?></strong><br>
+                        <strong><?php echo form_error('virtual_account_no') ?></strong><br>
                         <strong><?php echo form_error('username') ?></strong><br>
                         <strong><?php echo form_error('password') ?></strong><br>
                         <strong><?php echo form_error('confirm_password') ?></strong><br>
-                        <button type="button" class="close" data-dismiss="alert"
-                                aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+
                     </div>
-                <?php } ?>
+                <?php }?>
             </div>
         </div>
 
@@ -119,9 +126,9 @@
                         <option value="">Select DSR....</option>
                         <!-- <option value="t">2</option> -->
 
-                        <?php foreach ($getDSRs as $getDSR) { ?>
+                        <?php foreach ($getDSRs as $getDSR) {?>
                             <option value=<?php echo "\"" . $getDSR['coded_employeeId'] . "\""; ?>><?php echo $getDSR['name']; ?></option>
-                        <?php } ?>
+                        <?php }?>
                     </select>
                 </div>
 
@@ -146,11 +153,11 @@
                     <label for="contact_type_id_1" class="col-form-label">Contact
                         Type</label><br>
                     <select name="contact_type_id_1" class="form-control col-sm-12">
-                        <?php foreach ($contacts as $contact) { ?>
+                        <?php foreach ($contacts as $contact) {?>
                             <option value=<?php echo "\"" . $contact['id'] . "\""; ?>>
                                 <?php echo $contact['contact_type']; ?>
                             </option>
-                        <?php } ?>
+                        <?php }?>
                     </select>
                 </div>
             </div>
@@ -168,11 +175,11 @@
                     <label for="contact_type_2" class="col-form-label">Contact
                         Type</label><br>
                     <select name="contact_type_id_2" class="form-control col-sm-12">
-                        <?php foreach ($contacts as $contact) { ?>
+                        <?php foreach ($contacts as $contact) {?>
                             <option value=<?php echo "\"" . $contact['id'] . "\""; ?>>
                                 <?php echo $contact['contact_type']; ?>
                             </option>
-                        <?php } ?>
+                        <?php }?>
                     </select>
                 </div>
 

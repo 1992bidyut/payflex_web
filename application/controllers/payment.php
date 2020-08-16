@@ -1,11 +1,15 @@
-<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
+<?php if (!defined('BASEPATH')) {
+    exit('No direct script access allowed');
+}
 
-class Payment extends CI_Controller{
+class Payment extends CI_Controller
+{
 
-    function __construct() {
+    public function __construct()
+    {
         parent::__construct();
 
-        if(!$this->session->userdata('user_id')){
+        if (!$this->session->userdata('user_id')) {
             return redirect('login');
         }
 
@@ -14,13 +18,16 @@ class Payment extends CI_Controller{
 
     }
 
-    public function paymentCollection(){
+    public function paymentCollection()
+    {
         $datas['content'] = $this->load->view('payment/paymentCollection', array(), true);
-        $this->load->view('layouts/main_template',$datas);
+        $this->load->view('layouts/main_template', $datas);
     }
 
+    public function paymentdetail()
+    {
+        $datas['content'] = $this->load->view('payment/paymentDetail', array(), true);
+        $this->load->view('layouts/main_template', $datas);
+    }
 
-	
 }
-
-?>

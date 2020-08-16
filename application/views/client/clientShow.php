@@ -4,7 +4,9 @@
         $success = $this->session->userdata('success');
         if ($success != "") {
             ?>
-            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <div class="alert alert-success alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
                 <strong><?php echo $success; ?></strong>
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -15,7 +17,9 @@
         $failure = $this->session->userdata('failure');
         if ($failure != "") {
             ?>
-            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <div class="alert alert-warning alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
                 <strong><?php echo $failure; ?></strong>
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -56,26 +60,35 @@
                                 <div class="row">
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <?php if (!empty(form_error('name')) || !empty(form_error('representative_name')) || !empty(form_error('client_code')) || !empty(form_error('virtual_account_code')) || !empty(form_error('username')) || !empty(form_error('password')) || !empty(form_error('confirm_password'))) { ?>
-                                                <div class="alert alert-danger alert-dismissible fade show"
-                                                     role="alert">
-                                                    <strong><?php echo form_error('name') ?></strong><br>
-                                                    <strong><?php echo form_error('representative_name') ?></strong><br>
-                                                    <strong><?php echo form_error('client_code') ?></strong><br>
-                                                    <strong><?php echo form_error('virtual_account_code') ?></strong><br>
-                                                    <strong><?php echo form_error('username') ?></strong><br>
-                                                    <strong><?php echo form_error('password') ?></strong><br>
-                                                    <strong><?php echo form_error('confirm_password') ?></strong><br>
+                                            <?php if (!empty(form_error('name'))
+                                                || !empty(form_error('representative_name'))
+                                                || !empty(form_error('client_code'))
+                                                || !empty(form_error('virtual_account_no'))
+                                                || !empty(form_error('username'))
+                                                || !empty(form_error('password'))
+                                                || !empty(form_error('confirm_password'))) { ?>
+                                                <div class="alert alert-warning alert-dismissible" role="alert">
+
                                                     <button type="button" class="close" data-dismiss="alert"
                                                             aria-label="Close">
                                                         <span aria-hidden="true">&times;</span>
                                                     </button>
+
+                                                    <strong><?php echo form_error('name') ?></strong><br>
+                                                    <strong><?php echo form_error('representative_name') ?></strong><br>
+                                                    <strong><?php echo form_error('client_code') ?></strong><br>
+                                                    <strong><?php echo form_error('virtual_account_no') ?></strong><br>
+                                                    <strong><?php echo form_error('username') ?></strong><br>
+                                                    <strong><?php echo form_error('password') ?></strong><br>
+                                                    <strong><?php echo form_error('confirm_password') ?></strong><br>
+
                                                 </div>
                                             <?php } ?>
                                         </div>
                                     </div>
 
-                                    <form class='form' method='post' action="<?php echo site_url('client/createClient');?>">
+                                    <form class='form' method='post'
+                                          action="<?php echo site_url('client/createClient'); ?>">
                                         <!--			Distributor name-->
                                         <div class="row">
                                             <div class="form-group">
@@ -111,7 +124,8 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="col-md-6">
-                                                    <label for="client_code" class="form-label text-left">Client Code:</label>
+                                                    <label for="client_code" class="form-label text-left">Client
+                                                        Code:</label>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <input type="text" name="client_code" id="client_code" value=""
@@ -122,7 +136,8 @@
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="col-md-6">
-                                                    <label for="virtual_account_no" class="form-label text-left">Virtual A/C No:</label>
+                                                    <label for="virtual_account_no" class="form-label text-left">Virtual
+                                                        A/C No:</label>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <input type="text" name="virtual_account_no" id="" value=""
@@ -136,7 +151,8 @@
                                         <!--			Assign DSR-->
                                         <div class="row">
                                             <div class="col-md-2">
-                                                <label for="assign_dsr" class="col-form-label text-left">Assign DSR</label>
+                                                <label for="assign_dsr" class="col-form-label text-left">Assign
+                                                    DSR</label>
                                             </div>
                                             <div class="col-md-10">
                                                 <select name="assign_dsr" class="form-control" value="">
@@ -213,7 +229,10 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-md-offset-6 col-md-4">
-                                                <p>Is this client user?<input type="checkbox" name="is_user" value="true" style="width: 30px; height: 30px;" id="is_user"
+                                                <p>Is this client user?<input type="checkbox" name="is_user"
+                                                                              value="true"
+                                                                              style="width: 30px; height: 30px;"
+                                                                              id="is_user"
                                                                               onclick="enableCreateUser()"/></p>
                                             </div>
                                         </div>
@@ -291,7 +310,7 @@
                         <th> Status</th>
                         <th> Action</th>
                     </tr>
-                    allClient
+                    <!-- allClient -->
 
                     </thead>
                     <tbody>
@@ -320,7 +339,8 @@
                             <td>
                                 <div class="clearfix">
 
-                                    <a href="#" class="btn btn-sm yellow" style="margin-bottom: 5px;"> Edit
+                                    <a href="<?php echo base_url('client/updateClient/' . $client['id']); ?>"
+                                       class="btn btn-sm yellow" style="margin-bottom: 5px;"> Edit
                                         <i class="fa fa-edit"></i>
                                     </a>
 
