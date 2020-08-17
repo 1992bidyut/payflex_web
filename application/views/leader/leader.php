@@ -122,7 +122,7 @@
 
                                     <!-- set js onclick operation for printing -->
 
-                                    <a onclick="loadPrinting(<?php echo $data['paymentID'] ?>)" target="_blank" class="btn btn-sm green" style="margin-bottom: 5px;   width: 100%;"> Print
+                                    <a onclick="loadPrinting(<?php echo $data['order_code'] ?>)" target="_blank" class="btn btn-sm green" style="margin-bottom: 5px;   width: 100%;"> Print
                                         <i class="fa fa-print"></i>
                                     </a>
 
