@@ -21,9 +21,6 @@
   <component name="ChangeListManager">
     <list default="true" id="571daff3-120e-4fae-92da-81dcf9e1bc68" name="Default Changelist" comment="validation bug fix and make an new example testView">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a3f70133-5dc2-4a2a-88df-62907115f18b.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a3f70133-5dc2-4a2a-88df-62907115f18b/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_8_12_2020_4_35_AM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_8_12_2020_4_35_AM__Default_Changelist_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_8_12_2020_5_42_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_8_12_2020_5_42_PM__Default_Changelist_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_8_12_2020_7_34_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_8_12_2020_7_34_PM__Default_Changelist_.xml" afterDir="false" />
@@ -35,12 +32,9 @@
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_13_2020_8_43_AM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_13_2020_8_43_AM__Default_Changelist_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/config/database.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/Client.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Client.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/payment.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/payment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/models/ClientModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/ClientModel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/models/LeaderBoardModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/LeaderBoardModel.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/views/client/clientShow.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/client/clientShow.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/client/createClient.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/client/createClient.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/layouts/side_menu.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/layouts/side_menu.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/leader/leader.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/leader/leader.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

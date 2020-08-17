@@ -12,12 +12,9 @@ class LeaderBoardModel extends CI_Model{
 		/*
         if($contact=='' and $from =='' and $to =='' and $message =='' and $smsStatusCode =='')
         {
-
             $this->db->like('entryDate', date('Y-m-d'),'after')
                 ->where('cd_user_id',$id);
-
         }
-
         if($from !='' and $to !='')
         {
             $fromTime   = '00:00:00';
@@ -53,8 +50,6 @@ class LeaderBoardModel extends CI_Model{
             $this->db->where('cd_user_id',$id);
         }
 		*/
-
-
 
         $leaderSQL= "
         select * from (Select  

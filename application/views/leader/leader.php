@@ -105,8 +105,6 @@
 								{
 									echo "No image Attached";
 								}
-							
-							
 							?>  </td>
 							<td> <?php echo $data['ProductQuantityString'] ?>  </td>
 							
@@ -118,7 +116,13 @@
                                         <i class="fa fa-edit"></i>
                                     </a>
 									
-									<a href="SchedulePrint" target="_blank" class="btn btn-sm green" style="margin-bottom: 5px;   width: 100%;"> Print
+<!--									<a href="SchedulePrint" target="_blank" class="btn btn-sm green" style="margin-bottom: 5px;   width: 100%;"> Print-->
+<!--                                        <i class="fa fa-print"></i>-->
+<!--                                    </a>-->
+
+                                    <!-- set js onclick operation for printing -->
+
+                                    <a onclick="loadPrinting(<?php echo $data['paymentID'] ?>)" target="_blank" class="btn btn-sm green" style="margin-bottom: 5px;   width: 100%;"> Print
                                         <i class="fa fa-print"></i>
                                     </a>
 
@@ -151,6 +155,14 @@
 </div>
 
 <script type="text/javascript">
+
+    function loadPrinting(id) {
+        console.log('Payment ID: '+id);
+
+    }
+
+
+
 
     $(document).ready(function () {
 

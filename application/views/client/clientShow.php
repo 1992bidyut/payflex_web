@@ -362,6 +362,7 @@
 </div>
 <script>
     function deleteData(id) {
+        console.log("Delete Click!");
         Swal.fire({
                 title: 'Are you sure?',
                 text: "You won't be able to revert this!",
