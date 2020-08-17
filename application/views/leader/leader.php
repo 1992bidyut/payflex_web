@@ -157,7 +157,7 @@
 <script type="text/javascript">
 
     function loadPrinting(id) {
-        console.log('Payment ID: '+id);
+        console.log('Order ID: '+id);
 
     }
 
