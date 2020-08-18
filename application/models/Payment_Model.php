@@ -2,7 +2,7 @@
 
 class Payment_Model extends CI_Model
 {
-    public function printpaymentdetail($order_code){
+    public function getpaymentdetail($order_code){
         $this->db->select('*')
             ->from('tbl_payment')
             ->join('tbl_payment_image_relation','tbl_payment_image_relation.payment_id = tbl_payment.id','left')
