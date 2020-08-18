@@ -97,7 +97,7 @@
 									$localImgageBasePath="http://localhost/payflex/asset/images/";
 									$remorteImageBasePath="https://demo.onuserver.com/payFlex/asset/images/";
 								    $imageName =$data['image_name'];
-									$imagePath = $remorteImageBasePath.$data['clientId']."/";
+									$imagePath = $localImgageBasePath.$data['clientId']."/";
 									$imagePath .= $imageName;
 									echo '<img style="width: 100%; hight:10px;" src="'.$imagePath.'" alt="'.$imageName.'">';
 								}
@@ -114,21 +114,16 @@
                             <td >
                                 <div class="clearfix">
 
-                                    <a href="#" class="btn btn-sm yellow" style="margin-bottom: 5px; width: 100%;"> Indent
+                                    <a id="<?php echo "indent". $data['paymentID'] ?>" onclick="indent(<?php echo $data['paymentID'] ?>)"
+                                       class="btn btn-sm <?php if($data['action_flag']==2){echo "green-dark";}else{echo "yellow";}?>" style="margin-bottom: 5px; width: 100%;"> Indent
                                         <i class="fa fa-edit"></i>
                                     </a>
-									
-<!--									<a href="SchedulePrint" target="_blank" class="btn btn-sm green" style="margin-bottom: 5px;   width: 100%;"> Print-->
-<!--                                        <i class="fa fa-print"></i>-->
-<!--                                    </a>-->
-
-                                    <!-- set js onclick operation for printing -->
-
                                     <a href="<?php echo base_url('payment/paymentdetail/'.$data['order_code'])?>" target="_blank" class="btn btn-sm green" style="margin-bottom: 5px;   width: 100%;"> Print
                                         <i class="fa fa-print"></i>
                                     </a>
 
-                                    <a href="#" onclick="return confirm('Are you sure you want to Grant the payment');" class="btn btn-sm red" style="margin-bottom: 5px; width: 100%;"> Grant/Accept
+                                    <a id="<?php echo "accepted". $data['paymentID'] ?>" onclick="acceptPayment(<?php echo $data['paymentID'] ?>)"
+                                        class="btn btn-sm <?php if($data['action_flag']==1||$data['action_flag']==2){echo "green-dark";}else{echo "red";}?>" style="margin-bottom: 5px; width: 100%;"> Grant/Accept
                                         <i class="fa fa-check"></i>
                                     </a>
 
@@ -157,46 +152,74 @@
 </div>
 
 <script type="text/javascript">
-
-    function loadPrinting(id) {
-        console.log('Order ID: '+id);
-
+//    Accept payment
+    function acceptPayment(id) {
+        console.log("Accept Click! "+id);
+        $.ajax({
+            url: "<?php echo base_url('payment/paymentAccept') ?>",
+            type: "POST",
+            data: {id: id},
+            success: function (response) {
+                console.log("AJAX Success Called!");
+                $("#accepted" + id).fadeTo("slow", 0.7, function () {
+                    $(this).css('background-color', 'green-dark');
+                })
+            },
+            error: function () {
+                console.log("AJAX error Called!");
+            }
+        });
     }
 
-
-
-
-    $(document).ready(function () {
-
-        $('#action-btn').click(function(e){
-            var table = $("#sample_3").dataTable();
-            var id = [];
-            $("input:checked", table.fnGetNodes()).each(function(i){
-
-                console.log($(this).val());
-
-                id.push($(this).val());
-
-            });
-
-            $.ajax({
-                type    : "POST",
-                url     : "<?php echo base_url('SMSLog/ajax_delete'); ?>",
-                data    : {id: id},
-                success : function (response) {
-//                        console.log(response);
-                    location.reload();
-                },
-                error : function(error){
-                    console.log(error);
-                }
-            });
-
-            e.preventDefault();
-
-        });
-
-
+function indent(id) {
+    console.log("Indent Click! "+id);
+    $.ajax({
+        url: "<?php echo base_url('payment/indent') ?>",
+        type: "POST",
+        data: {id: id},
+        success: function (response) {
+            console.log("AJAX Success Called!");
+            $("#indent" + id).fadeTo("slow", 0.7, function () {
+                $(this).css('background-color', 'green-dark');
+            })
+        },
+        error: function () {
+            console.log("AJAX error Called!");
+        }
     });
+}
+
+//    $(document).ready(function () {
+//
+//        $('#action-btn').click(function(e){
+//            var table = $("#sample_3").dataTable();
+//            var id = [];
+//            $("input:checked", table.fnGetNodes()).each(function(i){
+//
+//                console.log($(this).val());
+//
+//                id.push($(this).val());
+//
+//            });
+//
+//            $.ajax({
+//                type    : "POST",
+//                url     : "<?php //echo base_url('SMSLog/ajax_delete'); ?>//",
+//                data    : {id: id},
+//                success : function (response) {
+////                        console.log(response);
+//                    location.reload();
+//                },
+//                error : function(error){
+//                    console.log(error);
+//                }
+//            });
+//
+//            e.preventDefault();
+//
+//        });
+//
+//
+//    });
 
 </script>

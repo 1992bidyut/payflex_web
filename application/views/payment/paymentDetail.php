@@ -38,23 +38,43 @@
             >
                 <tr>
                     <td>Distributor Name:</td>
-                    <td>Alam Enterprise</td>
+                    <td><?php echo $clientInfo['name']?></td>
                 </tr>
                 <tr>
                     <td>Contact Person:</td>
-                    <td>Md Shahin Fakir</td>
+                    <td><?php if($clientInfo['representative_name']!=null){echo $clientInfo['representative_name'];}else{echo "";}?></td>
                 </tr>
                 <tr>
                     <td>Plant:</td>
-                    <td>Taltola, Dhaka</td>
+                    <td><?php echo $orderDetail[0]['plant']?></td>
                 </tr>
                 <tr>
                     <td>Delivery Location:</td>
-                    <td>Keranigonj, Dhaka</td>
+                    <td>
+                        <?php
+                        foreach ($clientContact as $contact){
+                            if ($contact['type_id']==4){
+                                echo $contact['contact_value'];
+                            }else{
+                                echo "";
+                            }
+                        }
+                        ?>
+                    </td>
                 </tr>
                 <tr>
                     <td>Mobile:</td>
-                    <td>,01711233457</td>
+                    <td>
+                        <?php
+                        foreach ($clientContact as $contact){
+                            if ($contact['type_id']==1){
+                                echo $contact['contact_value'];
+                            }else{
+                                echo "";
+                            }
+                        }
+                        ?>
+                    </td>
                 </tr>
             </table>
         </div>
@@ -79,7 +99,7 @@
                 </tr>
                 <tr>
                     <td>Customer Code:</td>
-                    <td>104749</td>
+                    <td><?php echo $clientInfo['client_code'];?></td>
                 </tr>
                 <tr>
                     <td>Collection Doc Ref:</td>
@@ -113,57 +133,25 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>1</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
+
+                <?php
+                $detailCount=1;
+                $totalAmount=0;
+                foreach ($orderDetail as $detail){
+                    echo "<tr><td>".$detailCount."</td>";
+                    echo "<td>".$detail['p_name']."</td>";
+                    echo "<td>".$detail['product_code']."</td>";
+                    echo "<td>".$detail['p_wholesalePrice']."</td>";
+                    echo "<td>".$detail['quantityes']."</td>";
+                    echo "<td>".$detail['ordered_amount']."</td></tr>";
+                    $totalAmount+=$detail['ordered_amount'];
+                    $detailCount++;
+                }
+                ?>
+
             <tr>
                 <td colspan="5" class="text-right">Total Order Value in Word:</td>
-                <td>195,000.00</td>
+                <td><?php echo $totalAmount;?></td>
             </tr>
             </tbody>
         </table>
@@ -184,44 +172,35 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>1</td>
-                <td>Check</td>
-                <td>IBBL</td>
-                <td>62050</td>
-                <td>05.02.2020</td>
-                <td>195,000.00</td>
-            </tr>
-            <tr>
+            <?php
+                $paymentCount=1;
+                foreach ($paymentDetail as $payment){
+                    echo "<tr><td>".$paymentCount."</td>";
+                    echo "<td>".$payment['payment_mode_id']."</td>";
+                    echo "<td>".$payment['financial_institution_id']."</td>";
+                    echo "<td>".$payment['reference_no']."</td>";
+                    echo "<td>".$payment['payment_date_time']."</td>";
+                    echo "<td>".$payment['amount']."</td></tr>";
+                    $paymentCount++;
+                    $imagePath="";
+                    if(!empty($payment['image_name']))
+                    {
+                        $localImgageBasePath="http://localhost/payflex/asset/images/";
+                        $remorteImageBasePath="https://demo.onuserver.com/payFlex/asset/images/";
+                        $imageName =$payment['image_name'];
+                        $imagePath = $localImgageBasePath.$clientInfo['id']."/";
+                        $imagePath .= $imageName;
+                    }?>
+                    <tr>
                 <td colspan="6">
-                    <img
-                            class="img-responsive"
-                            src="https://www.nwcu.com/storage/app/media/Check-Image-Example.jpg"
-                            alt="IMAGE"
-                    />
+<!--                    <img class="img-responsive" alt="IMAGE" height="20%"-->
+                    <img alt="IMAGE" height="200px"
+                            src="<?php echo $imagePath;?>"/>
                 </td>
             </tr>
-            <tr>
-                <td>2</td>
-                <td>Payorder</td>
-                <td>UBL</td>
-                <td>1234</td>
-                <td>05.02.2020</td>
-                <td>195,000.00</td>
-            </tr>
-            <tr>
-                <td colspan="6">
-                    <img
-                            class="img-responsive"
-                            src="https://www.nwcu.com/storage/app/media/Check-Image-Example.jpg"
-                            alt="IMAGE"
-                    />
-                </td>
-            </tr>
-            <tr>
-                <td colspan="5" class="text-left">Total Order Value in Word:</td>
-                <td>200,000.00</td>
-            </tr>
+             <?php   }
+            ?>
+
             </tbody>
         </table>
     </div>
