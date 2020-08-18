@@ -4,7 +4,7 @@
 <div class="table-container">
     <!--    1st row-->
     <div class="header-container border" style="">
-
+    <?php //echo print_r($paymentDetail)?>
         <!--    first row-->
         <div style="float: left">
             <div class="logo" style="">
@@ -75,7 +75,7 @@
                 </tr>
                 <tr>
                     <td>Order No:</td>
-                    <td><?php echo $paymentDetail['order_code'];?></td>
+                    <td><?php echo $paymentDetail[0]['order_code'];?></td>
                 </tr>
                 <tr>
                     <td>Customer Code:</td>
