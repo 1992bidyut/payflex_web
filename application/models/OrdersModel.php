@@ -23,7 +23,7 @@ class OrdersModel extends CI_Model{
             left join tbl_empolyees_relation on tbl_customer_order.taker_id = tbl_empolyees_relation.info_id
             left join employee_info on tbl_empolyees_relation.info_id = employee_info.id) as myOderList
             ";
-
+//
        // $this->db->select($leaderSQL);
         $resource = $this->db->query($leaderSQL);
 		// echo $this->db->last_query();
