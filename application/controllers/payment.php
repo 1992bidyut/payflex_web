@@ -28,6 +28,7 @@ class Payment extends CI_Controller
     {
         $this->load->model('Payment_Model');
         $paymentDetail = $this->Payment_Model->printpaymentdetail($order_code);
+//        echo print_r($paymentDetail);
         $datas['content'] = $this->load->view('payment/paymentDetail', array('paymentDetail'=>$paymentDetail), true);
         $this->load->view('layouts/main_template', $datas);
     }
