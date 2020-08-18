@@ -1,11 +1,8 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
 class LeaderBoard extends CI_Controller{
-    
-    
     function __construct() {
         parent::__construct();
-
 		if(empty($this->session->userdata('user_id'))){
 			return redirect('login');
 		}
@@ -19,6 +16,7 @@ class LeaderBoard extends CI_Controller{
 		$dataArray = array('paymentInfoArray'=>$leaderBoardData);
 		$datas['content'] = $this->load->view('leader/leader', $dataArray, true);
 		$this->load->view( 'layouts/main_template',$datas);
+		//
 	}
 
 	public function exportFinanceData(){
@@ -44,6 +42,5 @@ class LeaderBoard extends CI_Controller{
         $this->load->library('export_excel');
         $this->export_excel->exportData($exportedData);
     }
-
 }
 ?>

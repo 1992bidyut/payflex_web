@@ -15,10 +15,9 @@ class ClientModel extends CI_Model
             $sqlReturn = false;
         }
 
-        //	die($this->db->last_query());
+        //    die($this->db->last_query());
         return $sqlReturn;
     }
-
 
     //FOR GETTING ALL USER BY SANKER
     public function getAllClient()
@@ -28,8 +27,8 @@ class ClientModel extends CI_Model
             ->join('client_catagory', 'client_catagory.id = client_info.catagory_id', 'left');
         $result = $this->db->get();
 
-//		echo $this->db->last_query();
-//		die();
+        //        echo $this->db->last_query();
+        //        die();
 
         return $result->result_array();
     }
@@ -79,15 +78,39 @@ class ClientModel extends CI_Model
 
     public function getClientsContactType()
     {
-        $this->db->select('tbl_contact_type.id,tbl_contact_type.contact_type')//right
-//        $this->db->select('tbl_contact_type.id', 'tbl_contact_type.contact_type')//syntax error
+        $this->db->select('tbl_contact_type.id,tbl_contact_type.contact_type') //right
+        //        $this->db->select('tbl_contact_type.id', 'tbl_contact_type.contact_type')//syntax error
             ->from('tbl_contact_type')
             ->where('tbl_contact_type.user_type', 3);
         $result = $this->db->get();
         return $result->result_array();
     }
+    public function updateClient($client_id, $formArray)
+    {
+        $this->db->where('id', $client_id);
+        $this->db->update('client_info', $formArray);
+    }
+
+    //get the client information
+    public function getClient($client_id)
+    {
+        $this->db->select('*');
+        $this->db->from('client_info');
+        $this->db->join('tbl_client_employee_relation','client_info.id = tbl_client_employee_relation.client_id');
+        $this->db->where('client_info.id', $client_id);
+        return $client = $this->db->get()->row_array();
+    }
+    public function getClientsContact($client_id){
+        $this->db->select('tbl_contact.id as contact_id,
+                            tbl_contact.contact_type_id as type_id,
+                            tbl_contact_type.contact_type,
+                            tbl_contact.contact_value
+                            ');
+        $this->db->from('tbl_contact');
+        $this->db->join('tbl_contact_type','tbl_contact_type.id = tbl_contact.contact_type_id');
+        $this->db->where('tbl_contact.owner_id', $client_id);
+        $this->db->where('tbl_contact.owner_type', 3);
+        return $client = $this->db->get()->result_array();
+    }
 
 }
-
-
-?>

@@ -76,6 +76,7 @@ License: You must have a valid license purchased only from themeforest(the above
         <!-- END THEME LAYOUT STYLES -->
         <link rel="shortcut icon" href="favicon.ico" /> </head>
 	   <link href="<?php echo base_url('assets/sweetalert2.min.css');?>" rel="stylesheet" type="text/css" />
+	   <link href="<?php echo base_url('assets/global/css/paymentdetail.css');?>" rel="stylesheet" type="text/css" />
     <!-- END HEAD -->
 
     <body class="page-container-bg-solid page-header-fixed page-sidebar-closed-hide-logo">
