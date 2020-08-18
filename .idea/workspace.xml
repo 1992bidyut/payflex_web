@@ -23,6 +23,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/controllers/payment.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/payment.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/models/Payment_Model.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/Payment_Model.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/payment/paymentDetail.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/payment/paymentDetail.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +102,7 @@
       <workItem from="1597594111441" duration="888000" />
       <workItem from="1597595141785" duration="1203000" />
       <workItem from="1597723498974" duration="1896000" />
-      <workItem from="1597736939593" duration="146000" />
+      <workItem from="1597736939593" duration="5455000" />
     </task>
     <task id="LOCAL-00001" summary="validation bug fix and make an new example testView">
       <created>1597333094672</created>
