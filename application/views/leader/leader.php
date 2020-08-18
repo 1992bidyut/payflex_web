@@ -118,7 +118,13 @@
                                         <i class="fa fa-edit"></i>
                                     </a>
 									
-									<a href="SchedulePrint" target="_blank" class="btn btn-sm green" style="margin-bottom: 5px;   width: 100%;"> Print
+<!--									<a href="SchedulePrint" target="_blank" class="btn btn-sm green" style="margin-bottom: 5px;   width: 100%;"> Print-->
+<!--                                        <i class="fa fa-print"></i>-->
+<!--                                    </a>-->
+
+                                    <!-- set js onclick operation for printing -->
+
+                                    <a href="<?php echo base_url('payment/paymentdetail/'.$data['order_code'])?>" target="_blank" class="btn btn-sm green" style="margin-bottom: 5px;   width: 100%;"> Print
                                         <i class="fa fa-print"></i>
                                     </a>
 
@@ -151,6 +157,14 @@
 </div>
 
 <script type="text/javascript">
+
+    function loadPrinting(id) {
+        console.log('Order ID: '+id);
+
+    }
+
+
+
 
     $(document).ready(function () {
 

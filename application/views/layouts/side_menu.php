@@ -90,6 +90,7 @@
                 </ul>
             </li>
 
+            <!-- Client Nav -->
             <?php if($this->uri->segment(1) == 'clients')
             {
             ?>
@@ -124,6 +125,42 @@
                 </ul>
             </li>
 
+            <!-- Payment Nav -->
+            <?php if($this->uri->segment(1) == 'route')
+            {
+            ?>
+            <li class="nav-item start active open">
+                <?php
+                }
+                else
+                {
+                ?>
+            <li class="nav-item">
+                <?php
+                }
+                ?>
+                <a href="javascript:;" class="nav-link nav-toggle">
+                    <i class="fa fa-map-signs"></i>
+                    <span class="title">Payment</span>
+                    <span class="arrow"></span>
+                </a>
+                <ul class="sub-menu">
+                    <li class="nav-item  ">
+                        <a href="#" class="nav-link ">
+                            <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+                            <span class="title">Payment Collection</span>
+                        </a>
+                    </li>
+                    <li class="nav-item  ">
+                        <a href="<?php echo base_url('payment/paymentdetail') ?>" class="nav-link ">
+                            <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+                            <span class="title">Payment Details</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <!-- Product nav -->
             <?php if($this->uri->segment(1) == 'route')
             {
             ?>
