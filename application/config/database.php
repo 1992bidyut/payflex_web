@@ -72,7 +72,7 @@ $active_record = TRUE;
 //TODO: chnage database info
 $db['default']['hostname'] = "localhost";
 $db['default']['username'] = "root";
-$db['default']['password'] = "";
+$db['default']['password'] = "root";
 $db['default']['database'] = "payflex_1v1";
 $db['default']['dbdriver'] = "mysqli";
 $db['default']['dbprefix'] = "";
