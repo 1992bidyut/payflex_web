@@ -118,7 +118,7 @@
                                        class="btn btn-sm <?php if($data['action_flag']==2){echo "green-dark";}else{echo "yellow";}?>" style="margin-bottom: 5px; width: 100%;"> Indent
                                         <i class="fa fa-edit"></i>
                                     </a>
-                                    <a href="<?php echo base_url('payment/paymentdetail/'.$data['order_code'])?>" target="_blank" class="btn btn-sm green" style="margin-bottom: 5px;   width: 100%;"> Print
+                                    <a href="<?php echo base_url('Payment/paymentdetail/'.$data['order_code'])?>" target="_blank" class="btn btn-sm green" style="margin-bottom: 5px;   width: 100%;"> Print
                                         <i class="fa fa-print"></i>
                                     </a>
 
