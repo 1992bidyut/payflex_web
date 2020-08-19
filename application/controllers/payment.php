@@ -24,14 +24,52 @@ class Payment extends CI_Controller
     public function paymentdetail($order_code)
     {
         $this->load->model('Payment_Model');
+        $this->load->model('ClientModel');
         $paymentDetail = $this->Payment_Model->getpaymentdetail($order_code);
         $orderDetail = $this->Payment_Model->getOrderDetail($order_code);
-        echo print_r($orderDetail);
+        $clientInfo=$this->ClientModel->getClient($orderDetail[0]['client_id']);
+        $clientContact=$this->ClientModel->getClientsContact($orderDetail[0]['client_id']);
+//        echo json_encode(array('paymentDetail' => $paymentDetail,
+//            'orderDetail' => $orderDetail,
+//            'clientInfo' => $clientInfo,
+//            'clientContact'=>$clientContact));
 
-//        $datas['content'] = $this->load->view('payment/paymentDetail',
-//            array('paymentDetail' => $paymentDetail,
-//                'orderDetail' => $orderDetail), true);
-//        $this->load->view('layouts/main_template', $datas);
+        $datas['content'] = $this->load->view('payment/paymentDetail',
+            array('paymentDetail' => $paymentDetail,
+                'orderDetail' => $orderDetail,
+                'clientInfo' => $clientInfo,
+                'clientContact'=>$clientContact), true);
+        $this->load->view('layouts/main_template', $datas);
+    }
+
+    public function paymentAccept(){
+        $id=$this->input->post('id');
+        $this->load->model('Payment_Model');
+
+        if ($this->Payment_Model->updatePaymentAccept($id)){
+           $this->session->set_flashdata('success_msg','Accepted successfully');
+            redirect('LeaderBoard');
+        }
+        else
+        {
+            $this->session->set_flashdata('error_msg','Not Accepted!');
+            redirect('LeaderBoard');
+        }
+    }
+
+    public function indent(){
+        $id=$this->input->post('id');
+        $this->load->model('Payment_Model');
+
+        if ($this->Payment_Model->updateIndent($id)){
+            $this->session->set_flashdata('success_msg','Accepted successfully');
+            redirect('LeaderBoard');
+        }
+        else
+        {
+            $this->session->set_flashdata('error_msg','Not Accepted!');
+            redirect('LeaderBoard');
+        }
     }
 
 }

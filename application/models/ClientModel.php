@@ -94,9 +94,23 @@ class ClientModel extends CI_Model
     //get the client information
     public function getClient($client_id)
     {
-        $this->db->where('id', $client_id);
-        //update users set field1=?, field2=? where condition=?;
-        return $client = $this->db->get('client_info')->row_array();
+        $this->db->select('*');
+        $this->db->from('client_info');
+        $this->db->join('tbl_client_employee_relation','client_info.id = tbl_client_employee_relation.client_id');
+        $this->db->where('client_info.id', $client_id);
+        return $client = $this->db->get()->row_array();
+    }
+    public function getClientsContact($client_id){
+        $this->db->select('tbl_contact.id as contact_id,
+                            tbl_contact.contact_type_id as type_id,
+                            tbl_contact_type.contact_type,
+                            tbl_contact.contact_value
+                            ');
+        $this->db->from('tbl_contact');
+        $this->db->join('tbl_contact_type','tbl_contact_type.id = tbl_contact.contact_type_id');
+        $this->db->where('tbl_contact.owner_id', $client_id);
+        $this->db->where('tbl_contact.owner_type', 3);
+        return $client = $this->db->get()->result_array();
     }
 
     public function checkClientEmployeeRelation()

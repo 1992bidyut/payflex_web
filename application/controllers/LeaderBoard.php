@@ -16,6 +16,7 @@ class LeaderBoard extends CI_Controller{
 		$dataArray = array('paymentInfoArray'=>$leaderBoardData);
 		$datas['content'] = $this->load->view('leader/leader', $dataArray, true);
 		$this->load->view( 'layouts/main_template',$datas);
+		//
 	}
 
 	public function exportFinanceData(){
