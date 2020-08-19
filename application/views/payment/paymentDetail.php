@@ -3,12 +3,12 @@
 
 <div class="table-container">
     <!--    1st row-->
-    <div class="header-container border" style="">
+    <div class="header-container border">
         <?php //echo print_r($paymentDetail)
         ?>
         <!--    first row-->
         <div style="float: left">
-            <div class="logo" style="">
+            <div class="logo">
                 <img src="https://d1yjjnpx0p53s8.cloudfront.net/styles/logo-thumbnail/s3/0008/1528/brand.gif?itok=RXwTVv65" width="200px" height="200px" class="img-responsive" alt="">
             </div>
             <div class="header-address">
