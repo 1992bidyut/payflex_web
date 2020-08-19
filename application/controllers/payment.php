@@ -20,7 +20,7 @@ class Payment extends CI_Controller
         $datas['content'] = $this->load->view('payment/paymentCollection', array(), true);
         $this->load->view('layouts/main_template', $datas);
     }
-
+//
     public function paymentdetail($order_code)
     {
         $this->load->model('Payment_Model');
