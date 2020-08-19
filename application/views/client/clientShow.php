@@ -86,12 +86,7 @@
                                         </div>
                                     </div>
 
-                                    <form class='form' method='post' action="
-                                    <?php if ($operation = 'insert') {
-                                        echo site_url('client/createClient');
-                                    } else {
-                                        echo site_url('client/updateClient');
-                                    } ?>">
+                                    <form class='form' method='post' action="<?php echo site_url('client/createClient'); ?>">
 
                                         <!--			Distributor name-->
                                         <div class="row">
@@ -100,7 +95,7 @@
                                                     <label for="name" class="form-label">Distributor Name:</label>
                                                 </div>
                                                 <div class="col-md-10">
-                                                    <input type="text" name="name" id="client_name" value="<?php echo set_value('name', $client_info['name']); ?>" class="form-control " placeholder="Organization /Name" aria-describedby="helpId" width="auto" />
+                                                    <input type="text" name="name" id="client_name" value="" class="form-control " placeholder="Organization /Name" aria-describedby="helpId" width="auto" />
                                                 </div>
                                             </div>
                                         </div>
@@ -113,7 +108,7 @@
                                                         Name:</label>
                                                 </div>
                                                 <div class="col-md-10">
-                                                    <input type="text" name="representative_name" value="<?php echo set_value('name', $client_info['representative_name']); ?>" id="client_representative_name" class="form-control " placeholder="Representative Name" aria-describedby="helpId" />
+                                                    <input type="text" name="representative_name" value="" id="client_representative_name" class="form-control " placeholder="Representative Name" aria-describedby="helpId" />
                                                 </div>
                                             </div>
                                         </div>
@@ -126,7 +121,7 @@
                                                         Code:</label>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <input type="text" name="client_code" id="client_code" value="<?php echo set_value('name', $client_info['client_code']); ?>" class="form-control" placeholder="" aria-describedby="helpId" />
+                                                    <input type="text" name="client_code" id="client_code" value="" class="form-control" placeholder="" aria-describedby="helpId" />
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -135,7 +130,7 @@
                                                         A/C No:</label>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <input type="text" name="virtual_account_no" id="" value="<?php echo set_value('name', $client_info['virtual_account_no']); ?>" class="form-control" placeholder="" aria-describedby="helpId" />
+                                                    <input type="text" name="virtual_account_no" id="" value="" class="form-control" placeholder="" aria-describedby="helpId" />
                                                 </div>
                                             </div>
                                         </div>
@@ -317,7 +312,7 @@
                                 <td>
                                     <div class="clearfix">
 
-                                        <a href="<?php echo base_url('client/updateClient/' . $client['id']); ?>" class="btn btn-sm yellow" data-toggle="modal" data-target="#createNewClient" style="margin-bottom: 5px;"> Edit
+                                        <a href="<?php echo base_url('client/updateClient/' . $client['id']); ?>" class="btn btn-sm yellow" style="margin-bottom: 5px;"> Edit
                                             <i class="fa fa-edit"></i>
                                         </a>
 
