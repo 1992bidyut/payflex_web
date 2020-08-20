@@ -19,7 +19,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="571daff3-120e-4fae-92da-81dcf9e1bc68" name="Default Changelist" comment="validation bug fix and make an new example testView" />
+    <list default="true" id="571daff3-120e-4fae-92da-81dcf9e1bc68" name="Default Changelist" comment="Payment Details bug fix">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/leader/leader.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/leader/leader.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/payment/paymentDetail.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/payment/paymentDetail.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -121,7 +125,14 @@
       <option name="project" value="LOCAL" />
       <updated>1597685708798</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Payment Details bug fix">
+      <created>1597938715318</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1597938715318</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -142,7 +153,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="validation bug fix and make an new example testView" />
     <MESSAGE value="payment form" />
-    <option name="LAST_COMMIT_MESSAGE" value="payment form" />
+    <MESSAGE value="Payment Details bug fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="Payment Details bug fix" />
   </component>
   <component name="WindowStateProjectService">
     <state x="655" y="254" key="#Notifications" timestamp="1597486857716">
@@ -178,10 +190,11 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="555" y="51" key="VCS.ChangeListViewerDialog/0.0.1536.834@0.0.1536.834" timestamp="1597831983474" />
-    <state x="361" y="137" key="Vcs.Push.Dialog.v2" timestamp="1597685325445">
+    <state x="361" y="137" key="Vcs.Push.Dialog.v2" timestamp="1597938719558">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="361" y="137" key="Vcs.Push.Dialog.v2/0.0.1536.834/1920.0.1366.738@0.0.1536.834" timestamp="1597685325445" />
+    <state x="361" y="137" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1597938719558" />
     <state x="561" y="232" width="413" height="352" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog" timestamp="1597174798873">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

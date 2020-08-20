@@ -162,7 +162,7 @@
             data: {id: id},
             success: function (response) {
                 console.log("AJAX Success Called!");
-                $("#accepted" + id).fadeTo("slow", 0.7, function () {
+                $("#accepted" + id).fadeTo("slow", 0.3, function () {
                     $(this).css('background-color', 'green-dark');
                 })
             },
@@ -180,7 +180,7 @@ function indent(id) {
         data: {id: id},
         success: function (response) {
             console.log("AJAX Success Called!");
-            $("#indent" + id).fadeTo("slow", 0.7, function () {
+            $("#indent" + id).fadeTo("slow", 0.3, function () {
                 $(this).css('background-color', 'green-dark');
             })
         },
