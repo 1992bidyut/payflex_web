@@ -19,14 +19,28 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="571daff3-120e-4fae-92da-81dcf9e1bc68" name="Default Changelist" comment="contact insert bug fix">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_8_12_2020_6_47_AM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_8_12_2020_6_47_AM__Default_Changelist_.xml" afterDir="false" />
+    <list default="true" id="571daff3-120e-4fae-92da-81dcf9e1bc68" name="Default Changelist" comment="validation bug fix and make an new example testView">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_8_12_2020_4_35_AM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_8_12_2020_4_35_AM__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_8_12_2020_5_42_PM_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_8_12_2020_5_42_PM__Default_Changelist_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_8_12_2020_6_47_AM_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_8_12_2020_6_47_AM__Default_Changelist_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_8_12_2020_7_34_PM_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_8_12_2020_7_34_PM__Default_Changelist_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_8_13_2020_12_34_AM_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_8_13_2020_12_34_AM__Default_Changelist_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_8_13_2020_1_22_AM_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_8_13_2020_1_22_AM__Default_Changelist_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_12_2020_4_31_AM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_12_2020_4_31_AM__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_12_2020_7_39_PM_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_12_2020_7_39_PM__Default_Changelist_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_12_2020_8_01_PM_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_12_2020_8_01_PM__Default_Changelist_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_13_2020_8_43_AM_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_13_2020_8_43_AM__Default_Changelist_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/payment.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/payment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/models/ClientModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/ClientModel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/models/Payment_Model.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/Payment_Model.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/leader/leader.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/leader/leader.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/payment/paymentDetail.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/payment/paymentDetail.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,11 +61,37 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="sandbox" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitToolBoxStore">
+    <option name="recentBranches">
+      <RecentBranches>
+        <option name="branchesForRepo">
+          <list>
+            <RecentBranchesForRepo>
+              <option name="branches">
+                <list>
+                  <RecentBranch>
+                    <option name="branchName" value="bdn_dev" />
+                    <option name="lastUsedInstant" value="1597922507" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="sandbox" />
+                    <option name="lastUsedInstant" value="1597922506" />
+                  </RecentBranch>
+                </list>
+              </option>
+              <option name="repositoryRootUrl" value="file://$PROJECT_DIR$" />
+            </RecentBranchesForRepo>
+          </list>
+        </option>
+      </RecentBranches>
+    </option>
+  </component>
+  <component name="PhpDebugGeneral" listening_started="true" />
   <component name="ProjectId" id="1fig0yWIAnMif1XcwFQ0DLNpMCa" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -62,10 +102,15 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../totalforecast_api/1v1" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\MAMP\htdocs\payflex_web\assets\global\css" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
   <component name="SvnConfiguration">
@@ -91,67 +136,44 @@
       <workItem from="1597155321416" duration="846000" />
       <workItem from="1597167800540" duration="14279000" />
       <workItem from="1597167800540" duration="9143000" />
-      <workItem from="1597182746518" duration="2100000" />
-      <workItem from="1597192289388" duration="772000" />
-      <workItem from="1597231552482" duration="619000" />
+      <workItem from="1597182746518" duration="1177000" />
+      <workItem from="1597233818926" duration="3696000" />
+      <workItem from="1597243318428" duration="7477000" />
+      <workItem from="1597292377482" duration="3709000" />
+      <workItem from="1597322077924" duration="2953000" />
+      <workItem from="1597481868591" duration="1424000" />
+      <workItem from="1597486592330" duration="3515000" />
+      <workItem from="1597507480618" duration="334000" />
+      <workItem from="1597507844859" duration="7000" />
+      <workItem from="1597593099776" duration="987000" />
+      <workItem from="1597594111441" duration="888000" />
+      <workItem from="1597595141785" duration="1203000" />
+      <workItem from="1597723498974" duration="1896000" />
+      <workItem from="1597736939593" duration="146000" />
+      <workItem from="1597770358438" duration="1059000" />
     </task>
-    <task id="LOCAL-00001" summary="employee order set on leaderboard">
-      <created>1597183979092</created>
+    <task id="LOCAL-00001" summary="validation bug fix and make an new example testView">
+      <created>1597333094672</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1597183979092</updated>
+      <updated>1597333094672</updated>
     </task>
-    <task id="LOCAL-00002" summary="employee order set on leaderboard">
-      <created>1597184125139</created>
+    <task id="LOCAL-00002" summary="payment form">
+      <created>1597685321322</created>
       <option name="number" value="00002" />
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1597184125140</updated>
+      <updated>1597685321322</updated>
     </task>
-    <task id="LOCAL-00003" summary="employee order set on leaderboard">
-      <created>1597184152814</created>
+    <task id="LOCAL-00003" summary="payment form">
+      <created>1597685708798</created>
       <option name="number" value="00003" />
       <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
-      <updated>1597184152814</updated>
+      <updated>1597685708798</updated>
     </task>
-    <task id="LOCAL-00004" summary="payment date filter set on leaderboard">
-      <created>1597189607968</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1597189607968</updated>
-    </task>
-    <task id="LOCAL-00005" summary="demo database add">
-      <created>1597192529004</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1597192529004</updated>
-    </task>
-    <task id="LOCAL-00006" summary="marge bdn_dev">
-      <created>1597194014256</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1597194014256</updated>
-    </task>
-    <task id="LOCAL-00007" summary="marge bdn_dev">
-      <created>1597194193339</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1597194193339</updated>
-    </task>
-    <task id="LOCAL-00008" summary="login process change">
-      <created>1597261309906</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1597261309906</updated>
-    </task>
-    <option name="localTasksCounter" value="9" />
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -170,64 +192,79 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="employee order set on leaderboard" />
-    <MESSAGE value="payment date filter set on leaderboard" />
-    <MESSAGE value="demo database add" />
-    <MESSAGE value="marge bdn_dev" />
-    <MESSAGE value="remote image path set" />
-    <MESSAGE value="cpanel.yml" />
-    <MESSAGE value="login process change" />
-    <option name="LAST_COMMIT_MESSAGE" value="login process change" />
+    <MESSAGE value="validation bug fix and make an new example testView" />
+    <MESSAGE value="payment form" />
+    <option name="LAST_COMMIT_MESSAGE" value="payment form" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="361" y="70" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1597050480867">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="655" y="254" key="#Notifications" timestamp="1597486857716">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="655" y="254" key="#Notifications/0.0.1536.834@0.0.1536.834" timestamp="1597486857716" />
+    <state x="361" y="71" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1597482832158">
+      <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="361" y="70" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1597050480867" />
-    <state x="434" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1597266197885">
+    <state x="361" y="71" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.834@0.0.1536.834" timestamp="1597482832158" />
+    <state x="147" y="66" width="1364" height="703" key="MergeDialog" timestamp="1597832025169">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="434" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.834/1920.0.1366.738@0.0.1536.834" timestamp="1597266197885" />
-    <state x="549" y="172" key="FileChooserDialogImpl" timestamp="1597265907531">
+    <state x="147" y="65" key="MergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1597240988122" />
+    <state x="147" y="66" width="1364" height="703" key="MergeDialog/0.0.1536.834/1920.0.1366.738@0.0.1536.834" timestamp="1597770423817" />
+    <state x="147" y="66" key="MergeDialog/0.0.1536.834@0.0.1536.834" timestamp="1597832025169" />
+    <state x="657" y="285" width="488" height="264" key="MultipleFileMergeDialog" timestamp="1597333331997">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="549" y="172" key="FileChooserDialogImpl/0.0.1536.834/1920.0.1366.738@0.0.1536.834" timestamp="1597265907531" />
-    <state x="294" y="66" key="MergeDialog" timestamp="1597193961659">
+    <state x="657" y="285" width="488" height="264" key="MultipleFileMergeDialog/0.0.1536.834/1920.0.1366.738@0.0.1536.834" timestamp="1597333331997" />
+    <state x="604" y="336" key="NewPhpFileDialog" timestamp="1597327754886">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="294" y="66" key="MergeDialog/0.0.1536.834/1920.0.1366.738@0.0.1536.834" timestamp="1597193961659" />
-    <state x="657" y="285" width="626" height="264" key="MultipleFileMergeDialog" timestamp="1597193961667">
+    <state x="604" y="332" key="NewPhpFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1597323368425" />
+    <state x="604" y="336" key="NewPhpFileDialog/0.0.1536.834/1920.0.1366.738@0.0.1536.834" timestamp="1597327754886" />
+    <state x="212" y="30" key="SettingsEditor" timestamp="1597595199864">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="657" y="285" width="626" height="264" key="MultipleFileMergeDialog/0.0.1536.834/1920.0.1366.738@0.0.1536.834" timestamp="1597193961667" />
-    <state x="391" y="81" key="SettingsEditor" timestamp="1597032242364">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="391" y="81" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1597032242364" />
-    <state x="361" y="137" key="Vcs.Push.Dialog.v2" timestamp="1597261321626">
+    <state x="380" y="106" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1597323342006" />
+    <state x="212" y="30" key="SettingsEditor/0.0.1536.834@0.0.1536.834" timestamp="1597595199864" />
+    <state x="555" y="51" key="VCS.ChangeListViewerDialog" timestamp="1597831983474">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="361" y="137" key="Vcs.Push.Dialog.v2/0.0.1536.834/1920.0.1366.738@0.0.1536.834" timestamp="1597261321626" />
+    <state x="555" y="51" key="VCS.ChangeListViewerDialog/0.0.1536.834@0.0.1536.834" timestamp="1597831983474" />
+    <state x="361" y="137" key="Vcs.Push.Dialog.v2" timestamp="1597685325445">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="361" y="137" key="Vcs.Push.Dialog.v2/0.0.1536.834/1920.0.1366.738@0.0.1536.834" timestamp="1597685325445" />
     <state x="561" y="232" width="413" height="352" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog" timestamp="1597174798873">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="561" y="232" width="413" height="352" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog/0.0.1536.824@0.0.1536.824" timestamp="1597174798873" />
-    <state x="579" y="331" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1597193064700">
+    <state x="587" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1597831987477">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="579" y="331" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.834/1920.0.1366.738@0.0.1536.834" timestamp="1597193064700" />
+    <state x="587" y="322" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1597240894201" />
+    <state x="587" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.834/1920.0.1366.738@0.0.1536.834" timestamp="1597771407632" />
+    <state x="587" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.834@0.0.1536.834" timestamp="1597831987477" />
+    <state x="934" y="0" width="609" height="840" key="dock-window-1" timestamp="1597688675713">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="934" y="0" width="609" height="840" key="dock-window-1/0.0.1536.834@0.0.1536.834" timestamp="1597688675713" />
     <state x="477" y="11" width="581" height="801" key="find.popup" timestamp="1597029999478">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="477" y="11" width="581" height="801" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1597029999478" />
-    <state x="425" y="187" key="run.anything.popup" timestamp="1597027700855">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1597027700855" />
-    <state x="498" y="180" width="672" height="544" key="search.everywhere.popup" timestamp="1597790856175">
+    <state x="530" y="205" key="git4idea.merge.GitMergeDialog" timestamp="1597333315518">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
+    <state x="530" y="205" key="git4idea.merge.GitMergeDialog/0.0.1536.834/1920.0.1366.738@0.0.1536.834" timestamp="1597333315518" />
+    <state x="425" y="189" key="run.anything.popup" timestamp="1597808823928">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1597253903389" />
+    <state x="425" y="189" key="run.anything.popup/0.0.1536.834@0.0.1536.834" timestamp="1597808823928" />
+    <state x="498" y="178" width="672" height="538" key="search.everywhere.popup" timestamp="1597183940953">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/-1920.8.1920.1040/0.0.1920.1040/1920.-368.1080.1880@0.0.1920.1040" timestamp="1596710911768" />
-    <state x="498" y="180" width="672" height="544" key="search.everywhere.popup/0.0.1536.834/1920.0.1366.738@0.0.1536.834" timestamp="1597790856175" />
+    <state x="498" y="178" width="672" height="538" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1597183940953" />
   </component>
 </project>
