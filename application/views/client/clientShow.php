@@ -135,6 +135,7 @@
                                             </div>
                                         </div>
                                         <br>
+                                        
                                         <!--			Assign DSR-->
                                         <div class="row">
                                             <div class="col-md-2">
@@ -289,7 +290,10 @@
                     <tbody>
 
 
-                        <?php foreach ($allClient as $client) { ?>
+                        <?php foreach ($allClient as $client) {
+                            //echo json_encode($client,JSON_PRETTY_PRINT); 
+                        ?>
+
                             <tr class="odd gradeX">
                                 <td><input type="checkbox" class="checkboxes" value="1" /></td>
                                 <td> <?php echo $client['name'] ?> </td>
@@ -312,11 +316,11 @@
                                 <td>
                                     <div class="clearfix">
 
-                                        <a href="<?php echo base_url('client/updateClient/' . $client['id']); ?>" class="btn btn-sm yellow" style="margin-bottom: 5px;"> Edit
+                                        <a href="<?php echo base_url('client/updateClient/' . $client['client_id']); ?>" class="btn btn-sm yellow" style="margin-bottom: 5px;"> Edit
                                             <i class="fa fa-edit"></i>
                                         </a>
 
-                                        <a onclick="deleteData(<?php echo $client['id'] ?>)" href="#" data-toggle="tooltip" data-placement="bottom" title="Hapus Mahasiswa" class="btn btn-sm btn-danger">
+                                        <a onclick="deleteData(<?php echo $client['client_id'] ?>)" href="#" data-toggle="tooltip" data-placement="bottom" title="Hapus Mahasiswa" class="btn btn-sm btn-danger">
                                             <i class="fa fa-trash"></i> Delete</a>
 
                                     </div>

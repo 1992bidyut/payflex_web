@@ -19,7 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="571daff3-120e-4fae-92da-81dcf9e1bc68" name="Default Changelist" comment="Payment Details bug fix">
+    <list default="true" id="571daff3-120e-4fae-92da-81dcf9e1bc68" name="Default Changelist" comment="validation bug fix and make an new example testView">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -145,12 +145,12 @@
       <option name="project" value="LOCAL" />
       <updated>1597261309906</updated>
     </task>
-    <task id="LOCAL-00009" summary="Payment Details bug fix">
-      <created>1597925397925</created>
+    <task id="LOCAL-00009" summary="validation bug fix and make an new example testView">
+      <created>1597923232971</created>
       <option name="number" value="00009" />
       <option name="presentableId" value="LOCAL-00009" />
       <option name="project" value="LOCAL" />
-      <updated>1597925397925</updated>
+      <updated>1597923232971</updated>
     </task>
     <option name="localTasksCounter" value="10" />
     <servers />
@@ -178,8 +178,8 @@
     <MESSAGE value="remote image path set" />
     <MESSAGE value="cpanel.yml" />
     <MESSAGE value="login process change" />
-    <MESSAGE value="Payment Details bug fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="Payment Details bug fix" />
+    <MESSAGE value="validation bug fix and make an new example testView" />
+    <option name="LAST_COMMIT_MESSAGE" value="validation bug fix and make an new example testView" />
   </component>
   <component name="WindowStateProjectService">
     <state x="361" y="70" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1597050480867">
@@ -206,11 +206,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="391" y="81" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1597032242364" />
-    <state x="361" y="137" key="Vcs.Push.Dialog.v2" timestamp="1597925400228">
+    <state x="361" y="137" key="Vcs.Push.Dialog.v2" timestamp="1597923235550">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="361" y="137" key="Vcs.Push.Dialog.v2/0.0.1536.834/1920.0.1366.738@0.0.1536.834" timestamp="1597261321626" />
-    <state x="361" y="137" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1597925400228" />
+    <state x="361" y="137" key="Vcs.Push.Dialog.v2/0.0.1536.834/1920.0.1366.738@0.0.1536.834" timestamp="1597923235550" />
     <state x="561" y="232" width="413" height="352" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog" timestamp="1597174798873">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
