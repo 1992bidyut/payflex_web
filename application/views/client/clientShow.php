@@ -3,7 +3,7 @@
         <?php
         $success = $this->session->userdata('success');
         if ($success != "") {
-            ?>
+        ?>
             <div class="alert alert-success alert-dismissible" role="alert">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span>
                 </button>
@@ -16,7 +16,7 @@
         <?php
         $failure = $this->session->userdata('failure');
         if ($failure != "") {
-            ?>
+        ?>
             <div class="alert alert-warning alert-dismissible" role="alert">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span>
                 </button>
@@ -36,8 +36,7 @@
                     <i class="fa fa-cogs"></i>ALL Client LIST SHOW
                 </div>
                 <div class="actions">
-                    <a href="#<?php echo base_url('client/createClient'); ?>" data-toggle="modal"
-                       data-target="#createNewClient" class="btn btn-default btn-sm">
+                    <a href="#<?php echo base_url('client/createClient'); ?>" data-toggle="modal" data-target="#createNewClient" class="btn btn-default btn-sm">
                         <i class="fa fa-plus"></i> Create New Client </a>
 
                     <a href="<?php echo base_url('user/createUser'); ?>" class="btn btn-default btn-sm">
@@ -46,8 +45,7 @@
                         <i class="fa fa-print"></i> Print </a>
                 </div>
             </div>
-            <div class="modal fade" id="createNewClient" tabindex="-1" role="dialog" aria-labelledby="largeModal"
-                 aria-hidden="true">
+            <div class="modal fade" id="createNewClient" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -60,17 +58,18 @@
                                 <div class="row">
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <?php if (!empty(form_error('name'))
+                                            <?php if (
+                                                !empty(form_error('name'))
                                                 || !empty(form_error('representative_name'))
                                                 || !empty(form_error('client_code'))
                                                 || !empty(form_error('virtual_account_no'))
                                                 || !empty(form_error('username'))
                                                 || !empty(form_error('password'))
-                                                || !empty(form_error('confirm_password'))) { ?>
+                                                || !empty(form_error('confirm_password'))
+                                            ) { ?>
                                                 <div class="alert alert-warning alert-dismissible" role="alert">
 
-                                                    <button type="button" class="close" data-dismiss="alert"
-                                                            aria-label="Close">
+                                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                                         <span aria-hidden="true">&times;</span>
                                                     </button>
 
@@ -87,8 +86,8 @@
                                         </div>
                                     </div>
 
-                                    <form class='form' method='post'
-                                          action="<?php echo site_url('client/createClient'); ?>">
+                                    <form class='form' method='post' action="<?php echo site_url('client/createClient'); ?>">
+
                                         <!--			Distributor name-->
                                         <div class="row">
                                             <div class="form-group">
@@ -96,10 +95,7 @@
                                                     <label for="name" class="form-label">Distributor Name:</label>
                                                 </div>
                                                 <div class="col-md-10">
-                                                    <input type="text" name="name" id="client_name" value=""
-                                                           class="form-control "
-                                                           placeholder="Organization /Name"
-                                                           aria-describedby="helpId" width="auto"/>
+                                                    <input type="text" name="name" id="client_name" value="" class="form-control " placeholder="Organization /Name" aria-describedby="helpId" width="auto" />
                                                 </div>
                                             </div>
                                         </div>
@@ -112,10 +108,7 @@
                                                         Name:</label>
                                                 </div>
                                                 <div class="col-md-10">
-                                                    <input type="text" name="representative_name" value=""
-                                                           id="client_representative_name" class="form-control "
-                                                           placeholder="Representative Name"
-                                                           aria-describedby="helpId"/>
+                                                    <input type="text" name="representative_name" value="" id="client_representative_name" class="form-control " placeholder="Representative Name" aria-describedby="helpId" />
                                                 </div>
                                             </div>
                                         </div>
@@ -128,10 +121,7 @@
                                                         Code:</label>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <input type="text" name="client_code" id="client_code" value=""
-                                                           class="form-control"
-                                                           placeholder=""
-                                                           aria-describedby="helpId"/>
+                                                    <input type="text" name="client_code" id="client_code" value="" class="form-control" placeholder="" aria-describedby="helpId" />
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -140,10 +130,7 @@
                                                         A/C No:</label>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <input type="text" name="virtual_account_no" id="" value=""
-                                                           class="form-control"
-                                                           placeholder=""
-                                                           aria-describedby="helpId"/>
+                                                    <input type="text" name="virtual_account_no" id="" value="" class="form-control" placeholder="" aria-describedby="helpId" />
                                                 </div>
                                             </div>
                                         </div>
@@ -178,9 +165,7 @@
                                             <div class="form-group col-sm-6">
                                                 <label for="contact_value_1" class="col-form-label">Contact
                                                     Value</label>
-                                                <input type="text" name="contact_value_1" id="" class="form-control"
-                                                       placeholder="Organization / Name"
-                                                       aria-describedby="helpId"/>
+                                                <input type="text" name="contact_value_1" id="" class="form-control" placeholder="Organization / Name" aria-describedby="helpId" />
                                             </div>
                                             <!--			Contact type 1-->
                                             <div class="form-group col-sm-6">
@@ -200,9 +185,7 @@
                                             <div class="form-group col-sm-6">
                                                 <label for="contact_value_2" class="col-form-label">Contact
                                                     Value</label>
-                                                <input type="text" name="contact_value_2" id="" class="form-control"
-                                                       placeholder="Organization /Name"
-                                                       aria-describedby="helpId"/>
+                                                <input type="text" name="contact_value_2" id="" class="form-control" placeholder="Organization /Name" aria-describedby="helpId" />
                                             </div>
                                             <!--			Contact type 2-->
                                             <div class="form-group col-sm-6">
@@ -220,20 +203,15 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-md-offset-8 col-md-4 switch-field">
-                                                <input type="radio" id="radio-one" name="is_active" value="1"
-                                                       checked/>
+                                                <input type="radio" id="radio-one" name="is_active" value="1" checked />
                                                 <label for="radio-one">Active</label>
-                                                <input type="radio" id="radio-two" name="is_active" value="0"/>
+                                                <input type="radio" id="radio-two" name="is_active" value="0" />
                                                 <label for="radio-two">Inactive</label>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-offset-6 col-md-4">
-                                                <p>Is this client user?<input type="checkbox" name="is_user"
-                                                                              value="true"
-                                                                              style="width: 30px; height: 30px;"
-                                                                              id="is_user"
-                                                                              onclick="enableCreateUser()"/></p>
+                                                <p>Is this client user?<input type="checkbox" name="is_user" value="true" style="width: 30px; height: 30px;" id="is_user" onclick="enableCreateUser()" /></p>
                                             </div>
                                         </div>
                                         <div class="row" id="user_register">
@@ -243,8 +221,7 @@
                                                         <label class="" for="username">Username:</label>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <input class="form-control" type="text" name="username"
-                                                               id="user_res" disabled/>
+                                                        <input class="form-control" type="text" name="username" id="user_res" disabled />
                                                     </div>
                                                 </div>
                                                 <br>
@@ -254,8 +231,7 @@
                                                         <label class="" for="password">Password:</label>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <input class="form-control" type="password" name="password"
-                                                               id="pass" disabled/>
+                                                        <input class="form-control" type="password" name="password" id="pass" disabled />
                                                     </div>
 
                                                 </div>
@@ -267,9 +243,7 @@
                                                                 Password:</label>
                                                         </div>
                                                         <div class="col-md-6">
-                                                            <input class="form-control" type="password"
-                                                                   name="confirm_password"
-                                                                   id="confirm_pass" disabled/>
+                                                            <input class="form-control" type="password" name="confirm_password" id="confirm_pass" disabled />
                                                         </div>
                                                     </div>
                                                 </div>
@@ -296,63 +270,60 @@
                 </div>
             </div>
             <div class="portlet-body">
-                <table class="table table-striped table-bordered table-hover table-checkable order-column"
-                       id="sample_3">
+                <table class="table table-striped table-bordered table-hover table-checkable order-column" id="sample_3">
                     <thead>
-                    <tr>
-                        <th class="table-checkbox">
-                            <input type="checkbox" class="group-checkable" data-set="#sample_3 .checkboxes"/>
-                        </th>
-                        <th> Name</th>
-                        <th> Designation</th>
-                        <th> Created Date</th>
-                        <th> Clint Code</th>
-                        <th> Status</th>
-                        <th> Action</th>
-                    </tr>
-                    <!-- allClient -->
+                        <tr>
+                            <th class="table-checkbox">
+                                <input type="checkbox" class="group-checkable" data-set="#sample_3 .checkboxes" />
+                            </th>
+                            <th> Name</th>
+                            <th> Designation</th>
+                            <th> Created Date</th>
+                            <th> Clint Code</th>
+                            <th> Status</th>
+                            <th> Action</th>
+                        </tr>
+                        <!-- allClient -->
 
                     </thead>
                     <tbody>
 
 
-                    <?php foreach ($allClient as $client) { ?>
-                        <tr class="odd gradeX">
-                            <td><input type="checkbox" class="checkboxes" value="1"/></td>
-                            <td> <?php echo $client['name'] ?> </td>
-                            <td> <?php echo $client['client_type'] ?> </td>
-                            <td> <?php echo $client['client_code'] ?> </td>
-                            <td> <?php echo $client['client_code'] ?> </td>
-                            <?php
-                            if ($client['is_active'] == '1') {
-                                ?>
-                                <td><span class="badge badge-success" style="width: 100%;height: 22px;">Active</span>
-                                </td>
+                        <?php foreach ($allClient as $client) { ?>
+                            <tr class="odd gradeX">
+                                <td><input type="checkbox" class="checkboxes" value="1" /></td>
+                                <td> <?php echo $client['name'] ?> </td>
+                                <td> <?php echo $client['client_type'] ?> </td>
+                                <td> <?php echo $client['client_code'] ?> </td>
+                                <td> <?php echo $client['client_code'] ?> </td>
                                 <?php
-                            } else {
+                                if ($client['is_active'] == '1') {
                                 ?>
-                                <td><span class="badge badge-danger" style="width: 100%;height: 22px;">InActive</span>
-                                </td>
+                                    <td><span class="badge badge-success" style="width: 100%;height: 22px;">Active</span>
+                                    </td>
                                 <?php
-                            }
-                            ?>
-                            <td>
-                                <div class="clearfix">
+                                } else {
+                                ?>
+                                    <td><span class="badge badge-danger" style="width: 100%;height: 22px;">InActive</span>
+                                    </td>
+                                <?php
+                                }
+                                ?>
+                                <td>
+                                    <div class="clearfix">
 
-                                    <a href="<?php echo base_url('client/updateClient/' . $client['id']); ?>"
-                                       class="btn btn-sm yellow" style="margin-bottom: 5px;"> Edit
-                                        <i class="fa fa-edit"></i>
-                                    </a>
+                                        <a href="<?php echo base_url('client/updateClient/' . $client['id']); ?>" class="btn btn-sm yellow" style="margin-bottom: 5px;"> Edit
+                                            <i class="fa fa-edit"></i>
+                                        </a>
 
-                                    <a onclick="deleteData(<?php echo $client['id'] ?>)" href="#" data-toggle="tooltip"
-                                       data-placement="bottom" title="Hapus Mahasiswa" class="btn btn-sm btn-danger">
-                                        <i class="fa fa-trash"></i> Delete</a>
+                                        <a onclick="deleteData(<?php echo $client['id'] ?>)" href="#" data-toggle="tooltip" data-placement="bottom" title="Hapus Mahasiswa" class="btn btn-sm btn-danger">
+                                            <i class="fa fa-trash"></i> Delete</a>
 
-                                </div>
-                            </td>
-                        </tr>
+                                    </div>
+                                </td>
+                            </tr>
 
-                    <?php } ?>
+                        <?php } ?>
 
                     </tbody>
                 </table>
@@ -372,19 +343,21 @@
                 cancelButtonColor: '#d33',
                 confirmButtonText: 'Yes, delete it!'
             },
-            function () {
+            function() {
                 $.ajax({
                     echo: Hello,
                     url: "<?php echo base_url('user/DeleteUser/') ?>",
                     type: "post",
-                    data: {id: id},
-                    success: function () {
+                    data: {
+                        id: id
+                    },
+                    success: function() {
                         swal('Data Deleted Successfully..', ' ', 'success');
-                        $("#delete" + id).fadeTo("slow", 0.7, function () {
+                        $("#delete" + id).fadeTo("slow", 0.7, function() {
                             $(this).remove();
                         })
                     },
-                    error: function () {
+                    error: function() {
                         swal('Something Error Found..', 'error');
                     }
                 });
@@ -392,8 +365,8 @@
             });
     }
 
-    $(document).ready(function () {
-        $("#submitt").click(function () {
+    $(document).ready(function() {
+        $("#submitt").click(function() {
             var name = $("#client_name").val();
             // var url = base_url + '/index.php/home/redeeming_form_value';
             console.alert("test");
