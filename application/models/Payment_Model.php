@@ -34,7 +34,7 @@ class Payment_Model extends CI_Model
             ->where('tbl_payment.order_code',$order_code);
         $result = $this->db->get();
         return $result->result_array();
-    }
+    }//
     public function getOrderDetail($order_code){
         $order_type =2;
         $multipleWhere = ['order_details.order_type' => $order_type, 'tbl_customer_order.order_code' => $order_code];
