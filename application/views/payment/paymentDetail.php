@@ -180,7 +180,7 @@
                         $localImgageBasePath2 = "http://localhost/asset/images/";
                         $remorteImageBasePath = "https://demo.onuserver.com/payFlex/asset/images/";
                         $imageName = $payment['image_name'];
-                        $imagePath = $localImgageBasePath . $clientInfo['client_id'] . "/";
+                        $imagePath = $remorteImageBasePath . $clientInfo['client_id'] . "/";
                         $imagePath .= $imageName;
                     } ?>
                     <tr>
