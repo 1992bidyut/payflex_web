@@ -33,7 +33,7 @@ class Payment extends CI_Controller
             $clientContact=$this->ClientModel->getClientsContact($orderDetail[0]['client_id']);
 
 //             echo json_encode(array('paymentDetail' => $paymentDetail,
-//            'orderDetail' => $orderDetail,//
+//            'orderDetail' => $orderDetail,
 //            'clientInfo' => $clientInfo,
 //            'clientContact'=>$clientContact));
 
