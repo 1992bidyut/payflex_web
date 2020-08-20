@@ -163,20 +163,20 @@ class Client extends CI_Controller
         $this->form_validation->set_rules('client_code', 'Client Code:', 'required');
         $this->form_validation->set_rules('virtual_account_no', 'Virtual A/C No:', 'required');
 
-        $client_array = $this->ClientModel->getAllClient();
+        // $client_array = $this->ClientModel->getAllClient();
         $getDSRs = $this->ClientModel->getAllDSR();
-        $UserContacts['contacts'] = $this->ClientModel->getClientsContactType();
-        $contactsType = $this->ClientModel->getClientsContactType();
+        // $UserContacts['contacts'] = $this->ClientModel->getClientsContactType();
+        // $contactsType = $this->ClientModel->getClientsContactType();
         if ($this->form_validation->run() == false) {
 
             $datas['content'] = $this->load->view(
-                'client/clientShow',
+                'client/updateClient',
                 array(
                     'operation' => $operation,
                     'client_info' => $client_info,
-                    'allClient' => $client_array,
+                    // 'allClient' => $client_array,
                     'getDSRs' => $getDSRs,
-                    'contacts' => $contactsType,
+                    // 'contacts' => $contactsType,
                 ),
                 true
             );
@@ -189,6 +189,30 @@ class Client extends CI_Controller
             $formArray['virtual_account_no'] = $this->input->post('virtual_account_no');
 
             $this->ClientModel->updateClient($client_id, $formArray);
+
+            //checking if handler exist against the client id
+            if (empty($this->ClientModel->checkClientEmployeeRelation($client_id))) {
+                $ceRelation = array();
+                $ceRelation['client_id'] = $client_id;
+                $ceRelation['client_pairID'] = $this->input->post('assign_dsr');
+                $explodedString = explode(".", $ceRelation['client_pairID']);
+                $ceRelation['handler_id'] = end($explodedString);
+                //$this->session->set_flashdata('success_clientPaid_handler_insertion', 'Client successfully created');
+                $ceRelation['is_active'] = 0;
+                $this->ClientModel->insertClientPairAndHandlerID($ceRelation);
+                $this->session->set_flashdata('success', 'Client successfully updated.');
+                redirect(base_url() . 'client/clientList');
+            }
+
+            //update handler
+            $ceRelationUpdate = array();
+            //$ceRelationUpdate['client_id'] = $this->input->post('client_id');
+            $ceRelationUpdate['client_pairID'] = $this->input->post('assign_dsr');
+            $explodedString = explode(".", $ceRelationUpdate['client_pairID']);
+            $ceRelationUpdate['handler_id'] = end($explodedString);
+            //$this->session->set_flashdata('success_clientPaid_handler_insertion', 'Client successfully created');
+            //$ceRelation['is_active'] = 1;
+            $this->ClientModel->updateDsr($client_id, $ceRelationUpdate);
             $this->session->set_flashdata('success', 'Client successfully updated.');
             redirect(base_url() . 'client/clientList');
         }
