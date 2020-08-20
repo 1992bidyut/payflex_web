@@ -1,3 +1,6 @@
+<!-- //TODO: complete the table -->
+
+
 <div class="table-container">
     <!--    1st row-->
     <div class="header-container border">
@@ -177,7 +180,7 @@
                         $localImgageBasePath2 = "http://localhost/asset/images/";
                         $remorteImageBasePath = "https://demo.onuserver.com/payFlex/asset/images/";
                         $imageName = $payment['image_name'];
-                        $imagePath = $localImgageBasePath2 . $clientInfo['client_id'] . "/";
+                        $imagePath = $localImgageBasePath . $clientInfo['client_id'] . "/";
                         $imagePath .= $imageName;
                     } ?>
                     <tr>

@@ -27,19 +27,31 @@ class Payment extends CI_Controller
         $this->load->model('ClientModel');
         $paymentDetail = $this->Payment_Model->getpaymentdetail($order_code);
         $orderDetail = $this->Payment_Model->getOrderDetail($order_code);
-        $clientInfo=$this->ClientModel->getClient($orderDetail[0]['client_id']);
-        $clientContact=$this->ClientModel->getClientsContact($orderDetail[0]['client_id']);
-//        echo json_encode(array('paymentDetail' => $paymentDetail,
+
+        if (count($paymentDetail)>0 && count($orderDetail)>0){
+            $clientInfo=$this->ClientModel->getClient($orderDetail[0]['client_id']);
+            $clientContact=$this->ClientModel->getClientsContact($orderDetail[0]['client_id']);
+
+//             echo json_encode(array('paymentDetail' => $paymentDetail,
 //            'orderDetail' => $orderDetail,
 //            'clientInfo' => $clientInfo,
 //            'clientContact'=>$clientContact));
 
-        $datas['content'] = $this->load->view('payment/paymentDetail',
-            array('paymentDetail' => $paymentDetail,
-                'orderDetail' => $orderDetail,
-                'clientInfo' => $clientInfo,
-                'clientContact'=>$clientContact), true);
-        $this->load->view('layouts/main_template', $datas);
+            $datas['content'] = $this->load->view('payment/paymentDetail',
+                array('paymentDetail' => $paymentDetail,
+                    'orderDetail' => $orderDetail,
+                    'clientInfo' => $clientInfo,
+                    'clientContact'=>$clientContact), true);
+            $this->load->view('layouts/main_template', $datas);
+        }else{
+            $this->load->model('LeaderBoardModel');
+            $leaderBoardData = $this->LeaderBoardModel->searchPaymentInfo();
+            //var_dump($leaderBoardData);
+            $dataArray = array('paymentInfoArray'=>$leaderBoardData);
+            $datas['content'] = $this->load->view('leader/leader', $dataArray, true);
+            $this->load->view( 'layouts/main_template',$datas);
+        }
+
     }
 
     public function paymentAccept(){

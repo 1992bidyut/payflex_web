@@ -152,7 +152,7 @@ class SMSLog extends CI_Controller {
         {
             echo 'No Log File Found';
         }
-
+//
 
 
     }
