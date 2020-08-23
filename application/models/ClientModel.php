@@ -189,4 +189,8 @@ class ClientModel extends CI_Model
     public function updateContacts($client_id,$data){
         $this->db->update_batch('tbl_contact', $data, $client_id);
     }
+    // public function getTotalContact($client_id){
+    //     $this->db->select('tbl_contact.id,tbl_contact.client')
+    //             ->from('tbl_contact');
+    // }
 }
