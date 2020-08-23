@@ -65,6 +65,7 @@ class LeaderBoardModel extends CI_Model{
             tbl_payment.id as paymentID,
 			tbl_payment.reference_no,
 			tbl_payment.payment_date_time, 
+			tbl_payment.submitted_date,
 			tbl_payment.amount,
 			tbl_payment.action_flag, 
 
