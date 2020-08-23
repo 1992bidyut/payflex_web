@@ -113,20 +113,19 @@ class Client extends CI_Controller
 
             //contact insertion
             $contactArray = array();
-            $contactArray = [
-                [
-                    'contact_value' => $this->input->post('contact_value_1'),
-                    'contact_type_id' => $this->input->post('contact_type_id_1'),
+            $contactArray = [];
+            $contact_counter = $this->input->post('contact_counter');
+            for ($i = 1; $i <= $contact_counter; $i++) {
+                $this->form_validation->set_rules('contact_value_' . $i, 'Contact Value', 'required');
+            }
+            for ($i = 1; $i <= $contact_counter; $i++) {
+                array_push($contactArray, [
+                    'contact_value' => $this->input->post('contact_value_' . $i),
+                    'contact_type_id' => $this->input->post('contact_type_id_' . $i),
                     'owner_id' => $client_inserted_id,
                     'owner_type' => 3,
-                ],
-                [
-                    'contact_value' => $this->input->post('contact_value_2'),
-                    'contact_type_id' => $this->input->post('contact_type_id_2'),
-                    'owner_id' => $client_inserted_id,
-                    'owner_type' => 3,
-                ],
-            ];
+                ]);
+            }
             //if ($this->form_validation->run('contactValue') == TRUE) {
             $this->ClientModel->createContacts($contactArray);
             //}

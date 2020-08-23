@@ -5,8 +5,6 @@
         if ($success != "") {
         ?>
             <div class="alert alert-success alert-dismissible" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span>
-                </button>
                 <strong><?php echo $success; ?></strong>
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -18,8 +16,7 @@
         if ($failure != "") {
         ?>
             <div class="alert alert-warning alert-dismissible" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span>
-                </button>
+                
                 <strong><?php echo $failure; ?></strong>
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -165,9 +162,10 @@
                                         <div id="addMultiContact">
                                             <div class="row">
                                                 <div class="form-group col-sm-6">
+                                                    <input type="hidden" id="contact_counter" name="contact_counter" value="">
                                                     <label for="contact_value_1" class="col-form-label">Contact
                                                         Value</label>
-                                                    <input type="text" name="contact_value_1" id="" class="form-control" placeholder="Organization / Name" aria-describedby="helpId" />
+                                                    <input type="text" name="contact_value_1" id="" class="form-control" placeholder="Contact Value" aria-describedby="helpId" />
                                                 </div>
                                                 <!--			Contact type 1-->
                                                 <div class="form-group col-sm-6">
@@ -187,7 +185,7 @@
                                                 <div class="form-group col-sm-6">
                                                     <label for="contact_value_2" class="col-form-label">Contact
                                                         Value</label>
-                                                    <input type="text" name="contact_value_2" id="" class="form-control" placeholder="Organization /Name" aria-describedby="helpId" />
+                                                    <input type="text" name="contact_value_2" id="" class="form-control" placeholder="Contact Value" aria-describedby="helpId" />
                                                 </div>
                                                 <!--			Contact type 2-->
                                                 <div class="form-group col-sm-6">
@@ -205,12 +203,13 @@
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-md-offset-11 col-md-1 inputGroupContainer plusButton">
+                                            <div class="col-md-offset-10 col-md-2 plusButton border" style="border:1px solid black; cursor:pointer;">
                                                 <span class="input-group-addon" style="border: none;">
                                                     <i class="glyphicon glyphicon-plus"></i>Another
                                                 </span>
                                             </div>
                                         </div>
+                                        <br>
                                         <div class="row">
                                             <div class="col-md-offset-8 col-md-4 switch-field">
                                                 <input type="radio" id="radio-one" name="is_active" value="1" checked />
@@ -421,8 +420,8 @@
 
         plus.click(function() {
             counter++;
-            selector.after('<div class="row" id="' + 'contact_id_' + counter + '"><div class="form-group col-sm-6"><label for="' + 'contact_value_id_' + counter + '" class="col-form-label">Contact Value</label><input type="text" name="' + 'contact_value_id_' + counter + '" id="" class="form-control" placeholder="Organization / Name" aria-describedby="helpId" /></div><div class="form-group col-sm-5"><label for="' + 'contact_type_id_' + counter + '" class="col-form-label">Contact Type</label><br><select name="' + 'contact_type_id_' + counter + '" class="form-control col-sm-12"><?php foreach ($contacts as $contact) { ?><option value=<?php echo "\"" . $contact['id'] . "\""; ?>><?php echo $contact['contact_type']; ?></option><?php } ?></select></div><div class="col-md-1 x"><span class="remove-btn input-group-addon "><i class="glyphicon glyphicon-remove rmvButton" data-target="#' + 'contact_id_' + counter + '"></i></span></div></div>');
-
+            selector.append('<div class="row" id="' + 'contact_id_' + counter + '"><div class="form-group col-sm-6"><label for="' + 'contact_value_' + counter + '" class="col-form-label">Contact Value</label><input type="text" name="' + 'contact_value_' + counter + '" id="" class="form-control" placeholder="Contact Value" aria-describedby="helpId" /></div><div class="form-group col-sm-5"><label for="' + 'contact_type_id_' + counter + '" class="col-form-label">Contact Type</label><br><select name="' + 'contact_type_id_' + counter + '" class="form-control col-sm-11"><?php foreach ($contacts as $contact) { ?><option value=<?php echo "\"" . $contact['id'] . "\""; ?>><?php echo $contact['contact_type']; ?></option><?php } ?></select></div><br><div class="col-md-1 x" style="margin-top:9px;"><span class="remove-btn input-group-addon "><i class="glyphicon glyphicon-remove rmvButton" data-target="#' + 'contact_id_' + counter + '"></i></span></div></div>');
+            $("#contact_counter").val(counter);
         });
 
         selector.on("click", ".rmvButton", function() {
@@ -431,7 +430,9 @@
             if (counter > 2) {
                 $(item_id).remove();
                 counter--;
+                $("#contact_counter").val(counter);
             }
         });
     });
+    // end
 </script>
