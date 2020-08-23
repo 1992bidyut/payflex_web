@@ -135,7 +135,7 @@
                                             </div>
                                         </div>
                                         <br>
-                                        
+
                                         <!--			Assign DSR-->
                                         <div class="row">
                                             <div class="col-md-2">
@@ -162,45 +162,54 @@
                                             </div>
                                         </div>
                                         <!--			Contact value 1-->
-                                        <div class="row">
-                                            <div class="form-group col-sm-6">
-                                                <label for="contact_value_1" class="col-form-label">Contact
-                                                    Value</label>
-                                                <input type="text" name="contact_value_1" id="" class="form-control" placeholder="Organization / Name" aria-describedby="helpId" />
+                                        <div id="addMultiContact">
+                                            <div class="row">
+                                                <div class="form-group col-sm-6">
+                                                    <label for="contact_value_1" class="col-form-label">Contact
+                                                        Value</label>
+                                                    <input type="text" name="contact_value_1" id="" class="form-control" placeholder="Organization / Name" aria-describedby="helpId" />
+                                                </div>
+                                                <!--			Contact type 1-->
+                                                <div class="form-group col-sm-6">
+                                                    <label for="contact_type_id_1" class="col-form-label">Contact
+                                                        Type</label><br>
+                                                    <select name="contact_type_id_1" class="form-control col-sm-12">
+                                                        <?php foreach ($contacts as $contact) { ?>
+                                                            <option value=<?php echo "\"" . $contact['id'] . "\""; ?>>
+                                                                <?php echo $contact['contact_type']; ?>
+                                                            </option>
+                                                        <?php } ?>
+                                                    </select>
+                                                </div>
                                             </div>
-                                            <!--			Contact type 1-->
-                                            <div class="form-group col-sm-6">
-                                                <label for="contact_type_id_1" class="col-form-label">Contact
-                                                    Type</label><br>
-                                                <select name="contact_type_id_1" class="form-control col-sm-12">
-                                                    <?php foreach ($contacts as $contact) { ?>
-                                                        <option value=<?php echo "\"" . $contact['id'] . "\""; ?>>
-                                                            <?php echo $contact['contact_type']; ?>
-                                                        </option>
-                                                    <?php } ?>
-                                                </select>
+                                            <div class="row">
+                                                <!--			Contact value 2-->
+                                                <div class="form-group col-sm-6">
+                                                    <label for="contact_value_2" class="col-form-label">Contact
+                                                        Value</label>
+                                                    <input type="text" name="contact_value_2" id="" class="form-control" placeholder="Organization /Name" aria-describedby="helpId" />
+                                                </div>
+                                                <!--			Contact type 2-->
+                                                <div class="form-group col-sm-6">
+                                                    <label for="contact_type_2" class="col-form-label">Contact
+                                                        Type</label><br>
+                                                    <select name="contact_type_id_2" class="form-control col-sm-12">
+                                                        <?php foreach ($contacts as $contact) { ?>
+                                                            <option value=<?php echo "\"" . $contact['id'] . "\""; ?>>
+                                                                <?php echo $contact['contact_type']; ?>
+                                                            </option>
+                                                        <?php } ?>
+                                                    </select>
+                                                </div>
+
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <!--			Contact value 2-->
-                                            <div class="form-group col-sm-6">
-                                                <label for="contact_value_2" class="col-form-label">Contact
-                                                    Value</label>
-                                                <input type="text" name="contact_value_2" id="" class="form-control" placeholder="Organization /Name" aria-describedby="helpId" />
+                                            <div class="col-md-offset-11 col-md-1 inputGroupContainer plusButton">
+                                                <span class="input-group-addon" style="border: none;">
+                                                    <i class="glyphicon glyphicon-plus"></i>Another
+                                                </span>
                                             </div>
-                                            <!--			Contact type 2-->
-                                            <div class="form-group col-sm-6">
-                                                <label for="contact_type_2" class="col-form-label">Contact
-                                                    Type</label><br>
-                                                <select name="contact_type_id_2" class="form-control col-sm-12">
-                                                    <?php foreach ($contacts as $contact) { ?>
-                                                        <option value=<?php echo "\"" . $contact['id'] . "\""; ?>>
-                                                            <?php echo $contact['contact_type']; ?>
-                                                        </option>
-                                                    <?php } ?>
-                                                </select>
-                                            </div>
-
                                         </div>
                                         <div class="row">
                                             <div class="col-md-offset-8 col-md-4 switch-field">
@@ -400,4 +409,29 @@
             document.getElementById("confirm_pass").disabled = true;
         }
     }
+
+    /* Multiple Email and Phone Number portion. Author Sharif sir, Date: 27/06/2019 */
+
+    var counter = 2;
+    $(function() {
+
+        var plus = $(".plusButton");
+        var del = $(".rmvButton");
+        var selector = $("#addMultiContact");
+
+        plus.click(function() {
+            counter++;
+            selector.after('<div class="row" id="' + 'contact_id_' + counter + '"><div class="form-group col-sm-6"><label for="' + 'contact_value_id_' + counter + '" class="col-form-label">Contact Value</label><input type="text" name="' + 'contact_value_id_' + counter + '" id="" class="form-control" placeholder="Organization / Name" aria-describedby="helpId" /></div><div class="form-group col-sm-5"><label for="' + 'contact_type_id_' + counter + '" class="col-form-label">Contact Type</label><br><select name="' + 'contact_type_id_' + counter + '" class="form-control col-sm-12"><?php foreach ($contacts as $contact) { ?><option value=<?php echo "\"" . $contact['id'] . "\""; ?>><?php echo $contact['contact_type']; ?></option><?php } ?></select></div><div class="col-md-1 x"><span class="remove-btn input-group-addon "><i class="glyphicon glyphicon-remove rmvButton" data-target="#' + 'contact_id_' + counter + '"></i></span></div></div>');
+
+        });
+
+        selector.on("click", ".rmvButton", function() {
+
+            var item_id = $(this).data("target");
+            if (counter > 2) {
+                $(item_id).remove();
+                counter--;
+            }
+        });
+    });
 </script>

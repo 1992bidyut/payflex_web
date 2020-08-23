@@ -167,4 +167,26 @@ class ClientModel extends CI_Model
         $this->db->where('client_id', $client_id);
         $this->db->update('tbl_client_employee_relation', $formArray);
     }
+    public function getContacts($client_id)
+    {
+        $multipleWhere = ['tbl_contact.owner_id' => $client_id, 'tbl_contact.owner_type' => 3];
+        $this->db->select('tbl_contact.id as contact_id,
+        tbl_contact.contact_type_id,              
+        tbl_contact.contact_value,              
+        tbl_contact.owner_id,              
+        tbl_contact.owner_type,              
+        tbl_contact_type.id as tbl_contact_type_id,              
+        tbl_contact_type.contact_type,              
+        tbl_contact_type.parent_id,              
+        tbl_contact_type.user_type              
+        ')
+            ->from('tbl_contact')
+            ->join('tbl_contact', 'tbl_contact.contact_type_id = tbl_contact_type.id', 'left')
+            ->where($multipleWhere);
+        $result = $this->db->get()->result_array();
+        return $result;
+    }
+    public function updateContacts($client_id,$data){
+        $this->db->update_batch('tbl_contact', $data, $client_id);
+    }
 }

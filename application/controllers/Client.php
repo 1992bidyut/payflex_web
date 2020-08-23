@@ -187,6 +187,7 @@ class Client extends CI_Controller
             $formArray['representative_name'] = $this->input->post('representative_name');
             $formArray['client_code'] = $this->input->post('client_code');
             $formArray['virtual_account_no'] = $this->input->post('virtual_account_no');
+            $formArray['is_active'] = $this->input->post('is_active');
 
             $this->ClientModel->updateClient($client_id, $formArray);
 
@@ -216,6 +217,24 @@ class Client extends CI_Controller
             $this->session->set_flashdata('success', 'Client successfully updated.');
             redirect(base_url() . 'client/clientList');
         }
+    }
+    public function updateContact($client_id)
+    {
+        $this->load->model('ClientModel');
+        $contacts = $this->ClientModel->getContacts($client_id);
+        $this->load->helper(array('form', 'url')); //required
+        $this->load->library('form_validation'); //required
+        $this->form_validation->set_rules('contact_value_1', 'Contact Value', 'required');
+        $this->form_validation->set_rules('contact_type_1', 'Contact Value', 'required');
+        $this->form_validation->set_rules('contact_value_2', 'Contact Value', 'required');
+        $this->form_validation->set_rules('contact_type_2', 'Contact Value', 'required');
+
+        $datas['content'] = $this->load->view(
+            'client/updateContact',
+            array('contacts' => $contacts),
+            true
+        );
+        $this->load->view('layouts/main_template', $datas);
     }
 
     //    public function createClient2()

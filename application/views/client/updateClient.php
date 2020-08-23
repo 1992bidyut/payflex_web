@@ -111,6 +111,22 @@
                 </div>
 
             </div>
+
+            <br>
+            <!-- is active -->
+            <div class="row">
+                <div class="col-md-offset-8 col-md-4 switch-field">
+                    <input type="radio" id="radio-one" name="is_active" value="1" <?php if ($client_info['is_active'] == 1) {
+                                                                                        echo "checked";
+                                                                                    } ?> />
+                    <label for="radio-one">Active</label>
+                    <input type="radio" id="radio-two" name="is_active" value="0" <?php if ($client_info['is_active'] == 0) {
+                                                                                        echo "checked";
+                                                                                    } ?> />
+                    <label for="radio-two">Inactive</label>
+                </div>
+            </div>
+
             <button class="btn btn-primary" type="submit">
                 Update
             </button>
