@@ -100,7 +100,8 @@ class LeaderBoardModel extends CI_Model{
             left join product_details on order_details.product_id = product_details.id ) as orderwithPName 
             GROUP BY orderwithPName.customer_order_id) as combainedOrderDetails on combainedOrderDetails.
             customer_order_id =tbl_customer_order.id
-            WHERE tbl_payment.submitted_date>='2020-07-03 00:00:00') as myLeaderBoard";
+            WHERE tbl_payment.submitted_date>='2020-07-03 00:00:00') as myLeaderBoard 
+            ORDER BY myLeaderBoard.submitted_date DESC";
 
        // $this->db->select($leaderSQL);
         $resource = $this->db->query($leaderSQL);

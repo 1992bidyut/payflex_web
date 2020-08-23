@@ -136,7 +136,8 @@ class SearchModel extends CI_Model
             GROUP BY orderwithPName.customer_order_id) as combainedOrderDetails on combainedOrderDetails.
             customer_order_id =tbl_customer_order.id
             WHERE tbl_payment.submitted_date>= '".$from
-			." 00:00:00' and tbl_payment.submitted_date <= '".$to." 23:59:59') as myLeaderBoard";
+			." 00:00:00' and tbl_payment.submitted_date <= '".$to." 23:59:59') as myLeaderBoard 
+			ORDER BY myLeaderBoard.submitted_date DESC";
 
 		// $this->db->select($leaderSQL);
 		$resource = $this->db->query($leaderSQL);
