@@ -2,24 +2,19 @@
 class DashboardsModel extends CI_Model
 {
 
-    public function orderCounts($startingDate = null , $endingDate = null)
+    public function orderCounts($startingDate, $endingDate)
     {
-
         $myQueryString ="SELECT count(id) as number_of_order FROM tbl_customer_order 
-         WHERE delivery_date between date('" . $startingDate . "') and date('". $endingDate ."')";
-          
+         WHERE delivery_date >='" . $startingDate . "' and delivery_date <='". $endingDate ."'";
+
          //die ($myQueryString); 
         if( empty($startingDate) || empty($endingDate))
         {
             return 0;
         }
-
-        
         $sqlQeury = $this->db->query($myQueryString);
 //        $sqlQeury = $this->db->get('number_of_order');
-
         $sqlReturn = $sqlQeury->result();
-
         //var_dump($sqlReturn);
         
         if($sqlQeury->num_rows() > 0)
@@ -33,17 +28,16 @@ class DashboardsModel extends CI_Model
         
     }
 
-    public function paymentCounts($startingDate = null , $endingDate = null)
+    public function paymentCounts($startingDate , $endingDate)
     {
         $myQueryString ="SELECT count(id) as number_of_payment FROM tbl_payment 
-            WHERE payment_date_time between date('" . $startingDate . "') and date('". $endingDate ."')";
+            WHERE submitted_date  >='" . $startingDate . " 00:00:00' and submitted_date  <='". $endingDate ." 23:59:59'";
             
         if( empty($startingDate) || empty($endingDate))
         {
             return 0;
         }
 
-        
         $sqlQeury = $this->db->query($myQueryString);
 //        $sqlQeury = $this->db->get('number_of_order');
 
@@ -61,7 +55,36 @@ class DashboardsModel extends CI_Model
         }
 
     }
+    public function validePaymentCounts($startingDate,$endingDate){
+        $myQueryString ="SELECT count(id) as number_of_payment FROM tbl_payment 
+            WHERE submitted_date  >='" . $startingDate . " 00:00:00' and submitted_date  <='". $endingDate ." 23:59:59'and action_flag !=0";
 
+        if( empty($startingDate) || empty($endingDate))
+        {
+            return 0;
+        }
+
+        $sqlQeury = $this->db->query($myQueryString);
+//        $sqlQeury = $this->db->get('number_of_order');
+
+        $sqlReturn = $sqlQeury->result();
+
+        //var_dump($sqlReturn);
+
+        if($sqlQeury->num_rows() > 0)
+        {
+            return $sqlReturn[0]->number_of_payment;
+        }
+        else
+        {
+            return 0;
+        }
+    }
+
+
+
+
+    ////////////////////////////////////////old code
     public function todaySuccessSms(){
 
         $this->db->where('msg_status',2)
