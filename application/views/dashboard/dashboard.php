@@ -50,7 +50,7 @@
         setValFromAjaxToDiv("#OrderCountBox", "dashboard/orderCounts/", urlQueryString );
 		setValFromAjaxToDiv("#PaymentCountBox", "dashboard/paymentCounts/", urlQueryString );
 		setValFromAjaxToDiv("#PaymentValidatedCountBox", "dashboard/validatedPaymentCounts/", urlQueryString );
-		setValFromAjaxToDiv("#PaymentAmountTotalBox", "dashboard/paymentCounts/", urlQueryString );
+		setValFromAjaxToDiv("#PaymentAmountTotalBox", "dashboard/todayPayment/", urlQueryString );
 		setValFromAjaxToDiv("#PaymentTargetAmountBox", "dashboard/targetPayment/", urlQueryString );
     });
 </script>

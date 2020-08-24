@@ -20,7 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="571daff3-120e-4fae-92da-81dcf9e1bc68" name="Default Changelist" comment="dashboard fixing">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Dashboard.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/models/DashboardsModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/DashboardsModel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/dashboard/dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/dashboard/dashboard.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -282,7 +285,21 @@
       <option name="project" value="LOCAL" />
       <updated>1598302240034</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="dashboard fixing">
+      <created>1598302389219</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1598302389219</updated>
+    </task>
+    <task id="LOCAL-00027" summary="dashboard fixing">
+      <created>1598302452488</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1598302452488</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -344,10 +361,10 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="555" y="51" key="VCS.ChangeListViewerDialog/0.0.1536.834@0.0.1536.834" timestamp="1597831983474" />
-    <state x="361" y="137" key="Vcs.Push.Dialog.v2" timestamp="1598302243094">
+    <state x="361" y="137" key="Vcs.Push.Dialog.v2" timestamp="1598302454863">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="361" y="137" key="Vcs.Push.Dialog.v2/0.0.1536.834/1920.0.1366.738@0.0.1536.834" timestamp="1598302243094" />
+    <state x="361" y="137" key="Vcs.Push.Dialog.v2/0.0.1536.834/1920.0.1366.738@0.0.1536.834" timestamp="1598302454863" />
     <state x="361" y="137" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1598295876388" />
     <state x="561" y="232" width="413" height="352" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog" timestamp="1597174798873">
       <screen x="0" y="0" width="1536" height="824" />
