@@ -83,7 +83,7 @@ class DashboardsModel extends CI_Model
 
     public function todayTargetPayment($startingDate,$endingDate){
         $myQueryString ="SELECT SUM(ordered_amount) as today_terget_payment FROM order_details 
-            WHERE delevary_date  >='" . $startingDate . "' and submitted_date  <='". $endingDate ."'and order_type =='2'";
+            WHERE delevary_date  >='" . $startingDate . "' and submitted_date  <='". $endingDate ."' and order_type == '2'";
 
         if( empty($startingDate) || empty($endingDate))
         {
