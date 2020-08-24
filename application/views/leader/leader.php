@@ -104,7 +104,7 @@
 								}
 								else
 								{
-									echo "No image Attached";
+									echo "No image Attached";//
 								}
 							
 							
