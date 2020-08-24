@@ -21,8 +21,6 @@
   <component name="ChangeListManager">
     <list default="true" id="571daff3-120e-4fae-92da-81dcf9e1bc68" name="Default Changelist" comment="dashboard fixing">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/Dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Dashboard.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/models/DashboardsModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/DashboardsModel.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/views/dashboard/dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/dashboard/dashboard.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -108,7 +106,7 @@
       <workItem from="1597736939593" duration="146000" />
       <workItem from="1597770358438" duration="1059000" />
       <workItem from="1598219736739" duration="1450000" />
-      <workItem from="1598289768592" duration="5406000" />
+      <workItem from="1598289768592" duration="6014000" />
     </task>
     <task id="LOCAL-00001" summary="validation bug fix and make an new example testView">
       <created>1597333094672</created>
@@ -250,7 +248,21 @@
       <option name="project" value="LOCAL" />
       <updated>1598294808566</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="dashboard fixing">
+      <created>1598295193649</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1598295193649</updated>
+    </task>
+    <task id="LOCAL-00022" summary="dashboard fixing">
+      <created>1598295682197</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1598295682197</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -312,10 +324,10 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="555" y="51" key="VCS.ChangeListViewerDialog/0.0.1536.834@0.0.1536.834" timestamp="1597831983474" />
-    <state x="361" y="137" key="Vcs.Push.Dialog.v2" timestamp="1598294814349">
+    <state x="361" y="137" key="Vcs.Push.Dialog.v2" timestamp="1598295685031">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="361" y="137" key="Vcs.Push.Dialog.v2/0.0.1536.834/1920.0.1366.738@0.0.1536.834" timestamp="1598294814349" />
+    <state x="361" y="137" key="Vcs.Push.Dialog.v2/0.0.1536.834/1920.0.1366.738@0.0.1536.834" timestamp="1598295685031" />
     <state x="361" y="137" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1597938719558" />
     <state x="561" y="232" width="413" height="352" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog" timestamp="1597174798873">
       <screen x="0" y="0" width="1536" height="824" />

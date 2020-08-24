@@ -42,9 +42,9 @@
     
     $( document ).ready(function()
     {
-
-        startDate = "2020-05-02";
-        endDate = "2020-07-30";
+        var today = new Date();
+        startDate = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+        endDate = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
         urlQueryString = startDate+"/"+endDate;
         
         setValFromAjaxToDiv("#OrderCountBox", "dashboard/orderCounts/", urlQueryString );
