@@ -111,7 +111,31 @@
                 </div>
 
             </div>
-
+            <br>
+            // TODO: need to use for loop to make fields
+            <div id="addMultiContact">
+                <?php for($i=1; $i <= $total_contact; $i++){ ?>
+                <div class="row">
+                    <div class="form-group col-sm-6">
+                        <input type="hidden" id="contact_counter" name="contact_counter" value="">
+                        <label for="<?php echo "contact_value_".$i; ?>" class="col-form-label">Contact Value</label>
+                        <input type="text" name="<?php echo "contact_value_".$i; ?>" value="<?php set_value('contact_value_'.$i, $contacts_info[$i]['contact_value']); ?>" id="" class="form-control" placeholder="Contact Value" aria-describedby="helpId" />
+                    </div>
+                    <!--			Contact type 1-->
+                    <div class="form-group col-sm-6">
+                        <label for="contact_type_id_1" class="col-form-label">Contact
+                            Type</label><br>
+                        <select name="contact_type_id_1" class="form-control col-sm-12">
+                            <?php foreach ($contacts as $contact) { ?>
+                                <option value=<?php echo "\"" . $contact['id'] . "\""; ?>>
+                                    <?php echo $contact['contact_type']; ?>
+                                </option>
+                            <?php } ?>
+                        </select>
+                    </div>
+                </div>
+                <?php } ?>
+            </div>
             <br>
             <!-- is active -->
             <div class="row">

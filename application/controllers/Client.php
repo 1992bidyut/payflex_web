@@ -164,6 +164,9 @@ class Client extends CI_Controller
 
         // $client_array = $this->ClientModel->getAllClient();
         $getDSRs = $this->ClientModel->getAllDSR();
+        $contacts_info = $this->ClientModel->getClientsContact($client_id);
+        $total_contact = count($contacts_info);
+        $contactsType = $this->ClientModel->getClientsContactType();
         // $UserContacts['contacts'] = $this->ClientModel->getClientsContactType();
         // $contactsType = $this->ClientModel->getClientsContactType();
         if ($this->form_validation->run() == false) {
@@ -173,9 +176,10 @@ class Client extends CI_Controller
                 array(
                     'operation' => $operation,
                     'client_info' => $client_info,
-                    // 'allClient' => $client_array,
+                    'contacts_info' => $contacts_info,
                     'getDSRs' => $getDSRs,
-                    // 'contacts' => $contactsType,
+                    'total_contact'=>$total_contact,
+                    'contacts' => $contactsType,
                 ),
                 true
             );
