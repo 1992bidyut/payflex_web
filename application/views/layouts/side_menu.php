@@ -116,12 +116,12 @@
                             <span class="title">Client List </span>
                         </a>
                     </li>
-                    <li class="nav-item  ">
-                        <a href="<?php echo site_url('client/createClient2');?>" class="nav-link ">
-                            <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
-                            <span class="title">Add New Client</span>
-                        </a>
-                    </li>
+<!--                    <li class="nav-item  ">-->
+<!--                        <a href="--><?php //echo site_url('client/createClient2');?><!--" class="nav-link ">-->
+<!--                            <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>-->
+<!--                            <span class="title">Add New Client</span>-->
+<!--                        </a>-->
+<!--                    </li>-->
                 </ul>
             </li>
 
@@ -135,30 +135,30 @@
                 else
                 {
                 ?>
-            <li class="nav-item">
+<!--            <li class="nav-item">-->
                 <?php
                 }
                 ?>
-                <a href="javascript:;" class="nav-link nav-toggle">
-                    <i class="fa fa-map-signs"></i>
-                    <span class="title">Products</span>
-                    <span class="arrow"></span>
-                </a>
-                <ul class="sub-menu">
-                    <li class="nav-item  ">
-                        <a href="#" class="nav-link ">
-                            <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
-                            <span class="title">Products List</span>
-                        </a>
-                    </li>
-                    <li class="nav-item  ">
-                        <a href="#" class="nav-link ">
-                            <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
-                            <span class="title">Add New Product</span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
+<!--                <a href="javascript:;" class="nav-link nav-toggle">-->
+<!--                    <i class="fa fa-map-signs"></i>-->
+<!--                    <span class="title">Products</span>-->
+<!--                    <span class="arrow"></span>-->
+<!--                </a>-->
+<!--                <ul class="sub-menu">-->
+<!--                    <li class="nav-item  ">-->
+<!--                        <a href="#" class="nav-link ">-->
+<!--                            <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>-->
+<!--                            <span class="title">Products List</span>-->
+<!--                        </a>-->
+<!--                    </li>-->
+<!--                    <li class="nav-item  ">-->
+<!--                        <a href="#" class="nav-link ">-->
+<!--                            <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>-->
+<!--                            <span class="title">Add New Product</span>-->
+<!--                        </a>-->
+<!--                    </li>-->
+<!--                </ul>-->
+<!--            </li>-->
 
 
             <?php if($this->uri->segment(1) == 'operatorRoute')

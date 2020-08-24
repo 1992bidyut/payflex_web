@@ -81,6 +81,59 @@ class DashboardsModel extends CI_Model
         }
     }
 
+    public function todayTargetPayment($startingDate,$endingDate){
+        $myQueryString ="SELECT SUM(ordered_amount) as today_terget_payment FROM order_details 
+            WHERE delevary_date  >='" . $startingDate . "' and delevary_date  <='". $endingDate ."' and order_type = '2'";
+
+        if( empty($startingDate) || empty($endingDate))
+        {
+            return 0;
+        }
+
+        $sqlQeury = $this->db->query($myQueryString);
+//        $sqlQeury = $this->db->get('number_of_order');
+
+        $sqlReturn = $sqlQeury->result();
+
+        //var_dump($sqlReturn);
+
+        if($sqlQeury->num_rows() > 0)
+        {
+            return $sqlReturn[0]->today_terget_payment;
+        }
+        else
+        {
+            return 0;
+        }
+    }
+
+    public function todayTotalPayment($startingDate,$endingDate){
+
+        $myQueryString ="SELECT SUM(amount) as today_payment_payment FROM tbl_payment
+            WHERE submitted_date  >='" . $startingDate . " 00:00:00' and submitted_date  <='". $endingDate ." 23:59:59'";
+
+        if( empty($startingDate) || empty($endingDate))
+        {
+            return 0;
+        }
+
+        $sqlQeury = $this->db->query($myQueryString);
+//        $sqlQeury = $this->db->get('number_of_order');
+
+        $sqlReturn = $sqlQeury->result();
+
+        //var_dump($sqlReturn);
+
+        if($sqlQeury->num_rows() > 0)
+        {
+            return $sqlReturn[0]->today_payment_payment;
+        }
+        else
+        {
+            return 0;
+        }
+    }
+
 
 
 
