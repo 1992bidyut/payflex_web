@@ -31,7 +31,7 @@ class DashboardsModel extends CI_Model
     public function paymentCounts($startingDate , $endingDate)
     {
         $myQueryString ="SELECT count(id) as number_of_payment FROM tbl_payment 
-            WHERE payment_date_time >='" . $startingDate . " 00:00:00' and payment_date_time <='". $endingDate ." 11:59:59'";
+            WHERE submitted_date  >='" . $startingDate . " 00:00:00' and submitted_date  <='". $endingDate ." 23:59:59'";
             
         if( empty($startingDate) || empty($endingDate))
         {
@@ -57,7 +57,7 @@ class DashboardsModel extends CI_Model
     }
     public function validePaymentCounts($startingDate,$endingDate){
         $myQueryString ="SELECT count(id) as number_of_payment FROM tbl_payment 
-            WHERE payment_date_time >='" . $startingDate . " 00:00:00' and payment_date_time <='". $endingDate ." 11:59:59'and action_flag !=0";
+            WHERE submitted_date  >='" . $startingDate . " 00:00:00' and submitted_date  <='". $endingDate ." 23:59:59'and action_flag !=0";
 
         if( empty($startingDate) || empty($endingDate))
         {
