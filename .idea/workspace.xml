@@ -20,7 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="571daff3-120e-4fae-92da-81dcf9e1bc68" name="Default Changelist" comment="dashboard fixing">
-      <change beforePath="$PROJECT_DIR$/application/models/DashboardsModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/DashboardsModel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Payment.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Payment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/models/Payment_Model.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/Payment_Model.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -303,7 +305,14 @@
       <option name="project" value="LOCAL" />
       <updated>1598302951395</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="dashboard fixing">
+      <created>1598303052402</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1598303052402</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -365,10 +374,10 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="555" y="51" key="VCS.ChangeListViewerDialog/0.0.1536.834@0.0.1536.834" timestamp="1597831983474" />
-    <state x="361" y="137" key="Vcs.Push.Dialog.v2" timestamp="1598302953439">
+    <state x="361" y="137" key="Vcs.Push.Dialog.v2" timestamp="1598303054801">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="361" y="137" key="Vcs.Push.Dialog.v2/0.0.1536.834/1920.0.1366.738@0.0.1536.834" timestamp="1598302953439" />
+    <state x="361" y="137" key="Vcs.Push.Dialog.v2/0.0.1536.834/1920.0.1366.738@0.0.1536.834" timestamp="1598303054801" />
     <state x="361" y="137" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1598295876388" />
     <state x="561" y="232" width="413" height="352" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog" timestamp="1597174798873">
       <screen x="0" y="0" width="1536" height="824" />
@@ -392,10 +401,11 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="530" y="205" key="git4idea.merge.GitMergeDialog/0.0.1536.834/1920.0.1366.738@0.0.1536.834" timestamp="1598277224717" />
-    <state x="425" y="189" key="run.anything.popup" timestamp="1597808823928">
+    <state x="425" y="189" key="run.anything.popup" timestamp="1598303324561">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1597253903389" />
+    <state x="425" y="189" key="run.anything.popup/0.0.1536.834/1920.0.1366.738@0.0.1536.834" timestamp="1598303324561" />
     <state x="425" y="189" key="run.anything.popup/0.0.1536.834@0.0.1536.834" timestamp="1597808823928" />
     <state x="498" y="178" width="672" height="538" key="search.everywhere.popup" timestamp="1597183940953">
       <screen x="0" y="0" width="1536" height="824" />
