@@ -21,6 +21,8 @@
   <component name="ChangeListManager">
     <list default="true" id="571daff3-120e-4fae-92da-81dcf9e1bc68" name="Default Changelist" comment="dashboard fixing">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Dashboard.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/models/DashboardsModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/DashboardsModel.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/views/dashboard/dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/dashboard/dashboard.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

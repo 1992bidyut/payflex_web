@@ -96,6 +96,12 @@ class Dashboard extends CI_Controller{
         $thePaymentCounts	 = $this->DashboardsModel->validePaymentCounts($startingDate, $endingDate);
 		echo $thePaymentCounts;
 	}
+
+    public function targetPayment($startingDate = null , $endingDate = null )
+    {
+        $thePaymentCounts	 = $this->DashboardsModel->todayTargetPayment($startingDate, $endingDate);
+        echo $thePaymentCounts;
+    }
 	
 
 
