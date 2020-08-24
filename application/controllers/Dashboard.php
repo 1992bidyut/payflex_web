@@ -93,7 +93,7 @@ class Dashboard extends CI_Controller{
 	
 	public function validatedPaymentCounts($startingDate = null , $endingDate = null )
 	{
-        $thePaymentCounts	 = $this->DashboardsModel->validatedPaymentCounts($startingDate, $endingDate);
+        $thePaymentCounts	 = $this->DashboardsModel->validePaymentCounts($startingDate, $endingDate);
 		echo $thePaymentCounts;
 	}
 	
