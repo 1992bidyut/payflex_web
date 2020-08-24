@@ -6,6 +6,7 @@ class DashboardsModel extends CI_Model
     {
         $myQueryString ="SELECT count(id) as number_of_order FROM tbl_customer_order 
          WHERE delivery_date >='" . $startingDate . "') and delivery_date <='". $endingDate ."')";
+
          //die ($myQueryString); 
         if( empty($startingDate) || empty($endingDate))
         {

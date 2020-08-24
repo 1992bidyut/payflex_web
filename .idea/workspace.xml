@@ -19,7 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="571daff3-120e-4fae-92da-81dcf9e1bc68" name="Default Changelist" comment="printing page fix" />
+    <list default="true" id="571daff3-120e-4fae-92da-81dcf9e1bc68" name="Default Changelist" comment="printing page fix">
+      <change beforePath="$PROJECT_DIR$/application/models/DashboardsModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/DashboardsModel.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -103,7 +105,7 @@
       <workItem from="1597736939593" duration="146000" />
       <workItem from="1597770358438" duration="1059000" />
       <workItem from="1598219736739" duration="1450000" />
-      <workItem from="1598289768592" duration="2969000" />
+      <workItem from="1598289768592" duration="3254000" />
     </task>
     <task id="LOCAL-00001" summary="validation bug fix and make an new example testView">
       <created>1597333094672</created>
@@ -196,7 +198,21 @@
       <option name="project" value="LOCAL" />
       <updated>1598292318604</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="printing page fix">
+      <created>1598292837056</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1598292837056</updated>
+    </task>
+    <task id="LOCAL-00015" summary="printing page fix">
+      <created>1598292957307</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1598292957307</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -257,10 +273,10 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="555" y="51" key="VCS.ChangeListViewerDialog/0.0.1536.834@0.0.1536.834" timestamp="1597831983474" />
-    <state x="361" y="137" key="Vcs.Push.Dialog.v2" timestamp="1598292320444">
+    <state x="361" y="137" key="Vcs.Push.Dialog.v2" timestamp="1598292959812">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="361" y="137" key="Vcs.Push.Dialog.v2/0.0.1536.834/1920.0.1366.738@0.0.1536.834" timestamp="1598292320444" />
+    <state x="361" y="137" key="Vcs.Push.Dialog.v2/0.0.1536.834/1920.0.1366.738@0.0.1536.834" timestamp="1598292959812" />
     <state x="361" y="137" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1597938719558" />
     <state x="561" y="232" width="413" height="352" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog" timestamp="1597174798873">
       <screen x="0" y="0" width="1536" height="824" />
