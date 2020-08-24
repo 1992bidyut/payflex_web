@@ -187,7 +187,8 @@ class ClientModel extends CI_Model
         return $result;
     }
     public function updateContacts($client_id,$data){
-        $this->db->update_batch('tbl_contact', $data, $client_id);
+        $multipleWhere = ['tbl_contact.owner_id' => $client_id, 'tbl_contact.owner_type' => '3'];
+        $this->db->update_batch('tbl_contact', $data, $multipleWhere);
     }
     // public function getTotalContact($client_id){
     //     $this->db->select('tbl_contact.id,tbl_contact.client')

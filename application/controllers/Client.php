@@ -217,6 +217,21 @@ class Client extends CI_Controller
             //$this->session->set_flashdata('success_clientPaid_handler_insertion', 'Client successfully created');
             //$ceRelation['is_active'] = 1;
             $this->ClientModel->updateDsr($client_id, $ceRelationUpdate);
+
+            // update contact
+            $contactArray = array();
+            $contactArray = [];
+            $contact_counter = $this->input->post('contact_counter');
+            for ($i = 0; $i <= $contact_counter; $i++) {
+                $this->form_validation->set_rules('contact_value_' . $i, 'Contact Value', 'required');
+            }
+            for ($i = 0; $i <= $contact_counter; $i++) {
+                array_push($contactArray, [
+                    'contact_value' => $this->input->post('contact_value_' . $i),
+                    'contact_type_id' => $this->input->post('contact_type_id_' . $i),
+                ]);
+            }
+            $this->ClientModel->updateContacts($client_id,$contactArray);
             $this->session->set_flashdata('success', 'Client successfully updated.');
             redirect(base_url() . 'client/clientList');
         }

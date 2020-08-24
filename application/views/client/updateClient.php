@@ -112,28 +112,29 @@
 
             </div>
             <br>
-            // TODO: need to use for loop to make fields
+            <!-- TODO: need to use for loop to make fields -->
             <div id="addMultiContact">
-                <?php for($i=1; $i <= $total_contact; $i++){ ?>
-                <div class="row">
-                    <div class="form-group col-sm-6">
-                        <input type="hidden" id="contact_counter" name="contact_counter" value="">
-                        <label for="<?php echo "contact_value_".$i; ?>" class="col-form-label">Contact Value</label>
-                        <input type="text" name="<?php echo "contact_value_".$i; ?>" value="<?php set_value('contact_value_'.$i, $contacts_info[$i]['contact_value']); ?>" id="" class="form-control" placeholder="Contact Value" aria-describedby="helpId" />
+                <?php //echo print_r($contacts_info); ?>
+                <?php for ($i = 0; $i <= $total_contact - 1; $i++) { ?>
+                    <div class="row">
+                        <div class="form-group col-sm-6">
+                            <input type="hidden" id="contact_counter" name="contact_counter" value="">
+                            <label for="<?php echo "contact_value_" . $i; ?>" class="col-form-label">Contact Value</label>
+                            <input type="text" name="<?php echo "contact_value_" . $i; ?>" value="<?php print_r($contacts_info[$i]['contact_value']); ?>" id="" class="form-control" placeholder="Contact Value" aria-describedby="helpId" />
+                        </div>
+                        <!--			Contact type 1-->
+                        <div class="form-group col-sm-6">
+                            <label for="<?php echo "contact_type_id_" . $i; ?>" class="col-form-label">Contact Type</label>
+                            <br>
+                            <select id="<?php echo "contact_type_id_" . $i; ?>" name="<?php echo "contact_type_id_" . $i; ?>" class="form-control col-sm-12">
+                                <?php foreach ($contacts as $contact) { ?>
+                                    <option value=<?php echo "\"" . $contact['id'] . "\""; ?>>
+                                        <?php echo $contact['contact_type']; ?>
+                                    </option>
+                                <?php } ?>
+                            </select>
+                        </div>
                     </div>
-                    <!--			Contact type 1-->
-                    <div class="form-group col-sm-6">
-                        <label for="contact_type_id_1" class="col-form-label">Contact
-                            Type</label><br>
-                        <select name="contact_type_id_1" class="form-control col-sm-12">
-                            <?php foreach ($contacts as $contact) { ?>
-                                <option value=<?php echo "\"" . $contact['id'] . "\""; ?>>
-                                    <?php echo $contact['contact_type']; ?>
-                                </option>
-                            <?php } ?>
-                        </select>
-                    </div>
-                </div>
                 <?php } ?>
             </div>
             <br>
@@ -161,4 +162,15 @@
 <script>
     let element = document.getElementById("assignDsr");
     element.value = "<?php echo $client_info['client_pairID']; ?>";
+    var total_counter = "<?php echo $total_contact; ?>";
+    var contact_info = <?php echo json_encode($contacts_info); ?>;
+    // for (var i = 0; i <= total_counter - 1; i++) {
+    //     let element = document.getElementById("contact_type_id_" + i);
+    //     element.value = "<?php //echo $contacts_info[<script>document.writeln(i);</script>]['type_id'] ?>";
+    // }
+    for (var i = 0; i <= total_counter - 1; i++) {
+        let element = document.getElementById("contact_type_id_" + i);
+        console.log(contact_info[i].type_id);
+        element.value = contact_info[i].type_id ;
+    }
 </script>
