@@ -42,10 +42,13 @@
     
     $( document ).ready(function()
     {
-        startDate = "2020-05-02";
-        endDate = "2020-08-30";
+        var today=new Date()
+        startDate = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+        endDate = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+
         urlQueryString = startDate+"/"+endDate;
-        urlQueryString="";
+        console.log(urlQueryString);
+        // urlQueryString="";
         
         setValFromAjaxToDiv("#OrderCountBox", "dashboard/orderCounts/", urlQueryString );
 		setValFromAjaxToDiv("#PaymentCountBox", "dashboard/paymentCounts/", urlQueryString );
