@@ -2,24 +2,18 @@
 class DashboardsModel extends CI_Model
 {
 
-    public function orderCounts($startingDate = null , $endingDate = null)
+    public function orderCounts($startingDate, $endingDate)
     {
-
         $myQueryString ="SELECT count(id) as number_of_order FROM tbl_customer_order 
-         WHERE delivery_date between date('" . $startingDate . "') and date('". $endingDate ."')";
-          
+         WHERE delivery_date b>='" . $startingDate . " 00:00:00') and delivery_date <='". $endingDate ." 11:59:59')";
          //die ($myQueryString); 
         if( empty($startingDate) || empty($endingDate))
         {
             return 0;
         }
-
-        
         $sqlQeury = $this->db->query($myQueryString);
 //        $sqlQeury = $this->db->get('number_of_order');
-
         $sqlReturn = $sqlQeury->result();
-
         //var_dump($sqlReturn);
         
         if($sqlQeury->num_rows() > 0)
@@ -33,10 +27,10 @@ class DashboardsModel extends CI_Model
         
     }
 
-    public function paymentCounts($startingDate = null , $endingDate = null)
+    public function paymentCounts($startingDate , $endingDate)
     {
         $myQueryString ="SELECT count(id) as number_of_payment FROM tbl_payment 
-            WHERE payment_date_time between date('" . $startingDate . "') and date('". $endingDate ."')";
+            WHERE payment_date_time >='" . $startingDate . " 00:00:00') and payment_date_time <='". $endingDate ." 11:59:59')";
             
         if( empty($startingDate) || empty($endingDate))
         {

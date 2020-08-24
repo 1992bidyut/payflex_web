@@ -35,40 +35,38 @@ class Dashboard extends CI_Controller{
 	}
 	
 	
-	public function totalSuccessSmsCount()
-	{
-		$totalSuccessSms = $this->MsgOutboxModel->totalSuccessSmsCount();
-
-		echo $totalSuccessSms;
-	}
-
-	public function totalPendingSmsCount()
-	{
-		$totalPendingSms = $this->MsgOutboxModel->totalPendingSmsCount();
-
-		echo $totalPendingSms;
-	}
-
-	public function todaySuccessSmsCount()
-	{
-		$todaySuccessSms = $this->MsgOutboxModel->todaySuccessSmsCount();
-
-		echo $todaySuccessSms;
-	}
-
-	public function todayPendingSmsCount()
-	{
-		$todayPendingSms = $this->MsgOutboxModel->todayPendingSmsCount();
-
-		echo $todayPendingSms;
-	}
+//	public function totalSuccessSmsCount()
+//	{
+//		$totalSuccessSms = $this->MsgOutboxModel->totalSuccessSmsCount();
+//
+//		echo $totalSuccessSms;
+//	}
+//
+//	public function totalPendingSmsCount()
+//	{
+//		$totalPendingSms = $this->MsgOutboxModel->totalPendingSmsCount();
+//
+//		echo $totalPendingSms;
+//	}
+//
+//	public function todaySuccessSmsCount()
+//	{
+//		$todaySuccessSms = $this->MsgOutboxModel->todaySuccessSmsCount();
+//
+//		echo $todaySuccessSms;
+//	}
+//
+//	public function todayPendingSmsCount()
+//	{
+//		$todayPendingSms = $this->MsgOutboxModel->todayPendingSmsCount();
+//
+//		echo $todayPendingSms;
+//	}
 	
 	
 	
 	public function orderCounts($startingDate = null , $endingDate = null )
 	{
-        
-        
         if(empty($startingDate))
         {
             //$startingDate = "20200602";    
@@ -87,13 +85,33 @@ class Dashboard extends CI_Controller{
 	
 	public function paymentCounts($startingDate = null , $endingDate = null )
 	{
-        $thePaymentCounts	 = $this->DashboardsModel->paymentCounts($startingDate, $endingDate);
+        if(empty($startingDate))
+        {
+            //$startingDate = "20200602";
+            $startingDate = date('Y-m-d');
+        }
+        if(empty($startingDate))
+        {
+            //$endingDate = "20200607";
+            $endingDate = date('Y-m-d');
+        }
+	    $thePaymentCounts	 = $this->DashboardsModel->paymentCounts($startingDate, $endingDate);
 		echo $thePaymentCounts;
 	}
 	
 	public function validatedPaymentCounts($startingDate = null , $endingDate = null )
 	{
-        $thePaymentCounts	 = $this->DashboardsModel->validatedPaymentCounts($startingDate, $endingDate);
+        if(empty($startingDate))
+        {
+            //$startingDate = "20200602";
+            $startingDate = date('Y-m-d');
+        }
+        if(empty($startingDate))
+        {
+            //$endingDate = "20200607";
+            $endingDate = date('Y-m-d');
+        }
+	    $thePaymentCounts	 = $this->DashboardsModel->validatedPaymentCounts($startingDate, $endingDate);
 		echo $thePaymentCounts;
 	}
 	
