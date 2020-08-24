@@ -136,9 +136,9 @@
                 {
                 ?>
 <!--            <li class="nav-item">-->
-<!--                --><?php
-//                }
-//                ?>
+                <?php
+                }
+                ?>
 <!--                <a href="javascript:;" class="nav-link nav-toggle">-->
 <!--                    <i class="fa fa-map-signs"></i>-->
 <!--                    <span class="title">Products</span>-->
