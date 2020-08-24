@@ -16,7 +16,7 @@
         //---------------- Payment Validated Count ---------------->>
         addWtView("PaymentValidatedCountBox","Today's Payment","Validated","bg-green","icon-check","Dashboard/orderDetailsTable/");
         //----------------------------Payment Amount Total---->>
-        addWtView("PaymentAmountTotalBox","Today's Payment Amount","Total","bg-blue","icon-wallet","Dashboard/orderDetailsTable/");
+        addWtView("PaymentAmountTotalBox","Today's Payment","Total","bg-blue","icon-wallet","Dashboard/orderDetailsTable/");
         //----------------------------Payment Target Amount---->>
         addWtView("PaymentTargetAmountBox","Today's Target","Amount","bg-red","icon-target","Dashboard/orderDetailsTable/");
         
@@ -42,13 +42,10 @@
     
     $( document ).ready(function()
     {
-        var today=new Date()
-        startDate = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-        endDate = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
 
+        startDate = "2020-05-02";
+        endDate = "2020-07-30";
         urlQueryString = startDate+"/"+endDate;
-        console.log(urlQueryString);
-        // urlQueryString="";
         
         setValFromAjaxToDiv("#OrderCountBox", "dashboard/orderCounts/", urlQueryString );
 		setValFromAjaxToDiv("#PaymentCountBox", "dashboard/paymentCounts/", urlQueryString );
