@@ -126,7 +126,7 @@ class DashboardsModel extends CI_Model
 
         if($sqlQeury->num_rows() > 0)
         {
-            return $sqlReturn[0]->today_terget_payment;
+            return $sqlReturn[0]->today_payment_payment;
         }
         else
         {
