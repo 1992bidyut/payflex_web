@@ -14,12 +14,12 @@
         //--------------------------------  TODAY'S Payment Counts  -----------------------------his->
         addWtView("PaymentCountBox","TODAY'S Payment","Count","bg-blue","icon-trophy","Dashboard/orderDetailsTable/");
         //---------------- Payment Validated Count ---------------->>
-        addWtView("PaymentValidatedCountBox","Today's Payment","Validated","bg-green","icon-check","Dashboard/orderDetailsTable/");
+        addWtView("PaymentValidatedCountBox","Today's Granted Payment","Granted","bg-green","icon-check","Dashboard/orderDetailsTable/");
         //----------------------------Payment Amount Total---->>
-        addWtView("PaymentAmountTotalBox","Today's Payment","Total","bg-blue","icon-wallet","Dashboard/orderDetailsTable/");
+        addWtView("PaymentAmountTotalBox","Today's Payment Amount","Total","bg-blue","icon-wallet","Dashboard/orderDetailsTable/");
         //----------------------------Payment Target Amount---->>
-        addWtView("PaymentTargetAmountBox","Today's Target","Amount","bg-red","icon-target","Dashboard/orderDetailsTable/");
-        
+        addWtView("PaymentTargetAmountBox","Today's Target Amount","Amount","bg-red","icon-target","Dashboard/orderDetailsTable/");
+
 
     ?>
 
