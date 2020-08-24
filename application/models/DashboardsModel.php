@@ -5,7 +5,7 @@ class DashboardsModel extends CI_Model
     public function orderCounts($startingDate, $endingDate)
     {
         $myQueryString ="SELECT count(id) as number_of_order FROM tbl_customer_order 
-         WHERE delivery_date >='" . $startingDate . "') and delivery_date <='". $endingDate ."')";
+         WHERE delivery_date >='" . $startingDate . "' and delivery_date <='". $endingDate ."'";
 
          //die ($myQueryString); 
         if( empty($startingDate) || empty($endingDate))
@@ -31,7 +31,7 @@ class DashboardsModel extends CI_Model
     public function paymentCounts($startingDate , $endingDate)
     {
         $myQueryString ="SELECT count(id) as number_of_payment FROM tbl_payment 
-            WHERE payment_date_time >='" . $startingDate . " 00:00:00') and payment_date_time <='". $endingDate ." 11:59:59')";
+            WHERE payment_date_time >='" . $startingDate . " 00:00:00' and payment_date_time <='". $endingDate ." 11:59:59'";
             
         if( empty($startingDate) || empty($endingDate))
         {
