@@ -111,6 +111,9 @@ class LeaderBoardModel extends CI_Model{
         // die();
         return $resource->result_array();
     }
+    public function getProductList(){
+
+    }
 
     public function getFinancierExportData($date){
         $reportSQL= "SELECT 
