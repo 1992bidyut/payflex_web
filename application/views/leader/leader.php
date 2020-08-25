@@ -52,12 +52,13 @@
                         <th class="table-checkbox">
                             <input type="checkbox" class="group-checkable" data-set="#sample_3 .checkboxes" />
                         </th>
-                        <th> clientName </th>
+                        <th> Client Name </th>
+                        <th> Client Code </th>
                         <th> Manager </th>
                         <th> Officer </th>
                         <th> DSR </th>
                         <th> Order Code </th>
-                        <th> orderID </th>
+<!--                        <th> orderID </th>-->
                         <th> paymentID </th>
                         <th> methode_name </th>
                         <th> bank_name </th>
@@ -78,11 +79,12 @@
                         <tr class="odd gradeX">
                             <td><input type="checkbox" class="checkboxes" value="1" /></td>
                             <td> <?php echo $data['clientName'] ?>  </td>
+                            <td> <?php echo $data['client_code'] ?>  </td>
                             <td> <?php echo $data['manager'] ?>  </td>
                             <td> <?php echo $data['officer'] ?>  </td>
 							<td> <?php echo $data['dsr'] ?>  </td>
 							<td> <?php echo $data['order_code'] ?>  </td>
-                            <td> <?php echo $data['orderID'] ?>  </td>
+<!--                            <td> --><?php //echo $data['orderID'] ?><!--  </td>-->
 							<td> <?php echo $data['paymentID'] ?>  </td>
 							<td> <?php echo $data['methode_name'] ?>  </td>
 							<td> <?php echo $data['bank_name'] ?>  </td>
