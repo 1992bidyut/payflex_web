@@ -125,7 +125,39 @@
                 </ul>
             </li>
 
-            <!-- Product nav -->
+             <!-- Finance nav -->
+             <?php if($this->uri->segment(1) == 'route')
+             {
+             ?>
+             <li class="nav-item start active open">
+                 <?php
+                 }
+                 else
+                 {
+                     ?>
+                                 <li class="nav-item">
+                     <?php
+                 }
+                 ?>
+                                 <a href="javascript:;" class="nav-link nav-toggle">
+                                     <i class="fa fa-map-signs"></i>
+                                     <span class="title">Finance Report</span>
+                                     <span class="arrow"></span>
+                                 </a>
+                                 <ul class="sub-menu">
+                                     <li class="nav-item  ">
+                                         <a href="<?php echo site_url('financereport');?>" class="nav-link ">
+                                             <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+                                             <span class="title">Report</span>
+                                         </a>
+                                     </li>
+                                 </ul>
+                             </li>
+
+
+
+
+                 <!-- Product nav -->
             <?php if($this->uri->segment(1) == 'route')
             {
             ?>

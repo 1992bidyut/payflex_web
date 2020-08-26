@@ -46,13 +46,16 @@ class Payment extends CI_Controller
             $this->load->view('layouts/main_template', $datas);
         }else{
             $this->load->model('LeaderBoardModel');
-            $leaderBoardData = $this->LeaderBoardModel->searchPaymentInfo();
-            $productList=$this->LeaderBoardModel->getProductList();
-            //var_dump($leaderBoardData);
 
-            $dataArray = array('paymentInfoArray'=>$leaderBoardData,'productList'=>$productList);
-            $datas['content'] = $this->load->view('leader/leader', $dataArray, true);
-            $this->load->view( 'layouts/main_template',$datas);
+            $getDate= date("Y-m-d");
+            //set filter date in session
+            $sessionData=$this->session->userdata();
+            $sessionData['lead_from']="2020-05-30";
+            $sessionData['lead_to']=$getDate;
+
+            $this->session->set_userdata($sessionData);
+            $leaderBoardData = $this->LeaderBoardModel->searchPaymentInfo("2020-05-30",(string)$getDate);
+            $productList=$this->LeaderBoardModel->getProductList();
         }
 
     }

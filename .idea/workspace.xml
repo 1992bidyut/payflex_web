@@ -19,7 +19,21 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="571daff3-120e-4fae-92da-81dcf9e1bc68" name="Default Changelist" comment="search update to product list" />
+    <list default="true" id="571daff3-120e-4fae-92da-81dcf9e1bc68" name="Default Changelist" comment="search update to product list">
+      <change afterPath="$PROJECT_DIR$/application/controllers/FinanceReport.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/views/finance/finance_filter.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/views/finance/finance_report.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/config/database.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/LeaderBoard.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/LeaderBoard.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Payment.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Payment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Search.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Search.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/Export_excel.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/libraries/Export_excel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/models/LeaderBoardModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/LeaderBoardModel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/models/Payment_Model.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/Payment_Model.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/layouts/side_menu.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/layouts/side_menu.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/leader/leader.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/leader/leader.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -81,12 +95,15 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/application/views/finance" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\local_server\htdocs\payflex\webapp\application\views\finance" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\local_server\htdocs\payflex\webapp\application\views\leader" />
       <recent name="D:\local_server\htdocs\payflex\webapp\application\views" />
@@ -142,13 +159,6 @@
       <workItem from="1598289768592" duration="6471000" />
       <workItem from="1598382110348" duration="853000" />
       <workItem from="1598392694742" duration="11276000" />
-    </task>
-    <task id="LOCAL-00002" summary="payment form">
-      <created>1597685321322</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1597685321322</updated>
     </task>
     <task id="LOCAL-00003" summary="payment form">
       <created>1597685708798</created>
@@ -486,7 +496,14 @@
       <option name="project" value="LOCAL" />
       <updated>1598468305394</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="search update to product list">
+      <created>1598468910472</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1598468910472</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -537,6 +554,10 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="657" y="285" width="488" height="264" key="MultipleFileMergeDialog/0.0.1536.834/1920.0.1366.738@0.0.1536.834" timestamp="1597333331997" />
+    <state x="498" y="140" key="NewPhpClassDialog" timestamp="1598473246602">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="498" y="140" key="NewPhpClassDialog/0.0.1536.834/1920.0.1366.738@0.0.1536.834" timestamp="1598473246602" />
     <state x="604" y="336" key="NewPhpFileDialog" timestamp="1597327754886">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
@@ -551,10 +572,10 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="555" y="51" key="VCS.ChangeListViewerDialog/0.0.1536.834@0.0.1536.834" timestamp="1597831983474" />
-    <state x="361" y="137" key="Vcs.Push.Dialog.v2" timestamp="1598468308341">
+    <state x="361" y="137" key="Vcs.Push.Dialog.v2" timestamp="1598468912616">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="361" y="137" key="Vcs.Push.Dialog.v2/0.0.1536.834/1920.0.1366.738@0.0.1536.834" timestamp="1598468308341" />
+    <state x="361" y="137" key="Vcs.Push.Dialog.v2/0.0.1536.834/1920.0.1366.738@0.0.1536.834" timestamp="1598468912616" />
     <state x="361" y="137" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1598413759238" />
     <state x="561" y="232" width="413" height="352" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog" timestamp="1597174798873">
       <screen x="0" y="0" width="1536" height="824" />
