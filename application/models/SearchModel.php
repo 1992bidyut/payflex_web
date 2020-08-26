@@ -132,7 +132,7 @@ class SearchModel extends CI_Model
             left join tbl_image on tbl_payment_image_relation.image_id = tbl_image.id
             left join tbl_financial_institution_list on tbl_financial_institution_list.id = tbl_payment.financial_institution_id
             left join (
-                SELECT customer_order_id, GROUP_CONCAT(p_name,  '=', quantityes SEPARATOR ', ') as ProductQuantityString FROM 
+                SELECT customer_order_id, GROUP_CONCAT(p_name,  '=', quantityes SEPARATOR '; ') as ProductQuantityString FROM 
             (SELECT order_details.*, product_details.p_name FROM order_details
             left join product_details on order_details.product_id = product_details.id ) as orderwithPName 
             GROUP BY orderwithPName.customer_order_id) as combainedOrderDetails on combainedOrderDetails.
