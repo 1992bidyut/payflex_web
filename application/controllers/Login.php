@@ -6,6 +6,7 @@ class Login extends CI_Controller {
     {
         parent::__construct();
         $this->load->model('user_model');
+        $this->load->library('session');
     }
 
     public function index()
@@ -19,6 +20,7 @@ class Login extends CI_Controller {
 
     public function login(){
         $this->load->library('form_validation');
+
         if($this->form_validation->run('login') == FALSE){
             $this->load->view('user/loginPage');
         }else{
