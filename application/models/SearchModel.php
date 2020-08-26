@@ -89,6 +89,7 @@ class SearchModel extends CI_Model
 		$leaderSQL= "
         select * from (Select  
 			client_info.id as clientId,
+			client_info.client_code,
 			client_info.name as clientName,
 			label2.`name` AS manager,
 			label3.`name` AS officer,
