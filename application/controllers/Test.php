@@ -16,6 +16,7 @@ class Test extends CI_Controller
     public function formValidation(){
         $this->load->helper(array('form', 'url'));//required
         $this->load->library('form_validation');//required
+//        $this->load->library('TestModel');
 
         $this->form_validation->set_rules('username', 'Username', 'required');
         $this->form_validation->set_rules('password', 'Password', 'required');
@@ -31,5 +32,17 @@ class Test extends CI_Controller
         {
             echo "Form Validated!";
         }
+    }
+
+    public function insertTest(){
+        $this->load->model('TestModel');
+        $this->load->model('user_model');
+        $userArray = array();
+        $userArray['username'] = "testuser@test.com";
+        $userArray['password'] = sha1("test");
+        $userArray['user_type'] = '3';
+        $userArray['created_time'] = date('Y-m-d');
+
+        $this->TestModel->test($userArray);
     }
 }
