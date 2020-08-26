@@ -42,7 +42,7 @@ class Login extends CI_Controller {
                 );
 //                $this->load->library('../controllers/dashboard');
                 //$this->session->set_flashdata('success_msg','Login Success');
-                return redirect(base_url('dashboard'));
+                return redirect('dashboard');
 
 //                $totalMaskRequest = 0;
 //                $this->session->set_userdata('currentMaskRequest',$totalMaskRequest);
@@ -63,6 +63,6 @@ class Login extends CI_Controller {
     public function logout(){
         // $this->session->unset_userdata();
         $this->session->sess_destroy();
-        return redirect(base_url().'login');
+        return redirect('login');
     }
 }
