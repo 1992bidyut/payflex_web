@@ -41,7 +41,13 @@ class Login extends CI_Controller {
                     )
                 );
                 //$this->session->set_flashdata('success_msg','Login Success');
-                return redirect('dashboard');
+//                return redirect('dashboard');
+
+                $totalMaskRequest = 0;
+                $this->session->set_userdata('currentMaskRequest',$totalMaskRequest);
+                $datas['content'] = $this->load->view('dashboard/dashboard', array('currentMaskRequest'=>$totalMaskRequest), true);
+                $this->load->view( 'layouts/main_template',$datas);
+
             } elseif($user_array['user_type'] == 3)
             {
                 $this->session->set_flashdata('error_msg','Sorry! You are not authorize to login here!');
