@@ -146,7 +146,7 @@
                                  </a>
                                  <ul class="sub-menu">
                                      <li class="nav-item  ">
-                                         <a href="<?php echo site_url('financereport');?>" class="nav-link ">
+                                         <a href="<?php echo site_url('FinanceReport');?>" class="nav-link ">
                                              <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
                                              <span class="title">Report</span>
                                          </a>
