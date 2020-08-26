@@ -33,17 +33,17 @@ class Payment extends CI_Controller
             $clientInfo=$this->ClientModel->getClient($orderDetail[0]['client_id']);
             $clientContact=$this->ClientModel->getClientsContact($orderDetail[0]['client_id']);
 
-//             echo json_encode(array('paymentDetail' => $paymentDetail,
-//            'orderDetail' => $orderDetail,
-//            'clientInfo' => $clientInfo,
-//            'clientContact'=>$clientContact));
+             echo json_encode(array('paymentDetail' => $paymentDetail,
+            'orderDetail' => $orderDetail,
+            'clientInfo' => $clientInfo,
+            'clientContact'=>$clientContact));
 
-            $datas['content'] = $this->load->view('payment/paymentDetail',
-                array('paymentDetail' => $paymentDetail,
-                    'orderDetail' => $orderDetail,
-                    'clientInfo' => $clientInfo,
-                    'clientContact'=>$clientContact), true);
-            $this->load->view('layouts/main_template', $datas);
+//            $datas['content'] = $this->load->view('payment/paymentDetail',
+//                array('paymentDetail' => $paymentDetail,
+//                    'orderDetail' => $orderDetail,
+//                    'clientInfo' => $clientInfo,
+//                    'clientContact'=>$clientContact), true);
+//            $this->load->view('layouts/main_template', $datas);
         }else{
             $this->load->model('LeaderBoardModel');
             $leaderBoardData = $this->LeaderBoardModel->searchPaymentInfo();
