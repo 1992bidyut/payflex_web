@@ -28,7 +28,8 @@ class Payment extends CI_Controller
         $paymentDetail = $this->Payment_Model->getpaymentdetail($order_code);
         $orderDetail = $this->Payment_Model->getOrderDetail($order_code);
 
-        if (count($paymentDetail)>0 && count($orderDetail)>0){
+//        if (count($paymentDetail)>0 && count($orderDetail)>0){
+        if (count($orderDetail)>0){
             $clientInfo=$this->ClientModel->getClient($orderDetail[0]['client_id']);
             $clientContact=$this->ClientModel->getClientsContact($orderDetail[0]['client_id']);
 
