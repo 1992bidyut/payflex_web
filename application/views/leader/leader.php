@@ -53,25 +53,23 @@
                             <input type="checkbox" class="group-checkable" data-set="#sample_3 .checkboxes" />
                         </th>
                         <th> Client Code </th>
-                        <th> Client Name </th>
+                        <th> Distributor Name </th>
                         <th> Manager </th>
                         <th> Officer </th>
                         <th> DSR </th>
-                        <th> Order No. </th>
                         <th> Product </th>
                         <th> Quantity </th>
-                        <th> paymentID </th>
-                        <th> methode_name </th>
-                        <th> bank_name </th>
-						<th> reference_no </th>
-						<th> payment_date_time </th>
-						<th> amount </th>
+                        <th> Order No. </th>
+                        <th> PaymentID </th>
+                        <th> Payment Mode </th>
+                        <th> Bank name </th>
+						<th> Reference no </th>
+						<th> Payment date time </th>
+						<th> Amount </th>
 						<th> action_flag </th>
 						<th> Image/Attachment </th>
-
-
-
 						<th> Action </th>
+
                     </tr>
                     </thead>
                     <tbody>
@@ -86,7 +84,6 @@
                             <td> <?php echo $data['manager'] ?>  </td>
                             <td> <?php echo $data['officer'] ?>  </td>
 							<td> <?php echo $data['dsr'] ?>  </td>
-							<td> <?php echo $data['order_code'] ?>  </td>
 
                             <td><?php foreach($productList as $product){
                                 echo "".$product['product_code']."</br>";
@@ -105,7 +102,7 @@
                                 echo "". $order." </br>";
                             }
                             ?></td>
-
+                            <td> <?php echo $data['order_code'] ?>  </td>
 							<td> <?php echo $data['paymentID'] ?>  </td>
 							<td> <?php echo $data['methode_name'] ?>  </td>
 							<td> <?php echo $data['bank_name'] ?>  </td>
