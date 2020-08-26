@@ -40,10 +40,38 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="bdn_dev" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitToolBoxStore">
     <option name="projectConfigVersion" value="2" />
+    <option name="recentBranches">
+      <RecentBranches>
+        <option name="branchesForRepo">
+          <list>
+            <RecentBranchesForRepo>
+              <option name="branches">
+                <list>
+                  <RecentBranch>
+                    <option name="branchName" value="master" />
+                    <option name="lastUsedInstant" value="1598392409" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="bdn_dev" />
+                    <option name="lastUsedInstant" value="1598392408" />
+                  </RecentBranch>
+                </list>
+              </option>
+              <option name="repositoryRootUrl" value="file://$PROJECT_DIR$" />
+            </RecentBranchesForRepo>
+          </list>
+        </option>
+      </RecentBranches>
+    </option>
   </component>
   <component name="PhpDebugGeneral" listening_started="true" />
   <component name="ProjectId" id="1fig0yWIAnMif1XcwFQ0DLNpMCa" />
@@ -63,6 +91,8 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\local_server\htdocs\payflex\webapp\application\views\leader" />
+      <recent name="D:\local_server\htdocs\payflex\webapp\application\views" />
       <recent name="C:\MAMP\htdocs\payflex_web\assets\global\css" />
     </key>
   </component>
@@ -107,7 +137,8 @@
       <workItem from="1597770358438" duration="1059000" />
       <workItem from="1598219736739" duration="1450000" />
       <workItem from="1598289768592" duration="6471000" />
-      <workItem from="1598410002584" duration="108000" />
+      <workItem from="1598382110348" duration="853000" />
+      <workItem from="1598392694742" duration="11276000" />
     </task>
     <task id="LOCAL-00001" summary="validation bug fix and make an new example testView">
       <created>1597333094672</created>
@@ -270,70 +301,63 @@
       <option name="project" value="LOCAL" />
       <updated>1598295874486</updated>
     </task>
-    <task id="LOCAL-00024" summary="dashboard fixing">
-      <created>1598302070704</created>
+    <task id="LOCAL-00024" summary="dashboard fixing and side bar change">
+      <created>1598305395549</created>
       <option name="number" value="00024" />
       <option name="presentableId" value="LOCAL-00024" />
       <option name="project" value="LOCAL" />
-      <updated>1598302070704</updated>
+      <updated>1598305395549</updated>
     </task>
-    <task id="LOCAL-00025" summary="dashboard fixing">
-      <created>1598302240034</created>
+    <task id="LOCAL-00025" summary="image path bug">
+      <created>1598394424202</created>
       <option name="number" value="00025" />
       <option name="presentableId" value="LOCAL-00025" />
       <option name="project" value="LOCAL" />
-      <updated>1598302240034</updated>
+      <updated>1598394424202</updated>
     </task>
-    <task id="LOCAL-00026" summary="dashboard fixing">
-      <created>1598302389219</created>
+    <task id="LOCAL-00026" summary="image path bug">
+      <created>1598394641204</created>
       <option name="number" value="00026" />
       <option name="presentableId" value="LOCAL-00026" />
       <option name="project" value="LOCAL" />
-      <updated>1598302389219</updated>
+      <updated>1598394641204</updated>
     </task>
-    <task id="LOCAL-00027" summary="dashboard fixing">
-      <created>1598302452488</created>
+    <task id="LOCAL-00027" summary="image path bug">
+      <created>1598395024094</created>
       <option name="number" value="00027" />
       <option name="presentableId" value="LOCAL-00027" />
       <option name="project" value="LOCAL" />
-      <updated>1598302452488</updated>
+      <updated>1598395024094</updated>
     </task>
-    <task id="LOCAL-00028" summary="dashboard fixing">
-      <created>1598302951395</created>
+    <task id="LOCAL-00028" summary="image path bug">
+      <created>1598395433802</created>
       <option name="number" value="00028" />
       <option name="presentableId" value="LOCAL-00028" />
       <option name="project" value="LOCAL" />
-      <updated>1598302951395</updated>
+      <updated>1598395433802</updated>
     </task>
-    <task id="LOCAL-00029" summary="dashboard fixing">
-      <created>1598303052402</created>
+    <task id="LOCAL-00029" summary="image path bug">
+      <created>1598396009222</created>
       <option name="number" value="00029" />
       <option name="presentableId" value="LOCAL-00029" />
       <option name="project" value="LOCAL" />
-      <updated>1598303052402</updated>
+      <updated>1598396009222</updated>
     </task>
-    <task id="LOCAL-00030" summary="dashboard fixing">
-      <created>1598304697708</created>
+    <task id="LOCAL-00030" summary="image path bug">
+      <created>1598396232392</created>
       <option name="number" value="00030" />
       <option name="presentableId" value="LOCAL-00030" />
       <option name="project" value="LOCAL" />
-      <updated>1598304697708</updated>
+      <updated>1598396232392</updated>
     </task>
-    <task id="LOCAL-00031" summary="dashboard fixing">
-      <created>1598304922076</created>
+    <task id="LOCAL-00031" summary="image path bug">
+      <created>1598402851485</created>
       <option name="number" value="00031" />
       <option name="presentableId" value="LOCAL-00031" />
       <option name="project" value="LOCAL" />
-      <updated>1598304922076</updated>
+      <updated>1598402851485</updated>
     </task>
-    <task id="LOCAL-00032" summary="leaderboard change">
-      <created>1598404875119</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1598404875119</updated>
-    </task>
-    <option name="localTasksCounter" value="33" />
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -359,8 +383,9 @@
     <MESSAGE value="DESC ORDER BY" />
     <MESSAGE value="printing page fix" />
     <MESSAGE value="dashboard fixing" />
-    <MESSAGE value="leaderboard change" />
-    <option name="LAST_COMMIT_MESSAGE" value="leaderboard change" />
+    <MESSAGE value="dashboard fixing and side bar change" />
+    <MESSAGE value="image path bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="image path bug" />
   </component>
   <component name="WindowStateProjectService">
     <state x="655" y="254" key="#Notifications" timestamp="1597486857716">
@@ -396,11 +421,11 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="555" y="51" key="VCS.ChangeListViewerDialog/0.0.1536.834@0.0.1536.834" timestamp="1597831983474" />
-    <state x="361" y="137" key="Vcs.Push.Dialog.v2" timestamp="1598404877779">
+    <state x="361" y="137" key="Vcs.Push.Dialog.v2" timestamp="1598402853685">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="361" y="137" key="Vcs.Push.Dialog.v2/0.0.1536.834/1920.0.1366.738@0.0.1536.834" timestamp="1598304925491" />
-    <state x="361" y="137" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1598404877779" />
+    <state x="361" y="137" key="Vcs.Push.Dialog.v2/0.0.1536.834/1920.0.1366.738@0.0.1536.834" timestamp="1598396234522" />
+    <state x="361" y="137" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1598402853685" />
     <state x="561" y="232" width="413" height="352" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog" timestamp="1597174798873">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -423,11 +448,10 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="530" y="205" key="git4idea.merge.GitMergeDialog/0.0.1536.834/1920.0.1366.738@0.0.1536.834" timestamp="1598277224717" />
-    <state x="425" y="189" key="run.anything.popup" timestamp="1598303324561">
+    <state x="425" y="189" key="run.anything.popup" timestamp="1597808823928">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1597253903389" />
-    <state x="425" y="189" key="run.anything.popup/0.0.1536.834/1920.0.1366.738@0.0.1536.834" timestamp="1598303324561" />
     <state x="425" y="189" key="run.anything.popup/0.0.1536.834@0.0.1536.834" timestamp="1597808823928" />
     <state x="498" y="178" width="672" height="538" key="search.everywhere.popup" timestamp="1597183940953">
       <screen x="0" y="0" width="1536" height="824" />

@@ -6,6 +6,7 @@ class Login extends CI_Controller {
     {
         parent::__construct();
         $this->load->model('user_model');
+        $this->load->library('session');
     }
 
     public function index()
@@ -19,6 +20,7 @@ class Login extends CI_Controller {
 
     public function login(){
         $this->load->library('form_validation');
+
         if($this->form_validation->run('login') == FALSE){
             $this->load->view('user/loginPage');
         }else{
@@ -40,8 +42,15 @@ class Login extends CI_Controller {
                       //  'user_parent_id'=> $user_array['parent_id']
                     )
                 );
+//                $this->load->library('../controllers/dashboard');
                 //$this->session->set_flashdata('success_msg','Login Success');
                 return redirect('dashboard');
+
+//                $totalMaskRequest = 0;
+//                $this->session->set_userdata('currentMaskRequest',$totalMaskRequest);
+//                $datas['content'] = $this->load->view('dashboard/dashboard', array('currentMaskRequest'=>$totalMaskRequest), true);
+//                $this->load->view( 'layouts/main_template',$datas);
+
             } elseif($user_array['user_type'] == 3)
             {
                 $this->session->set_flashdata('error_msg','Sorry! You are not authorize to login here!');

@@ -1,7 +1,7 @@
 <?php
 class LeaderBoardModel extends CI_Model{
 
-    public function searchPaymentInfo()
+    public function searchPaymentInfo($fromDate,$todate)
 	{
         $contact       = $this->input->get('contact');
         $from          = $this->input->get('from');
@@ -102,7 +102,8 @@ class LeaderBoardModel extends CI_Model{
             left join product_details on order_details.product_id = product_details.id ) as orderwithPName 
             GROUP BY orderwithPName.customer_order_id) as combainedOrderDetails on combainedOrderDetails.
             customer_order_id =tbl_customer_order.id
-            WHERE tbl_payment.submitted_date>='2020-07-03 00:00:00') as myLeaderBoard 
+            WHERE tbl_payment.submitted_date>= '".$fromDate
+            ." 00:00:00' and tbl_payment.submitted_date <= '".$todate." 23:59:59') as myLeaderBoard 
             ORDER BY myLeaderBoard.submitted_date DESC";
 
        // $this->db->select($leaderSQL);
@@ -123,30 +124,30 @@ class LeaderBoardModel extends CI_Model{
         return $result->result_array();
     }
 
-    public function getFinancierExportData($date){
-        $reportSQL= "SELECT 
-            client_info.client_code,
-            client_info.name,
-            tbl_financial_institution_list.id,
-            tbl_financial_institution_list.bank_name,
-            tbl_payment_mode.id,
-            tbl_payment_mode.methode_name,
-            tbl_payment.amount,
-            tbl_payment.submitted_date
-            FROM tbl_payment
-            LEFT JOIN tbl_financial_institution_list ON tbl_financial_institution_list.id=tbl_payment.financial_institution_id
-            LEFT JOIN tbl_payment_mode ON tbl_payment_mode.id=tbl_payment.payment_mode_id
-            LEFT JOIN tbl_customer_order ON tbl_customer_order.order_code=tbl_payment.order_code
-            LEFT JOIN client_info ON client_info.id=tbl_customer_order.order_for_client_id
-            
-            WHERE tbl_payment.submitted_date>='".$date." 00:00:00'";
-
-        $resource = $this->db->query($reportSQL);
-        // echo $this->db->last_query();
-        // die();
-        return $resource->result_array();
-
-    }
+//    public function getFinancierExportData($date){
+//        $reportSQL= "SELECT
+//            client_info.client_code,
+//            client_info.name,
+//            tbl_financial_institution_list.id,
+//            tbl_financial_institution_list.bank_name,
+//            tbl_payment_mode.id,
+//            tbl_payment_mode.methode_name,
+//            tbl_payment.amount,
+//            tbl_payment.submitted_date
+//            FROM tbl_payment
+//            LEFT JOIN tbl_financial_institution_list ON tbl_financial_institution_list.id=tbl_payment.financial_institution_id
+//            LEFT JOIN tbl_payment_mode ON tbl_payment_mode.id=tbl_payment.payment_mode_id
+//            LEFT JOIN tbl_customer_order ON tbl_customer_order.order_code=tbl_payment.order_code
+//            LEFT JOIN client_info ON client_info.id=tbl_customer_order.order_for_client_id
+//
+//            WHERE tbl_payment.submitted_date>='".$date." 00:00:00'";
+//
+//        $resource = $this->db->query($reportSQL);
+//        // echo $this->db->last_query();
+//        // die();
+//        return $resource->result_array();
+//
+//    }
 }
 
 

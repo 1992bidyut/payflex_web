@@ -87,7 +87,7 @@
                 </tr>
                 <tr>
                     <td>Order No:</td>
-                    <td><?php echo $paymentDetail[0]['order_code']; ?></td>
+                    <td><?php echo $orderDetail[0]['order_code']; ?></td>
                 </tr>
                 <tr>
                     <td>Customer Code:</td>
