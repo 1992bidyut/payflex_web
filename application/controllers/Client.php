@@ -230,7 +230,7 @@ class Client extends CI_Controller
                     'contact_value' => $this->input->post('contact_value_' . $i),
                     'contact_type_id' => $this->input->post('contact_type_id_' . $i),
                     'owner_id' => $client_id,
-                    'owner_type' => 3,
+                    //'owner_type' => 3,
                 ]);
             }
             // echo print_r($contact_counter);

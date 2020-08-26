@@ -119,7 +119,6 @@
                 <?php for ($i = 0; $i <= $total_contact - 1; $i++) { ?>
                     <div class="row">
                         <div class="form-group col-sm-6">
-                            <input type="hidden" id="contact_counter" name="contact_counter" value="<?php echo ($total_contact-1); ?>">
                             <label for="<?php echo "contact_value_" . $i; ?>" class="col-form-label">Contact Value</label>
                             <input type="text" name="<?php echo "contact_value_" . $i; ?>" value="<?php print_r($contacts_info[$i]['contact_value']); ?>" id="" class="form-control" placeholder="Contact Value" aria-describedby="helpId" />
                         </div>
@@ -137,6 +136,7 @@
                         </div>
                     </div>
                 <?php } ?>
+                <input type="hidden" id="contact_counter" name="contact_counter" value="<?php echo ($total_contact-1); ?>">
             </div>
             <br>
             <!-- is active -->
