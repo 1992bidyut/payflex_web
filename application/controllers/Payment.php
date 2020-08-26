@@ -46,8 +46,10 @@ class Payment extends CI_Controller
         }else{
             $this->load->model('LeaderBoardModel');
             $leaderBoardData = $this->LeaderBoardModel->searchPaymentInfo();
+            $productList=$this->LeaderBoardModel->getProductList();
             //var_dump($leaderBoardData);
-            $dataArray = array('paymentInfoArray'=>$leaderBoardData);
+
+            $dataArray = array('paymentInfoArray'=>$leaderBoardData,'productList'=>$productList);
             $datas['content'] = $this->load->view('leader/leader', $dataArray, true);
             $this->load->view( 'layouts/main_template',$datas);
         }
