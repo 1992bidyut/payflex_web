@@ -52,13 +52,14 @@
                         <th class="table-checkbox">
                             <input type="checkbox" class="group-checkable" data-set="#sample_3 .checkboxes" />
                         </th>
-                        <th> Client Name </th>
                         <th> Client Code </th>
+                        <th> Client Name </th>
                         <th> Manager </th>
                         <th> Officer </th>
                         <th> DSR </th>
-                        <th> Order Code </th>
-<!--                        <th> orderID </th>-->
+                        <th> Order No. </th>
+                        <th> Product </th>
+                        <th> Quantity </th>
                         <th> paymentID </th>
                         <th> methode_name </th>
                         <th> bank_name </th>
@@ -66,10 +67,10 @@
 						<th> payment_date_time </th>
 						<th> amount </th>
 						<th> action_flag </th>
-						<th> image_name </th>
-                        <?php foreach($productList as $product){
-						 echo "<th>". $product['p_name']." [".$product['product_code']."] </th>";
-                         } ?>
+						<th> Image/Attachment </th>
+
+
+
 						<th> Action </th>
                     </tr>
                     </thead>
@@ -80,13 +81,31 @@
                     ?>
                         <tr class="odd gradeX">
                             <td><input type="checkbox" class="checkboxes" value="1" /></td>
-                            <td> <?php echo $data['clientName'] ?>  </td>
                             <td> <?php echo $data['client_code'] ?>  </td>
+                            <td> <?php echo $data['clientName'] ?>  </td>
                             <td> <?php echo $data['manager'] ?>  </td>
                             <td> <?php echo $data['officer'] ?>  </td>
 							<td> <?php echo $data['dsr'] ?>  </td>
 							<td> <?php echo $data['order_code'] ?>  </td>
-<!--                            <td> --><?php //echo $data['orderID'] ?><!--  </td>-->
+
+                            <td><?php foreach($productList as $product){
+                                echo "".$product['product_code']."</br>";
+                                } ?></td>
+
+                            <td><?php
+                            $explodeValue1= explode(";",$data['ProductQuantityString']);
+                            foreach ($productList as $product){
+                                $order=0;
+                                for ($i=0; $i < count($explodeValue1); $i++){
+                                    $explodeValue2= explode("=",$explodeValue1[$i]);
+                                    if ($product['product_code']==$explodeValue2[0]){
+                                        $order=$explodeValue2[1];
+                                    }
+                                }
+                                echo "". $order." </br>";
+                            }
+                            ?></td>
+
 							<td> <?php echo $data['paymentID'] ?>  </td>
 							<td> <?php echo $data['methode_name'] ?>  </td>
 							<td> <?php echo $data['bank_name'] ?>  </td>
@@ -113,20 +132,6 @@
 							
 							
 							?>  </td>
-                            <?php
-                            $explodeValue1= explode(";",$data['ProductQuantityString']);
-                            foreach ($productList as $product){
-                                    $order=0;
-                                    for ($i=0; $i < count($explodeValue1); $i++){
-                                        $explodeValue2= explode("=",$explodeValue1[$i]);
-                                        if ($product['product_code']==$explodeValue2[0]){
-                                            $order=$explodeValue2[1];
-                                        }
-                                    }
-                                    echo "<td>". $order." </td>";
-                                }
-//                                echo "<td>". $data['ProductQuantityString']." </td>";
-                             ?>
 							
 							<!-- ----------------------- the action buttons for payments -----------------  -->
                             <td >
