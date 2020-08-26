@@ -229,14 +229,16 @@ class Client extends CI_Controller
                 array_push($contactArray, [
                     'contact_value' => $this->input->post('contact_value_' . $i),
                     'contact_type_id' => $this->input->post('contact_type_id_' . $i),
-                    'owner_id' => $client_id,
+                    //'owner_id' => $client_id,
                     //'owner_type' => 3,
                 ]);
             }
+            for($i = 0; $i <= $contact_counter; $i++){
+                $this->ClientModel->updateContact($client_id,$contactArray[$i]);
+            }
             // echo print_r($contact_counter);
             // echo "\n";
-            // echo print_r($contactArray);
-            $this->ClientModel->updateContacts($contactArray);
+            // echo print_r($contactArray[0]);
             $this->session->set_flashdata('success', 'Client successfully updated.');
             redirect(base_url() . 'client/clientList');
         }

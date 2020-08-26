@@ -198,6 +198,10 @@ class ClientModel extends CI_Model
         // }
         // die();
     }
+    public function updateContact($client_id, $data){
+        $this->db->where('tbl_contact.owner_id',$client_id);
+        $this->db->update('tbl_contact',$data);
+    }
     // public function getTotalContact($client_id){
     //     $this->db->select('tbl_contact.id,tbl_contact.client')
     //             ->from('tbl_contact');
