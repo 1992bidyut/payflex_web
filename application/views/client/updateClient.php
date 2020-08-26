@@ -114,11 +114,12 @@
             <br>
             <!-- TODO: need to use for loop to make fields -->
             <div id="addMultiContact">
-                <?php //echo print_r($contacts_info); ?>
+                <?php //echo print_r($contacts_info); 
+                ?>
                 <?php for ($i = 0; $i <= $total_contact - 1; $i++) { ?>
                     <div class="row">
                         <div class="form-group col-sm-6">
-                            <input type="hidden" id="contact_counter" name="contact_counter" value="">
+                            <input type="hidden" id="contact_counter" name="contact_counter" value="<?php echo ($total_contact-1); ?>">
                             <label for="<?php echo "contact_value_" . $i; ?>" class="col-form-label">Contact Value</label>
                             <input type="text" name="<?php echo "contact_value_" . $i; ?>" value="<?php print_r($contacts_info[$i]['contact_value']); ?>" id="" class="form-control" placeholder="Contact Value" aria-describedby="helpId" />
                         </div>
@@ -166,11 +167,12 @@
     var contact_info = <?php echo json_encode($contacts_info); ?>;
     // for (var i = 0; i <= total_counter - 1; i++) {
     //     let element = document.getElementById("contact_type_id_" + i);
-    //     element.value = "<?php //echo $contacts_info[<script>document.writeln(i);</script>]['type_id'] ?>";
+    //     element.value = "<?php //echo $contacts_info[<script>document.writeln(i);</script>]['type_id'] 
+                            ?>";
     // }
     for (var i = 0; i <= total_counter - 1; i++) {
         let element = document.getElementById("contact_type_id_" + i);
         console.log(contact_info[i].type_id);
-        element.value = contact_info[i].type_id ;
+        element.value = contact_info[i].type_id;
     }
 </script>

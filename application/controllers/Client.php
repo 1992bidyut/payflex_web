@@ -233,6 +233,9 @@ class Client extends CI_Controller
                     'owner_type' => 3,
                 ]);
             }
+            // echo print_r($contact_counter);
+            // echo "\n";
+            // echo print_r($contactArray);
             $this->ClientModel->updateContacts($contactArray);
             $this->session->set_flashdata('success', 'Client successfully updated.');
             redirect(base_url() . 'client/clientList');
