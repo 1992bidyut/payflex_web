@@ -42,7 +42,7 @@ class Login extends CI_Controller {
                 );
 //                $this->load->library('../controllers/dashboard');
                 //$this->session->set_flashdata('success_msg','Login Success');
-                return redirect('dashboard');
+//                return redirect('dashboard');
 
 //                $totalMaskRequest = 0;
 //                $this->session->set_userdata('currentMaskRequest',$totalMaskRequest);
