@@ -12,8 +12,25 @@ class LeaderBoard extends CI_Controller{
     public function index()
 	{
 		$leaderBoardData = $this->LeaderBoardModel->searchPaymentInfo();
-		//var_dump($leaderBoardData);
-		$dataArray = array('paymentInfoArray'=>$leaderBoardData);
+        $productList=$this->LeaderBoardModel->getProductList();
+
+//        $explodeValue1= explode(";",$leaderBoardData[2]['ProductQuantityString']);
+//        echo print_r($explodeValue1);
+//        echo count($explodeValue1);
+//        foreach ($productList as $product){
+//            $order=0;
+//            for ($i=0; $i < count($explodeValue1); $i++){
+//                $explodeValue2= explode("=",$explodeValue1[$i]);
+//                if ($product['product_code']==$explodeValue2[0]){
+////                    echo $explodeValue2[0]." and ".$explodeValue2[1]."</br>";
+//                    $order=$explodeValue2[1];
+//                }
+//            }
+//            echo "From list name:  ".$product['p_name']." and order: ".$order."</br>";
+//        }
+
+
+		$dataArray = array('paymentInfoArray'=>$leaderBoardData,'productList'=>$productList);
 		$datas['content'] = $this->load->view('leader/leader', $dataArray, true);
 		$this->load->view( 'layouts/main_template',$datas);
 		//

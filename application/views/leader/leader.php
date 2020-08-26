@@ -67,7 +67,9 @@
 						<th> amount </th>
 						<th> action_flag </th>
 						<th> image_name </th>
-						<th> ProductQuantityString </th>
+                        <?php foreach($productList as $product){
+						 echo "<th>". $product['p_name']." [".$product['product_code']."] </th>";
+                         } ?>
 						<th> Action </th>
                     </tr>
                     </thead>
@@ -111,7 +113,20 @@
 							
 							
 							?>  </td>
-							<td> <?php echo $data['ProductQuantityString'] ?>  </td>
+                            <?php
+                            $explodeValue1= explode(";",$data['ProductQuantityString']);
+                            foreach ($productList as $product){
+                                    $order=0;
+                                    for ($i=0; $i < count($explodeValue1); $i++){
+                                        $explodeValue2= explode("=",$explodeValue1[$i]);
+                                        if ($product['product_code']==$explodeValue2[0]){
+                                            $order=$explodeValue2[1];
+                                        }
+                                    }
+                                    echo "<td>". $order." </td>";
+                                }
+//                                echo "<td>". $data['ProductQuantityString']." </td>";
+                             ?>
 							
 							<!-- ----------------------- the action buttons for payments -----------------  -->
                             <td >
