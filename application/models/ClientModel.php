@@ -186,16 +186,16 @@ class ClientModel extends CI_Model
         $result = $this->db->get()->result_array();
         return $result;
     }
-    public function updateContacts($client_id, $data)
+    public function updateContacts($data)
     {
-        $multipleWhere = ['tbl_contact.owner_id' => $client_id, 'tbl_contact.owner_type' => '3'];
-        $this->db->where($multipleWhere);
-        //$this->db->update_batch('tbl_contact', $data, 'tbl_contact.owner_id');
-        foreach ($data as $datas) {
+        // $multipleWhere = ['tbl_contact.owner_id' => $client_id, 'tbl_contact.owner_type' => '3'];
+        // $this->db->where($multipleWhere);
+        $this->db->update_batch('tbl_contact', $data, 'owner_id');
+        // foreach ($data as $datas) {
 
-               $this->db->update('tbl_contact', $datas);
-        //   print_r($this->db->last_query());    
-        }
+        //        $this->db->update('tbl_contact', $datas);
+        //    print_r($this->db->last_query());    
+        // }
         // die();
     }
     // public function getTotalContact($client_id){

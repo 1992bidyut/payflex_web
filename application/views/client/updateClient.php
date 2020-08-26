@@ -114,7 +114,7 @@
             <br>
             <!-- TODO: need to use for loop to make fields -->
             <div id="addMultiContact">
-                <?php echo print_r($contacts_info); ?>
+                <?php //echo print_r($contacts_info); ?>
                 <?php for ($i = 0; $i <= $total_contact - 1; $i++) { ?>
                     <div class="row">
                         <div class="form-group col-sm-6">
