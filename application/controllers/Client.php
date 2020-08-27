@@ -115,6 +115,9 @@ class Client extends CI_Controller
             $contactArray = array();
             $contactArray = [];
             $contact_counter = $this->input->post('contact_counter');
+            if($contact_counter == "" || $contact_counter == 0 || $contact_counter == NULL){
+                $contact_counter = 2;
+            }
             for ($i = 1; $i <= $contact_counter; $i++) {
                 $this->form_validation->set_rules('contact_value_' . $i, 'Contact Value', 'required');
             }
@@ -124,7 +127,7 @@ class Client extends CI_Controller
                     'contact_type_id' => $this->input->post('contact_type_id_' . $i),
                     'owner_id' => $client_inserted_id,
                     'owner_type' => 3,
-                ]);
+                ]); 
             }
             //if ($this->form_validation->run('contactValue') == TRUE) {
             $this->ClientModel->createContacts($contactArray);
