@@ -85,7 +85,7 @@ class ClientModel extends CI_Model
         // return $info;
         $query = $this->db->query('SELECT LAST_INSERT_ID()');
         $row = $query->row_array();
-        return $row['LAST_INSERT_ID()'];
+        return $row['LAST_INSERT_ID()'];//
     }
 
     public function createContacts($formArray)
