@@ -19,9 +19,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="571daff3-120e-4fae-92da-81dcf9e1bc68" name="Default Changelist" comment="leaderboard change">
+    <list default="true" id="571daff3-120e-4fae-92da-81dcf9e1bc68" name="Default Changelist" comment="leaderboard data export, but not formated, finance report panel and data export">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/Search.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Search.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,6 +138,8 @@
       <workItem from="1598289768592" duration="6471000" />
       <workItem from="1598382110348" duration="853000" />
       <workItem from="1598392694742" duration="11276000" />
+      <workItem from="1598634598134" duration="410000" />
+      <workItem from="1598638317648" duration="616000" />
     </task>
     <task id="LOCAL-00001" summary="validation bug fix and make an new example testView">
       <created>1597333094672</created>
@@ -357,7 +358,14 @@
       <option name="project" value="LOCAL" />
       <updated>1598402851485</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="leaderboard data export, but not formated, finance report panel and data export">
+      <created>1598483612664</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1598483612664</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -385,7 +393,8 @@
     <MESSAGE value="dashboard fixing" />
     <MESSAGE value="dashboard fixing and side bar change" />
     <MESSAGE value="image path bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="image path bug" />
+    <MESSAGE value="leaderboard data export, but not formated, finance report panel and data export" />
+    <option name="LAST_COMMIT_MESSAGE" value="leaderboard data export, but not formated, finance report panel and data export" />
   </component>
   <component name="WindowStateProjectService">
     <state x="655" y="254" key="#Notifications" timestamp="1597486857716">
@@ -421,10 +430,10 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="555" y="51" key="VCS.ChangeListViewerDialog/0.0.1536.834@0.0.1536.834" timestamp="1597831983474" />
-    <state x="361" y="137" key="Vcs.Push.Dialog.v2" timestamp="1598402853685">
+    <state x="361" y="137" key="Vcs.Push.Dialog.v2" timestamp="1598483616517">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="361" y="137" key="Vcs.Push.Dialog.v2/0.0.1536.834/1920.0.1366.738@0.0.1536.834" timestamp="1598396234522" />
+    <state x="361" y="137" key="Vcs.Push.Dialog.v2/0.0.1536.834/1920.0.1366.738@0.0.1536.834" timestamp="1598483616517" />
     <state x="361" y="137" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1598402853685" />
     <state x="561" y="232" width="413" height="352" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog" timestamp="1597174798873">
       <screen x="0" y="0" width="1536" height="824" />
