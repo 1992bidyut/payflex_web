@@ -39,8 +39,14 @@
                 <strong><?php echo form_error('representative_name') ?></strong><br />
                 <strong><?php echo form_error('client_code') ?></strong><br />
                 <strong><?php echo form_error('virtual_account_no') ?></strong><br />
+                <?php for ($i = 0; $i <= $total_contact - 1; $i++) {
+                    if(!empty(form_error("contact_value_" . $i))){ ?>
+                        <strong><?php echo form_error('contact_value_'.$i); ?></strong><br />
+                    <?php } ?>
+                <?php } ?>
             </div>
         <?php } ?>
+        
     </div>
 </div>
 
