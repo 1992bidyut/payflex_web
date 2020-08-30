@@ -4,9 +4,9 @@
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 class Export_excel
 {
-	public function exportData($data)
+	public function exportData($data,$filename)
 	{
-		$filename = "finance_report_" . date('Ymd') . ".xls";
+//		$filename = "finance_report_" . date('Ymd') . ".xls";
 
 		header("Content-Disposition: attachment; filename=\"$filename\"");
 		header('Content-Description: File Transfer');

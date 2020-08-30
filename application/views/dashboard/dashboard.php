@@ -14,12 +14,12 @@
         //--------------------------------  TODAY'S Payment Counts  -----------------------------his->
         addWtView("PaymentCountBox","TODAY'S Payment","Count","bg-blue","icon-trophy","Dashboard/orderDetailsTable/");
         //---------------- Payment Validated Count ---------------->>
-        addWtView("PaymentValidatedCountBox","Today's Payment","Validated","bg-green","icon-check","Dashboard/orderDetailsTable/");
+        addWtView("PaymentValidatedCountBox","Today's Granted Payment","Granted","bg-green","icon-check","Dashboard/orderDetailsTable/");
         //----------------------------Payment Amount Total---->>
-        addWtView("PaymentAmountTotalBox","Today's Payment","Total","bg-blue","icon-wallet","Dashboard/orderDetailsTable/");
+        addWtView("PaymentAmountTotalBox","Today's Payment Amount","Total","bg-blue","icon-wallet","Dashboard/orderDetailsTable/");
         //----------------------------Payment Target Amount---->>
-        addWtView("PaymentTargetAmountBox","Today's Target","Amount","bg-red","icon-target","Dashboard/orderDetailsTable/");
-        
+        addWtView("PaymentTargetAmountBox","Today's Target Amount","Amount","bg-red","icon-target","Dashboard/orderDetailsTable/");
+
 
     ?>
 
@@ -42,18 +42,15 @@
     
     $( document ).ready(function()
     {
-        
-        startDate = "2020-05-02";
-        endDate = "2020-07-30";
+        var today = new Date();
+        startDate = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+        endDate = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
         urlQueryString = startDate+"/"+endDate;
         
         setValFromAjaxToDiv("#OrderCountBox", "dashboard/orderCounts/", urlQueryString );
 		setValFromAjaxToDiv("#PaymentCountBox", "dashboard/paymentCounts/", urlQueryString );
-		setValFromAjaxToDiv("#PaymentValidatedCountBox", "dashboard/validatedPaymentCount/", urlQueryString );
-		setValFromAjaxToDiv("#PaymentAmountTotalBox", "dashboard/paymentCounts/", urlQueryString );
-		setValFromAjaxToDiv("#PaymentTargetAmountBox", "dashboard/paymentCounts/", urlQueryString );
-
-
-
+		setValFromAjaxToDiv("#PaymentValidatedCountBox", "dashboard/validatedPaymentCounts/", urlQueryString );
+		setValFromAjaxToDiv("#PaymentAmountTotalBox", "dashboard/todayPayment/", urlQueryString );
+		setValFromAjaxToDiv("#PaymentTargetAmountBox", "dashboard/targetPayment/", urlQueryString );
     });
 </script>

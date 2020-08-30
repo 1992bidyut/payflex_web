@@ -80,13 +80,41 @@ class Payment_Model extends CI_Model
 
     public function updateIndent($id){
         $this->db->where('tbl_payment.id', $id);
+        $getDate= date("Y-m-d");
         $data['action_flag']=2;
+        $data['indent_date']=$getDate;
         if ($this->db->update('tbl_payment', $data)) {
             return true;
         }
         else {
             return false;
         }
+    }
+
+    public function getFinancierExportData($startDate,$endDate){
+        $reportSQL= "SELECT 
+            client_info.client_code,
+            client_info.name,
+            tbl_financial_institution_list.id,
+            tbl_financial_institution_list.bank_name,
+            tbl_payment_mode.id,
+            tbl_payment_mode.methode_name,
+            tbl_payment.amount,
+            tbl_payment.submitted_date,
+            tbl_payment.indent_date
+            FROM tbl_payment
+            LEFT JOIN tbl_financial_institution_list ON tbl_financial_institution_list.id=tbl_payment.financial_institution_id
+            LEFT JOIN tbl_payment_mode ON tbl_payment_mode.id=tbl_payment.payment_mode_id
+            LEFT JOIN tbl_customer_order ON tbl_customer_order.order_code=tbl_payment.order_code
+            LEFT JOIN client_info ON client_info.id=tbl_customer_order.order_for_client_id
+            
+            WHERE tbl_payment.submitted_date>='".$startDate." 00:00:00' and tbl_payment.submitted_date<='".$endDate." 23:59:59'";
+
+        $resource = $this->db->query($reportSQL);
+        // echo $this->db->last_query();
+        // die();
+        return $resource->result_array();
+
     }
 
 }

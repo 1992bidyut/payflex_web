@@ -87,7 +87,7 @@
                 </tr>
                 <tr>
                     <td>Order No:</td>
-                    <td><?php echo $paymentDetail[0]['order_code']; ?></td>
+                    <td><?php echo $orderDetail[0]['order_code']; ?></td>
                 </tr>
                 <tr>
                     <td>Customer Code:</td>
@@ -178,15 +178,15 @@
                     if (!empty($payment['image_name'])) {
                         $localImgageBasePath = "http://localhost/payflex/asset/images/";
                         $localImgageBasePath2 = "http://localhost/asset/images/";
-                        $remorteImageBasePath = "https://demo.onuserver.com/payFlex/asset/images/";
+                        $remorteImageBasePath = "http://demo.onuserver.com/payFlex/asset/images/";
                         $imageName = $payment['image_name'];
-                        $imagePath = $localImgageBasePath2 . $clientInfo['client_id'] . "/";
+                        $imagePath = $localImgageBasePath . $clientInfo['client_id'] . "/";
                         $imagePath .= $imageName;
                     } ?>
                     <tr>
                         <td colspan="6">
                             <!--                    <img class="img-responsive" alt="IMAGE" height="20%"-->
-                            <img alt="IMAGE" id="paymentProof" height="200px" src="<?php echo $imagePath; ?>" />
+                            <img alt="IMAGE" id="paymentProof" height="150px" src="<?php echo $imagePath; ?>" />
                         </td>
                     </tr>
                 <?php   }
@@ -223,6 +223,12 @@
             </tbody>
         </table>
     </div>
+</div>
+<div class="distributor-signature-stamp">
+    <a id="" onclick="print()"
+       class="btn btn-sm green-dark " style="margin-bottom: 5px; width: 100%;"> Print
+        <i class="fa fa-check"></i>
+    </a>
 </div>
 <script>
     var x = document.getElementById("paymentProof").width;

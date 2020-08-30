@@ -89,6 +89,7 @@ class SearchModel extends CI_Model
 		$leaderSQL= "
         select * from (Select  
 			client_info.id as clientId,
+			client_info.client_code,
 			client_info.name as clientName,
 			label2.`name` AS manager,
 			label3.`name` AS officer,
@@ -100,6 +101,7 @@ class SearchModel extends CI_Model
             tbl_payment.id as paymentID,
 			tbl_payment.reference_no,
 			tbl_payment.payment_date_time, 
+			tbl_payment.submitted_date,
 			tbl_payment.amount,
 			tbl_payment.action_flag, 
 
@@ -130,13 +132,14 @@ class SearchModel extends CI_Model
             left join tbl_image on tbl_payment_image_relation.image_id = tbl_image.id
             left join tbl_financial_institution_list on tbl_financial_institution_list.id = tbl_payment.financial_institution_id
             left join (
-                SELECT customer_order_id, GROUP_CONCAT(p_name,  '=', quantityes SEPARATOR ', ') as ProductQuantityString FROM 
-            (SELECT order_details.*, product_details.p_name FROM order_details
+                SELECT customer_order_id, GROUP_CONCAT(product_code,  '=', quantityes SEPARATOR '; ') as ProductQuantityString FROM 
+            (SELECT order_details.*, product_details.product_code FROM order_details
             left join product_details on order_details.product_id = product_details.id ) as orderwithPName 
             GROUP BY orderwithPName.customer_order_id) as combainedOrderDetails on combainedOrderDetails.
             customer_order_id =tbl_customer_order.id
             WHERE tbl_payment.submitted_date>= '".$from
-			." 00:00:00' and tbl_payment.submitted_date <= '".$to." 23:59:59') as myLeaderBoard";
+			." 00:00:00' and tbl_payment.submitted_date <= '".$to." 23:59:59') as myLeaderBoard 
+			ORDER BY myLeaderBoard.submitted_date DESC";
 
 		// $this->db->select($leaderSQL);
 		$resource = $this->db->query($leaderSQL);

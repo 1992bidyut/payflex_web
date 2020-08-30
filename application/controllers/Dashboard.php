@@ -4,7 +4,7 @@ class Dashboard extends CI_Controller{
 
     function __construct() {
         parent::__construct();
-
+        $this->load->library('session');
 		if(!$this->session->userdata('user_id')){
 			return redirect('login');
 		}
@@ -67,8 +67,8 @@ class Dashboard extends CI_Controller{
 	
 	public function orderCounts($startingDate = null , $endingDate = null )
 	{
-        
-        
+
+
         if(empty($startingDate))
         {
             //$startingDate = "20200602";    
@@ -93,9 +93,21 @@ class Dashboard extends CI_Controller{
 	
 	public function validatedPaymentCounts($startingDate = null , $endingDate = null )
 	{
-        $thePaymentCounts	 = $this->DashboardsModel->validatedPaymentCounts($startingDate, $endingDate);
+        $thePaymentCounts	 = $this->DashboardsModel->validePaymentCounts($startingDate, $endingDate);
 		echo $thePaymentCounts;
 	}
+
+    public function targetPayment($startingDate = null , $endingDate = null )
+    {
+        $thePaymentCounts	 = $this->DashboardsModel->todayTargetPayment($startingDate, $endingDate);
+        echo $thePaymentCounts;
+    }
+
+    public function todayPayment($startingDate = null , $endingDate = null )
+    {
+        $thePaymentCounts	 = $this->DashboardsModel->todayTotalPayment($startingDate, $endingDate);
+        echo $thePaymentCounts;
+    }
 	
 
 
