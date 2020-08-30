@@ -115,7 +115,7 @@ class Client extends CI_Controller
             $contactArray = array();
             $contactArray = [];
             $contact_counter = $this->input->post('contact_counter');
-            if($contact_counter == "" || $contact_counter == 0 || $contact_counter == NULL){
+            if ($contact_counter == "" || $contact_counter == 0 || $contact_counter == NULL) {
                 $contact_counter = 2;
             }
             for ($i = 1; $i <= $contact_counter; $i++) {
@@ -127,7 +127,7 @@ class Client extends CI_Controller
                     'contact_type_id' => $this->input->post('contact_type_id_' . $i),
                     'owner_id' => $client_inserted_id,
                     'owner_type' => 3,
-                ]); 
+                ]);
             }
             //if ($this->form_validation->run('contactValue') == TRUE) {
             $this->ClientModel->createContacts($contactArray);
@@ -224,11 +224,16 @@ class Client extends CI_Controller
             // update contact
             $contactArray = array();
             $contactArray = [];
+            $contactIdArray = [];
             $contact_counter = $this->input->post('contact_counter');
             for ($i = 0; $i <= $contact_counter; $i++) {
                 $this->form_validation->set_rules('contact_value_' . $i, 'Contact Value', 'required');
             }
+
             for ($i = 0; $i <= $contact_counter; $i++) {
+                array_push($contactIdArray,[
+                    'contact_id' => $this->input->post('contact_id_' . $i),
+                ]);
                 array_push($contactArray, [
                     'contact_value' => $this->input->post('contact_value_' . $i),
                     'contact_type_id' => $this->input->post('contact_type_id_' . $i),
@@ -236,15 +241,15 @@ class Client extends CI_Controller
                     //'owner_type' => 3,
                 ]);
             }
+            // echo print_r($contactIdArray);
+            // echo print_r($contactArray[0]["contact_id"]);
+            // echo print_r($contactArray[1]["contact_id"]);
+            // echo print_r($contactArray[2]["contact_id"]);
             for($i = 0; $i <= $contact_counter; $i++){
-                $this->ClientModel->updateContact($client_id,$contactArray[$i]);
+                $this->ClientModel->updateContact($contactIdArray[$i]["contact_id"],$contactArray[$i]);
             }
-            // echo print_r($contact_counter);
-            // echo "\n";
-            // echo print_r($contactArray[0]);
             $this->session->set_flashdata('success', 'Client successfully updated.');
             redirect(base_url() . 'client/clientList');
         }
     }
-    
 }

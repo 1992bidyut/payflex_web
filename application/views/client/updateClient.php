@@ -114,12 +114,13 @@
             <br>
             <!-- TODO: need to use for loop to make fields -->
             <div id="addMultiContact">
-                <input type="hidden" id="contact_counter" name="contact_counter" value="<?php echo ($total_contact-1); ?>">
+                <input type="hidden" id="contact_counter" name="contact_counter" value="<?php echo ($total_contact - 1); ?>">
                 <?php for ($i = 0; $i <= $total_contact - 1; $i++) { ?>
                     <div class="row">
                         <div class="form-group col-sm-6">
                             <label for="<?php echo "contact_value_" . $i; ?>" class="col-form-label">Contact Value</label>
                             <input type="text" name="<?php echo "contact_value_" . $i; ?>" value="<?php print_r($contacts_info[$i]['contact_value']); ?>" id="" class="form-control" placeholder="Contact Value" aria-describedby="helpId" />
+                            <input type="hidden" name="<?php echo "contact_id_" . $i; ?>" value="<?php print_r($contacts_info[$i]['contact_id']); ?>">
                         </div>
                         <!--			Contact type 1-->
                         <div class="form-group col-sm-6">

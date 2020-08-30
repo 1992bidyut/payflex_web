@@ -1,0 +1,7 @@
+#OrderCountBox,
+#PaymentCountBox,
+#PaymentValidatedCountBox,
+#PaymentAmountTotalBox,
+#PaymentTargetAmountBox {
+  font-size: 16px;
+}
