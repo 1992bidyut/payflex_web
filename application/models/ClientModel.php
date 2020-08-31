@@ -153,7 +153,6 @@ class ClientModel extends CI_Model
 
     public function checkClientEmployeeRelation($client_id)
     {
-        // TODO: check if client & handler exist
         $multipleWhere = ['tbl_client_employee_relation.client_id' => $client_id, 'tbl_client_employee_relation.is_active' => 1];
         $this->db->select('tbl_client_employee_relation.handler_id')
             ->from('tbl_client_employee_relation')
@@ -208,4 +207,30 @@ class ClientModel extends CI_Model
     //     $this->db->select('tbl_contact.id,tbl_contact.client')
     //             ->from('tbl_contact');
     // }
+    public function getUserId($client_id)
+    {
+        $this->db->select('tbl_employees_relation.id as tbl_employees_relation_id ,
+                           tbl_employees_relation.user_id,
+                           tbl_employees_relation.designation,
+                           tbl_employees_relation.team_id,
+                           tbl_employees_relation.transfer_team_id,
+                           tbl_employees_relation.info_id,
+                           tbl_employees_relation.created_date,
+                           tbl_employees_relation.parent_id,
+                           tbl_employees_relation.coded_employeeId,
+                           tbl_employees_relation.is_active,
+                           tbl_user.id as tbl_user_id,
+                           tbl_user.username,
+                           tbl_user.password,
+                           tbl_user.created_time,
+                           tbl_user.user_type,
+                           
+            ')
+            ->from('tbl_employees_relation')
+            ->join('tbl_user','tbl_employees_relation.user_id = tbl_user.id','left')
+            ->where('tbl_employees_relation.info_id',$client_id);
+           $result =  $this->db->get()->row_array();
+           return $result;
+
+    }
 }

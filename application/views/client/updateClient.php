@@ -1,58 +1,4 @@
 <div class="row">
-    <div class="col-md-12" style="padding-top: 10px;">
-        <?php
-        $success = $this->session->userdata('success');
-        if ($success != "") { ?>
-            <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                <strong><?php echo $success; ?></strong>
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-        <?php } ?>
-        <?php
-        $failure = $this->session->userdata('failure');
-        if ($failure != "") { ?>
-            <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                <strong><?php echo $failure; ?></strong>
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-        <?php } ?>
-    </div>
-</div>
-<!-- validation error messsage -->
-<div class="row">
-    <div class="col-md-12">
-        <?php if (
-            empty(form_error('name'))
-            || empty(form_error('representative_name'))
-            || empty(form_error('client_code'))
-            || empty(form_error('virtual_account_no'))
-        ) { ?>
-            <!-- <div class="alert alert-danger alert-dismissible fade show" role="alert"> -->
-            <div class="alert alert-warning alert-dismissible" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span>
-                </button>
-                <strong><?php echo form_error('name') ?></strong><br/>
-                <strong><?php echo form_error('representative_name') ?></strong><br/>
-                <strong><?php echo form_error('client_code') ?></strong><br/>
-                <strong><?php echo form_error('virtual_account_no') ?></strong><br/>
-
-                <!-- TODO: Fix contact validation error -->
-                <?php for ($i = 0; $i <= $total_contact - 1; $i++) {
-                    if (empty(form_error("contact_value_" . $i))) { ?>
-                        <strong><?php echo form_error('contact_value_' . $i); ?></strong><br/>
-                    <?php } ?>
-                <?php } ?>
-            </div>
-        <?php } ?>
-
-    </div>
-</div>
-
-<div class="row">
     <div class="col-md-12">
         <form action="<?php echo base_url('client/updateClient/' . $client_info['client_id']); ?>" method="POST">
             <!--			Distributor name-->
@@ -67,10 +13,13 @@
                                placeholder="Organization /Name"
                                value="<?php echo set_value('name', $client_info['name']); ?>" aria-describedby="helpId"
                                width="auto"/>
+                        <strong style="color: red"><?php echo form_error('name') ?></strong>
                     </div>
                 </div>
             </div>
             <br/>
+
+
             <!--			Representative name-->
             <div class="row">
                 <div class="form-group">
@@ -82,10 +31,13 @@
                                class="form-control" placeholder="Representative Name"
                                value="<?php echo set_value('representative_name', $client_info['representative_name']); ?>"
                                aria-describedby="helpId"/>
+                        <strong style="color: red"><?php echo form_error('representative_name') ?></strong>
                     </div>
                 </div>
             </div>
             <br/>
+
+
             <!--			Client and Virtual A/C-->
             <div class="row">
                 <div class="col-md-6">
@@ -97,6 +49,7 @@
                                placeholder="Client Code"
                                value="<?php echo set_value('client_code', $client_info['client_code']); ?>"
                                aria-describedby="helpId"/>
+                        <strong style="color: red"><?php echo form_error('client_code') ?></strong>
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -108,15 +61,17 @@
                                placeholder="Virtual A/C no."
                                value="<?php echo set_value('virtual_account_no', $client_info['virtual_account_no']); ?>"
                                aria-describedby="helpId"/>
+                        <strong style="color: red"><?php echo form_error('virtual_account_no') ?></strong>
                     </div>
                 </div>
             </div>
             <br>
+
+
             <!--			Assign DSR-->
             <div class="row">
                 <div class="col-md-2">
-                    <label for="assign_dsr" class="col-form-label text-left">Assign
-                        DSR</label>
+                    <label for="assign_dsr" class="col-form-label text-left">Assign DSR</label>
                 </div>
                 <div class="col-md-10">
                     <select name="assign_dsr" id="assignDsr" class="form-control" value="">
@@ -128,26 +83,83 @@
                             <option value=<?php echo "\"" . $getDSR['coded_employeeId'] . "\""; ?>><?php echo $getDSR['name']; ?></option>
                         <?php } ?>
                     </select>
+                    <strong style="color: red"><?php echo form_error('assign_dsr') ?></strong>
                 </div>
 
             </div>
             <br>
-            <!-- TODO: need to use for loop to make fields -->
+
+
+            <!--contact secion-->
             <div id="addMultiContact">
                 <input type="hidden" id="contact_counter" name="contact_counter"
                        value="<?php echo($total_contact - 1); ?>">
-                <?php for ($i = 0; $i <= $total_contact - 1; $i++) { ?>
+                <?php //print_r($contacts_info); ?>
+                <?php //print_r($contacts_info[1]['contact_value']); ?>
+                <div class="row">
+                    <div class="form-group col-sm-6">
+<!--                        <input type="hidden" id="contact_counter" name="contact_counter" value="">-->
+                        <label for="contact_value_0" class="col-form-label">Contact Value</label>
+                        <input type="text" name="contact_value_0" id="contact_value_0"
+                               value="<?php if (!empty($contacts_info)) {
+                                   echo set_value('contact_value_0', $contacts_info[0]['contact_value']);
+                               } else {
+                                   echo "";
+                               } ?>" class="form-control" placeholder="Contact Value" aria-describedby="helpId"/>
+                        <strong style="color: red"><?php echo form_error('contact_value_0') ?></strong>
+                    </div>
+                    <!--			Contact type 1-->
+                    <div class="form-group col-sm-6">
+                        <label for="contact_type_id_0" class="col-form-label">Contact Type</label><br>
+                        <select name="contact_type_id_0" id="contact_type_id_0" class="form-control col-sm-12">
+                            <?php foreach ($contacts as $contact) { ?>
+                                <option value=<?php echo "\"" . $contact['id'] . "\""; ?>>
+                                    <?php echo $contact['contact_type']; ?>
+                                </option>
+                            <?php } ?>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <!--			Contact value 2-->
+                    <div class="form-group col-sm-6">
+                        <label for="contact_value_1" class="col-form-label">Contact Value</label>
+                        <input type="text" name="contact_value_1" id="contact_value_1"
+                               value="<?php if (!empty($contacts_info)) {
+                                   echo set_value('contact_value_1', $contacts_info[1]['contact_value']);
+                               } else {
+                                   echo "";
+                               } ?>" class="form-control" placeholder="Contact Value" aria-describedby="helpId"/>
+                        <strong style="color: red"><?php echo form_error('contact_value_1') ?></strong>
+                    </div>
+                    <!--			Contact type 2-->
+                    <div class="form-group col-sm-6">
+                        <label for="contact_type_id_1" class="col-form-label">Contact Type</label><br>
+                        <select name="contact_type_id_1" id="contact_type_id_1" class="form-control col-sm-12">
+                            <?php foreach ($contacts as $contact) { ?>
+                                <option value=<?php echo "\"" . $contact['id'] . "\""; ?>>
+                                    <?php echo $contact['contact_type']; ?>
+                                </option>
+                            <?php } ?>
+                        </select>
+                    </div>
+                </div>
+                <?php for ($i = 2; $i <= $total_contact - 1; $i++) { ?>
                     <div class="row">
                         <div class="form-group col-sm-6">
                             <label for="<?php echo "contact_value_" . $i; ?>" class="col-form-label">Contact
                                 Value</label>
                             <input type="text" name="<?php echo "contact_value_" . $i; ?>"
-                                   value="<?php print_r($contacts_info[$i]['contact_value']); ?>" id=""
+                                   value="<?php
+                                   //print_r($contacts_info[$i]['contact_value']);
+                                   echo set_value('contact_value_' . $i, $contacts_info[$i]['contact_value']);
+                                   ?>" id=""
                                    class="form-control" placeholder="Contact Value" aria-describedby="helpId"/>
+                            <strong style="color: red"><?php echo form_error('contact_value_' . $i) ?></strong>
                             <input type="hidden" name="<?php echo "contact_id_" . $i; ?>"
                                    value="<?php print_r($contacts_info[$i]['contact_id']); ?>">
                         </div>
-                        <!--			Contact type 1-->
+                        <!--			Contact type-->
                         <div class="form-group col-sm-6">
                             <label for="<?php echo "contact_type_id_" . $i; ?>" class="col-form-label">Contact
                                 Type</label>
@@ -165,6 +177,8 @@
                 <?php } ?>
             </div>
             <br>
+
+
             <!-- is active -->
             <div class="row">
                 <div class="col-md-offset-8 col-md-4 switch-field">
@@ -195,12 +209,11 @@
     var contact_info = <?php echo json_encode($contacts_info); ?>;
     // for (var i = 0; i <= total_counter - 1; i++) {
     //     let element = document.getElementById("contact_type_id_" + i);
-    //     element.value = "<?php //echo $contacts_info[<script>document.writeln(i);</script>]['type_id'] 
-    ?>";
+    //     element.value = "<?php //echo $contacts_info[<script>document.writeln(i);</script>]['type_id']; ?>";
     // }
     for (var i = 0; i <= total_counter - 1; i++) {
         let element = document.getElementById("contact_type_id_" + i);
-        console.log(contact_info[i].type_id);
+        //console.log(contact_info[i].type_id);
         element.value = contact_info[i].type_id;
     }
 </script>
