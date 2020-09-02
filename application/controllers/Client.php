@@ -263,6 +263,8 @@ class Client extends CI_Controller
                         //'owner_type' => 3,
                     ]);
                 }
+//                echo print_r($contactArray);
+
                 for ($i = 0; $i <= $contact_counter; $i++) {
                     $this->ClientModel->updateContact($contactIdArray[$i]["contact_id"], $contactArray[$i]);
                 }

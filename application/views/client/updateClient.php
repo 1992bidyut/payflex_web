@@ -93,12 +93,13 @@
             <!--contact secion-->
             <div id="addMultiContact">
                 <input type="hidden" id="contact_counter" name="contact_counter"
-                       value="<?php echo($total_contact - 1); ?>">
+                       value="<?php if($total_contact==0){ echo ""; }else{ echo($total_contact - 1);} ?>">
                 <?php print_r($total_contact); ?>
                 <?php //print_r($contacts_info[1]['contact_value']); ?>
+                <input type="hidden" id="update_contact_counter" name="update_contact_counter" value="">
                 <div class="row">
                     <div class="form-group col-sm-6">
-                        <input type="hidden" id="update_contact_counter" name="update_contact_counter" value="">
+
                         <label for="contact_value_0" class="col-form-label">Contact Value</label>
                         <input type="text" name="contact_value_0" id="contact_value_0"
                                value="<?php if (!empty($contacts_info)) {
@@ -107,6 +108,8 @@
                                    echo "";
                                } ?>" class="form-control" placeholder="Contact Value" aria-describedby="helpId"/>
                         <strong style="color: red"><?php echo form_error('contact_value_0') ?></strong>
+                        <input type="hidden" name="contact_id_0"
+                               value="<?php if(empty($contacts_info)){echo "";}else{ print_r($contacts_info[0]['contact_id']);} ?>">
                     </div>
                     <!--			Contact type 1-->
                     <div class="form-group col-sm-6">
@@ -131,6 +134,8 @@
                                    echo "";
                                } ?>" class="form-control" placeholder="Contact Value" aria-describedby="helpId"/>
                         <strong style="color: red"><?php echo form_error('contact_value_1') ?></strong>
+                        <input type="hidden" name="contact_id_1"
+                               value="<?php if(empty($contacts_info)){echo "";}else{ print_r($contacts_info[1]['contact_id']);} ?>">
                     </div>
                     <!--			Contact type 2-->
                     <div class="form-group col-sm-6">
