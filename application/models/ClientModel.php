@@ -201,7 +201,7 @@ class ClientModel extends CI_Model
     {
         $this->db->where('tbl_contact.id', $contact_id);
         $this->db->update('tbl_contact', $data);
-        // print_r($this->db->last_query());
+        echo print_r($this->db->last_query());
     }
     // public function getTotalContact($client_id){
     //     $this->db->select('tbl_contact.id,tbl_contact.client')

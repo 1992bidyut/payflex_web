@@ -98,7 +98,7 @@
                 <?php //print_r($contacts_info[1]['contact_value']); ?>
                 <div class="row">
                     <div class="form-group col-sm-6">
-                    <!--<input type="hidden" id="contact_counter" name="contact_counter" value="">-->
+                        <!--<input type="hidden" id="contact_counter" name="contact_counter" value="">-->
                         <label for="contact_value_0" class="col-form-label">Contact Value</label>
                         <input type="text" name="contact_value_0" id="contact_value_0"
                                value="<?php if (!empty($contacts_info)) {
@@ -177,7 +177,14 @@
                 <?php } ?>
             </div>
             <br>
-
+            <div class="row">
+                <div class="col-md-offset-10 col-md-2 plusButton border"
+                     style="border:1px solid black; cursor:pointer;">
+                    <span class="input-group-addon" style="border: none;">
+                        <i class="glyphicon glyphicon-plus"></i>Another
+                    </span>
+                </div>
+            </div>
 
             <!-- is active -->
             <div class="row">
@@ -216,4 +223,29 @@
         //console.log(contact_info[i].type_id);
         element.value = contact_info[i].type_id;
     }
+
+    var counter = 1;
+    $(function () {
+
+        var plus = $(".plusButton");
+        var del = $(".rmvButton");
+        var selector = $("#addMultiContact");
+
+        plus.click(function () {
+            counter++;
+            selector.append('<div class="row" id="' + 'contact_id_' + counter + '"><div class="form-group col-sm-6"><label for="' + 'contact_value_' + counter + '" class="col-form-label">Contact Value</label><input type="text" name="' + 'contact_value_' + counter + '" id="" class="form-control" placeholder="Contact Value" aria-describedby="helpId" /></div><div class="form-group col-sm-5"><label for="' + 'contact_type_id_' + counter + '" class="col-form-label">Contact Type</label><br><select name="' + 'contact_type_id_' + counter + '" class="form-control col-sm-11"><?php foreach ($contacts as $contact) { ?><option value=<?php echo "\"" . $contact['id'] . "\""; ?>><?php echo $contact['contact_type']; ?></option><?php } ?></select></div><br><div class="col-md-1 x" style="margin-top:9px;"><span class="remove-btn input-group-addon "><i class="glyphicon glyphicon-remove rmvButton" data-target="#' + 'contact_id_' + counter + '"></i></span></div></div>');
+            $("#contact_counter").val(counter);
+        });
+
+        selector.on("click", ".rmvButton", function () {
+
+            var item_id = $(this).data("target");
+            if (counter > 1) {
+                $(item_id).remove();
+                counter--;
+                $("#contact_counter").val(counter);
+            }
+        });
+    });
+    // end
 </script>

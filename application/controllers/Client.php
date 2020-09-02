@@ -231,13 +231,14 @@ class Client extends CI_Controller
             //check if client has contact
             if ($total_contact == 0) {
                 $contact_counter = $this->input->post('contact_counter');
-                if ($contact_counter == "" || $contact_counter == 0 || $contact_counter == NULL) {
-                    $contact_counter = 2;
+                if ($contact_counter == 0 || $contact_counter == -1) {
+                    $contact_counter = 1;
                 }
+//                for ($i = 0; $i <= $contact_counter; $i++) {
+//                    $this->form_validation->set_rules('contact_value_' . $i, 'Contact Value', 'required');
+//                }
                 for ($i = 0; $i <= $contact_counter; $i++) {
                     $this->form_validation->set_rules('contact_value_' . $i, 'Contact Value', 'required');
-                }
-                for ($i = 0; $i <= $contact_counter; $i++) {
                     array_push($contactArray, [
                         'contact_value' => $this->input->post('contact_value_' . $i),
                         'contact_type_id' => $this->input->post('contact_type_id_' . $i),
@@ -247,9 +248,10 @@ class Client extends CI_Controller
                 }
                 //if ($this->form_validation->run('contactValue') == TRUE) {
                 $this->ClientModel->createContacts($contactArray);
-            } else {
-
-
+                $this->session->set_flashdata('success', 'Client successfully updated.');
+                redirect(base_url() . 'client/clientList');
+            }
+            if ($total_contact > 0) {
                 for ($i = 0; $i <= $contact_counter; $i++) {
                     array_push($contactIdArray, [
                         'contact_id' => $this->input->post('contact_id_' . $i),
@@ -264,11 +266,9 @@ class Client extends CI_Controller
                 for ($i = 0; $i <= $contact_counter; $i++) {
                     $this->ClientModel->updateContact($contactIdArray[$i]["contact_id"], $contactArray[$i]);
                 }
+                $this->session->set_flashdata('success', 'Client successfully updated.');
+                redirect(base_url() . 'client/clientList');
             }
-
-
-            $this->session->set_flashdata('success', 'Client successfully updated.');
-            redirect(base_url() . 'client/clientList');
         }
     }
 }
