@@ -229,15 +229,15 @@ class Client extends CI_Controller
             $contactArray = [];
             $contactIdArray = [];
             //check if client has contact
-            if (!empty($total_contact) || $total_contact == "" || $total_contact == 0) {
+            if ($total_contact == 0) {
                 $contact_counter = $this->input->post('contact_counter');
                 if ($contact_counter == "" || $contact_counter == 0 || $contact_counter == NULL) {
                     $contact_counter = 2;
                 }
-                for ($i = 0; $i <= $contact_counter - 1; $i++) {
+                for ($i = 0; $i <= $contact_counter; $i++) {
                     $this->form_validation->set_rules('contact_value_' . $i, 'Contact Value', 'required');
                 }
-                for ($i = 0; $i <= $contact_counter - 1; $i++) {
+                for ($i = 0; $i <= $contact_counter; $i++) {
                     array_push($contactArray, [
                         'contact_value' => $this->input->post('contact_value_' . $i),
                         'contact_type_id' => $this->input->post('contact_type_id_' . $i),
