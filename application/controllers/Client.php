@@ -273,4 +273,47 @@ class Client extends CI_Controller
             }
         }
     }
+
+    public function addContacts()
+    {
+        $this->load->model('ClientModel');
+
+        $this->load->helper(array('form', 'url')); //required
+        $this->load->library('form_validation'); //required
+
+        $contactArray = array();
+        $contactArray = [];
+        $contactIdArray = [];
+        $client_id = $this->input->post('client_id');
+        //check if client has contact
+        $contact_counter = $this->input->post('new_contact_counter');
+//        if ($contact_counter == 0 || $contact_counter == -1) {
+//            $contact_counter = 0;
+//        }
+//        for ($i = 0; $i <= $contact_counter; $i++) {
+//            $this->form_validation->set_rules('contact_value_' . $i, 'Contact Value', 'required');
+//        }
+        for ($i = 0; $i <= $contact_counter; $i++) {
+            $this->form_validation->set_rules('contact_value_' . $i, 'Contact Value', 'required');
+            array_push($contactArray, [
+                'contact_value' => $this->input->post('new_contact_value_' . $i),
+                'contact_type_id' => $this->input->post('new_contact_type_id_' . $i),
+                'owner_id' => $client_id,
+                'owner_type' => 3,
+            ]);
+        }
+        //if ($this->form_validation->run('contactValue') == TRUE) {
+        $this->ClientModel->createContacts($contactArray);
+        $this->session->set_flashdata('success', 'Contact successfully added.');
+        redirect(base_url() . 'client/updateClient/'.$client_id);
+    }
+    public function deleteContact($contact_id,$client_id){
+        $this->load->model('ClientModel');
+
+        $this->load->helper(array('form', 'url')); //required
+        $this->load->library('form_validation');
+        $this->ClientModel->deleteContact($contact_id);
+        $this->session->set_flashdata('success', 'Contact successfully deleted.');
+        redirect(base_url() . 'client/updateClient/'.$client_id);
+    }
 }

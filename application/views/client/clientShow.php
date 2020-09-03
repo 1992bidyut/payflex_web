@@ -83,7 +83,7 @@
                                         </div>
                                     </div>
 
-                                    <form class='form' method='post' action="<?php echo site_url('client/createClient'); ?>">
+                                    <form class='form' method='post' action="<?php echo site_url('client/createClient'); ?>" >
 
                                         <!--			Distributor name-->
                                         <div class="row">

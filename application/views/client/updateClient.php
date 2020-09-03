@@ -1,4 +1,31 @@
 <div class="row">
+    <div class="col-md-12" style="padding-top: 10px;">
+        <?php
+        $success = $this->session->userdata('success');
+        if ($success != "") {
+            ?>
+            <div class="alert alert-success alert-dismissible" role="alert">
+                <strong><?php echo $success; ?></strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        <?php } ?>
+        <?php
+        $failure = $this->session->userdata('failure');
+        if ($failure != "") {
+            ?>
+            <div class="alert alert-warning alert-dismissible" role="alert">
+
+                <strong><?php echo $failure; ?></strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        <?php } ?>
+    </div>
+</div>
+<div class="row">
     <div class="col-md-12">
         <form action="<?php echo base_url('client/updateClient/' . $client_info['client_id']); ?>" method="POST">
             <!--			Distributor name-->
@@ -93,8 +120,12 @@
             <!--contact secion-->
             <div id="addMultiContact">
                 <input type="hidden" id="contact_counter" name="contact_counter"
-                       value="<?php if($total_contact==0){ echo ""; }else{ echo($total_contact - 1);} ?>">
-                <?php print_r($total_contact); ?>
+                       value="<?php if ($total_contact == 0) {
+                           echo "";
+                       } else {
+                           echo($total_contact - 1);
+                       } ?>">
+                <?php //print_r($total_contact); ?>
                 <?php //print_r($contacts_info[1]['contact_value']); ?>
                 <input type="hidden" id="update_contact_counter" name="update_contact_counter" value="">
                 <div class="row">
@@ -109,7 +140,11 @@
                                } ?>" class="form-control" placeholder="Contact Value" aria-describedby="helpId"/>
                         <strong style="color: red"><?php echo form_error('contact_value_0') ?></strong>
                         <input type="hidden" name="contact_id_0"
-                               value="<?php if(empty($contacts_info)){echo "";}else{ print_r($contacts_info[0]['contact_id']);} ?>">
+                               value="<?php if (empty($contacts_info)) {
+                                   echo "";
+                               } else {
+                                   print_r($contacts_info[0]['contact_id']);
+                               } ?>">
                     </div>
                     <!--			Contact type 1-->
                     <div class="form-group col-sm-6">
@@ -135,7 +170,11 @@
                                } ?>" class="form-control" placeholder="Contact Value" aria-describedby="helpId"/>
                         <strong style="color: red"><?php echo form_error('contact_value_1') ?></strong>
                         <input type="hidden" name="contact_id_1"
-                               value="<?php if(empty($contacts_info)){echo "";}else{ print_r($contacts_info[1]['contact_id']);} ?>">
+                               value="<?php if (empty($contacts_info)) {
+                                   echo "";
+                               } else {
+                                   print_r($contacts_info[1]['contact_id']);
+                               } ?>">
                     </div>
                     <!--			Contact type 2-->
                     <div class="form-group col-sm-6">
@@ -182,15 +221,26 @@
                 <?php } ?>
             </div>
             <br>
-            <div class="row">
-                <div class="col-md-offset-10 col-md-2 plusButton border"
-                     style="border:1px solid black; cursor:pointer;">
-                    <span class="input-group-addon" style="border: none;">
-                        <i class="glyphicon glyphicon-plus"></i>Another
-                    </span>
-                </div>
+            <div class="row text-right">
+                <?php if ($total_contact == 0) { ?>
+                    <div class="col-md-offset-10 col-md-2 plusButton border"
+                         style="border:1px solid black; cursor:pointer;">
+                        <span class="input-group-addon" style="border: none;">
+                            <i class="glyphicon glyphicon-plus"></i>Another
+                        </span>
+                    </div>
+                <?php } else { ?>
+                    <div class="col-md-offset-6 col-md-3">
+                        <a href="#" class="btn btn-lg btn-primary" data-toggle="modal"
+                           data-target="#AddNewContactModal">Add New Contact</a>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="#" class="btn btn-lg btn-danger" data-toggle="modal" data-target="#DeleteContactModal">Delete
+                            Contact</a>
+                    </div>
+                <?php } ?>
             </div>
-
+            <br>
             <!-- is active -->
             <div class="row">
                 <div class="col-md-offset-8 col-md-4 switch-field">
@@ -211,6 +261,99 @@
                 Update
             </button>
         </form>
+
+
+        <!--        add new contacts form-->
+        <div class="modal fade" id="AddNewContactModal" tabindex="-1" role="dialog" aria-labelledby="AddNewContactModal"
+             aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">Create Contact</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form action="<?php echo base_url('client/addContacts'); ?>"
+                              method="POST">
+                            <div class="AddNewMultiContact" id="AddNewMultiContact">
+                                <input type="hidden" id="new_contact_counter" name="new_contact_counter" value="">
+                                <input type="hidden" name="client_id" value="<?php echo $client_info['client_id']; ?>">
+                                <div class="row">
+                                    <div class="form-group col-sm-6">
+                                        <label for="new_contact_value_0" class="col-form-label">Contact Value</label>
+                                        <input type="text" name="new_contact_value_0" id="new_contact_value_0"
+                                               value="" class="form-control" placeholder="Contact Value"
+                                               aria-describedby="helpId"/>
+                                        <strong style="color: red"><?php echo form_error('contact_value_0') ?></strong>
+                                    </div>
+                                    <!--			Contact type 1-->
+                                    <div class="form-group col-sm-6">
+                                        <label for="new_contact_type_id_0" class="col-form-label">Contact
+                                            Type</label><br>
+                                        <select name="new_contact_type_id_0" id="contact_type_id_0"
+                                                class="form-control col-sm-12">
+                                            <?php foreach ($contacts as $contact) { ?>
+                                                <option value=<?php echo "\"" . $contact['id'] . "\""; ?>>
+                                                    <?php echo $contact['contact_type']; ?>
+                                                </option>
+                                            <?php } ?>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-md-offset-10 col-md-2 newplusButton border"
+                                     style="border:1px solid black; cursor:pointer;">
+                                    <span class="input-group-addon" style="border: none;">
+                                        <i class="glyphicon glyphicon-plus"></i>Another
+                                    </span>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Save Contact</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--        add new contacts form-->
+        <div class="modal fade" id="DeleteContactModal" tabindex="-1" role="dialog" aria-labelledby="DeleteContactModal"
+             aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">Delete contact from the list</h4>
+                    </div>
+                    <div class="modal-body">
+                        <h3 class="text-danger">Deleted contact cannot be retrieved!</h3>
+                        <table width="100%" class="table-bordered table-striped">
+                            <thead>
+                            <tr>
+                                <th>Contact Value</th>
+                                <th class="text-center">Delete</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <?php for ($i = 0; $i <= $total_contact - 1; $i++) { ?>
+                            <tr>
+                                <td><?php echo $contacts_info[$i]['contact_value']; ?></td>
+                                <td class="text-center"><a href="<?php echo base_url('client/deleteContact/'.$contacts_info[$i]['contact_id'].'/'. $client_info['client_id']); ?>" class="btn btn-danger">Delete</a></td>
+                            </tr>
+                            <?php } ?>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -251,6 +394,34 @@
                 counter--;
                 // $("#update_contact_counter").val(counter);
                 $("#contact_counter").val(counter);
+            }
+        });
+    });
+    // end
+
+    //add button 2
+    var counter = 0;
+    $(function () {
+
+        var plus = $(".newplusButton");
+        var del = $(".rmvButton");
+        var selector = $("#AddNewMultiContact");
+
+        plus.click(function () {
+            counter++;
+            selector.append('<div class="row" id="' + 'contact_id_' + counter + '"><div class="form-group col-sm-6"><label for="' + 'new_contact_value_' + counter + '" class="col-form-label">Contact Value</label><input type="text" name="' + 'new_contact_value_' + counter + '" id="" class="form-control" placeholder="Contact Value" aria-describedby="helpId" /></div><div class="form-group col-sm-5"><label for="' + 'new_contact_type_id_' + counter + '" class="col-form-label">Contact Type</label><br><select name="' + 'new_contact_type_id_' + counter + '" class="form-control col-sm-11"><?php foreach ($contacts as $contact) { ?><option value=<?php echo "\"" . $contact['id'] . "\""; ?>><?php echo $contact['contact_type']; ?></option><?php } ?></select></div><br><div class="col-md-1 x" style="margin-top:9px;"><span class="remove-btn input-group-addon "><i class="glyphicon glyphicon-remove rmvButton" data-target="#' + 'contact_id_' + counter + '"></i></span></div></div>');
+            //$("#update_contact_counter").val(counter);
+            $("#new_contact_counter").val(counter);
+        });
+
+        selector.on("click", ".rmvButton", function () {
+
+            var item_id = $(this).data("target");
+            if (counter > 0) {
+                $(item_id).remove();
+                counter--;
+                // $("#update_contact_counter").val(counter);
+                $("#new_contact_counter").val(counter);
             }
         });
     });

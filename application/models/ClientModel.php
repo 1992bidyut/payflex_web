@@ -233,4 +233,8 @@ class ClientModel extends CI_Model
            return $result;
 
     }
+    public function deleteContact($contact_id){
+        $this->db->where('id', $contact_id);
+        $this->db->delete('tbl_contact');
+    }
 }
