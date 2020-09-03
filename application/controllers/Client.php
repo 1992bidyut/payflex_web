@@ -232,7 +232,7 @@ class Client extends CI_Controller
             if ($total_contact == 0) {
                 $contact_counter = $this->input->post('contact_counter');
                 if ($contact_counter == 0 || $contact_counter == -1) {
-                    $contact_counter = 1;
+                    $contact_counter = 0;
                 }
 //                for ($i = 0; $i <= $contact_counter; $i++) {
 //                    $this->form_validation->set_rules('contact_value_' . $i, 'Contact Value', 'required');

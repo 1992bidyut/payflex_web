@@ -330,7 +330,7 @@
                         <h4 class="modal-title" id="myModalLabel">Delete contact from the list</h4>
                     </div>
                     <div class="modal-body">
-                        <h3 class="text-danger">Deleted contact cannot be retrieved!</h3>
+                        <h3 class="text-danger">Deleted contact cannot be retrieved! <?php if ($total_contact <= 2) { echo "You can't not delete if you have 2 contacts left!"; }?></h3>
                         <table width="100%" class="table-bordered table-striped">
                             <thead>
                             <tr>
@@ -340,10 +340,21 @@
                             </thead>
                             <tbody>
                             <?php for ($i = 0; $i <= $total_contact - 1; $i++) { ?>
-                            <tr>
-                                <td><?php echo $contacts_info[$i]['contact_value']; ?></td>
-                                <td class="text-center"><a href="<?php echo base_url('client/deleteContact/'.$contacts_info[$i]['contact_id'].'/'. $client_info['client_id']); ?>" class="btn btn-danger">Delete</a></td>
-                            </tr>
+
+                                <?php if ($total_contact <= 2) { ?>
+                                    <?php echo $total_contact; ?>
+                                    <tr>
+                                        <td><?php echo $contacts_info[$i]['contact_value']; ?></td>
+                                    </tr>
+                                <?php } else { ?>
+                                    <?php echo $total_contact; ?>
+                                    <tr>
+                                        <td><?php echo $contacts_info[$i]['contact_value']; ?></td>
+                                        <td class="text-center"><a
+                                                    href="<?php echo base_url('client/deleteContact/' . $contacts_info[$i]['contact_id'] . '/' . $client_info['client_id']); ?>"
+                                                    class="btn btn-danger">Delete</a></td>
+                                    </tr>
+                                <?php } ?>
                             <?php } ?>
                             </tbody>
                         </table>
@@ -400,7 +411,7 @@
     // end
 
     //add button 2
-    var counter = 0;
+    var newcounter = 0;
     $(function () {
 
         var plus = $(".newplusButton");
@@ -408,20 +419,20 @@
         var selector = $("#AddNewMultiContact");
 
         plus.click(function () {
-            counter++;
-            selector.append('<div class="row" id="' + 'contact_id_' + counter + '"><div class="form-group col-sm-6"><label for="' + 'new_contact_value_' + counter + '" class="col-form-label">Contact Value</label><input type="text" name="' + 'new_contact_value_' + counter + '" id="" class="form-control" placeholder="Contact Value" aria-describedby="helpId" /></div><div class="form-group col-sm-5"><label for="' + 'new_contact_type_id_' + counter + '" class="col-form-label">Contact Type</label><br><select name="' + 'new_contact_type_id_' + counter + '" class="form-control col-sm-11"><?php foreach ($contacts as $contact) { ?><option value=<?php echo "\"" . $contact['id'] . "\""; ?>><?php echo $contact['contact_type']; ?></option><?php } ?></select></div><br><div class="col-md-1 x" style="margin-top:9px;"><span class="remove-btn input-group-addon "><i class="glyphicon glyphicon-remove rmvButton" data-target="#' + 'contact_id_' + counter + '"></i></span></div></div>');
+            newcounter++;
+            selector.append('<div class="row" id="' + 'contact_id_' + newcounter + '"><div class="form-group col-sm-6"><label for="' + 'new_contact_value_' + newcounter + '" class="col-form-label">Contact Value</label><input type="text" name="' + 'new_contact_value_' + newcounter + '" id="" class="form-control" placeholder="Contact Value" aria-describedby="helpId" /></div><div class="form-group col-sm-5"><label for="' + 'new_contact_type_id_' + newcounter + '" class="col-form-label">Contact Type</label><br><select name="' + 'new_contact_type_id_' + newcounter + '" class="form-control col-sm-11"><?php foreach ($contacts as $contact) { ?><option value=<?php echo "\"" . $contact['id'] . "\""; ?>><?php echo $contact['contact_type']; ?></option><?php } ?></select></div><br><div class="col-md-1 x" style="margin-top:9px;"><span class="remove-btn input-group-addon "><i class="glyphicon glyphicon-remove rmvButton" data-target="#' + 'contact_id_' + newcounter + '"></i></span></div></div>');
             //$("#update_contact_counter").val(counter);
-            $("#new_contact_counter").val(counter);
+            $("#new_contact_counter").val(newcounter);
         });
 
         selector.on("click", ".rmvButton", function () {
 
             var item_id = $(this).data("target");
-            if (counter > 0) {
+            if (newcounter > 0) {
                 $(item_id).remove();
-                counter--;
+                newcounter--;
                 // $("#update_contact_counter").val(counter);
-                $("#new_contact_counter").val(counter);
+                $("#new_contact_counter").val(newcounter);
             }
         });
     });
