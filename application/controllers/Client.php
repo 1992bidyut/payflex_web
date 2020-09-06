@@ -186,7 +186,7 @@ class Client extends CI_Controller
                     'getDSRs' => $getDSRs,
                     'total_contact' => $total_contact,
                     'contacts' => $contactsType,
-                    'ClientUserInfo'=>$ClientUserInfo
+                    'ClientUserInfo' => $ClientUserInfo
                 ),
                 true
             );
@@ -335,7 +335,9 @@ class Client extends CI_Controller
         $this->session->set_flashdata('success', 'Email successfully Updated.');
         redirect(base_url() . 'client/updateClient/' . $clientId);
     }
-    public function createNewUser(){
+
+    public function createNewUser()
+    {
         $this->load->model('ClientModel');
         $this->load->helper(array('form', 'url'));
         $this->load->library('form_validation');
@@ -351,9 +353,40 @@ class Client extends CI_Controller
             $userArray['created_time'] = date('Y-m-d');
             $user['user_id'] = $this->ClientModel->createUserIfActive($userArray);
             $clientId = $this->input->post('client_id');
-            $this->ClientModel->updateUserId($clientId,$user);
+            $this->ClientModel->updateUserId($clientId, $user);
         }
         $this->session->set_flashdata('success', 'Contact successfully deleted.');
         redirect(base_url() . 'client/ClientList/');
+    }
+
+    public function changePassword()
+    {
+        $this->load->model('ClientModel');
+        $this->load->helper(array('form', 'url'));
+        $this->load->library('form_validation');
+
+        $this->form_validation->set_rules('oldPassword', 'Old Password', 'required');
+        $this->form_validation->set_rules('newPassword', 'New Password', 'required|min_length[3]');
+        $this->form_validation->set_rules('confirmNewPassword', 'Confirm Password', 'required|matches[newPassword]');
+
+        $userArray = array();
+        if ($this->form_validation->run() == true) {
+            $clientId = $this->input->post('client_id');
+            $oldPassword = sha1($this->input->post('oldPassword'));
+            $user_id = $this->input->post('user_id');
+            $userInfo = $this->ClientModel->matchOldPassword($user_id);
+            $newPassword = sha1($this->input->post('newPassword'));
+            $confirmNewPassword = sha1($this->input->post('confirmNewPassword'));
+
+            if (($userInfo['password'] == $oldPassword) && ($newPassword == $confirmNewPassword)) {
+                $userArray['password'] = $this->input->post('newPassword');
+                $this->ClientModel->changePassword($user_id, $userArray);
+                $this->session->set_flashdata('success', 'Password successfully changed.');
+                redirect(base_url() . 'client/updateClient/'.$clientId);
+            }else{
+                $this->session->set_flashdata('failure', 'Password change failed');
+                redirect(base_url() . 'client/updateClient/'.$clientId);
+            }
+        }
     }
 }

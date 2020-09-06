@@ -267,17 +267,36 @@ class ClientModel extends CI_Model
         ')
             ->from('client_info')
             ->join('tbl_user', 'client_info.user_id = tbl_user.id', 'left')
-            ->where('client_info.id',$clientId);
+            ->where('client_info.id', $clientId);
 
         $result = $this->db->get()->row_array();
         return $result;
     }
-    public function updateEmail($id,$data){
-        $this->db->where('id',$id);
-        $this->db->update('tbl_user',$data);
+
+    public function updateEmail($id, $data)
+    {
+        $this->db->where('id', $id);
+        $this->db->update('tbl_user', $data);
     }
-    public function updateUserId($clientId,$data){
-        $this->db->where('id',$clientId);
-        $this->db->update('client_info',$data);
+
+    public function updateUserId($clientId, $data)
+    {
+        $this->db->where('id', $clientId);
+        $this->db->update('client_info', $data);
+    }
+
+    public function matchOldPassword($user_id)
+    {
+        $this->db->select('tbl_user.password')
+            ->from('tbl_user')
+            ->where('tbl_user.id', $user_id);
+        $result = $this->db->get()->row_array();
+        return $result;
+    }
+
+    public function changePassword($user_id,$data)
+    {
+        $this->db->where('id', $user_id);
+        $this->db->update('tbl_user', $data);
     }
 }

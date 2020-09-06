@@ -247,6 +247,13 @@
                 </div>
             </div>
             <br>
+            <div class="row">
+                <div class="col-md-offset-9 col-md-3 text-right">
+                    <a href="#" class="btn btn-lg btn-primary" data-toggle="modal"
+                       data-target="#passwordChangeModal">Change User Password</a>
+                </div>
+            </div>
+            <br>
             <!-- is active -->
             <div class="row">
                 <div class="col-md-offset-8 col-md-4 switch-field">
@@ -408,9 +415,11 @@
                         <?php } else { ?>
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                            <h4 class="modal-title" id="myModalLabel">Create New User</h4>
+                            <h3 class="modal-title" id="myModalLabel">Create New User</h3>
                         </div>
                         <div class="modal-body">
+                            <h4>This client does not have an user account. You can create an user account for this
+                                client.</h4>
                             <form action="<?php echo base_url('client/createNewUser') ?>" method="post">
                                 <div class="row" id="user_register">
                                     <input type="hidden" name="client_id"
@@ -463,6 +472,47 @@
             </div>
 
         </div>
+
+        <!--        User password form modal-->
+        <div class="modal fade" id="passwordChangeModal" tabindex="-1" role="dialog" aria-labelledby="passwordChangeModal"
+             aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <?php if ($ClientUserInfo["username"] != "") { ?>
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">Change User Password</h4>
+                    </div>
+                    <form action="<?php echo base_url('client/changePassword/'.$ClientUserInfo['tbl_user_id']) ?>" method="post">
+                        <input type="hidden" name="user_id"
+                               value="<?php echo $ClientUserInfo['tbl_user_id']; ?>">
+                        <input type="hidden" name="client_id"
+                               value="<?php echo $client_info['client_id']; ?>">
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="oldPassword">Old Password</label>
+                                <input type="text" class="form-control" id="oldPassword" name="oldPassword" placeholder="Old Password">
+                            </div>
+                            <div class="form-group">
+                                <label for="newPassword">New Password</label>
+                                <input type="text" class="form-control" id="newPassword" name="newPassword" placeholder="New Password">
+                            </div>
+                            <div class="form-group">
+                                <label for="confirmNewPassword">Confirm New Password</label>
+                                <input type="text" class="form-control" id="confirmNewPassword" name="confirmNewPassword" placeholder="Confirm New Password">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Change password</button>
+                        </div>
+                    </form>
+                    <?php } ?>
+                </div>
+            </div>
+        </div>
+
+
     </div>
 
     <script>
