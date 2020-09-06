@@ -382,29 +382,35 @@
              aria-hidden="true">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
+                    <?php if ($ClientUserInfo["username"] != "") { ?>
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title" id="myModalLabel">Delete contact from the list</h4>
+                        <h4 class="modal-title" id="myModalLabel">Update Username</h4>
                     </div>
                     <div class="modal-body">
-                        <?php if ($ClientUserInfo["username"] != "") { ?>
-                            <form action="<?php echo base_url('/client/updateEmail/' . $ClientUserInfo['tbl_user_id']); ?>" method="post">
-                                <div class="form-group">
-                                    <input type="hidden" name="user_id"
-                                           value="<?php echo $ClientUserInfo['tbl_user_id']; ?>">
-                                    <input type="hidden" name="client_id"
-                                           value="<?php echo $client_info['client_id']; ?>">
-                                    <label for="exampleInputEmail1">Email address</label>
-                                    <input type="email" class="form-control" id="exampleInputEmail1" name="username"
-                                           value="<?php echo set_value('username', $ClientUserInfo['username']); ?>"
-                                           aria-describedby="emailHelp" placeholder=""/>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="submit" class="btn btn-primary">Submit</button>
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                </div>
-                            </form>
+                        <form action="<?php echo base_url('/client/updateEmail/' . $ClientUserInfo['tbl_user_id']); ?>"
+                              method="post">
+                            <div class="form-group">
+                                <input type="hidden" name="user_id"
+                                       value="<?php echo $ClientUserInfo['tbl_user_id']; ?>">
+                                <input type="hidden" name="client_id"
+                                       value="<?php echo $client_info['client_id']; ?>">
+                                <label for="exampleInputEmail1">Email address</label>
+                                <input type="email" class="form-control" id="exampleInputEmail1" name="username"
+                                       value="<?php echo set_value('username', $ClientUserInfo['username']); ?>"
+                                       aria-describedby="emailHelp" placeholder=""/>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </form>
                         <?php } else { ?>
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title" id="myModalLabel">Create New User</h4>
+                        </div>
+                        <div class="modal-body">
                             <form action="<?php echo base_url('client/createNewUser') ?>" method="post">
                                 <div class="row" id="user_register">
                                     <input type="hidden" name="client_id"
@@ -450,83 +456,82 @@
                                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                 </div>
                             </form>
-                        <?php } ?>
+                            <?php } ?>
+                        </div>
                     </div>
-
                 </div>
             </div>
+
         </div>
-
     </div>
-</div>
 
-<script>
-    let element = document.getElementById("assignDsr");
-    element.value = "<?php echo $client_info['client_pairID']; ?>";
-    var total_counter = "<?php echo $total_contact; ?>";
-    var contact_info = <?php echo json_encode($contacts_info); ?>;
-    // for (var i = 0; i <= total_counter - 1; i++) {
-    //     let element = document.getElementById("contact_type_id_" + i);
-    //     element.value = "<?php //echo $contacts_info[<script>document.writeln(i);</script>]['type_id']; ?>";
-    // }
-    for (var i = 0; i <= total_counter - 1; i++) {
-        let element = document.getElementById("contact_type_id_" + i);
-        //console.log(contact_info[i].type_id);
-        element.value = contact_info[i].type_id;
-    }
+    <script>
+        let element = document.getElementById("assignDsr");
+        element.value = "<?php echo $client_info['client_pairID']; ?>";
+        var total_counter = "<?php echo $total_contact; ?>";
+        var contact_info = <?php echo json_encode($contacts_info); ?>;
+        // for (var i = 0; i <= total_counter - 1; i++) {
+        //     let element = document.getElementById("contact_type_id_" + i);
+        //     element.value = "<?php //echo $contacts_info[<script>document.writeln(i);</script>]['type_id']; ?>";
+        // }
+        for (var i = 0; i <= total_counter - 1; i++) {
+            let element = document.getElementById("contact_type_id_" + i);
+            //console.log(contact_info[i].type_id);
+            element.value = contact_info[i].type_id;
+        }
 
-    var counter = 1;
-    $(function () {
+        var counter = 1;
+        $(function () {
 
-        var plus = $(".plusButton");
-        var del = $(".rmvButton");
-        var selector = $("#addMultiContact");
+            var plus = $(".plusButton");
+            var del = $(".rmvButton");
+            var selector = $("#addMultiContact");
 
-        plus.click(function () {
-            counter++;
-            selector.append('<div class="row" id="' + 'contact_id_' + counter + '"><div class="form-group col-sm-6"><label for="' + 'contact_value_' + counter + '" class="col-form-label">Contact Value</label><input type="text" name="' + 'contact_value_' + counter + '" id="" class="form-control" placeholder="Contact Value" aria-describedby="helpId" /></div><div class="form-group col-sm-5"><label for="' + 'contact_type_id_' + counter + '" class="col-form-label">Contact Type</label><br><select name="' + 'contact_type_id_' + counter + '" class="form-control col-sm-11"><?php foreach ($contacts as $contact) { ?><option value=<?php echo "\"" . $contact['id'] . "\""; ?>><?php echo $contact['contact_type']; ?></option><?php } ?></select></div><br><div class="col-md-1 x" style="margin-top:9px;"><span class="remove-btn input-group-addon "><i class="glyphicon glyphicon-remove rmvButton" data-target="#' + 'contact_id_' + counter + '"></i></span></div></div>');
-            //$("#update_contact_counter").val(counter);
-            $("#contact_counter").val(counter);
-        });
-
-        selector.on("click", ".rmvButton", function () {
-
-            var item_id = $(this).data("target");
-            if (counter > 1) {
-                $(item_id).remove();
-                counter--;
-                // $("#update_contact_counter").val(counter);
+            plus.click(function () {
+                counter++;
+                selector.append('<div class="row" id="' + 'contact_id_' + counter + '"><div class="form-group col-sm-6"><label for="' + 'contact_value_' + counter + '" class="col-form-label">Contact Value</label><input type="text" name="' + 'contact_value_' + counter + '" id="" class="form-control" placeholder="Contact Value" aria-describedby="helpId" /></div><div class="form-group col-sm-5"><label for="' + 'contact_type_id_' + counter + '" class="col-form-label">Contact Type</label><br><select name="' + 'contact_type_id_' + counter + '" class="form-control col-sm-11"><?php foreach ($contacts as $contact) { ?><option value=<?php echo "\"" . $contact['id'] . "\""; ?>><?php echo $contact['contact_type']; ?></option><?php } ?></select></div><br><div class="col-md-1 x" style="margin-top:9px;"><span class="remove-btn input-group-addon "><i class="glyphicon glyphicon-remove rmvButton" data-target="#' + 'contact_id_' + counter + '"></i></span></div></div>');
+                //$("#update_contact_counter").val(counter);
                 $("#contact_counter").val(counter);
-            }
+            });
+
+            selector.on("click", ".rmvButton", function () {
+
+                var item_id = $(this).data("target");
+                if (counter > 1) {
+                    $(item_id).remove();
+                    counter--;
+                    // $("#update_contact_counter").val(counter);
+                    $("#contact_counter").val(counter);
+                }
+            });
         });
-    });
-    // end
+        // end
 
-    //add button 2
-    var newcounter = 0;
-    $(function () {
+        //add button 2
+        var newcounter = 0;
+        $(function () {
 
-        var plus = $(".newplusButton");
-        var del = $(".rmvButton");
-        var selector = $("#AddNewMultiContact");
+            var plus = $(".newplusButton");
+            var del = $(".rmvButton");
+            var selector = $("#AddNewMultiContact");
 
-        plus.click(function () {
-            newcounter++;
-            selector.append('<div class="row" id="' + 'contact_id_' + newcounter + '"><div class="form-group col-sm-6"><label for="' + 'new_contact_value_' + newcounter + '" class="col-form-label">Contact Value</label><input type="text" name="' + 'new_contact_value_' + newcounter + '" id="" class="form-control" placeholder="Contact Value" aria-describedby="helpId" /></div><div class="form-group col-sm-5"><label for="' + 'new_contact_type_id_' + newcounter + '" class="col-form-label">Contact Type</label><br><select name="' + 'new_contact_type_id_' + newcounter + '" class="form-control col-sm-11"><?php foreach ($contacts as $contact) { ?><option value=<?php echo "\"" . $contact['id'] . "\""; ?>><?php echo $contact['contact_type']; ?></option><?php } ?></select></div><br><div class="col-md-1 x" style="margin-top:9px;"><span class="remove-btn input-group-addon "><i class="glyphicon glyphicon-remove rmvButton" data-target="#' + 'contact_id_' + newcounter + '"></i></span></div></div>');
-            //$("#update_contact_counter").val(counter);
-            $("#new_contact_counter").val(newcounter);
-        });
-
-        selector.on("click", ".rmvButton", function () {
-
-            var item_id = $(this).data("target");
-            if (newcounter > 0) {
-                $(item_id).remove();
-                newcounter--;
-                // $("#update_contact_counter").val(counter);
+            plus.click(function () {
+                newcounter++;
+                selector.append('<div class="row" id="' + 'contact_id_' + newcounter + '"><div class="form-group col-sm-6"><label for="' + 'new_contact_value_' + newcounter + '" class="col-form-label">Contact Value</label><input type="text" name="' + 'new_contact_value_' + newcounter + '" id="" class="form-control" placeholder="Contact Value" aria-describedby="helpId" /></div><div class="form-group col-sm-5"><label for="' + 'new_contact_type_id_' + newcounter + '" class="col-form-label">Contact Type</label><br><select name="' + 'new_contact_type_id_' + newcounter + '" class="form-control col-sm-11"><?php foreach ($contacts as $contact) { ?><option value=<?php echo "\"" . $contact['id'] . "\""; ?>><?php echo $contact['contact_type']; ?></option><?php } ?></select></div><br><div class="col-md-1 x" style="margin-top:9px;"><span class="remove-btn input-group-addon "><i class="glyphicon glyphicon-remove rmvButton" data-target="#' + 'contact_id_' + newcounter + '"></i></span></div></div>');
+                //$("#update_contact_counter").val(counter);
                 $("#new_contact_counter").val(newcounter);
-            }
+            });
+
+            selector.on("click", ".rmvButton", function () {
+
+                var item_id = $(this).data("target");
+                if (newcounter > 0) {
+                    $(item_id).remove();
+                    newcounter--;
+                    // $("#update_contact_counter").val(counter);
+                    $("#new_contact_counter").val(newcounter);
+                }
+            });
         });
-    });
-    // end
-</script>
+        // end
+    </script>
