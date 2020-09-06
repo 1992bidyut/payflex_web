@@ -230,15 +230,21 @@
                         </span>
                     </div>
                 <?php } else { ?>
-                    <div class="col-md-offset-6 col-md-3">
+                    <div class="col-md-offset-9 col-md-3 text-right">
                         <a href="#" class="btn btn-lg btn-primary" data-toggle="modal"
                            data-target="#AddNewContactModal">Add New Contact</a>
-                    </div>
-                    <div class="col-md-3">
+                        &nbsp;
                         <a href="#" class="btn btn-lg btn-danger" data-toggle="modal" data-target="#DeleteContactModal">Delete
                             Contact</a>
                     </div>
                 <?php } ?>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-offset-9 col-md-3 text-right">
+                    <a href="#" class="btn btn-lg btn-primary" data-toggle="modal"
+                       data-target="#userUpdateModal">Edit User credential</a>
+                </div>
             </div>
             <br>
             <!-- is active -->
@@ -320,7 +326,9 @@
                 </div>
             </div>
         </div>
-        <!--        add new contacts form-->
+
+
+        <!--        Delete contact-->
         <div class="modal fade" id="DeleteContactModal" tabindex="-1" role="dialog" aria-labelledby="DeleteContactModal"
              aria-hidden="true">
             <div class="modal-dialog modal-lg">
@@ -342,12 +350,12 @@
                             <?php for ($i = 0; $i <= $total_contact - 1; $i++) { ?>
 
                                 <?php if ($total_contact <= 2) { ?>
-                                    <?php echo $total_contact; ?>
+                                    <?php //echo $total_contact; ?>
                                     <tr>
                                         <td><?php echo $contacts_info[$i]['contact_value']; ?></td>
                                     </tr>
                                 <?php } else { ?>
-                                    <?php echo $total_contact; ?>
+                                    <?php //echo $total_contact; ?>
                                     <tr>
                                         <td><?php echo $contacts_info[$i]['contact_value']; ?></td>
                                         <td class="text-center"><a
@@ -365,6 +373,27 @@
                 </div>
             </div>
         </div>
+
+<!--        //TODO: write update form for users-->
+<!--        user info update form-->
+        <div class="modal fade" id="userUpdateModal" tabindex="-1" role="dialog" aria-labelledby="userUpdateModal"
+             aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">Delete contact from the list</h4>
+                    </div>
+                    <div class="modal-body">
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 </div>
 
