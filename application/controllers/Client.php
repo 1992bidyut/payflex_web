@@ -172,6 +172,7 @@ class Client extends CI_Controller
         $contacts_info = $this->ClientModel->getClientsContact($client_id);
         $total_contact = count($contacts_info);
         $contactsType = $this->ClientModel->getClientsContactType();
+        $ClientUserInfo = $this->ClientModel->getClientEmail($client_id);
         // $UserContacts['contacts'] = $this->ClientModel->getClientsContactType();
         // $contactsType = $this->ClientModel->getClientsContactType();
         if ($this->form_validation->run() == false) {
@@ -185,6 +186,7 @@ class Client extends CI_Controller
                     'getDSRs' => $getDSRs,
                     'total_contact' => $total_contact,
                     'contacts' => $contactsType,
+                    'ClientUserInfo'=>$ClientUserInfo
                 ),
                 true
             );
@@ -305,15 +307,53 @@ class Client extends CI_Controller
         //if ($this->form_validation->run('contactValue') == TRUE) {
         $this->ClientModel->createContacts($contactArray);
         $this->session->set_flashdata('success', 'Contact successfully added.');
-        redirect(base_url() . 'client/updateClient/'.$client_id);
+        redirect(base_url() . 'client/updateClient/' . $client_id);
     }
-    public function deleteContact($contact_id,$client_id){
+
+    public function deleteContact($contact_id, $client_id)
+    {
         $this->load->model('ClientModel');
 
         $this->load->helper(array('form', 'url')); //required
         $this->load->library('form_validation');
         $this->ClientModel->deleteContact($contact_id);
         $this->session->set_flashdata('success', 'Contact successfully deleted.');
-        redirect(base_url() . 'client/updateClient/'.$client_id);
+        redirect(base_url() . 'client/updateClient/' . $client_id);
+    }
+
+    public function updateEmail($user_id)
+    {
+        $this->load->model('ClientModel');
+        $this->load->helper(array('form', 'url'));
+        $this->load->library('form_validation');
+
+        $formArray = array();
+        $formArray['username'] = $this->input->post('username');
+//        $user_id = $this->input->post('user_id');
+        $clientId = $this->input->post('client_id');
+        $this->ClientModel->updateEmail($user_id, $formArray);
+        $this->session->set_flashdata('success', 'Email successfully Updated.');
+        redirect(base_url() . 'client/updateClient/' . $clientId);
+    }
+    public function createNewUser(){
+        $this->load->model('ClientModel');
+        $this->load->helper(array('form', 'url'));
+        $this->load->library('form_validation');
+        $userArray = array();
+        $this->form_validation->set_rules('username', 'Username', 'required');
+        $this->form_validation->set_rules('password', 'Password', 'required|min_length[3]');
+        $this->form_validation->set_rules('confirm_password', 'Confirm Password', 'required|matches[password]');
+        // if ($this->input->post('is_user') == true) {
+        if ($this->form_validation->run() == true) {
+            $userArray['username'] = $this->input->post('username');
+            $userArray['password'] = sha1($this->input->post('passsword'));
+            $userArray['user_type'] = 3;
+            $userArray['created_time'] = date('Y-m-d');
+            $user['user_id'] = $this->ClientModel->createUserIfActive($userArray);
+            $clientId = $this->input->post('client_id');
+            $this->ClientModel->updateUserId($clientId,$user);
+        }
+        $this->session->set_flashdata('success', 'Contact successfully deleted.');
+        redirect(base_url() . 'client/ClientList/');
     }
 }

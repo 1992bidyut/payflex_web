@@ -338,7 +338,9 @@
                         <h4 class="modal-title" id="myModalLabel">Delete contact from the list</h4>
                     </div>
                     <div class="modal-body">
-                        <h3 class="text-danger">Deleted contact cannot be retrieved! <?php if ($total_contact <= 2) { echo "You can't not delete if you have 2 contacts left!"; }?></h3>
+                        <h3 class="text-danger">Deleted contact cannot be retrieved! <?php if ($total_contact <= 2) {
+                                echo "You can't not delete if you have 2 contacts left!";
+                            } ?></h3>
                         <table width="100%" class="table-bordered table-striped">
                             <thead>
                             <tr>
@@ -374,8 +376,8 @@
             </div>
         </div>
 
-<!--        //TODO: write update form for users-->
-<!--        user info update form-->
+        <!--        //TODO: write update form for users-->
+        <!--        user info update form-->
         <div class="modal fade" id="userUpdateModal" tabindex="-1" role="dialog" aria-labelledby="userUpdateModal"
              aria-hidden="true">
             <div class="modal-dialog modal-lg">
@@ -385,11 +387,72 @@
                         <h4 class="modal-title" id="myModalLabel">Delete contact from the list</h4>
                     </div>
                     <div class="modal-body">
+                        <?php if ($ClientUserInfo["username"] != "") { ?>
+                            <form action="<?php echo base_url('/client/updateEmail/' . $ClientUserInfo['tbl_user_id']); ?>" method="post">
+                                <div class="form-group">
+                                    <input type="hidden" name="user_id"
+                                           value="<?php echo $ClientUserInfo['tbl_user_id']; ?>">
+                                    <input type="hidden" name="client_id"
+                                           value="<?php echo $client_info['client_id']; ?>">
+                                    <label for="exampleInputEmail1">Email address</label>
+                                    <input type="email" class="form-control" id="exampleInputEmail1" name="username"
+                                           value="<?php echo set_value('username', $ClientUserInfo['username']); ?>"
+                                           aria-describedby="emailHelp" placeholder=""/>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>
+                            </form>
+                        <?php } else { ?>
+                            <form action="<?php echo base_url('client/createNewUser') ?>" method="post">
+                                <div class="row" id="user_register">
+                                    <input type="hidden" name="client_id"
+                                           value="<?php echo $client_info['client_id']; ?>">
+                                    <div class="col-md-12">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label class="" for="user_res">Username:</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input class="form-control" type="text" name="username" id="user_res"/>
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div class="row">
 
+                                            <div class="col-md-6">
+                                                <label class="" for="pass">Password:</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input class="form-control" type="password" name="password" id="pass"/>
+                                            </div>
+
+                                        </div>
+                                        <br>
+                                        <div class="row">
+                                            <div class="form-group">
+                                                <div class="col-md-6">
+                                                    <label class="" for="confirm_pass">Confirm
+                                                        Password:</label>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <input class="form-control" type="password" name="confirm_password"
+                                                           id="confirm_pass"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>
+                            </form>
+                        <?php } ?>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    </div>
+
                 </div>
             </div>
         </div>
