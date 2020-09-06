@@ -365,21 +365,21 @@ class Client extends CI_Controller
         $this->load->helper(array('form', 'url'));
         $this->load->library('form_validation');
 
-        $this->form_validation->set_rules('oldPassword', 'Old Password', 'required');
+//        $this->form_validation->set_rules('oldPassword', 'Old Password', 'required');
         $this->form_validation->set_rules('newPassword', 'New Password', 'required|min_length[3]');
         $this->form_validation->set_rules('confirmNewPassword', 'Confirm Password', 'required|matches[newPassword]');
 
         $userArray = array();
         if ($this->form_validation->run() == true) {
             $clientId = $this->input->post('client_id');
-            $oldPassword = sha1($this->input->post('oldPassword'));
+//            $oldPassword = sha1($this->input->post('oldPassword'));
             $user_id = $this->input->post('user_id');
-            $userInfo = $this->ClientModel->matchOldPassword($user_id);
+//            $userInfo = $this->ClientModel->matchPassword($user_id);
             $newPassword = sha1($this->input->post('newPassword'));
             $confirmNewPassword = sha1($this->input->post('confirmNewPassword'));
 
-            if (($userInfo['password'] == $oldPassword) && ($newPassword == $confirmNewPassword)) {
-                $userArray['password'] = $this->input->post('newPassword');
+            if ($newPassword == $confirmNewPassword) {
+                $userArray['password'] = sha1($this->input->post('newPassword'));
                 $this->ClientModel->changePassword($user_id, $userArray);
                 $this->session->set_flashdata('success', 'Password successfully changed.');
                 redirect(base_url() . 'client/updateClient/'.$clientId);

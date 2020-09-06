@@ -285,7 +285,7 @@ class ClientModel extends CI_Model
         $this->db->update('client_info', $data);
     }
 
-    public function matchOldPassword($user_id)
+    public function matchPassword($user_id)
     {
         $this->db->select('tbl_user.password')
             ->from('tbl_user')

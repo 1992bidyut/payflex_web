@@ -408,7 +408,7 @@
                                        aria-describedby="emailHelp" placeholder=""/>
                             </div>
                             <div class="modal-footer">
-                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <button type="submit" class="btn btn-primary">Update Email</button>
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                             </div>
                         </form>
@@ -461,7 +461,7 @@
                                 </div>
                                 <br>
                                 <div class="modal-footer">
-                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    <button type="submit" class="btn btn-primary">Create User</button>
                                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                 </div>
                             </form>
@@ -489,10 +489,10 @@
                         <input type="hidden" name="client_id"
                                value="<?php echo $client_info['client_id']; ?>">
                         <div class="modal-body">
-                            <div class="form-group">
-                                <label for="oldPassword">Old Password</label>
-                                <input type="text" class="form-control" id="oldPassword" name="oldPassword" placeholder="Old Password">
-                            </div>
+<!--                            <div class="form-group">-->
+<!--                                <label for="oldPassword">Old Password</label>-->
+<!--                                <input type="text" class="form-control" id="oldPassword" name="oldPassword" placeholder="Old Password">-->
+<!--                            </div>-->
                             <div class="form-group">
                                 <label for="newPassword">New Password</label>
                                 <input type="text" class="form-control" id="newPassword" name="newPassword" placeholder="New Password">
