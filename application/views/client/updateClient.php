@@ -25,7 +25,7 @@
         <?php } ?>
     </div>
 </div>
-<div class="row">
+<div class="row updateFormHolder">
     <div class="col-md-12">
         <form action="<?php echo base_url('client/updateClient/' . $client_info['client_id']); ?>" method="POST">
             <!--			Distributor name-->
@@ -230,7 +230,7 @@
                         </span>
                     </div>
                 <?php } else { ?>
-                    <div class="col-md-offset-9 col-md-3 text-right">
+                    <div class="col-md-offset-6 col-md-6 text-right">
                         <a href="#" class="btn btn-lg btn-primary" data-toggle="modal"
                            data-target="#AddNewContactModal">Add New Contact</a>
                         &nbsp;
@@ -247,16 +247,10 @@
                 </div>
             </div>
             <br>
-            <div class="row">
-                <div class="col-md-offset-9 col-md-3 text-right">
-                    <a href="#" class="btn btn-lg btn-primary" data-toggle="modal"
-                       data-target="#passwordChangeModal">Change User Password</a>
-                </div>
-            </div>
-            <br>
+
             <!-- is active -->
             <div class="row">
-                <div class="col-md-offset-8 col-md-4 switch-field">
+                <div class="col-md-offset-9 col-md-3 switch-field text-right">
                     <input type="radio" id="radio-one" name="is_active"
                            value="1" <?php if ($client_info['is_active'] == 1) {
                         echo "checked";
@@ -334,7 +328,6 @@
             </div>
         </div>
 
-
         <!--        Delete contact-->
         <div class="modal fade" id="DeleteContactModal" tabindex="-1" role="dialog" aria-labelledby="DeleteContactModal"
              aria-hidden="true">
@@ -383,7 +376,6 @@
             </div>
         </div>
 
-        <!--        //TODO: write update form for users-->
         <!--        user info update form-->
         <div class="modal fade" id="userUpdateModal" tabindex="-1" role="dialog" aria-labelledby="userUpdateModal"
              aria-hidden="true">
@@ -395,7 +387,7 @@
                         <h4 class="modal-title" id="myModalLabel">Update Username</h4>
                     </div>
                     <div class="modal-body">
-                        <form action="<?php echo base_url('/client/updateEmail/' . $ClientUserInfo['tbl_user_id']); ?>"
+                        <form action="<?php echo base_url('/client/updateCredentials/' . $ClientUserInfo['tbl_user_id']); ?>"
                               method="post">
                             <div class="form-group">
                                 <input type="hidden" name="user_id"
@@ -407,8 +399,18 @@
                                        value="<?php echo set_value('username', $ClientUserInfo['username']); ?>"
                                        aria-describedby="emailHelp" placeholder=""/>
                             </div>
+                            <div class="form-group">
+                                <label for="newPassword">New Password</label>
+                                <input type="text" class="form-control" id="newPassword" name="newPassword"
+                                       placeholder="New Password">
+                            </div>
+                            <div class="form-group">
+                                <label for="confirmNewPassword">Confirm New Password</label>
+                                <input type="text" class="form-control" id="confirmNewPassword"
+                                       name="confirmNewPassword" placeholder="Confirm New Password">
+                            </div>
                             <div class="modal-footer">
-                                <button type="submit" class="btn btn-primary">Update Email</button>
+                                <button type="submit" class="btn btn-primary">Update</button>
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                             </div>
                         </form>
@@ -470,51 +472,9 @@
                     </div>
                 </div>
             </div>
-
         </div>
-
-        <!--        User password form modal-->
-        <div class="modal fade" id="passwordChangeModal" tabindex="-1" role="dialog" aria-labelledby="passwordChangeModal"
-             aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                    <?php if ($ClientUserInfo["username"] != "") { ?>
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title" id="myModalLabel">Change User Password</h4>
-                    </div>
-                    <form action="<?php echo base_url('client/changePassword/'.$ClientUserInfo['tbl_user_id']) ?>" method="post">
-                        <input type="hidden" name="user_id"
-                               value="<?php echo $ClientUserInfo['tbl_user_id']; ?>">
-                        <input type="hidden" name="client_id"
-                               value="<?php echo $client_info['client_id']; ?>">
-                        <div class="modal-body">
-<!--                            <div class="form-group">-->
-<!--                                <label for="oldPassword">Old Password</label>-->
-<!--                                <input type="text" class="form-control" id="oldPassword" name="oldPassword" placeholder="Old Password">-->
-<!--                            </div>-->
-                            <div class="form-group">
-                                <label for="newPassword">New Password</label>
-                                <input type="text" class="form-control" id="newPassword" name="newPassword" placeholder="New Password">
-                            </div>
-                            <div class="form-group">
-                                <label for="confirmNewPassword">Confirm New Password</label>
-                                <input type="text" class="form-control" id="confirmNewPassword" name="confirmNewPassword" placeholder="Confirm New Password">
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary">Change password</button>
-                        </div>
-                    </form>
-                    <?php } ?>
-                </div>
-            </div>
-        </div>
-
-
     </div>
-
+</div>
     <script>
         let element = document.getElementById("assignDsr");
         element.value = "<?php echo $client_info['client_pairID']; ?>";

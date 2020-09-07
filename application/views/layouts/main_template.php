@@ -79,6 +79,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <link href="<?php echo base_url('assets/sweetalert2.min.css'); ?>" rel="stylesheet" type="text/css" />
 <link href="<?php echo base_url('assets/global/css/paymentdetail.css'); ?>" rel="stylesheet" type="text/css" />
 <link href="<?php echo base_url('assets/global/css/dashboard-fonts.css'); ?>" rel="stylesheet" type="text/css" />
+<link href="<?php echo base_url('assets/global/css/updateClientFormStyle.css'); ?>" rel="stylesheet" type="text/css" />
 <!-- END HEAD -->
 
 <body class="page-container-bg-solid page-header-fixed page-sidebar-closed-hide-logo">
