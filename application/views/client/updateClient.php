@@ -125,8 +125,6 @@
                        } else {
                            echo($total_contact - 1);
                        } ?>">
-                <?php //print_r($total_contact); ?>
-                <?php //print_r($contacts_info[1]['contact_value']); ?>
                 <input type="hidden" id="update_contact_counter" name="update_contact_counter" value="">
                 <div class="row">
                     <div class="form-group col-sm-6">
@@ -158,37 +156,7 @@
                         </select>
                     </div>
                 </div>
-                <div class="row">
-                    <!--			Contact value 2-->
-                    <div class="form-group col-sm-6">
-                        <label for="contact_value_1" class="col-form-label">Contact Value</label>
-                        <input type="text" name="contact_value_1" id="contact_value_1"
-                               value="<?php if (!empty($contacts_info)) {
-                                   echo set_value('contact_value_1', $contacts_info[1]['contact_value']);
-                               } else {
-                                   echo "";
-                               } ?>" class="form-control" placeholder="Contact Value" aria-describedby="helpId"/>
-                        <strong style="color: red"><?php echo form_error('contact_value_1') ?></strong>
-                        <input type="hidden" name="contact_id_1"
-                               value="<?php if (empty($contacts_info)) {
-                                   echo "";
-                               } else {
-                                   print_r($contacts_info[1]['contact_id']);
-                               } ?>">
-                    </div>
-                    <!--			Contact type 2-->
-                    <div class="form-group col-sm-6">
-                        <label for="contact_type_id_1" class="col-form-label">Contact Type</label><br>
-                        <select name="contact_type_id_1" id="contact_type_id_1" class="form-control col-sm-12">
-                            <?php foreach ($contacts as $contact) { ?>
-                                <option value=<?php echo "\"" . $contact['id'] . "\""; ?>>
-                                    <?php echo $contact['contact_type']; ?>
-                                </option>
-                            <?php } ?>
-                        </select>
-                    </div>
-                </div>
-                <?php for ($i = 2; $i <= $total_contact - 1; $i++) { ?>
+                <?php for ($i = 1; $i <= $total_contact - 1; $i++) { ?>
                     <div class="row">
                         <div class="form-group col-sm-6">
                             <label for="<?php echo "contact_value_" . $i; ?>" class="col-form-label">Contact
@@ -490,7 +458,7 @@
             element.value = contact_info[i].type_id;
         }
 
-        var counter = 1;
+        var counter = 0;
         $(function () {
 
             var plus = $(".plusButton");
@@ -507,7 +475,7 @@
             selector.on("click", ".rmvButton", function () {
 
                 var item_id = $(this).data("target");
-                if (counter > 1) {
+                if (counter > 0) {
                     $(item_id).remove();
                     counter--;
                     // $("#update_contact_counter").val(counter);
