@@ -8,7 +8,7 @@ class ActOnOutbox extends CI_Controller{
 		$this->load->model('actOnOutbox_model');
 
     }
-
+//
     
 	function dummy()
 	{
