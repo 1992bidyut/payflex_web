@@ -15,7 +15,7 @@ class LeaderBoard extends CI_Controller{
         $getDate= date("Y-m-d");
         //set filter date in session
         $sessionData=$this->session->userdata();
-        $sessionData['lead_from']="2020-05-30";
+        $sessionData['lead_from']="2020-05-30";//
         $sessionData['lead_to']=(string)$getDate;
 
         $this->session->set_userdata($sessionData);
