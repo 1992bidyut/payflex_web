@@ -1,182 +1,197 @@
-
 <div class="row">
     <div class="col-md-12">
 
         <?php
-        if($this->session->flashdata('success_msg')){
+        if ($this->session->flashdata('success_msg')) {
             ?>
             <div class="alert alert-success alert-dismissable" id="successMessage">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
-                <strong>Success!</strong> <?php echo $this->session->flashdata('success_msg');?>
+                <strong>Success!</strong> <?php echo $this->session->flashdata('success_msg'); ?>
             </div>
 
             <?php
         }
         ?>
         <?php
-        if($this->session->flashdata('error_msg')){
+        if ($this->session->flashdata('error_msg')) {
             ?>
             <div class="alert alert-danger alert-dismissable" id="failedMessage">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
-                <strong>Error!</strong> <?php echo $this->session->flashdata('error_msg');?>
+                <strong>Error!</strong> <?php echo $this->session->flashdata('error_msg'); ?>
             </div>
 
             <?php
         }
         ?>
 
-<div class="portlet box blue ">
+        <div class="portlet box blue ">
 
-<?php
-	 $myCIRef =& get_instance();
-     $myCIRef->load->view('leader/leader_filter'); 
-?>
-<div w3-include-html="leader_filter.php"></div>
+            <?php
+            $myCIRef =& get_instance();
+            $myCIRef->load->view('leader/leader_filter');
+            ?>
+            <div w3-include-html="leader_filter.php"></div>
 
-</div>
+        </div>
 
         <div class="portlet box blue">
             <div class="portlet-title">
                 <div class="caption">
-                    <i class="fa fa-cogs"></i>Leaderboard (Payment) </div>
+                    <i class="fa fa-cogs"></i>Leaderboard (Payment)
+                </div>
                 <div class="actions">
-                    <a href="<?php echo base_url('LeaderBoard/exportLeaderBoardData')?>" class="btn btn-default btn-sm">
+                    <a href="<?php echo base_url('LeaderBoard/exportLeaderBoardData') ?>"
+                       class="btn btn-default btn-sm">
                         <i class="fa fa-download"></i> Export/Download </a>
                 </div>
             </div>
             <div class="portlet-body">
-			<form id="table-form">
-                <table class="table table-striped table-bordered table-hover table-checkable order-column" id="sample_3">
-                    <thead>
-                    <tr>
-                        <th class="table-checkbox">
-                            <input type="checkbox" class="group-checkable" data-set="#sample_3 .checkboxes" />
-                        </th>
-                        <th> Client Code </th>
-                        <th> Distributor Name </th>
-                        <th> Manager </th>
-                        <th> Officer </th>
-                        <th> DSR </th>
-                        <th> Product </th>
-                        <th> Quantity </th>
-                        <th> Order No. </th>
-                        <th> PaymentID </th>
-                        <th> Payment Mode </th>
-                        <th> Bank name </th>
-						<th> Reference no </th>
-						<th> Payment date </th>
-                        <th> Submitted date time </th>
-						<th> Amount </th>
-						<th> action_flag </th>
-						<th> Image/Attachment </th>
-						<th> Action </th>
+                <form id="table-form">
+                    <table class="table table-striped table-bordered table-hover table-checkable order-column"
+                           id="sample_3">
+                        <thead>
+                        <tr>
+                            <th class="table-checkbox">
+                                <input type="checkbox" class="group-checkable" data-set="#sample_3 .checkboxes"/>
+                            </th>
+                            <th> Client Code</th>
+                            <th> Distributor Name</th>
+                            <th> Manager</th>
+                            <th> Officer</th>
+                            <th> DSR</th>
+                            <th> Product</th>
+                            <th> Quantity</th>
+                            <th> Order No.</th>
+                            <th> PaymentID</th>
+                            <th> Payment Mode</th>
+                            <th> Bank name</th>
+                            <th> Reference no</th>
+                            <th> Payment date</th>
+                            <th> Submitted date time</th>
+                            <th> Amount</th>
+                            <th> action_flag</th>
+                            <th> Image/Attachment</th>
+                            <th> Action</th>
 
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <?php if ($paymentInfoArray>0): ?>
-                    <?php
-                        foreach($paymentInfoArray as $data){
-                    ?>
-                        <tr class="odd gradeX">
-                            <td><input type="checkbox" class="checkboxes" value="1" /></td>
-                            <td> <?php echo $data['client_code'] ?>  </td>
-                            <td> <?php echo $data['clientName'] ?>  </td>
-                            <td> <?php echo $data['manager'] ?>  </td>
-                            <td> <?php echo $data['officer'] ?>  </td>
-							<td> <?php echo $data['dsr'] ?>  </td>
-
-                            <td><?php foreach($productList as $product){
-                                echo "".$product['product_code']."</br>";
-                                } ?></td>
-
-                            <td><?php
-                            $explodeValue1= explode(";",$data['ProductQuantityString']);
-                            foreach ($productList as $product){
-                                $order=0;
-                                for ($i=0; $i < count($explodeValue1); $i++){
-                                    $explodeValue2= explode("=",$explodeValue1[$i]);
-                                    if ($product['product_code']==$explodeValue2[0]){
-                                        $order=$explodeValue2[1];
-                                    }
-                                }
-                                echo "". $order." </br>";
-                            }
-                            ?></td>
-                            <td> <?php echo $data['order_code'] ?>  </td>
-							<td> <?php echo $data['paymentID'] ?>  </td>
-							<td> <?php echo $data['methode_name'] ?>  </td>
-							<td> <?php echo $data['bank_name'] ?>  </td>
-							<td> <?php echo $data['reference_no'] ?>  </td>
-							<td> <?php echo $data['payment_date_time'] ?>  </td>
-                            <td> <?php echo $data['submitted_date'] ?>  </td>
-							<td> <?php echo $data['amount'] ?>  </td>
-							<td> <?php echo $data['action_flag'] ?>  </td>
-							<td> 
-							<?php //echo $data['image_name'] 
-								if(!empty($data['image_name']))
-								{
-									$localImgageBasePath="http://localhost/payflex/asset/images/";
-									$localImgageBasePath2="http://localhost/asset/images/";
-									$remorteImageBasePath="http://demo.onuserver.com/payFlex/asset/images/";
-								    $imageName =$data['image_name'];
-									$imagePath = $localImgageBasePath.$data['clientId']."/";
-									$imagePath .= $imageName;
-									echo '<img style="width: 100%; hight:10px;" src="'.$imagePath.'" alt="'.$imageName.'">';
-								}
-								else
-								{
-									echo "No image Attached";
-								}
-							
-							
-							?>  </td>
-							
-							<!-- ----------------------- the action buttons for payments -----------------  -->
-                            <td >
-                                <div class="clearfix">
-
-                                    <a id="<?php echo "indent". $data['paymentID'] ?>" onclick="indent(<?php echo $data['paymentID'] ?>)"
-                                       class="btn btn-sm <?php if($data['action_flag']==2){echo "green-dark";}else{echo "yellow";}?>" style="margin-bottom: 5px; width: 100%;"> Indent
-                                        <i class="fa fa-edit"></i>
-                                    </a>
-                                    <a href="<?php echo base_url('Payment/paymentdetail/'.$data['order_code'])?>" target="_blank" class="btn btn-sm green" style="margin-bottom: 5px;   width: 100%;"> Print
-                                        <i class="fa fa-print"></i>
-                                    </a>
-
-                                    <a id="<?php echo "accepted". $data['paymentID'] ?>" onclick="acceptPayment(<?php echo $data['paymentID'] ?>)"
-                                        class="btn btn-sm <?php if($data['action_flag']==1||$data['action_flag']==2){echo "green-dark";}else{echo "red";}?>" style="margin-bottom: 5px; width: 100%;"> Grant/Accept
-                                        <i class="fa fa-check"></i>
-                                    </a>
-
-                                </div>
-                            </td>
                         </tr>
-                    <?php
-                        }
-                    ?>
+                        </thead>
+                        <tbody>
+                        <?php if ($paymentInfoArray > 0): ?>
+                            <?php
+                            foreach ($paymentInfoArray as $data) {
+                                ?>
+                                <tr class="odd gradeX">
+                                    <td><input type="checkbox" class="checkboxes" value="1"/></td>
+                                    <td> <?php echo $data['client_code'] ?>  </td>
+                                    <td> <?php echo $data['clientName'] ?>  </td>
+                                    <td> <?php echo $data['manager'] ?>  </td>
+                                    <td> <?php echo $data['officer'] ?>  </td>
+                                    <td> <?php echo $data['dsr'] ?>  </td>
 
-                    <?php  else: ?>
-                        <!-- <h1>Hello </h1> -->
-                    <?php endif ?>
+                                    <td><?php foreach ($productList as $product) {
+                                            echo "" . $product['product_code'] . "</br>";
+                                        } ?></td>
 
-                    </tbody>
-                </table>
+                                    <td><?php
+                                        $explodeValue1 = explode(";", $data['ProductQuantityString']);
+                                        foreach ($productList as $product) {
+                                            $order = 0;
+                                            for ($i = 0; $i < count($explodeValue1); $i++) {
+                                                $explodeValue2 = explode("=", $explodeValue1[$i]);
+                                                if ($product['product_code'] == $explodeValue2[0]) {
+                                                    $order = $explodeValue2[1];
+                                                }
+                                            }
+                                            echo "" . $order . " </br>";
+                                        }
+                                        ?></td>
+                                    <td> <?php echo $data['order_code'] ?>  </td>
+                                    <td> <?php echo $data['paymentID'] ?>  </td>
+                                    <td> <?php echo $data['methode_name'] ?>  </td>
+                                    <td> <?php echo $data['bank_name'] ?>  </td>
+                                    <td> <?php echo $data['reference_no'] ?>  </td>
+                                    <td> <?php echo $data['payment_date_time'] ?>  </td>
+                                    <td> <?php echo $data['submitted_date'] ?>  </td>
+                                    <td> <?php echo $data['amount'] ?>  </td>
+                                    <td> <?php echo $data['action_flag'] ?>  </td>
+                                    <td>
+                                        <?php //echo $data['image_name']
+                                        if (!empty($data['image_name'])) {
+                                            $localImgageBasePath = "http://localhost/payflex/asset/images/";
+                                            $localImgageBasePath2 = "http://localhost/asset/images/";
+                                            $remorteImageBasePath = "http://demo.onuserver.com/payFlex/asset/images/";
+                                            $imageName = $data['image_name'];
+                                            $imagePath = $localImgageBasePath . $data['clientId'] . "/";
+                                            $imagePath .= $imageName;
+                                            echo '<img style="width: 100%; hight:10px;" src="' . $imagePath . '" alt="' . $imageName . '">';
+                                        } else {
+                                            echo "No image Attached";
+                                        }
+
+
+                                        ?>  </td>
+
+                                    <!-- ----------------------- the action buttons for payments -----------------  -->
+                                    <td>
+                                        <div class="clearfix">
+
+                                            <a id="<?php echo "indent" . $data['paymentID'] ?>"
+                                               onclick="indent(<?php echo $data['paymentID'] ?>)"
+                                               class="btn btn-sm <?php if ($data['action_flag'] == 2) {
+                                                   echo "green-dark";
+                                               } else {
+                                                   echo "yellow";
+                                               } ?>" style="margin-bottom: 5px; width: 100%;"> Indent
+                                                <i class="fa fa-edit"></i>
+                                            </a>
+                                            <a href="<?php echo base_url('Payment/paymentdetail/' . $data['order_code']) ?>"
+                                               target="_blank" class="btn btn-sm green"
+                                               style="margin-bottom: 5px;   width: 100%;"> Print
+                                                <i class="fa fa-print"></i>
+                                            </a>
+
+                                            <a id="<?php echo "accepted" . $data['paymentID'] ?>"
+                                               onclick="acceptPayment(<?php echo $data['paymentID'] ?>)"
+                                               class="btn btn-sm <?php if ($data['action_flag'] == 1 || $data['action_flag'] == 2) {
+                                                   echo "green-dark";
+                                               } else {
+                                                   echo "red";
+                                               } ?>" style="margin-bottom: 5px; width: 100%;"> Grant/Accept
+                                                <i class="fa fa-check"></i>
+                                            </a>
+
+                                        </div>
+                                    </td>
+                                </tr>
+                                <?php
+                            }
+                            ?>
+
+                        <?php else: ?>
+                            <!-- <h1>Hello </h1> -->
+                        <?php endif ?>
+
+                        </tbody>
+                    </table>
             </div>
         </div>
 
 
-
-
-  <!-- END EXAMPLE TABLE PORTLET-->
+        <!-- END EXAMPLE TABLE PORTLET-->
         </form>
     </div>
 </div>
-
+<div class="scroll-buttons">
+    <button id="slideLeft" class="btn" type="button"> ⬅️Scroll left</button>
+    <button id="slideRight" class="btn" type="button">Scroll right ➡️</button>
+</div>
 <script type="text/javascript">
-//    Accept payment
+    //    Accept payment
+
+    document.getElementsByName('sample_3_length').value = "1";
+
     function acceptPayment(id) {
-        console.log("Accept Click! "+id);
+        console.log("Accept Click! " + id);
         $.ajax({
             url: "<?php echo base_url('payment/paymentAccept') ?>",
             type: "POST",
@@ -193,55 +208,79 @@
         });
     }
 
-function indent(id) {
-    console.log("Indent Click! "+id);
-    $.ajax({
-        url: "<?php echo base_url('payment/indent') ?>",
-        type: "POST",
-        data: {id: id},
-        success: function (response) {
-            console.log("AJAX Success Called!");
-            $("#indent" + id).fadeTo("slow", 0.3, function () {
-                $(this).css('background-color', 'green-dark');
-            })
-        },
-        error: function () {
-            console.log("AJAX error Called!");
-        }
-    });
-}
+    function indent(id) {
+        console.log("Indent Click! " + id);
+        $.ajax({
+            url: "<?php echo base_url('payment/indent') ?>",
+            type: "POST",
+            data: {id: id},
+            success: function (response) {
+                console.log("AJAX Success Called!");
+                $("#indent" + id).fadeTo("slow", 0.3, function () {
+                    $(this).css('background-color', 'green-dark');
+                })
+            },
+            error: function () {
+                console.log("AJAX error Called!");
+            }
+        });
+    }
 
-//    $(document).ready(function () {
-//
-//        $('#action-btn').click(function(e){
-//            var table = $("#sample_3").dataTable();
-//            var id = [];
-//            $("input:checked", table.fnGetNodes()).each(function(i){
-//
-//                console.log($(this).val());
-//
-//                id.push($(this).val());
-//
-//            });
-//
-//            $.ajax({
-//                type    : "POST",
-//                url     : "<?php //echo base_url('SMSLog/ajax_delete'); ?>//",
-//                data    : {id: id},
-//                success : function (response) {
-////                        console.log(response);
-//                    location.reload();
-//                },
-//                error : function(error){
-//                    console.log(error);
-//                }
-//            });
-//
-//            e.preventDefault();
-//
-//        });
-//
-//
-//    });
+    //    $(document).ready(function () {
+    //
+    //        $('#action-btn').click(function(e){
+    //            var table = $("#sample_3").dataTable();
+    //            var id = [];
+    //            $("input:checked", table.fnGetNodes()).each(function(i){
+    //
+    //                console.log($(this).val());
+    //
+    //                id.push($(this).val());
+    //
+    //            });
+    //
+    //            $.ajax({
+    //                type    : "POST",
+    //                url     : "<?php //echo base_url('SMSLog/ajax_delete'); ?>//",
+    //                data    : {id: id},
+    //                success : function (response) {
+    ////                        console.log(response);
+    //                    location.reload();
+    //                },
+    //                error : function(error){
+    //                    console.log(error);
+    //                }
+    //            });
+    //
+    //            e.preventDefault();
+    //
+    //        });
+    //
+    //
+    //    });
+    // const buttonRight = document.getElementById('slideRight');
+    // const buttonLeft = document.getElementById('slideLeft');
+    //
+    // buttonRight.onclick = function () {
+    //     document.getElementById('#sample_3').scrollLeft += 50;
+    // };
+    // buttonLeft.onclick = function () {
+    //     document.getElementById('#sample_3').scrollLeft -= 50;
+    // };
+
+
+    $('#slideRight').click(function (e) {
+        e.preventDefault();
+        $('.table-scrollable').animate({
+            scrollLeft: "+=200px"
+        }, "fast");
+    });
+
+    $('#slideLeft').click(function (e) {
+        e.preventDefault();
+        $('.table-scrollable').animate({
+            scrollLeft: "-=200px"
+        }, "fast");
+    });
 
 </script>

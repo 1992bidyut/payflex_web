@@ -97,7 +97,6 @@ class Client extends CI_Controller
                     $userArray['created_time'] = date('Y-m-d');
                     $formArray['user_id'] = $this->ClientModel->createUserIfActive($userArray);
                 }
-
                 //}
             }
 

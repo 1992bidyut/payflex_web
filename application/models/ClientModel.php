@@ -299,4 +299,16 @@ class ClientModel extends CI_Model
         $this->db->where('id', $user_id);
         $this->db->update('tbl_user', $data);
     }
+
+    public function checkExistingEmail($email)
+    {
+        $this->db->select('tbl_user.username')
+            ->from('tbl_user')
+            ->where('tbl_user.username', $email);
+        $result = $this->db->get()->row_array();
+        if($result['username'] == $email)
+            return true;
+        else
+            return false;
+    }
 }

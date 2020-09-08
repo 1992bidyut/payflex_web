@@ -1,0 +1,9 @@
+.scroll-buttons {
+    padding: 2px;
+    text-align: center;
+    position: fixed;
+    z-index: 10001;
+    bottom: 30px;
+    display: block;
+    right: 57px;
+}
