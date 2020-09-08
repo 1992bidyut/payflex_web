@@ -20,7 +20,7 @@ class LeaderBoard extends CI_Controller{
 
         $this->session->set_userdata($sessionData);
 	    $leaderBoardData = $this->LeaderBoardModel->searchPaymentInfo("2020-05-30",(string)$getDate);
-        $productList=$this->LeaderBoardModel->getProductList();
+        $productList=$this->LeaderBoardModel->getProductList();//
 
 //        $explodeValue1= explode(";",$leaderBoardData[2]['ProductQuantityString']);
 //        echo print_r($explodeValue1);
