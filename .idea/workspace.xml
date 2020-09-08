@@ -20,11 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="571daff3-120e-4fae-92da-81dcf9e1bc68" name="Default Changelist" comment="leaderboard data export, but not formated, finance report panel and data export">
+      <change afterPath="$PROJECT_DIR$/assets/global/css/scrollbuttons.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/config/database.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/FinanceReport.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/FinanceReport.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/models/Payment_Model.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/Payment_Model.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/finance/finance_report.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/finance/finance_report.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Client.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Client.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/models/ClientModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/ClientModel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/layouts/main_template.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/layouts/main_template.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/leader/leader.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/leader/leader.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,7 +88,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/application/views/finance" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
@@ -101,8 +102,11 @@
       <recent name="D:\local_server\htdocs\payflex\webapp\application\views" />
       <recent name="C:\MAMP\htdocs\payflex_web\assets\global\css" />
     </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\local_server\htdocs\payflex\webapp\application\views\finance" />
+    </key>
   </component>
-  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="false" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -145,43 +149,6 @@
       <workItem from="1598289768592" duration="6471000" />
       <workItem from="1598382110348" duration="853000" />
       <workItem from="1598392694742" duration="11276000" />
-      <workItem from="1598634598134" duration="410000" />
-      <workItem from="1598638317648" duration="616000" />
-    </task>
-    <task id="LOCAL-00001" summary="validation bug fix and make an new example testView">
-      <created>1597333094672</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1597333094672</updated>
-    </task>
-    <task id="LOCAL-00002" summary="payment form">
-      <created>1597685321322</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1597685321322</updated>
-    </task>
-    <task id="LOCAL-00003" summary="payment form">
-      <created>1597685708798</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1597685708798</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Payment Details bug fix">
-      <created>1597938715318</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1597938715318</updated>
-    </task>
-    <task id="LOCAL-00005" summary="implement printing and marge mohsin work">
-      <created>1598219904686</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1598219904686</updated>
     </task>
     <task id="LOCAL-00006" summary="DESC ORDER BY">
       <created>1598220893231</created>
@@ -365,14 +332,168 @@
       <option name="project" value="LOCAL" />
       <updated>1598402851485</updated>
     </task>
-    <task id="LOCAL-00032" summary="leaderboard data export, but not formated, finance report panel and data export">
-      <created>1598483612664</created>
+    <task id="LOCAL-00032" summary="search update to product list">
+      <created>1598410228063</created>
       <option name="number" value="00032" />
       <option name="presentableId" value="LOCAL-00032" />
       <option name="project" value="LOCAL" />
-      <updated>1598483612664</updated>
+      <updated>1598410228063</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="search update to product list">
+      <created>1598410378207</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1598410378207</updated>
+    </task>
+    <task id="LOCAL-00034" summary="search update to product list">
+      <created>1598410657039</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1598410657039</updated>
+    </task>
+    <task id="LOCAL-00035" summary="search update to product list">
+      <created>1598410750338</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1598410750338</updated>
+    </task>
+    <task id="LOCAL-00036" summary="search update to product list">
+      <created>1598410903146</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1598410903146</updated>
+    </task>
+    <task id="LOCAL-00037" summary="search update to product list">
+      <created>1598411176998</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1598411176998</updated>
+    </task>
+    <task id="LOCAL-00038" summary="search update to product list">
+      <created>1598411310390</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1598411310390</updated>
+    </task>
+    <task id="LOCAL-00039" summary="search update to product list">
+      <created>1598411424659</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1598411424659</updated>
+    </task>
+    <task id="LOCAL-00040" summary="search update to product list">
+      <created>1598413648604</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1598413648604</updated>
+    </task>
+    <task id="LOCAL-00041" summary="search update to product list">
+      <created>1598413757235</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1598413757235</updated>
+    </task>
+    <task id="LOCAL-00042" summary="search update to product list">
+      <created>1598417568200</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1598417568200</updated>
+    </task>
+    <task id="LOCAL-00043" summary="search update to product list">
+      <created>1598465680602</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1598465680602</updated>
+    </task>
+    <task id="LOCAL-00044" summary="search update to product list">
+      <created>1598465989823</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1598465989823</updated>
+    </task>
+    <task id="LOCAL-00045" summary="search update to product list">
+      <created>1598466242927</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1598466242927</updated>
+    </task>
+    <task id="LOCAL-00046" summary="search update to product list">
+      <created>1598466495283</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1598466495283</updated>
+    </task>
+    <task id="LOCAL-00047" summary="search update to product list">
+      <created>1598467534499</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1598467534499</updated>
+    </task>
+    <task id="LOCAL-00048" summary="search update to product list">
+      <created>1598467609601</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1598467609601</updated>
+    </task>
+    <task id="LOCAL-00049" summary="search update to product list">
+      <created>1598467730629</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1598467730629</updated>
+    </task>
+    <task id="LOCAL-00050" summary="search update to product list">
+      <created>1598468305393</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1598468305394</updated>
+    </task>
+    <task id="LOCAL-00051" summary="search update to product list">
+      <created>1598468910472</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1598468910472</updated>
+    </task>
+    <task id="LOCAL-00052" summary="leaderboard data export, but not formated, finance report panel and data export">
+      <created>1598480694484</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1598480694484</updated>
+    </task>
+    <task id="LOCAL-00053" summary="leaderboard data export, but not formated, finance report panel and data export">
+      <created>1598480740595</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1598480740595</updated>
+    </task>
+    <task id="LOCAL-00054" summary="leaderboard data export, but not formated, finance report panel and data export">
+      <created>1598480875959</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1598480875959</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -400,6 +521,7 @@
     <MESSAGE value="dashboard fixing" />
     <MESSAGE value="dashboard fixing and side bar change" />
     <MESSAGE value="image path bug" />
+    <MESSAGE value="search update to product list" />
     <MESSAGE value="leaderboard data export, but not formated, finance report panel and data export" />
     <option name="LAST_COMMIT_MESSAGE" value="leaderboard data export, but not formated, finance report panel and data export" />
   </component>
@@ -423,6 +545,10 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="657" y="285" width="488" height="264" key="MultipleFileMergeDialog/0.0.1536.834/1920.0.1366.738@0.0.1536.834" timestamp="1597333331997" />
+    <state x="498" y="140" key="NewPhpClassDialog" timestamp="1598473246602">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="498" y="140" key="NewPhpClassDialog/0.0.1536.834/1920.0.1366.738@0.0.1536.834" timestamp="1598473246602" />
     <state x="604" y="336" key="NewPhpFileDialog" timestamp="1597327754886">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
@@ -437,11 +563,11 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="555" y="51" key="VCS.ChangeListViewerDialog/0.0.1536.834@0.0.1536.834" timestamp="1597831983474" />
-    <state x="361" y="137" key="Vcs.Push.Dialog.v2" timestamp="1598483616517">
+    <state x="361" y="137" key="Vcs.Push.Dialog.v2" timestamp="1598480878107">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="361" y="137" key="Vcs.Push.Dialog.v2/0.0.1536.834/1920.0.1366.738@0.0.1536.834" timestamp="1598483616517" />
-    <state x="361" y="137" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1598402853685" />
+    <state x="361" y="137" key="Vcs.Push.Dialog.v2/0.0.1536.834/1920.0.1366.738@0.0.1536.834" timestamp="1598480878107" />
+    <state x="361" y="137" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1598413759238" />
     <state x="561" y="232" width="413" height="352" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog" timestamp="1597174798873">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -486,6 +612,11 @@
             <option name="methodName" value="createClient2" />
           </properties>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/application/views/payment/paymentDetail.php</url>
+          <line>89</line>
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
