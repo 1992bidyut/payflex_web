@@ -64,7 +64,8 @@
                         <th> Payment Mode </th>
                         <th> Bank name </th>
 						<th> Reference no </th>
-						<th> Payment date time </th>
+						<th> Payment date </th>
+                        <th> Submitted date time </th>
 						<th> Amount </th>
 						<th> action_flag </th>
 						<th> Image/Attachment </th>
@@ -108,6 +109,7 @@
 							<td> <?php echo $data['bank_name'] ?>  </td>
 							<td> <?php echo $data['reference_no'] ?>  </td>
 							<td> <?php echo $data['payment_date_time'] ?>  </td>
+                            <td> <?php echo $data['submitted_date'] ?>  </td>
 							<td> <?php echo $data['amount'] ?>  </td>
 							<td> <?php echo $data['action_flag'] ?>  </td>
 							<td> 

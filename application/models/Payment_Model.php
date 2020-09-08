@@ -95,12 +95,14 @@ class Payment_Model extends CI_Model
         $reportSQL= "SELECT 
             client_info.client_code,
             client_info.name,
-            tbl_financial_institution_list.id,
+            tbl_financial_institution_list.id as bank_id,
             tbl_financial_institution_list.bank_name,
-            tbl_payment_mode.id,
+            tbl_payment_mode.id as methode_id,
             tbl_payment_mode.methode_name,
             tbl_payment.amount,
+            tbl_payment.payment_date_time,
             tbl_payment.submitted_date,
+            tbl_payment.reference_no,
             tbl_payment.indent_date
             FROM tbl_payment
             LEFT JOIN tbl_financial_institution_list ON tbl_financial_institution_list.id=tbl_payment.financial_institution_id

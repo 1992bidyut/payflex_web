@@ -52,11 +52,12 @@
                         <th class="table-checkbox">
                             <input type="checkbox" class="group-checkable" data-set="#sample_3 .checkboxes" />
                         </th>
+                        <th> INDENT NUMBER </th>
                         <th> INDENT DATE </th>
                         <th> CODE </th>
                         <th> DISTRIBUTOR NAME </th>
                         <th> BANK DETAILS </th>
-                        <th>  </th>
+                        <th> PAYMENT DETAILS </th>
                         <th> AMOUNT </th>
                         <th> PAYMENT DATE </th>
 
@@ -69,15 +70,31 @@
                     ?>
                         <tr class="odd gradeX">
                             <td><input type="checkbox" class="checkboxes" value="1" /></td>
+                            <td></td>
                             <td> <?php if ($data['indent_date']!=null){echo $data['indent_date'];}else{echo "";} ?>  </td>
                             <td> <?php echo $data['client_code'] ?>  </td>
                             <td> <?php echo $data['name'] ?>  </td>
-                            <td> <?php echo $data['bank_name']."-".$data['methode_name']?>  </td>
-							<td> <?php echo $data['bank_name']."-".$data['methode_name']
-                                    ."/".$data['submitted_date']."/".$data['client_code']."/".$data['amount'];
-                                $temp['AMOUNT']=$data['amount'] ?>  </td>
+                            <td> <?php
+                                if ($data['methode_id']!=2){
+                                    echo $data['bank_name']."-".$data['reference_no'];
+                                }else{
+                                    echo $data['methode_name'];
+                                }
+                                ?>  </td>
+
+							<td> <?php
+                                if ($data['methode_id']!=2){
+                                    echo $data['bank_name']."-".$data['reference_no']
+                                        ."/".$data['payment_date_time']."/".$data['client_code']."/".$data['amount'];
+                                }else{
+                                    echo $data['methode_name']
+                                        ."/".$data['payment_date_time']."/".$data['client_code']."/".$data['amount'];
+                                }
+
+//                                $temp['AMOUNT']=$data['amount']
+                                ?>  </td>
                             <td> <?php echo $data['amount'] ?>  </td>
-							<td> <?php echo $data['submitted_date'] ?>  </td>
+							<td> <?php echo $data['payment_date_time'] ?>  </td>
 
                         </tr>
                     <?php

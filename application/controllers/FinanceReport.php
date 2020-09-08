@@ -42,11 +42,22 @@ class FinanceReport extends CI_Controller{
             $temp['INDENT DATE']="";
             $temp['CODE']=$rawData[$count]['client_code'];
             $temp['DISTRIBUTOR NAME']=$rawData[$count]['name'];
-            $temp['BANK DETAILS']=$rawData[$count]['bank_name']."-".$rawData[$count]['methode_name'];
-            $temp['']=$rawData[$count]['bank_name']."-".$rawData[$count]['methode_name']
-                ."/".$rawData[$count]['submitted_date']."/".$rawData[$count]['client_code']."/".$rawData[$count]['amount'];
+            if ($rawData[$count]['methode_id']!=2){
+                $temp['BANK DETAILS']=$rawData[$count]['bank_name']."-".$rawData[$count]['reference_no'];
+            }else{
+                $temp['BANK DETAILS']=$rawData[$count]['methode_name'];
+            }
+
+            if ($rawData[$count]['methode_id']!=2){
+                $temp['']=$rawData[$count]['bank_name']."-".$rawData[$count]['reference_no']
+                    ."/".$rawData[$count]['payment_date_time']."/".$rawData[$count]['client_code']."/".$rawData[$count]['amount'];
+            }else{
+                $temp['']=$rawData[$count]['methode_name']
+                    ."/".$rawData[$count]['payment_date_time']."/".$rawData[$count]['client_code']."/".$rawData[$count]['amount'];
+            }
+
             $temp['AMOUNT']=$rawData[$count]['amount'];
-            $temp['PAYMENT DATE']=$rawData[$count]['submitted_date'];
+            $temp['PAYMENT DATE']=$rawData[$count]['payment_date_time'];
             $exportedData[$count]=$temp;
 //            echo print_r($temp)."</br>";
         }
