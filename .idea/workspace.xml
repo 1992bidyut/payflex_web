@@ -20,12 +20,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="571daff3-120e-4fae-92da-81dcf9e1bc68" name="Default Changelist" comment="leaderboard data export, but not formated, finance report panel and data export">
-      <change afterPath="$PROJECT_DIR$/assets/global/css/scrollbuttons.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/views/leader/leader_board_new.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/Client.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Client.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/models/ClientModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/ClientModel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/layouts/main_template.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/layouts/main_template.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/leader/leader.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/leader/leader.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/config/database.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/leader/SchedulePrinting.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/leader/SchedulePrinting.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/payment/paymentDetail.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/payment/paymentDetail.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/export.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/export.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/global/css/components-md.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/global/css/components-md.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/global/css/components.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/global/css/components.min.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +64,7 @@
                 <list>
                   <RecentBranch>
                     <option name="branchName" value="bdn_dev" />
-                    <option name="lastUsedInstant" value="1599554023" />
+                    <option name="lastUsedInstant" value="1599691437" />
                   </RecentBranch>
                   <RecentBranch>
                     <option name="branchName" value="master" />
@@ -102,11 +104,8 @@
       <recent name="D:\local_server\htdocs\payflex\webapp\application\views" />
       <recent name="C:\MAMP\htdocs\payflex_web\assets\global\css" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\local_server\htdocs\payflex\webapp\application\views\finance" />
-    </key>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="false" />
+  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -149,6 +148,10 @@
       <workItem from="1598289768592" duration="6471000" />
       <workItem from="1598382110348" duration="853000" />
       <workItem from="1598392694742" duration="11276000" />
+      <workItem from="1599813642778" duration="112000" />
+      <workItem from="1599815802791" duration="150000" />
+      <workItem from="1599905871514" duration="4651000" />
+      <workItem from="1599941485601" duration="1660000" />
     </task>
     <task id="LOCAL-00006" summary="DESC ORDER BY">
       <created>1598220893231</created>
@@ -549,11 +552,11 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="498" y="140" key="NewPhpClassDialog/0.0.1536.834/1920.0.1366.738@0.0.1536.834" timestamp="1598473246602" />
-    <state x="604" y="336" key="NewPhpFileDialog" timestamp="1597327754886">
+    <state x="604" y="336" key="NewPhpFileDialog" timestamp="1599906159869">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="604" y="332" key="NewPhpFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1597323368425" />
-    <state x="604" y="336" key="NewPhpFileDialog/0.0.1536.834/1920.0.1366.738@0.0.1536.834" timestamp="1597327754886" />
+    <state x="604" y="336" key="NewPhpFileDialog/0.0.1536.834/1920.0.1366.738@0.0.1536.834" timestamp="1599906159869" />
     <state x="212" y="30" key="SettingsEditor" timestamp="1597595199864">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
@@ -586,10 +589,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="477" y="11" width="581" height="801" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1597029999478" />
-    <state x="530" y="205" key="git4idea.merge.GitMergeDialog" timestamp="1599554658357">
+    <state x="530" y="205" key="git4idea.merge.GitMergeDialog" timestamp="1598277224717">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="530" y="205" key="git4idea.merge.GitMergeDialog/0.0.1536.834/1920.0.1366.738@0.0.1536.834" timestamp="1599554658357" />
+    <state x="530" y="205" key="git4idea.merge.GitMergeDialog/0.0.1536.834/1920.0.1366.738@0.0.1536.834" timestamp="1598277224717" />
     <state x="425" y="189" key="run.anything.popup" timestamp="1597808823928">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
