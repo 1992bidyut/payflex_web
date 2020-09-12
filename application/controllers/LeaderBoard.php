@@ -13,13 +13,16 @@ class LeaderBoard extends CI_Controller{
     public function index()
 	{
         $getDate= date("Y-m-d");
+        $date = strtotime($getDate);
+        $date = strtotime("-7 day", $date);
+        $startDate=date("Y-m-d", $date);
         //set filter date in session
         $sessionData=$this->session->userdata();
-        $sessionData['lead_from']="2020-05-30";//
+        $sessionData['lead_from']=$startDate;//
         $sessionData['lead_to']=(string)$getDate;
 
         $this->session->set_userdata($sessionData);
-	    $leaderBoardData = $this->LeaderBoardModel->searchPaymentInfo("2020-05-30",(string)$getDate);
+	    $leaderBoardData = $this->LeaderBoardModel->searchPaymentInfo($startDate,(string)$getDate);
         $productList=$this->LeaderBoardModel->getProductList();//
 
 //        $explodeValue1= explode(";",$leaderBoardData[2]['ProductQuantityString']);
