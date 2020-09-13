@@ -72,7 +72,6 @@
                             <th> action_flag</th>
                             <th> Image/Attachment</th>
                             <th> Action</th>
-
                         </tr>
                         </thead>
                         <tbody>
@@ -188,7 +187,7 @@
 <script type="text/javascript">
     //    Accept payment
 
-    document.getElementsByName('sample_3_length').value = "1";
+    document.getElementsByName('sample_3_length').value = "-1";
 
     function acceptPayment(id) {
         console.log("Accept Click! " + id);
