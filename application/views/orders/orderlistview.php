@@ -25,14 +25,14 @@
         }
         ?>
 
-<div class="portlet box blue ">
-
+<!--<div class="portlet box blue ">-->
+<!---->
 <?php
-	 $myCIRef =& get_instance();
-     $myCIRef->load->view('orders/oder_filter'); 
-?>
-
-</div>
+//	 $myCIRef =& get_instance();
+//     $myCIRef->load->view('orders/oder_filter');
+//?>
+<!---->
+<!--</div>-->
 
         <div class="portlet box blue">
             <div class="portlet-title">

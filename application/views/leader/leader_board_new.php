@@ -1,4 +1,17 @@
 <div class="row">
+
+    <div class="col-md-12" margin="10px">
+        <div class="portlet box blue " >
+
+            <?php
+            $myCIRef =& get_instance();
+            $myCIRef->load->view('leader/leader_filter');
+            ?>
+            <div w3-include-html="leader_filter.php"></div>
+
+        </div>
+    </div>
+
     <div class="col-md-12">
 
         <?php
@@ -9,9 +22,7 @@
                 <strong>Success!</strong> <?php echo $this->session->flashdata('success_msg'); ?>
             </div>
 
-            <?php
-        }
-        ?>
+        <?php } ?>
         <?php
         if ($this->session->flashdata('error_msg')) {
             ?>
@@ -20,19 +31,7 @@
                 <strong>Error!</strong> <?php echo $this->session->flashdata('error_msg'); ?>
             </div>
 
-            <?php
-        }
-        ?>
-
-        <div class="portlet box blue ">
-
-            <?php
-            $myCIRef =& get_instance();
-            $myCIRef->load->view('leader/leader_filter');
-            ?>
-            <div w3-include-html="leader_filter.php"></div>
-
-        </div>
+        <?php } ?>
 
         <div class="portlet box blue">
             <div class="portlet-title">
@@ -49,31 +48,34 @@
                 <form id="table-form">
                     <table class="table table-striped table-bordered table-hover table-checkable order-column"
                            id="sample_3">
-                        <thead>
-                        <tr>
-                            <th class="table-checkbox">
-                                <input type="checkbox" class="group-checkable" data-set="#sample_3 .checkboxes"/>
-                            </th>
-                            <th> Client Code</th>
-                            <th> Distributor Name</th>
-                            <th> Manager</th>
-                            <th> Officer</th>
-                            <th> DSR</th>
-                            <th> Product</th>
-                            <th> Quantity</th>
-                            <th> Order No.</th>
-                            <th> PaymentID</th>
-                            <th> Payment Mode</th>
-                            <th> Bank name</th>
-                            <th> Reference no</th>
-                            <th> Payment date</th>
-                            <th> Submitted date time</th>
-                            <th> Amount</th>
-                            <th> action_flag</th>
-                            <th> Image/Attachment</th>
-                            <th> Action</th>
-                        </tr>
-                        </thead>
+                        <div >
+                            <thead>
+                            <tr>
+                                <th class="table-checkbox">
+                                    <input type="checkbox" class="group-checkable" data-set="#sample_3 .checkboxes"/>
+                                </th>
+                                <th> Client Code</th>
+                                <th> Distributor Name</th>
+                                <th> Manager</th>
+                                <th> Officer</th>
+                                <th> DSR</th>
+                                <th> Product</th>
+                                <th> Quantity</th>
+                                <th> Order No.</th>
+                                <th> PaymentID</th>
+                                <th> Payment Mode</th>
+                                <th> Bank name</th>
+                                <th> Reference no</th>
+                                <th> Payment date</th>
+                                <th> Submitted date time</th>
+                                <th> Amount</th>
+                                <th> action_flag</th>
+                                <th> Image/Attachment</th>
+                                <th> Action</th>
+                            </tr>
+                            </thead>
+                        </div>
+
                         <tbody>
                         <?php if ($paymentInfoArray > 0): ?>
                             <?php
@@ -119,8 +121,9 @@
                                             $localImgageBasePath = "http://localhost/payflex/asset/images/";
                                             $localImgageBasePath2 = "http://localhost/asset/images/";
                                             $remorteImageBasePath = "http://demo.onuserver.com/payFlex/asset/images/";
+                                            $liveImageBasePath = "https://clients.onukit.com/total/payflex/asset/images/";
                                             $imageName = $data['image_name'];
-                                            $imagePath = $localImgageBasePath . $data['clientId'] . "/";
+                                            $imagePath = $remorteImageBasePath . $data['clientId'] . "/";
                                             $imagePath .= $imageName;
                                             echo '<img style="width: 100%; hight:10px;" src="' . $imagePath . '" alt="' . $imageName . '">';
                                         } else {
@@ -187,7 +190,7 @@
 <script type="text/javascript">
     //    Accept payment
 
-    document.getElementsByName('sample_3_length').value = "-1";
+    document.getElementsByName('sample_3_length').value = "1";
 
     function acceptPayment(id) {
         console.log("Accept Click! " + id);
@@ -224,49 +227,6 @@
             }
         });
     }
-
-    //    $(document).ready(function () {
-    //
-    //        $('#action-btn').click(function(e){
-    //            var table = $("#sample_3").dataTable();
-    //            var id = [];
-    //            $("input:checked", table.fnGetNodes()).each(function(i){
-    //
-    //                console.log($(this).val());
-    //
-    //                id.push($(this).val());
-    //
-    //            });
-    //
-    //            $.ajax({
-    //                type    : "POST",
-    //                url     : "<?php //echo base_url('SMSLog/ajax_delete'); ?>//",
-    //                data    : {id: id},
-    //                success : function (response) {
-    ////                        console.log(response);
-    //                    location.reload();
-    //                },
-    //                error : function(error){
-    //                    console.log(error);
-    //                }
-    //            });
-    //
-    //            e.preventDefault();
-    //
-    //        });
-    //
-    //
-    //    });
-    // const buttonRight = document.getElementById('slideRight');
-    // const buttonLeft = document.getElementById('slideLeft');
-    //
-    // buttonRight.onclick = function () {
-    //     document.getElementById('#sample_3').scrollLeft += 50;
-    // };
-    // buttonLeft.onclick = function () {
-    //     document.getElementById('#sample_3').scrollLeft -= 50;
-    // };
-
 
     $('#slideRight').click(function (e) {
         e.preventDefault();

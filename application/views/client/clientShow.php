@@ -37,10 +37,10 @@
                        data-target="#createNewClient" class="btn btn-default btn-sm">
                         <i class="fa fa-plus"></i> Create New Client </a>
 
-                    <a href="<?php echo base_url('user/createUser'); ?>" class="btn btn-default btn-sm">
-                        <i class="fa fa-plus"></i> Add </a>
-                    <a href="javascript:;" class="btn btn-default btn-sm">
-                        <i class="fa fa-print"></i> Print </a>
+<!--                    <a href="--><?php //echo base_url('user/createUser'); ?><!--" class="btn btn-default btn-sm">-->
+<!--                        <i class="fa fa-plus"></i> Add </a>-->
+<!--                    <a href="javascript:;" class="btn btn-default btn-sm">-->
+<!--                        <i class="fa fa-print"></i> Print </a>-->
                 </div>
             </div>
             <div class="modal fade" id="createNewClient" tabindex="-1" role="dialog" aria-labelledby="largeModal"

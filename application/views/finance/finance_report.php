@@ -109,13 +109,14 @@
                 </table>
             </div>
         </div>
-
-
-
-
   <!-- END EXAMPLE TABLE PORTLET-->
         </form>
     </div>
+</div>
+
+<div class="scroll-buttons">
+    <button id="slideLeft" class="btn" type="button"> ⬅️Scroll left</button>
+    <button id="slideRight" class="btn" type="button">Scroll right ➡️</button>
 </div>
 
 <script type="text/javascript">
@@ -155,38 +156,18 @@ function indent(id) {
         }
     });
 }
+$('#slideRight').click(function (e) {
+    e.preventDefault();
+    $('.table-scrollable').animate({
+        scrollLeft: "+=200px"
+    }, "fast");
+});
 
-//    $(document).ready(function () {
-//
-//        $('#action-btn').click(function(e){
-//            var table = $("#sample_3").dataTable();
-//            var id = [];
-//            $("input:checked", table.fnGetNodes()).each(function(i){
-//
-//                console.log($(this).val());
-//
-//                id.push($(this).val());
-//
-//            });
-//
-//            $.ajax({
-//                type    : "POST",
-//                url     : "<?php //echo base_url('SMSLog/ajax_delete'); ?>//",
-//                data    : {id: id},
-//                success : function (response) {
-////                        console.log(response);
-//                    location.reload();
-//                },
-//                error : function(error){
-//                    console.log(error);
-//                }
-//            });
-//
-//            e.preventDefault();
-//
-//        });
-//
-//
-//    });
+$('#slideLeft').click(function (e) {
+    e.preventDefault();
+    $('.table-scrollable').animate({
+        scrollLeft: "-=200px"
+    }, "fast");
+});
 
 </script>
