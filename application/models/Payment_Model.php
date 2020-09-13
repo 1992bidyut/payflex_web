@@ -6,7 +6,9 @@ class Payment_Model extends CI_Model
         $this->db->select('tbl_payment.id as payment_id, 
         tbl_payment.trxid,
         tbl_payment.payment_mode_id,
+        tbl_payment_mode.methode_name,
         tbl_payment.financial_institution_id,
+        tbl_financial_institution_list.bank_name,
         tbl_payment.payment_date_time,
         tbl_payment.reference_no,
         tbl_payment.order_code,
@@ -29,6 +31,8 @@ class Payment_Model extends CI_Model
         tbl_image.purpose,
         ')
             ->from('tbl_payment')
+            ->join('tbl_financial_institution_list','tbl_financial_institution_list.id = tbl_payment.financial_institution_id','left')
+            ->join('tbl_payment_mode','tbl_payment_mode.id = tbl_payment.payment_mode_id','left')
             ->join('tbl_payment_image_relation','tbl_payment_image_relation.payment_id = tbl_payment.id','left')
             ->join('tbl_image','tbl_image.id = tbl_payment_image_relation.image_id')
             ->where('tbl_payment.order_code',$order_code);

@@ -28,7 +28,6 @@ class Payment extends CI_Controller
         $paymentDetail = $this->Payment_Model->getpaymentdetail($order_code);
         $orderDetail = $this->Payment_Model->getOrderDetail($order_code);
 
-//        if (count($paymentDetail)>0 && count($orderDetail)>0){
         if (count($orderDetail)>0){
             $clientInfo=$this->ClientModel->getClient($orderDetail[0]['client_id']);
             $clientContact=$this->ClientModel->getClientsContact($orderDetail[0]['client_id']);
@@ -46,16 +45,22 @@ class Payment extends CI_Controller
             $this->load->view('layouts/main_template', $datas);
         }else{
             $this->load->model('LeaderBoardModel');
-
             $getDate= date("Y-m-d");
+            $date = strtotime($getDate);
+            $date = strtotime("-7 day", $date);
+            $startDate=date("Y-m-d", $date);
             //set filter date in session
             $sessionData=$this->session->userdata();
-            $sessionData['lead_from']="2020-05-30";
-            $sessionData['lead_to']=$getDate;
+            $sessionData['lead_from']=$startDate;//
+            $sessionData['lead_to']=(string)$getDate;
 
             $this->session->set_userdata($sessionData);
-            $leaderBoardData = $this->LeaderBoardModel->searchPaymentInfo("2020-05-30",(string)$getDate);
+            $leaderBoardData = $this->LeaderBoardModel->searchPaymentInfo($startDate,(string)$getDate);
             $productList=$this->LeaderBoardModel->getProductList();
+
+            $dataArray = array('paymentInfoArray'=>$leaderBoardData,'productList'=>$productList);
+            $datas['content'] = $this->load->view('leader/leader', $dataArray, true);
+            $this->load->view( 'layouts/main_template',$datas);
         }
 
     }

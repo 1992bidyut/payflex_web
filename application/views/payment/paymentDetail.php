@@ -168,8 +168,8 @@
                 $paymentCount = 1;
                 foreach ($paymentDetail as $payment) {
                     echo "<tr><td>" . $paymentCount . "</td>";
-                    echo "<td>" . $payment['payment_mode_id'] . "</td>";
-                    echo "<td>" . $payment['financial_institution_id'] . "</td>";
+                    echo "<td>" . $payment['methode_name'] . "</td>";
+                    echo "<td>" . $payment['bank_name'] . "</td>";
                     echo "<td>" . $payment['reference_no'] . "</td>";
                     echo "<td>" . $payment['payment_date_time'] . "</td>";
                     echo "<td>" . $payment['amount'] . "</td></tr>";
