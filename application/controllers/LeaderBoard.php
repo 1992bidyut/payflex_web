@@ -14,7 +14,7 @@ class LeaderBoard extends CI_Controller{
 	{
         $getDate= date("Y-m-d");
         $date = strtotime($getDate);
-        $date = strtotime("-7 day", $date);
+        $date = strtotime("-2 day", $date);
         $startDate=date("Y-m-d", $date);
         //set filter date in session
         $sessionData=$this->session->userdata();
