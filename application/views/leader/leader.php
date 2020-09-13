@@ -69,7 +69,8 @@
                             <th> Payment date</th>
                             <th> Submitted date time</th>
                             <th> Amount</th>
-                            <th> action_flag</th>
+                            <th> Indent No</th>
+                            <th> Collection No</th>
                             <th> Image/Attachment</th>
                             <th> Action</th>
                         </tr>
@@ -112,13 +113,29 @@
                                     <td> <?php echo $data['payment_date_time'] ?>  </td>
                                     <td> <?php echo $data['submitted_date'] ?>  </td>
                                     <td> <?php echo $data['amount'] ?>  </td>
-                                    <td> <?php echo $data['action_flag'] ?>  </td>
+                                    <td> <?php
+                                        if ($data['indent_no']!=null){
+                                            echo $data['indent_no'];
+                                        } else{
+                                            echo "";
+                                        }
+                                        ?>
+                                    </td>
+                                    <td> <?php
+                                        if ($data['collection_no']!=null){
+                                            echo $data['collection_no'];
+                                        } else{
+                                            echo "";
+                                        }
+                                        ?>
+                                    </td>
                                     <td>
                                         <?php //echo $data['image_name']
                                         if (!empty($data['image_name'])) {
                                             $localImgageBasePath = "http://localhost/payflex/asset/images/";
-                                            $localImgageBasePath2 = "http://localhost/asset/images/";
                                             $remorteImageBasePath = "http://demo.onuserver.com/payFlex/asset/images/";
+                                            $liveImageBasePath = "https://clients.onukit.com/total/payflex/asset/images/";
+
                                             $imageName = $data['image_name'];
                                             $imagePath = $remorteImageBasePath . $data['clientId'] . "/";
                                             $imagePath .= $imageName;
@@ -135,14 +152,25 @@
                                         <div class="clearfix">
 
                                             <a id="<?php echo "indent" . $data['paymentID'] ?>"
-                                               onclick="indent(<?php echo $data['paymentID'] ?>)"
-                                               class="btn btn-sm <?php if ($data['action_flag'] == 2) {
+                                               onclick="indentInput(<?php echo $data['paymentID'] ?>)"
+                                               class="btn btn-sm <?php if ($data['action_flag'] == 2 || $data['action_flag'] == 3) {
                                                    echo "green-dark";
                                                } else {
                                                    echo "yellow";
-                                               } ?>" style="margin-bottom: 5px; width: 100%;"> Indent
+                                               } ?>" style="margin-bottom: 5px; width: 100%;" > Indent
                                                 <i class="fa fa-edit"></i>
                                             </a>
+
+                                            <a id="<?php echo "collection" . $data['paymentID'] ?>"
+                                               onclick="collectionInput(<?php echo $data['paymentID'] ?>)"
+                                               class="btn btn-sm <?php if ($data['action_flag'] == 3) {
+                                                   echo "green-dark";
+                                               } else {
+                                                   echo "blue";
+                                               } ?>" style="margin-bottom: 5px; width: 100%;" > Collection
+                                                <i class="fa fa-edit"></i>
+                                            </a>
+
                                             <a href="<?php echo base_url('Payment/paymentdetail/' . $data['order_code']) ?>"
                                                target="_blank" class="btn btn-sm green"
                                                style="margin-bottom: 5px;   width: 100%;"> Print
@@ -151,7 +179,7 @@
 
                                             <a id="<?php echo "accepted" . $data['paymentID'] ?>"
                                                onclick="acceptPayment(<?php echo $data['paymentID'] ?>)"
-                                               class="btn btn-sm <?php if ($data['action_flag'] == 1 || $data['action_flag'] == 2) {
+                                               class="btn btn-sm <?php if ($data['action_flag'] == 1 || $data['action_flag'] == 2 || $data['action_flag'] == 3) {
                                                    echo "green-dark";
                                                } else {
                                                    echo "red";
@@ -174,7 +202,6 @@
                     </table>
             </div>
         </div>
-
 
         <!-- END EXAMPLE TABLE PORTLET-->
         </form>
@@ -207,66 +234,52 @@
         });
     }
 
-    function indent(id) {
-        console.log("Indent Click! " + id);
-        $.ajax({
-            url: "<?php echo base_url('payment/indent') ?>",
-            type: "POST",
-            data: {id: id},
-            success: function (response) {
-                console.log("AJAX Success Called!");
-                $("#indent" + id).fadeTo("slow", 0.3, function () {
-                    $(this).css('background-color', 'green-dark');
-                })
-            },
-            error: function () {
-                console.log("AJAX error Called!");
-            }
-        });
+    function indentInput(id) {
+        var indentNo = prompt("Please type the indent number:", "");
+        if (indentNo == null || indentNo == "") {
+            console.log("no input");
+        } else {
+            console.log(id);
+            console.log(indentNo);
+            $.ajax({
+                url: "<?php echo base_url('payment/indentUpdate') ?>",
+                type: "POST",
+                data: {id: id,indent_number: indentNo},
+                success: function (response) {
+                    console.log("AJAX Success Called!");
+                    $("#indent" + id).fadeTo("slow", 0.3, function () {
+                        $(this).css('background-color', 'green-dark');
+                    })
+                },
+                error: function () {
+                    console.log("AJAX error Called!");
+                }
+            });
+        }
     }
-
-    //    $(document).ready(function () {
-    //
-    //        $('#action-btn').click(function(e){
-    //            var table = $("#sample_3").dataTable();
-    //            var id = [];
-    //            $("input:checked", table.fnGetNodes()).each(function(i){
-    //
-    //                console.log($(this).val());
-    //
-    //                id.push($(this).val());
-    //
-    //            });
-    //
-    //            $.ajax({
-    //                type    : "POST",
-    //                url     : "<?php //echo base_url('SMSLog/ajax_delete'); ?>//",
-    //                data    : {id: id},
-    //                success : function (response) {
-    ////                        console.log(response);
-    //                    location.reload();
-    //                },
-    //                error : function(error){
-    //                    console.log(error);
-    //                }
-    //            });
-    //
-    //            e.preventDefault();
-    //
-    //        });
-    //
-    //
-    //    });
-    // const buttonRight = document.getElementById('slideRight');
-    // const buttonLeft = document.getElementById('slideLeft');
-    //
-    // buttonRight.onclick = function () {
-    //     document.getElementById('#sample_3').scrollLeft += 50;
-    // };
-    // buttonLeft.onclick = function () {
-    //     document.getElementById('#sample_3').scrollLeft -= 50;
-    // };
-
+    function collectionInput(id) {
+        var indentNo = prompt("Please type the collection number:", "");
+        if (indentNo == null || indentNo == "") {
+            console.log("no input");
+        } else {
+            console.log(id);
+            console.log(indentNo);
+            $.ajax({
+                url: "<?php echo base_url('payment/collectionUpdate') ?>",
+                type: "POST",
+                data: {id: id,collection_number: indentNo},
+                success: function (response) {
+                    console.log("AJAX Success Called!");
+                    $("#collection" + id).fadeTo("slow", 0.3, function () {
+                        $(this).css('background-color', 'green-dark');
+                    })
+                },
+                error: function () {
+                    console.log("AJAX error Called!");
+                }
+            });
+        }
+    }
 
     $('#slideRight').click(function (e) {
         e.preventDefault();

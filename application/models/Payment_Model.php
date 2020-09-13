@@ -82,11 +82,26 @@ class Payment_Model extends CI_Model
         }
     }
 
-    public function updateIndent($id){
+    public function updateIndent($id,$indentNumber){
         $this->db->where('tbl_payment.id', $id);
         $getDate= date("Y-m-d");
         $data['action_flag']=2;
         $data['indent_date']=$getDate;
+        $data['indent_no']=$indentNumber;
+        if ($this->db->update('tbl_payment', $data)) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    public function updateCollection($id,$collectionNumber){
+        $this->db->where('tbl_payment.id', $id);
+        $getDate= date("Y-m-d");
+        $data['action_flag']=3;
+        $data['indent_date']=$getDate;
+        $data['collection_no']=$collectionNumber;
         if ($this->db->update('tbl_payment', $data)) {
             return true;
         }
@@ -107,7 +122,10 @@ class Payment_Model extends CI_Model
             tbl_payment.payment_date_time,
             tbl_payment.submitted_date,
             tbl_payment.reference_no,
-            tbl_payment.indent_date
+            tbl_payment.indent_date,
+            tbl_payment.indent_no,
+			tbl_payment.collection_no
+            
             FROM tbl_payment
             LEFT JOIN tbl_financial_institution_list ON tbl_financial_institution_list.id=tbl_payment.financial_institution_id
             LEFT JOIN tbl_payment_mode ON tbl_payment_mode.id=tbl_payment.payment_mode_id

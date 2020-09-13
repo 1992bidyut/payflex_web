@@ -80,11 +80,27 @@ class Payment extends CI_Controller
         }
     }
 
-    public function indent(){
+    public function indentUpdate(){
         $id=$this->input->post('id');
+        $indent_number = $this->input->post('indent_number');
         $this->load->model('Payment_Model');
 
-        if ($this->Payment_Model->updateIndent($id)){
+        if ($this->Payment_Model->updateIndent($id,$indent_number)){
+            $this->session->set_flashdata('success_msg','Accepted successfully');
+            redirect('LeaderBoard');
+        }
+        else
+        {
+            $this->session->set_flashdata('error_msg','Not Accepted!');
+            redirect('LeaderBoard');
+        }
+    }
+    public function collectionUpdate(){
+        $id=$this->input->post('id');
+        $collection_number = $this->input->post('collection_number');
+        $this->load->model('Payment_Model');
+
+        if ($this->Payment_Model->updateCollection($id,$collection_number)){
             $this->session->set_flashdata('success_msg','Accepted successfully');
             redirect('LeaderBoard');
         }

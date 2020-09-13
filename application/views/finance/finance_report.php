@@ -60,6 +60,7 @@
                         <th> PAYMENT DETAILS </th>
                         <th> AMOUNT </th>
                         <th> PAYMENT DATE </th>
+                        <th> COLLECTION NUMBER </th>
 
                     </tr>
                     </thead>
@@ -70,7 +71,7 @@
                     ?>
                         <tr class="odd gradeX">
                             <td><input type="checkbox" class="checkboxes" value="1" /></td>
-                            <td></td>
+                            <td> <?php if ($data['indent_no']!=null){echo $data['indent_no'];}else{echo "";} ?>  </td>
                             <td> <?php if ($data['indent_date']!=null){echo $data['indent_date'];}else{echo "";} ?>  </td>
                             <td> <?php echo $data['client_code'] ?>  </td>
                             <td> <?php echo $data['name'] ?>  </td>
@@ -95,7 +96,7 @@
                                 ?>  </td>
                             <td> <?php echo $data['amount'] ?>  </td>
 							<td> <?php echo $data['payment_date_time'] ?>  </td>
-
+                            <td> <?php if ($data['collection_no']!=null){echo $data['collection_no'];}else{echo "";} ?>  </td>
                         </tr>
                     <?php
                         }

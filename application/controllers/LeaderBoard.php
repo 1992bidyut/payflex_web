@@ -40,7 +40,6 @@ class LeaderBoard extends CI_Controller{
 //            echo "From list name:  ".$product['p_name']." and order: ".$order."</br>";
 //        }
 
-
 		$dataArray = array('paymentInfoArray'=>$leaderBoardData,'productList'=>$productList);
 		$datas['content'] = $this->load->view('leader/leader', $dataArray, true);
 		$this->load->view( 'layouts/main_template',$datas);

@@ -21,9 +21,17 @@
   <component name="ChangeListManager">
     <list default="true" id="571daff3-120e-4fae-92da-81dcf9e1bc68" name="Default Changelist" comment="leaderboard data export, but not formated, finance report panel and data export">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/FinanceReport.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/FinanceReport.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/LeaderBoard.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/LeaderBoard.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/controllers/Payment.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Payment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/models/LeaderBoardModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/LeaderBoardModel.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/models/Payment_Model.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/Payment_Model.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/models/SearchModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/SearchModel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/finance/finance_report.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/finance/finance_report.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/leader/leader.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/leader/leader.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/leader/leader_board_new.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/leader/leader_board_new.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/views/payment/paymentDetail.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/payment/paymentDetail.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/sweetalert2.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/sweetalert2.min.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -153,20 +161,6 @@
       <workItem from="1599905871514" duration="4651000" />
       <workItem from="1599941485601" duration="7968000" />
       <workItem from="1599995945963" duration="835000" />
-    </task>
-    <task id="LOCAL-00012" summary="printing page fix">
-      <created>1598291533756</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1598291533756</updated>
-    </task>
-    <task id="LOCAL-00013" summary="printing page fix">
-      <created>1598292318604</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1598292318604</updated>
     </task>
     <task id="LOCAL-00014" summary="printing page fix">
       <created>1598292837056</created>
@@ -497,7 +491,21 @@
       <option name="project" value="LOCAL" />
       <updated>1600001541987</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="leaderboard data export, but not formated, finance report panel and data export">
+      <created>1600002734485</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1600002734485</updated>
+    </task>
+    <task id="LOCAL-00062" summary="leaderboard data export, but not formated, finance report panel and data export">
+      <created>1600002901538</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1600002901538</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -567,10 +575,10 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="555" y="51" key="VCS.ChangeListViewerDialog/0.0.1536.834@0.0.1536.834" timestamp="1597831983474" />
-    <state x="361" y="137" key="Vcs.Push.Dialog.v2" timestamp="1600001544353">
+    <state x="361" y="137" key="Vcs.Push.Dialog.v2" timestamp="1600002904216">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="361" y="137" key="Vcs.Push.Dialog.v2/0.0.1536.834/1920.0.1366.738@0.0.1536.834" timestamp="1600001544353" />
+    <state x="361" y="137" key="Vcs.Push.Dialog.v2/0.0.1536.834/1920.0.1366.738@0.0.1536.834" timestamp="1600002904216" />
     <state x="361" y="137" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1598413759238" />
     <state x="561" y="232" width="413" height="352" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog" timestamp="1597174798873">
       <screen x="0" y="0" width="1536" height="824" />
