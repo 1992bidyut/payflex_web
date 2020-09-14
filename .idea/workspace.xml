@@ -19,23 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="571daff3-120e-4fae-92da-81dcf9e1bc68" name="Default Changelist" comment="indent and collection number input and show in leaderboard and finance report also export">
+    <list default="true" id="571daff3-120e-4fae-92da-81dcf9e1bc68" name="Default Changelist" comment="data table mod, webapp\assets\pages\scripts\table-datatables-managed">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/config/database.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/FinanceReport.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/FinanceReport.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/LeaderBoard.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/LeaderBoard.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/Login.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/OrderLists.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/OrderLists.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/models/Payment_Model.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/Payment_Model.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/finance/finance_report.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/finance/finance_report.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/layouts/main_template.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/layouts/main_template.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/leader/leader.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/leader/leader.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/leader/leader_board_new.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/leader/leader_board_new.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/orders/orderlistview.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/orders/orderlistview.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/payment/paymentDetail.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/payment/paymentDetail.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/pages/scripts/table-datatables-managed.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/pages/scripts/table-datatables-managed.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/pages/scripts/table-datatables-managed.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/pages/scripts/table-datatables-managed.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/pages/scripts/table-datatables-scroller.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/pages/scripts/table-datatables-scroller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/Export_excel.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/libraries/Export_excel.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -165,13 +152,8 @@
       <workItem from="1599905871514" duration="4651000" />
       <workItem from="1599941485601" duration="7968000" />
       <workItem from="1599995945963" duration="835000" />
-    </task>
-    <task id="LOCAL-00015" summary="printing page fix">
-      <created>1598292957307</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1598292957307</updated>
+      <workItem from="1600084532082" duration="437000" />
+      <workItem from="1600099974626" duration="18000" />
     </task>
     <task id="LOCAL-00016" summary="printing page fix">
       <created>1598293043755</created>
@@ -509,7 +491,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600017623389</updated>
     </task>
-    <option name="localTasksCounter" value="64" />
+    <task id="LOCAL-00064" summary="data table mod, webapp\assets\pages\scripts\table-datatables-managed">
+      <created>1600044346219</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1600044346219</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -540,7 +529,8 @@
     <MESSAGE value="search update to product list" />
     <MESSAGE value="leaderboard data export, but not formated, finance report panel and data export" />
     <MESSAGE value="indent and collection number input and show in leaderboard and finance report also export" />
-    <option name="LAST_COMMIT_MESSAGE" value="indent and collection number input and show in leaderboard and finance report also export" />
+    <MESSAGE value="data table mod, webapp\assets\pages\scripts\table-datatables-managed" />
+    <option name="LAST_COMMIT_MESSAGE" value="data table mod, webapp\assets\pages\scripts\table-datatables-managed" />
   </component>
   <component name="WindowStateProjectService">
     <state x="655" y="254" key="#Notifications" timestamp="1597486857716">
@@ -580,10 +570,10 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="555" y="51" key="VCS.ChangeListViewerDialog/0.0.1536.834@0.0.1536.834" timestamp="1597831983474" />
-    <state x="361" y="137" key="Vcs.Push.Dialog.v2" timestamp="1600017626366">
+    <state x="361" y="137" key="Vcs.Push.Dialog.v2" timestamp="1600044349516">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="361" y="137" key="Vcs.Push.Dialog.v2/0.0.1536.834/1920.0.1366.738@0.0.1536.834" timestamp="1600017626366" />
+    <state x="361" y="137" key="Vcs.Push.Dialog.v2/0.0.1536.834/1920.0.1366.738@0.0.1536.834" timestamp="1600044349516" />
     <state x="361" y="137" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1598413759238" />
     <state x="561" y="232" width="413" height="352" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog" timestamp="1597174798873">
       <screen x="0" y="0" width="1536" height="824" />
