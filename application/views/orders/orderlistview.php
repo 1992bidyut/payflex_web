@@ -25,14 +25,14 @@
         }
         ?>
 
-<div class="portlet box blue ">
-
+<!--<div class="portlet box blue ">-->
+<!---->
 <?php
-	 $myCIRef =& get_instance();
-     $myCIRef->load->view('orders/oder_filter'); 
-?>
-
-</div>
+//	 $myCIRef =& get_instance();
+//     $myCIRef->load->view('orders/oder_filter');
+//?>
+<!---->
+<!--</div>-->
 
         <div class="portlet box blue">
             <div class="portlet-title">
@@ -45,7 +45,7 @@
             </div>
             <div class="portlet-body">
 			<form id="table-form">
-                <table class="table table-striped table-bordered table-hover table-checkable order-column" id="sample_3">
+                <table class="table table-striped table-bordered table-hover table-checkable order-column" id="sample_4">
                     <thead>
                     <tr>
                         <th class="table-checkbox">

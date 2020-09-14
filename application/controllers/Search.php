@@ -48,7 +48,7 @@ class Search extends CI_Controller{
         $dataArray = array('financeData'=>$financeData,);
         $datas['content'] = $this->load->view('finance/finance_report', $dataArray, true);
         $this->load->view( 'layouts/main_template',$datas);
-    }
+    }//
 
     public function showData(){
         $this->load->model('SearchModel');

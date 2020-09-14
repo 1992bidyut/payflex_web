@@ -40,6 +40,7 @@
 
 $active_group = "default";
 $active_record = TRUE;
+
 // $db['default']['hostname'] = "server3.valueshelf.com";
 // $db['default']['hostname'] = "127.0.0.1:3309";
 // $db['default']['hostname'] = "do2.onuserver.com";
@@ -70,23 +71,10 @@ $active_record = TRUE;
 //$db['default']['dbcollat'] = "utf8mb4_unicode_ci";
 
 
-// $db['default']['hostname'] = "localhost";
-// $db['default']['username'] = "root";
-// $db['default']['password'] = "";
-// $db['default']['database'] = "payflex_1v1";
-// $db['default']['dbdriver'] = "mysqli";
-// $db['default']['dbprefix'] = "";
-// $db['default']['pconnect'] = TRUE;
-// $db['default']['db_debug'] = TRUE;
-// $db['default']['cache_on'] = FALSE;
-// $db['default']['cachedir'] = "";
-// $db['default']['char_set'] = "utf8mb4";
-// $db['default']['dbcollat'] = "utf8mb4_unicode_ci";
-
 $db['default']['hostname'] = "localhost";
-$db['default']['username'] = "demoonuserver_payflex";
-$db['default']['password'] = "payFlexP@$5";
-$db['default']['database'] = "demoonuserver_payflex";
+$db['default']['username'] = "root";
+$db['default']['password'] = "";
+$db['default']['database'] = "payflex_1v1";
 $db['default']['dbdriver'] = "mysqli";
 $db['default']['dbprefix'] = "";
 $db['default']['pconnect'] = TRUE;
@@ -95,6 +83,32 @@ $db['default']['cache_on'] = FALSE;
 $db['default']['cachedir'] = "";
 $db['default']['char_set'] = "utf8mb4";
 $db['default']['dbcollat'] = "utf8mb4_unicode_ci";
+
+//$db['default']['hostname'] = "localhost";
+//$db['default']['username'] = "demoonuserver_payflex";
+//$db['default']['password'] = "payFlexP@$5";
+//$db['default']['database'] = "demoonuserver_payflex";
+//$db['default']['dbdriver'] = "mysqli";
+//$db['default']['dbprefix'] = "";
+//$db['default']['pconnect'] = TRUE;
+//$db['default']['db_debug'] = TRUE;
+//$db['default']['cache_on'] = FALSE;
+//$db['default']['cachedir'] = "";
+//$db['default']['char_set'] = "utf8mb4";
+//$db['default']['dbcollat'] = "utf8mb4_unicode_ci";
+
+//$db['default']['hostname'] = "localhost";
+//$db['default']['username'] = "t_payflex_user";
+//$db['default']['password'] = "p@yFl3x4T0taL";
+//$db['default']['database'] = "total_payflex";
+//$db['default']['dbdriver'] = "mysqli";
+//$db['default']['dbprefix'] = "";
+//$db['default']['pconnect'] = TRUE;
+//$db['default']['db_debug'] = TRUE;
+//$db['default']['cache_on'] = FALSE;
+//$db['default']['cachedir'] = "";
+//$db['default']['char_set'] = "utf8mb4";
+//$db['default']['dbcollat'] = "utf8mb4_unicode_ci";
 
 
 /* End of file database.php */

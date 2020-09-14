@@ -96,12 +96,13 @@ class ClientModel extends CI_Model
     public function getClientsContactType()
     {
         $this->db->select('tbl_contact_type.id,tbl_contact_type.contact_type') //right
-            //        $this->db->select('tbl_contact_type.id', 'tbl_contact_type.contact_type')//syntax error
-            ->from('tbl_contact_type')
+        //        $this->db->select('tbl_contact_type.id', 'tbl_contact_type.contact_type')//syntax error
+        ->from('tbl_contact_type')
             ->where('tbl_contact_type.user_type', 3);
         $result = $this->db->get();
         return $result->result_array();
     }
+
     public function updateClient($client_id, $formArray)
     {
         $this->db->where('id', $client_id);
@@ -137,6 +138,7 @@ class ClientModel extends CI_Model
         $this->db->where('client_info.id', $client_id);
         return $client = $this->db->get()->row_array();
     }
+
     public function getClientsContact($client_id)
     {
         $this->db->select('tbl_contact.id as contact_id,
@@ -153,7 +155,6 @@ class ClientModel extends CI_Model
 
     public function checkClientEmployeeRelation($client_id)
     {
-        // TODO: check if client & handler exist
         $multipleWhere = ['tbl_client_employee_relation.client_id' => $client_id, 'tbl_client_employee_relation.is_active' => 1];
         $this->db->select('tbl_client_employee_relation.handler_id')
             ->from('tbl_client_employee_relation')
@@ -162,11 +163,13 @@ class ClientModel extends CI_Model
         $result = $this->db->get()->row_array();
         return $result;
     }
+
     public function updateDsr($client_id, $formArray)
     {
         $this->db->where('client_id', $client_id);
         $this->db->update('tbl_client_employee_relation', $formArray);
     }
+
     public function getContacts($client_id)
     {
         $multipleWhere = ['tbl_contact.owner_id' => $client_id, 'tbl_contact.owner_type' => 3];
@@ -186,11 +189,126 @@ class ClientModel extends CI_Model
         $result = $this->db->get()->result_array();
         return $result;
     }
-    public function updateContacts($client_id,$data){
-        $this->db->update_batch('tbl_contact', $data, $client_id);
+
+    public function updateContacts($data)
+    {
+        // $multipleWhere = ['tbl_contact.owner_id' => $client_id, 'tbl_contact.owner_type' => '3'];
+        // $this->db->where($multipleWhere);
+        $this->db->update_batch('tbl_contact', $data, 'owner_id');
+        // foreach ($data as $datas) {
+
+        //        $this->db->update('tbl_contact', $datas);
+        //    print_r($this->db->last_query());    
+        // }
+        // die();
+    }
+
+    public function updateContact($contact_id, $data)
+    {
+        $this->db->where('tbl_contact.id', $contact_id);
+        $this->db->update('tbl_contact', $data);
+        //echo print_r($this->db->last_query());
     }
     // public function getTotalContact($client_id){
     //     $this->db->select('tbl_contact.id,tbl_contact.client')
     //             ->from('tbl_contact');
     // }
+    public function getUserId($client_id)
+    {
+        $this->db->select('tbl_employees_relation.id as tbl_employees_relation_id ,
+                           tbl_employees_relation.user_id,
+                           tbl_employees_relation.designation,
+                           tbl_employees_relation.team_id,
+                           tbl_employees_relation.transfer_team_id,
+                           tbl_employees_relation.info_id,
+                           tbl_employees_relation.created_date,
+                           tbl_employees_relation.parent_id,
+                           tbl_employees_relation.coded_employeeId,
+                           tbl_employees_relation.is_active,
+                           tbl_user.id as tbl_user_id,
+                           tbl_user.username,
+                           tbl_user.password,
+                           tbl_user.created_time,
+                           tbl_user.user_type,
+                           
+            ')
+            ->from('tbl_employees_relation')
+            ->join('tbl_user', 'tbl_employees_relation.user_id = tbl_user.id', 'left')
+            ->where('tbl_employees_relation.info_id', $client_id);
+        $result = $this->db->get()->row_array();
+        return $result;
+
+    }
+
+    public function deleteContact($contact_id)
+    {
+        $this->db->where('id', $contact_id);
+        $this->db->delete('tbl_contact');
+    }
+
+    public function getClientEmail($clientId)
+    {
+        $this->db->select('
+        client_info.id as client_id,        
+        client_info.user_id, 
+        client_info.catagory_id, 
+        client_info.client_code, 
+        client_info.name, 
+        client_info.representative_name, 
+        client_info.office_id,
+        client_info.client_parent_id,
+        client_info.created_date_time,
+        client_info.latitude,
+        client_info.longitude,
+        client_info.is_active,
+        client_info.virtual_account_no,
+        tbl_user.id as tbl_user_id,
+        tbl_user.username
+        ')
+            ->from('client_info')
+            ->join('tbl_user', 'client_info.user_id = tbl_user.id', 'left')
+            ->where('client_info.id', $clientId);
+
+        $result = $this->db->get()->row_array();
+        return $result;
+    }
+
+    public function updateEmail($id, $data)
+    {
+        $this->db->where('id', $id);
+        $this->db->update('tbl_user', $data);
+    }
+
+    public function updateUserId($clientId, $data)
+    {
+        $this->db->where('id', $clientId);
+        $this->db->update('client_info', $data);
+    }
+
+    public function matchPassword($user_id)
+    {
+        $this->db->select('tbl_user.password')
+            ->from('tbl_user')
+            ->where('tbl_user.id', $user_id);
+        $result = $this->db->get()->row_array();
+        return $result;
+    }
+
+    public function changePassword($user_id,$data)
+    {
+        $this->db->where('id', $user_id);
+        $this->db->update('tbl_user', $data);
+    }
+
+    public function checkExistingEmail($email)
+    {
+        $this->db->select('tbl_user.username')
+            ->from('tbl_user')
+            ->where('tbl_user.username', $email);
+        $result = $this->db->get()->row_array();
+        if($result['username'] == $email)
+            return true;
+        else
+            return false;
+    }
 }

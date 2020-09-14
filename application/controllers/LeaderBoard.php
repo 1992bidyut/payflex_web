@@ -12,15 +12,24 @@ class LeaderBoard extends CI_Controller{
     
     public function index()
 	{
-        $getDate= date("Y-m-d");
+//        $getDate= date("Y-m-d H:m:s");
+//        $getDate = strtotime($getDate);
+//        $getDate = strtotime("-6 h", $getDate);
+//        $getDate=date("Y-m-d", $getDate);
+
+	    $getDate= date("Y-m-d");
+
+        $date = strtotime($getDate);
+        $date = strtotime("-2 day", $date);
+        $startDate=date("Y-m-d", $date);
         //set filter date in session
         $sessionData=$this->session->userdata();
-        $sessionData['lead_from']="2020-05-30";
+        $sessionData['lead_from']=$startDate;//
         $sessionData['lead_to']=(string)$getDate;
 
         $this->session->set_userdata($sessionData);
-	    $leaderBoardData = $this->LeaderBoardModel->searchPaymentInfo("2020-05-30",(string)$getDate);
-        $productList=$this->LeaderBoardModel->getProductList();
+	    $leaderBoardData = $this->LeaderBoardModel->searchPaymentInfo($startDate,(string)$getDate);
+        $productList=$this->LeaderBoardModel->getProductList();//
 
 //        $explodeValue1= explode(";",$leaderBoardData[2]['ProductQuantityString']);
 //        echo print_r($explodeValue1);
@@ -36,7 +45,6 @@ class LeaderBoard extends CI_Controller{
 //            }
 //            echo "From list name:  ".$product['p_name']." and order: ".$order."</br>";
 //        }
-
 
 		$dataArray = array('paymentInfoArray'=>$leaderBoardData,'productList'=>$productList);
 		$datas['content'] = $this->load->view('leader/leader', $dataArray, true);

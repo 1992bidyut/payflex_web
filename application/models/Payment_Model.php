@@ -6,7 +6,9 @@ class Payment_Model extends CI_Model
         $this->db->select('tbl_payment.id as payment_id, 
         tbl_payment.trxid,
         tbl_payment.payment_mode_id,
+        tbl_payment_mode.methode_name,
         tbl_payment.financial_institution_id,
+        tbl_financial_institution_list.bank_name,
         tbl_payment.payment_date_time,
         tbl_payment.reference_no,
         tbl_payment.order_code,
@@ -29,6 +31,8 @@ class Payment_Model extends CI_Model
         tbl_image.purpose,
         ')
             ->from('tbl_payment')
+            ->join('tbl_financial_institution_list','tbl_financial_institution_list.id = tbl_payment.financial_institution_id','left')
+            ->join('tbl_payment_mode','tbl_payment_mode.id = tbl_payment.payment_mode_id','left')
             ->join('tbl_payment_image_relation','tbl_payment_image_relation.payment_id = tbl_payment.id','left')
             ->join('tbl_image','tbl_image.id = tbl_payment_image_relation.image_id')
             ->where('tbl_payment.order_code',$order_code);
@@ -78,11 +82,26 @@ class Payment_Model extends CI_Model
         }
     }
 
-    public function updateIndent($id){
+    public function updateIndent($id,$indentNumber){
         $this->db->where('tbl_payment.id', $id);
         $getDate= date("Y-m-d");
         $data['action_flag']=2;
         $data['indent_date']=$getDate;
+        $data['indent_no']=$indentNumber;
+        if ($this->db->update('tbl_payment', $data)) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    public function updateCollection($id,$collectionNumber){
+        $this->db->where('tbl_payment.id', $id);
+        $getDate= date("Y-m-d");
+        $data['action_flag']=3;
+        $data['indent_date']=$getDate;
+        $data['collection_no']=$collectionNumber;
         if ($this->db->update('tbl_payment', $data)) {
             return true;
         }
@@ -103,14 +122,18 @@ class Payment_Model extends CI_Model
             tbl_payment.payment_date_time,
             tbl_payment.submitted_date,
             tbl_payment.reference_no,
-            tbl_payment.indent_date
+            tbl_payment.indent_date,
+            tbl_payment.indent_no,
+			tbl_payment.collection_no
+            
             FROM tbl_payment
             LEFT JOIN tbl_financial_institution_list ON tbl_financial_institution_list.id=tbl_payment.financial_institution_id
             LEFT JOIN tbl_payment_mode ON tbl_payment_mode.id=tbl_payment.payment_mode_id
             LEFT JOIN tbl_customer_order ON tbl_customer_order.order_code=tbl_payment.order_code
             LEFT JOIN client_info ON client_info.id=tbl_customer_order.order_for_client_id
             
-            WHERE tbl_payment.submitted_date>='".$startDate." 00:00:00' and tbl_payment.submitted_date<='".$endDate." 23:59:59'";
+            WHERE tbl_payment.submitted_date>='".$startDate." 00:00:00' and tbl_payment.submitted_date<='".$endDate." 23:59:59'
+            ORDER BY tbl_payment.submitted_date DESC";
 
         $resource = $this->db->query($reportSQL);
         // echo $this->db->last_query();

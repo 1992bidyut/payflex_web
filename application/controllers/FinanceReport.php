@@ -11,14 +11,23 @@ class FinanceReport extends CI_Controller{
 
     public function index()
     {
+//        $getDate= date("Y-m-d H:m:s");
+//        $getDate = strtotime($getDate);
+//        $getDate = strtotime("-6 h", $getDate);
+//        $getDate=date("Y-m-d", $getDate);
+
         $getDate= date("Y-m-d");
+
+        $date = strtotime($getDate);
+        $date = strtotime("-2 day", $date);
+        $startDate=date("Y-m-d", $date);
         //set filter date in session
         $sessionData=$this->session->userdata();
-        $sessionData['fin_from']=(string)$getDate;
+        $sessionData['fin_from']=$startDate;
         $sessionData['fin_to']=(string)$getDate;
         $this->session->set_userdata($sessionData);
 
-        $financeData = $this->Payment_Model->getFinancierExportData((string)$getDate,(string)$getDate);
+        $financeData = $this->Payment_Model->getFinancierExportData($startDate,(string)$getDate);
 //        echo print_r($financeData);
         $dataArray = array('financeData'=>$financeData,);
         $datas['content'] = $this->load->view('finance/finance_report', $dataArray, true);
@@ -39,7 +48,16 @@ class FinanceReport extends CI_Controller{
         $exportedData=array();
         for ($count=0; $count<count($rawData); $count++){
             $temp=array();
-            $temp['INDENT DATE']="";
+            if ($rawData[$count]['indent_no']!=null){
+                $temp['INDENT NO.']=$rawData[$count]['indent_no'];
+            }else{
+                $temp['INDENT NO.']="";
+            }
+            if ($rawData[$count]['indent_date']!=null){
+                $temp['INDENT DATE']=$rawData[$count]['indent_date'];
+            }else{
+                $temp['INDENT DATE']="";
+            }
             $temp['CODE']=$rawData[$count]['client_code'];
             $temp['DISTRIBUTOR NAME']=$rawData[$count]['name'];
             if ($rawData[$count]['methode_id']!=2){
@@ -58,6 +76,11 @@ class FinanceReport extends CI_Controller{
 
             $temp['AMOUNT']=$rawData[$count]['amount'];
             $temp['PAYMENT DATE']=$rawData[$count]['payment_date_time'];
+            if ($rawData[$count]['collection_no']!=null){
+                $temp['COLLECTION NO.']=$rawData[$count]['collection_no'];
+            }else{
+                $temp['COLLECTION NO.']="";
+            }
             $exportedData[$count]=$temp;
 //            echo print_r($temp)."</br>";
         }

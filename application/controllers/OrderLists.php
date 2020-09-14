@@ -15,7 +15,18 @@ class OrderLists extends CI_Controller{
     
     public function index()
 	{
-		$leaderBoardData = $this->OrdersModel->getOrdersList();
+//        $getDate= date("Y-m-d H:m:s");
+//        $getDate = strtotime($getDate);
+//        $getDate = strtotime("-6 h", $getDate);
+//        $getDate=date("Y-m-d", $getDate);
+
+	    $getDate= date("Y-m-d");
+
+        $date = strtotime($getDate);
+        $date = strtotime("-1 day", $date);
+        $startDate=date("Y-m-d", $date);
+//        echo $startDate;
+	    $leaderBoardData = $this->OrdersModel->getOrdersList($startDate,$getDate);
 		
 
 		//var_dump($leaderBoardData);

@@ -46,7 +46,7 @@
             </div>
             <div class="portlet-body">
 			<form id="table-form">
-                <table class="table table-striped table-bordered table-hover table-checkable order-column" id="sample_3">
+                <table class="table table-striped table-bordered table-hover table-checkable order-column" id="sample_4">
                     <thead>
                     <tr>
                         <th class="table-checkbox">
@@ -60,6 +60,7 @@
                         <th> PAYMENT DETAILS </th>
                         <th> AMOUNT </th>
                         <th> PAYMENT DATE </th>
+                        <th> COLLECTION NUMBER </th>
 
                     </tr>
                     </thead>
@@ -70,7 +71,7 @@
                     ?>
                         <tr class="odd gradeX">
                             <td><input type="checkbox" class="checkboxes" value="1" /></td>
-                            <td></td>
+                            <td> <?php if ($data['indent_no']!=null){echo $data['indent_no'];}else{echo "";} ?>  </td>
                             <td> <?php if ($data['indent_date']!=null){echo $data['indent_date'];}else{echo "";} ?>  </td>
                             <td> <?php echo $data['client_code'] ?>  </td>
                             <td> <?php echo $data['name'] ?>  </td>
@@ -95,7 +96,7 @@
                                 ?>  </td>
                             <td> <?php echo $data['amount'] ?>  </td>
 							<td> <?php echo $data['payment_date_time'] ?>  </td>
-
+                            <td> <?php if ($data['collection_no']!=null){echo $data['collection_no'];}else{echo "";} ?>  </td>
                         </tr>
                     <?php
                         }
@@ -109,13 +110,14 @@
                 </table>
             </div>
         </div>
-
-
-
-
   <!-- END EXAMPLE TABLE PORTLET-->
         </form>
     </div>
+</div>
+
+<div class="scroll-buttons">
+    <button id="slideLeft" class="btn" type="button"> ⬅️Scroll left</button>
+    <button id="slideRight" class="btn" type="button">Scroll right ➡️</button>
 </div>
 
 <script type="text/javascript">
@@ -155,38 +157,18 @@ function indent(id) {
         }
     });
 }
+$('#slideRight').click(function (e) {
+    e.preventDefault();
+    $('.table-scrollable').animate({
+        scrollLeft: "+=200px"
+    }, "fast");
+});
 
-//    $(document).ready(function () {
-//
-//        $('#action-btn').click(function(e){
-//            var table = $("#sample_3").dataTable();
-//            var id = [];
-//            $("input:checked", table.fnGetNodes()).each(function(i){
-//
-//                console.log($(this).val());
-//
-//                id.push($(this).val());
-//
-//            });
-//
-//            $.ajax({
-//                type    : "POST",
-//                url     : "<?php //echo base_url('SMSLog/ajax_delete'); ?>//",
-//                data    : {id: id},
-//                success : function (response) {
-////                        console.log(response);
-//                    location.reload();
-//                },
-//                error : function(error){
-//                    console.log(error);
-//                }
-//            });
-//
-//            e.preventDefault();
-//
-//        });
-//
-//
-//    });
+$('#slideLeft').click(function (e) {
+    e.preventDefault();
+    $('.table-scrollable').animate({
+        scrollLeft: "-=200px"
+    }, "fast");
+});
 
 </script>
