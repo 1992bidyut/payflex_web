@@ -12,9 +12,15 @@ class LeaderBoard extends CI_Controller{
     
     public function index()
 	{
-        $getDate= date("Y-m-d");
+//        $getDate= date("Y-m-d H:m:s");
+//        $getDate = strtotime($getDate);
+//        $getDate = strtotime("-6 h", $getDate);
+//        $getDate=date("Y-m-d", $getDate);
+
+	    $getDate= date("Y-m-d");
+
         $date = strtotime($getDate);
-        $date = strtotime("-7 day", $date);
+        $date = strtotime("-2 day", $date);
         $startDate=date("Y-m-d", $date);
         //set filter date in session
         $sessionData=$this->session->userdata();
@@ -39,7 +45,6 @@ class LeaderBoard extends CI_Controller{
 //            }
 //            echo "From list name:  ".$product['p_name']." and order: ".$order."</br>";
 //        }
-
 
 		$dataArray = array('paymentInfoArray'=>$leaderBoardData,'productList'=>$productList);
 		$datas['content'] = $this->load->view('leader/leader', $dataArray, true);

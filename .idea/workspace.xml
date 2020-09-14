@@ -19,10 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="571daff3-120e-4fae-92da-81dcf9e1bc68" name="Default Changelist" comment="leaderboard data export, but not formated, finance report panel and data export">
+    <list default="true" id="571daff3-120e-4fae-92da-81dcf9e1bc68" name="Default Changelist" comment="data table mod, webapp\assets\pages\scripts\table-datatables-managed">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/config/database.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/leader/leader.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/leader/leader.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/Export_excel.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/libraries/Export_excel.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +59,11 @@
                 <list>
                   <RecentBranch>
                     <option name="branchName" value="bdn_dev" />
-                    <option name="lastUsedInstant" value="1599691437" />
+                    <option name="lastUsedInstant" value="1600001403" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="prototype" />
+                    <option name="lastUsedInstant" value="1599997361" />
                   </RecentBranch>
                   <RecentBranch>
                     <option name="branchName" value="master" />
@@ -91,13 +95,13 @@
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\local_server\htdocs\payflex\webapp\application\views\finance" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\local_server\htdocs\payflex\webapp\application\views\leader" />
       <recent name="D:\local_server\htdocs\payflex\webapp\application\views" />
       <recent name="C:\MAMP\htdocs\payflex_web\assets\global\css" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\local_server\htdocs\payflex\webapp\application\views\finance" />
     </key>
   </component>
   <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
@@ -148,48 +152,8 @@
       <workItem from="1599905871514" duration="4651000" />
       <workItem from="1599941485601" duration="7968000" />
       <workItem from="1599995945963" duration="835000" />
-    </task>
-    <task id="LOCAL-00010" summary="printing page fix">
-      <created>1598278290636</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1598278290636</updated>
-    </task>
-    <task id="LOCAL-00011" summary="printing page fix">
-      <created>1598291471386</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1598291471386</updated>
-    </task>
-    <task id="LOCAL-00012" summary="printing page fix">
-      <created>1598291533756</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1598291533756</updated>
-    </task>
-    <task id="LOCAL-00013" summary="printing page fix">
-      <created>1598292318604</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1598292318604</updated>
-    </task>
-    <task id="LOCAL-00014" summary="printing page fix">
-      <created>1598292837056</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1598292837056</updated>
-    </task>
-    <task id="LOCAL-00015" summary="printing page fix">
-      <created>1598292957307</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1598292957307</updated>
+      <workItem from="1600084532082" duration="437000" />
+      <workItem from="1600099974626" duration="18000" />
     </task>
     <task id="LOCAL-00016" summary="printing page fix">
       <created>1598293043755</created>
@@ -492,7 +456,49 @@
       <option name="project" value="LOCAL" />
       <updated>1599953803420</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="leaderboard data export, but not formated, finance report panel and data export">
+      <created>1599997401165</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1599997401165</updated>
+    </task>
+    <task id="LOCAL-00060" summary="leaderboard data export, but not formated, finance report panel and data export">
+      <created>1600001541987</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1600001541987</updated>
+    </task>
+    <task id="LOCAL-00061" summary="leaderboard data export, but not formated, finance report panel and data export">
+      <created>1600002734485</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1600002734485</updated>
+    </task>
+    <task id="LOCAL-00062" summary="leaderboard data export, but not formated, finance report panel and data export">
+      <created>1600002901538</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1600002901538</updated>
+    </task>
+    <task id="LOCAL-00063" summary="indent and collection number input and show in leaderboard and finance report also export">
+      <created>1600017623389</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1600017623389</updated>
+    </task>
+    <task id="LOCAL-00064" summary="data table mod, webapp\assets\pages\scripts\table-datatables-managed">
+      <created>1600044346219</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1600044346219</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -522,7 +528,9 @@
     <MESSAGE value="image path bug" />
     <MESSAGE value="search update to product list" />
     <MESSAGE value="leaderboard data export, but not formated, finance report panel and data export" />
-    <option name="LAST_COMMIT_MESSAGE" value="leaderboard data export, but not formated, finance report panel and data export" />
+    <MESSAGE value="indent and collection number input and show in leaderboard and finance report also export" />
+    <MESSAGE value="data table mod, webapp\assets\pages\scripts\table-datatables-managed" />
+    <option name="LAST_COMMIT_MESSAGE" value="data table mod, webapp\assets\pages\scripts\table-datatables-managed" />
   </component>
   <component name="WindowStateProjectService">
     <state x="655" y="254" key="#Notifications" timestamp="1597486857716">
@@ -562,10 +570,10 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="555" y="51" key="VCS.ChangeListViewerDialog/0.0.1536.834@0.0.1536.834" timestamp="1597831983474" />
-    <state x="361" y="137" key="Vcs.Push.Dialog.v2" timestamp="1599953805404">
+    <state x="361" y="137" key="Vcs.Push.Dialog.v2" timestamp="1600044349516">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="361" y="137" key="Vcs.Push.Dialog.v2/0.0.1536.834/1920.0.1366.738@0.0.1536.834" timestamp="1599953805404" />
+    <state x="361" y="137" key="Vcs.Push.Dialog.v2/0.0.1536.834/1920.0.1366.738@0.0.1536.834" timestamp="1600044349516" />
     <state x="361" y="137" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1598413759238" />
     <state x="561" y="232" width="413" height="352" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog" timestamp="1597174798873">
       <screen x="0" y="0" width="1536" height="824" />
@@ -585,10 +593,14 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="477" y="11" width="581" height="801" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1597029999478" />
-    <state x="530" y="205" key="git4idea.merge.GitMergeDialog" timestamp="1598277224717">
+    <state x="550" y="130" key="git4idea.branch.GitSmartOperationDialog" timestamp="1600001401109">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="530" y="205" key="git4idea.merge.GitMergeDialog/0.0.1536.834/1920.0.1366.738@0.0.1536.834" timestamp="1598277224717" />
+    <state x="550" y="130" key="git4idea.branch.GitSmartOperationDialog/0.0.1536.834/1920.0.1366.738@0.0.1536.834" timestamp="1600001401109" />
+    <state x="530" y="205" key="git4idea.merge.GitMergeDialog" timestamp="1599997426732">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="530" y="205" key="git4idea.merge.GitMergeDialog/0.0.1536.834/1920.0.1366.738@0.0.1536.834" timestamp="1599997426732" />
     <state x="425" y="189" key="run.anything.popup" timestamp="1597808823928">
       <screen x="0" y="0" width="1536" height="834" />
     </state>

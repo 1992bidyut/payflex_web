@@ -876,7 +876,7 @@ License: You must have a valid license purchased only from themeforest(the above
     <!-- BEGIN PAGE LEVEL SCRIPTS -->
 
     <!-- THIS IS FOR DATA TABLE -->
-    <script src="<?php echo base_url('assets/pages/scripts/table-datatables-managed.min.js'); ?>" type="text/javascript"></script>
+    <script src="<?php echo base_url('assets/pages/scripts/table-datatables-managed.js'); ?>" type="text/javascript"></script>
     <!-- THIS IS FOR DATA TABLE -->
 
     <!-- BEGIN DATE TIME PICKER -->

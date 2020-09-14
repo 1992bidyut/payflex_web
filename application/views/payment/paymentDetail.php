@@ -168,8 +168,8 @@
                 $paymentCount = 1;
                 foreach ($paymentDetail as $payment) {
                     echo "<tr><td>" . $paymentCount . "</td>";
-                    echo "<td>" . $payment['payment_mode_id'] . "</td>";
-                    echo "<td>" . $payment['financial_institution_id'] . "</td>";
+                    echo "<td>" . $payment['methode_name'] . "</td>";
+                    echo "<td>" . $payment['bank_name'] . "</td>";
                     echo "<td>" . $payment['reference_no'] . "</td>";
                     echo "<td>" . $payment['payment_date_time'] . "</td>";
                     echo "<td>" . $payment['amount'] . "</td></tr>";
@@ -177,9 +177,9 @@
                     $imagePath = "";
                     if (!empty($payment['image_name'])) {
                         $localImgageBasePath = "http://localhost/payflex/asset/images/";
-                        $localImgageBasePath2 = "http://localhost/asset/images/";
                         $remorteImageBasePath = "http://demo.onuserver.com/payFlex/asset/images/";
-                        $liveImageBasePath = "https://clients.onukit.com/total/payflex/asset/images/";
+                        $liveImageBasePath = "https://payflex.onukit.com/total/asset/images/";
+
                         $imageName = $payment['image_name'];
                         $imagePath = $remorteImageBasePath . $clientInfo['client_id'] . "/";
                         $imagePath .= $imageName;
