@@ -47,8 +47,8 @@
             </div>
             <div class="portlet-body">
                 <form id="table-form">
-                    <table class="table table-striped table-bordered table-hover table-checkable order-column"
-                           id="sample_3">
+<!--                    <table class="table table-striped table-bordered table-hover table-checkable order-column" id="sample_3">-->
+                    <table class="table table-striped table-bordered table-hover table-checkable order-column" id="sample_4">
                         <thead>
                         <tr>
                             <th class="table-checkbox">
@@ -133,10 +133,11 @@
                                         <?php //echo $data['image_name']
                                         if (!empty($data['image_name'])) {
                                             $localImgageBasePath = "http://localhost/payflex/asset/images/";
-                                            $localImgageBasePath2 = "http://localhost/asset/images/";
                                             $remorteImageBasePath = "http://demo.onuserver.com/payFlex/asset/images/";
+                                            $liveImageBasePath = "https://payflex.onukit.com/total/asset/images/";
+
                                             $imageName = $data['image_name'];
-                                            $imagePath = $remorteImageBasePath . $data['clientId'] . "/";
+                                            $imagePath = $localImgageBasePath . $data['clientId'] . "/";
                                             $imagePath .= $imageName;
                                             echo '<img style="width: 100%; hight:10px;" src="' . $imagePath . '" alt="' . $imageName . '">';
                                         } else {
@@ -213,7 +214,7 @@
 <script type="text/javascript">
     //    Accept payment
 
-    document.getElementsByName('sample_3_length').value = "-1";
+    document.getElementsByName('sample_3_length').value = "6";
 
     function acceptPayment(id) {
         console.log("Accept Click! " + id);

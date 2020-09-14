@@ -48,7 +48,7 @@
             <div class="portlet-body">
                 <form id="table-form">
                     <table class="table table-striped table-bordered table-hover table-checkable order-column"
-                           id="sample_3">
+                           id="sample_4">
                         <thead>
                         <tr>
                             <th class="table-checkbox">
@@ -134,7 +134,7 @@
                                         if (!empty($data['image_name'])) {
                                             $localImgageBasePath = "http://localhost/payflex/asset/images/";
                                             $remorteImageBasePath = "http://demo.onuserver.com/payFlex/asset/images/";
-                                            $liveImageBasePath = "https://clients.onukit.com/total/payflex/asset/images/";
+                                            $liveImageBasePath = "https://payflex.onukit.com/total/asset/images/";
 
                                             $imageName = $data['image_name'];
                                             $imagePath = $remorteImageBasePath . $data['clientId'] . "/";

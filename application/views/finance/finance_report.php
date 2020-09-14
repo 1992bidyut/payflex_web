@@ -46,7 +46,7 @@
             </div>
             <div class="portlet-body">
 			<form id="table-form">
-                <table class="table table-striped table-bordered table-hover table-checkable order-column" id="sample_3">
+                <table class="table table-striped table-bordered table-hover table-checkable order-column" id="sample_4">
                     <thead>
                     <tr>
                         <th class="table-checkbox">

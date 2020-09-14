@@ -12,7 +12,13 @@ class LeaderBoard extends CI_Controller{
     
     public function index()
 	{
-        $getDate= date("Y-m-d");
+//        $getDate= date("Y-m-d H:m:s");
+//        $getDate = strtotime($getDate);
+//        $getDate = strtotime("-6 h", $getDate);
+//        $getDate=date("Y-m-d", $getDate);
+
+	    $getDate= date("Y-m-d");
+
         $date = strtotime($getDate);
         $date = strtotime("-2 day", $date);
         $startDate=date("Y-m-d", $date);

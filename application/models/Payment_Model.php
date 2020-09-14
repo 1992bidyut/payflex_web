@@ -132,7 +132,8 @@ class Payment_Model extends CI_Model
             LEFT JOIN tbl_customer_order ON tbl_customer_order.order_code=tbl_payment.order_code
             LEFT JOIN client_info ON client_info.id=tbl_customer_order.order_for_client_id
             
-            WHERE tbl_payment.submitted_date>='".$startDate." 00:00:00' and tbl_payment.submitted_date<='".$endDate." 23:59:59'";
+            WHERE tbl_payment.submitted_date>='".$startDate." 00:00:00' and tbl_payment.submitted_date<='".$endDate." 23:59:59'
+            ORDER BY tbl_payment.submitted_date DESC";
 
         $resource = $this->db->query($reportSQL);
         // echo $this->db->last_query();

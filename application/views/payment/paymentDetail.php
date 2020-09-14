@@ -178,7 +178,7 @@
                     if (!empty($payment['image_name'])) {
                         $localImgageBasePath = "http://localhost/payflex/asset/images/";
                         $remorteImageBasePath = "http://demo.onuserver.com/payFlex/asset/images/";
-                        $liveImageBasePath = "https://clients.onukit.com/total/payflex/asset/images/";
+                        $liveImageBasePath = "https://payflex.onukit.com/total/asset/images/";
 
                         $imageName = $payment['image_name'];
                         $imagePath = $remorteImageBasePath . $clientInfo['client_id'] . "/";
