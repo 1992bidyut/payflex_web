@@ -8,6 +8,7 @@ class LeaderBoard extends CI_Controller{
 		}
 		$this->load->model('LeaderBoardModel');
         $this->load->model('Payment_Model');
+        $this->load->model('ProductModel');
     }
     
     public function index()
@@ -20,7 +21,7 @@ class LeaderBoard extends CI_Controller{
 	    $getDate= date("Y-m-d");
 
         $date = strtotime($getDate);
-        $date = strtotime("-2 day", $date);
+        $date = strtotime("-3 day", $date);
         $startDate=date("Y-m-d", $date);
         //set filter date in session
         $sessionData=$this->session->userdata();
@@ -29,7 +30,7 @@ class LeaderBoard extends CI_Controller{
 
         $this->session->set_userdata($sessionData);
 	    $leaderBoardData = $this->LeaderBoardModel->searchPaymentInfo($startDate,(string)$getDate);
-        $productList=$this->LeaderBoardModel->getProductList();//
+        $productList=$this->ProductModel->getProductList();//
 
 //        $explodeValue1= explode(";",$leaderBoardData[2]['ProductQuantityString']);
 //        echo print_r($explodeValue1);

@@ -101,7 +101,7 @@ class LeaderBoardModel extends CI_Model{
             left join (
                 SELECT customer_order_id, GROUP_CONCAT(product_code,  '=', quantityes SEPARATOR '; ') as ProductQuantityString FROM 
             (SELECT order_details.*, product_details.product_code FROM order_details
-            left join product_details on order_details.product_id = product_details.id ) as orderwithPName 
+            left join product_details on order_details.product_id = product_details.id WHERE order_type='2') as orderwithPName 
             GROUP BY orderwithPName.customer_order_id) as combainedOrderDetails on combainedOrderDetails.
             customer_order_id =tbl_customer_order.id
             WHERE tbl_payment.submitted_date>= '".$fromDate
@@ -113,17 +113,6 @@ class LeaderBoardModel extends CI_Model{
 		// echo $this->db->last_query();
         // die();
         return $resource->result_array();
-    }
-    public function getProductList(){
-        $this->db->select(
-            'product_details.id as product_id,
-            product_details.p_name,
-            product_details.p_type,
-            product_details.product_code,')
-            ->from('product_details')
-            ->where('is_active',1);
-        $result = $this->db->get();
-        return $result->result_array();
     }
 
 //    public function getFinancierExportData($date){

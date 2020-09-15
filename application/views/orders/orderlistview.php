@@ -58,7 +58,10 @@
                         <th> ClientCode </th>
                         <th> VirtualAccountNo </th>
                         <th> EmployeeName </th>
-						<th> Action </th>
+                        <th> Product </th>
+                        <th> Quantity </th>
+                        <th> Indent no </th>
+                        <th> Action </th>
                     </tr>
                     </thead>
                     <tbody>
@@ -76,13 +79,33 @@
 							<td> <?php echo $data['ClientCode'] ?>  </td>
 							<td> <?php echo $data['VirtualAccountNo'] ?>  </td>
 							<td> <?php echo $data['EmployeeName'] ?>  </td>
+                            <td><?php foreach ($productList as $product) {
+                                    echo "" . $product['product_code'] . "</br>";
+                                } ?></td>
+
+                            <td><?php
+                                $explodeValue1 = explode(";", $data['ProductQuantityString']);
+                                foreach ($productList as $product) {
+                                    $order = 0;
+                                    for ($i = 0; $i < count($explodeValue1); $i++) {
+                                        $explodeValue2 = explode("=", $explodeValue1[$i]);
+                                        if ($product['product_code'] == $explodeValue2[0]) {
+                                            $order = $explodeValue2[1];
+                                        }
+                                    }
+                                    echo "" . $order . " </br>";
+                                }
+                                ?></td>
 							
 							
 							<!-- ----------------------- the action buttons for payments -----------------  -->
+                            <td></td>
                             <td >
                                 <div class="clearfix">
 
-                                    <a href="#" class="btn btn-sm yellow" style="margin-bottom: 5px; width: 100%;"> Indent
+                                    <a id="<?php echo "indent" . $data['orderId'] ?>"
+                                       onclick="indentInput(<?php echo $data['orderId'] ?>)"
+                                       class="btn btn-sm yellow" style="margin-bottom: 5px; width: 100%;" > Indent
                                         <i class="fa fa-edit"></i>
                                     </a>
 									
@@ -90,9 +113,9 @@
                                         <i class="fa fa-print"></i>
                                     </a>
 
-                                    <a href="#" onclick="return confirm('Are you sure you want to Grant the payment');" class="btn btn-sm red" style="margin-bottom: 5px; width: 100%;"> Notify
-                                        <i class="fa fa-envelope"></i>
-                                    </a>
+<!--                                    <a href="#" onclick="return confirm('Are you sure you want to Grant the payment');" class="btn btn-sm red" style="margin-bottom: 5px; width: 100%;"> Notify-->
+<!--                                        <i class="fa fa-envelope"></i>-->
+<!--                                    </a>-->
 
                                 </div>
                             </td>
@@ -109,16 +132,36 @@
                 </table>
             </div>
         </div>
-
-
-
-
   <!-- END EXAMPLE TABLE PORTLET-->
         </form>
     </div>
 </div>
 
 <script type="text/javascript">
+
+    function indentInput(id) {
+        var indentNo = prompt("Please type the indent number:", "");
+        if (indentNo == null || indentNo == "") {
+            console.log("no input");
+        } else {
+            console.log(id);
+            console.log(indentNo);
+            //$.ajax({
+            //    url: "<?php //echo base_url('payment/indentUpdate') ?>//",
+            //    type: "POST",
+            //    data: {id: id,indent_number: indentNo},
+            //    success: function (response) {
+            //        console.log("AJAX Success Called!");
+            //        $("#indent" + id).fadeTo("slow", 0.3, function () {
+            //            $(this).css('background-color', 'green-dark');
+            //        })
+            //    },
+            //    error: function () {
+            //        console.log("AJAX error Called!");
+            //    }
+            //});
+        }
+    }
 
     $(document).ready(function () {
 

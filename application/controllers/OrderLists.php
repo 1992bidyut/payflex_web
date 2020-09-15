@@ -10,7 +10,7 @@ class OrderLists extends CI_Controller{
 			return redirect('login');
 		}
 		$this->load->model('OrdersModel');
-
+        $this->load->model('ProductModel');
     }
     
     public function index()
@@ -23,15 +23,16 @@ class OrderLists extends CI_Controller{
 	    $getDate= date("Y-m-d");
 
         $date = strtotime($getDate);
-        $date = strtotime("-1 day", $date);
+        $date = strtotime("-5 day", $date);
         $startDate=date("Y-m-d", $date);
+
 //        echo $startDate;
 	    $leaderBoardData = $this->OrdersModel->getOrdersList($startDate,$getDate);
-		
+        $productList=$this->ProductModel->getProductList();//
 
 		//var_dump($leaderBoardData);
 			
-		$dataArray = array('paymentInfoArray'=>$leaderBoardData);
+		$dataArray = array('paymentInfoArray'=>$leaderBoardData,'productList'=>$productList);
 		$datas['content'] = $this->load->view('orders/orderlistview', $dataArray, true);
 		$this->load->view( 'layouts/main_template',$datas);
 	}
