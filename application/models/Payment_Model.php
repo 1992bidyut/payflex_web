@@ -82,25 +82,10 @@ class Payment_Model extends CI_Model
         }
     }
 
-    public function updateIndent($id,$indentNumber){
+    public function updateCollection($id,$collectionNumber,$date){
         $this->db->where('tbl_payment.id', $id);
-        $getDate= date("Y-m-d");
-        $data['action_flag']=2;
-        $data['indent_date']=$getDate;
-        $data['indent_no']=$indentNumber;
-        if ($this->db->update('tbl_payment', $data)) {
-            return true;
-        }
-        else {
-            return false;
-        }
-    }
-
-    public function updateCollection($id,$collectionNumber){
-        $this->db->where('tbl_payment.id', $id);
-        $getDate= date("Y-m-d");
         $data['action_flag']=3;
-        $data['indent_date']=$getDate;
+        $data['collection_date']=$date;
         $data['collection_no']=$collectionNumber;
         if ($this->db->update('tbl_payment', $data)) {
             return true;
@@ -122,8 +107,8 @@ class Payment_Model extends CI_Model
             tbl_payment.payment_date_time,
             tbl_payment.submitted_date,
             tbl_payment.reference_no,
-            tbl_payment.indent_date,
-            tbl_payment.indent_no,
+            tbl_customer_order.indent_date,
+            tbl_customer_order.indent_no,
 			tbl_payment.collection_no
             
             FROM tbl_payment

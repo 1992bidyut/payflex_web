@@ -151,9 +151,9 @@
                                     <td>
                                         <div class="clearfix">
 
-                                            <a id="<?php echo "indent" . $data['paymentID'] ?>"
-                                               onclick="indentInput(<?php echo $data['paymentID'] ?>)"
-                                               class="btn btn-sm <?php if ($data['action_flag'] == 2 || $data['action_flag'] == 3) {
+                                            <a id="<?php echo "indent" . $data['order_code'] ?>"
+                                               onclick="indentInput(<?php echo $data['order_code'] ?>)"
+                                               class="btn btn-sm <?php if ($data['indent_no'] !=null) {
                                                    echo "green-dark";
                                                } else {
                                                    echo "yellow";
@@ -163,7 +163,7 @@
 
                                             <a id="<?php echo "collection" . $data['paymentID'] ?>"
                                                onclick="collectionInput(<?php echo $data['paymentID'] ?>)"
-                                               class="btn btn-sm <?php if ($data['action_flag'] == 3) {
+                                               class="btn btn-sm <?php if ($data['collection_no'] != null) {
                                                    echo "green-dark";
                                                } else {
                                                    echo "blue";

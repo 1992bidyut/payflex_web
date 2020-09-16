@@ -13,15 +13,10 @@ class LeaderBoard extends CI_Controller{
     
     public function index()
 	{
-//        $getDate= date("Y-m-d H:m:s");
-//        $getDate = strtotime($getDate);
-//        $getDate = strtotime("-6 h", $getDate);
-//        $getDate=date("Y-m-d", $getDate);
-
-	    $getDate= date("Y-m-d");
+        $getDate=$this->getServerDate();
 
         $date = strtotime($getDate);
-        $date = strtotime("-3 day", $date);
+        $date = strtotime("-7 day", $date);
         $startDate=date("Y-m-d", $date);
         //set filter date in session
         $sessionData=$this->session->userdata();
@@ -53,6 +48,7 @@ class LeaderBoard extends CI_Controller{
 		//
 	}
 
+
 	public function exportLeaderBoardData(){
         $sessionNewData=$this->session->userdata();
         $toDate=$sessionNewData['lead_to'];
@@ -80,6 +76,13 @@ class LeaderBoard extends CI_Controller{
 
         $this->load->library('export_excel');
         $this->export_excel->exportData($rawData,"learedbard".$toDate.$fromDate);
+    }
+    private function getServerDate(){
+        $this->load->model('LeaderBoardModel');
+        $getDate= date("Y-m-d H:m:s");
+        $getDate = strtotime($getDate);
+        $getDate = strtotime("-0 h", $getDate);
+        return $getDate=date("Y-m-d", $getDate);
     }
 }
 ?>

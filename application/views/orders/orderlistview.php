@@ -99,24 +99,33 @@
 							
 							
 							<!-- ----------------------- the action buttons for payments -----------------  -->
-                            <td></td>
+                            <td> <?php
+                                if ($data['indent_no']!=null){
+                                    echo $data['indent_no'];
+                                } else{
+                                    echo "";
+                                }
+                                ?>
+                            </td>
                             <td >
                                 <div class="clearfix">
 
-                                    <a id="<?php echo "indent" . $data['orderId'] ?>"
-                                       onclick="indentInput(<?php echo $data['orderId'] ?>)"
-                                       class="btn btn-sm yellow" style="margin-bottom: 5px; width: 100%;" > Indent
+                                    <a id="<?php echo "indent" . $data['OrderCode'] ?>"
+                                       onclick="indentInput(<?php echo $data['OrderCode'] ?>)"
+                                       class="btn btn-sm <?php if ($data['indent_no'] !=null) {
+                                           echo "green-dark";
+                                       } else {
+                                           echo "yellow";
+                                       } ?>" style="margin-bottom: 5px; width: 100%;" > Indent
                                         <i class="fa fa-edit"></i>
                                     </a>
 									
 									<a href="#" class="btn btn-sm green" style="margin-bottom: 5px;   width: 100%;"> Print
                                         <i class="fa fa-print"></i>
                                     </a>
-
 <!--                                    <a href="#" onclick="return confirm('Are you sure you want to Grant the payment');" class="btn btn-sm red" style="margin-bottom: 5px; width: 100%;"> Notify-->
 <!--                                        <i class="fa fa-envelope"></i>-->
 <!--                                    </a>-->
-
                                 </div>
                             </td>
                         </tr>
@@ -146,20 +155,20 @@
         } else {
             console.log(id);
             console.log(indentNo);
-            //$.ajax({
-            //    url: "<?php //echo base_url('payment/indentUpdate') ?>//",
-            //    type: "POST",
-            //    data: {id: id,indent_number: indentNo},
-            //    success: function (response) {
-            //        console.log("AJAX Success Called!");
-            //        $("#indent" + id).fadeTo("slow", 0.3, function () {
-            //            $(this).css('background-color', 'green-dark');
-            //        })
-            //    },
-            //    error: function () {
-            //        console.log("AJAX error Called!");
-            //    }
-            //});
+            $.ajax({
+                url: "<?php echo base_url('payment/indentUpdate') ?>",
+                type: "POST",
+                data: {id: id,indent_number: indentNo},
+                success: function (response) {
+                    console.log("AJAX Success Called!");
+                    $("#indent" + id).fadeTo("slow", 0.3, function () {
+                        $(this).css('background-color', 'green-dark');
+                    })
+                },
+                error: function () {
+                    console.log("AJAX error Called!");
+                }
+            });
         }
     }
 

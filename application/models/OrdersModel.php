@@ -17,6 +17,7 @@ class OrdersModel extends CI_Model{
                 tbl_customer_order.order_code as OrderCode,
                 tbl_customer_order.delivery_date as DeliveryDate,
                 tbl_customer_order.payment_status as PaymentStatus,
+                tbl_customer_order.indent_no,
                 client_info.name as ClientName,
                 client_info.client_code as ClientCode,
                 client_info.virtual_account_no as VirtualAccountNo,
@@ -50,6 +51,18 @@ class OrdersModel extends CI_Model{
 		// echo $this->db->last_query();
         // die();
         return $resource->result_array();
+    }
+
+    public function updateIndent($order_code,$indentNumber,$date){
+        $this->db->where('tbl_customer_order.order_code', $order_code);
+        $data['indent_date']=$date;
+        $data['indent_no']=$indentNumber;
+        if ($this->db->update('tbl_customer_order', $data)) {
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 }	
 ?>

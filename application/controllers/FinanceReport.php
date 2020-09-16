@@ -11,15 +11,10 @@ class FinanceReport extends CI_Controller{
 
     public function index()
     {
-//        $getDate= date("Y-m-d H:m:s");
-//        $getDate = strtotime($getDate);
-//        $getDate = strtotime("-6 h", $getDate);
-//        $getDate=date("Y-m-d", $getDate);
-
-        $getDate= date("Y-m-d");
+        $getDate= $this->getServerDate();
 
         $date = strtotime($getDate);
-        $date = strtotime("-2 day", $date);
+        $date = strtotime("-7 day", $date);
         $startDate=date("Y-m-d", $date);
         //set filter date in session
         $sessionData=$this->session->userdata();
@@ -36,13 +31,9 @@ class FinanceReport extends CI_Controller{
     }
 
     public function exportFinanceData(){
-//        $getDate="2020-08-12";
         $sessionNewData=$this->session->userdata();
         $toDate=$sessionNewData['fin_to'];
         $fromDate=$sessionNewData['fin_from'];
-
-        $getDate= date("Y-m-d");
-//        echo $getDate;
         $rawData = $this->Payment_Model->getFinancierExportData($fromDate,$toDate);
 //        echo print_r($rawData);
         $exportedData=array();
@@ -87,6 +78,14 @@ class FinanceReport extends CI_Controller{
 
         $this->load->library('export_excel');
         $this->export_excel->exportData($exportedData,"finance_report".$toDate.$fromDate);
+    }
+
+    private function getServerDate(){
+        $this->load->model('LeaderBoardModel');
+        $getDate= date("Y-m-d H:m:s");
+        $getDate = strtotime($getDate);
+        $getDate = strtotime("-0 h", $getDate);
+        return $getDate=date("Y-m-d", $getDate);
     }
 }
 ?>

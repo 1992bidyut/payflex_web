@@ -44,8 +44,13 @@ class Payment extends CI_Controller
                     'clientContact'=>$clientContact), true);
             $this->load->view('layouts/main_template', $datas);
         }else{
+
             $this->load->model('LeaderBoardModel');
-            $getDate= date("Y-m-d");
+//            $getDate= date("Y-m-d H:m:s");
+//            $getDate = strtotime($getDate);
+//            $getDate = strtotime("-0 h", $getDate);
+            $getDate=$this->getServerDate();
+
             $date = strtotime($getDate);
             $date = strtotime("-7 day", $date);
             $startDate=date("Y-m-d", $date);
@@ -83,9 +88,9 @@ class Payment extends CI_Controller
     public function indentUpdate(){
         $id=$this->input->post('id');
         $indent_number = $this->input->post('indent_number');
-        $this->load->model('Payment_Model');
+        $this->load->model('OrdersModel');
 
-        if ($this->Payment_Model->updateIndent($id,$indent_number)){
+        if ($this->OrdersModel->updateIndent($id,$indent_number,$this->getServerDate())){
             $this->session->set_flashdata('success_msg','Accepted successfully');
             redirect('LeaderBoard');
         }
@@ -100,7 +105,7 @@ class Payment extends CI_Controller
         $collection_number = $this->input->post('collection_number');
         $this->load->model('Payment_Model');
 
-        if ($this->Payment_Model->updateCollection($id,$collection_number)){
+        if ($this->Payment_Model->updateCollection($id,$collection_number,$this->getServerDate())){
             $this->session->set_flashdata('success_msg','Accepted successfully');
             redirect('LeaderBoard');
         }
@@ -109,6 +114,14 @@ class Payment extends CI_Controller
             $this->session->set_flashdata('error_msg','Not Accepted!');
             redirect('LeaderBoard');
         }
+    }
+
+    private function getServerDate(){
+        $this->load->model('LeaderBoardModel');
+        $getDate= date("Y-m-d H:m:s");
+        $getDate = strtotime($getDate);
+        $getDate = strtotime("-0 h", $getDate);
+        return $getDate=date("Y-m-d", $getDate);
     }
 
 }
