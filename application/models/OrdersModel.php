@@ -25,6 +25,7 @@ class OrdersModel extends CI_Model{
                 tbl_customer_order.delivery_date as DeliveryDate,
                 tbl_customer_order.payment_status as PaymentStatus,
                 tbl_customer_order.indent_no,
+                tbl_customer_order.total_costs,
                 
                 
                 client_info.virtual_account_no as VirtualAccountNo,

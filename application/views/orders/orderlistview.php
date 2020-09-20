@@ -54,11 +54,11 @@
                         <th> Manager</th>
                         <th> Officer</th>
                         <th> DSR</th>
-                        <th> OrderCode </th>
-                        <th> DeliveryDate </th>
+                        <th> Order No.</th>
+                        <th> Order Date </th>
                         <th> Product </th>
                         <th> Quantity </th>
-                        <th> VirtualAccountNo </th>
+                        <th> Order Amount </th>
                         <th> Is Paid </th>
                         <th> Indent no </th>
                         <th> Action </th>
@@ -97,7 +97,7 @@
                                     echo "" . $order . " </br>";
                                 }
                                 ?></td>
-                            <td> <?php echo $data['VirtualAccountNo'] ?>  </td>
+                            <td> <?php echo $data['total_costs'] ?>  </td>
 
                             <td style="background: <?php if ($data['PaymentStatus'] ==0) {
                                 echo "yellow";
