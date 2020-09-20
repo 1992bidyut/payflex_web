@@ -77,6 +77,7 @@ class OrdersModel extends CI_Model{
         $this->db->where('tbl_customer_order.order_code', $order_code);
         $data['indent_date']=$date;
         $data['indent_no']=$indentNumber;
+        $data['indent_flag']=1;
         if ($this->db->update('tbl_customer_order', $data)) {
             return true;
         }
