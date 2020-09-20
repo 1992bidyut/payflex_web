@@ -96,6 +96,7 @@ class SearchModel extends CI_Model
             label4.name as dsr,
 
             tbl_customer_order.id as orderID,
+            tbl_customer_order.indent_no,
 
             tbl_payment.order_code, 
             tbl_payment.id as paymentID,
@@ -104,7 +105,6 @@ class SearchModel extends CI_Model
 			tbl_payment.submitted_date,
 			tbl_payment.amount,
 			tbl_payment.action_flag,
-			tbl_payment.indent_no,
 			tbl_payment.collection_no, 
 
 			tbl_payment_image_relation.id as pirid, 

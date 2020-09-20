@@ -15,6 +15,7 @@ class Search extends CI_Controller{
     public function searchData(){
         $this->load->model('SearchModel');
         $this->load->model('LeaderBoardModel');
+        $this->load->model('ProductModel');
         $paymentFrom=$this->input->post('paymentFrom');
         $paymentTo=$this->input->post('paymentTo');
 
@@ -24,7 +25,7 @@ class Search extends CI_Controller{
         $this->session->set_userdata($sessionData);
 
         $leaderBoardData = $this->SearchModel->searchDateFilteredPaymentInfo($paymentFrom,$paymentTo);
-        $productList=$this->LeaderBoardModel->getProductList();
+        $productList=$this->ProductModel->getProductList();
         $dataArray = array('paymentInfoArray'=>$leaderBoardData,'productList'=>$productList);
 
         $datas['content'] = $this->load->view('leader/leader', $dataArray, true);
@@ -47,6 +48,29 @@ class Search extends CI_Controller{
         $financeData = $this->Payment_Model->getFinancierExportData($paymentFrom,$paymentTo);
         $dataArray = array('financeData'=>$financeData,);
         $datas['content'] = $this->load->view('finance/finance_report', $dataArray, true);
+        $this->load->view( 'layouts/main_template',$datas);
+    }//
+
+    public function searchOrder(){
+        $this->load->model('OrdersModel');
+        $this->load->model('ProductModel');
+
+        $orderFrom=$this->input->post('paymentFrom');
+        $orderTo=$this->input->post('paymentTo');
+
+        //set filter date in session
+        $sessionData=$this->session->userdata();
+        $sessionData['order_from']=$orderFrom;
+        $sessionData['order_to']=$orderTo;
+        $this->session->set_userdata($sessionData);
+
+        $leaderBoardData = $this->OrdersModel->getOrdersList($orderFrom,$orderTo);
+        $productList=$this->ProductModel->getProductList();//
+
+        //var_dump($leaderBoardData);
+
+        $dataArray = array('paymentInfoArray'=>$leaderBoardData,'productList'=>$productList);
+        $datas['content'] = $this->load->view('orders/orderlistview', $dataArray, true);
         $this->load->view( 'layouts/main_template',$datas);
     }//
 

@@ -13,17 +13,37 @@ class OrdersModel extends CI_Model{
 		$leaderSQL = "
             select * from (
                 SELECT 
+                
+                client_info.client_code as ClientCode,
+                client_info.name as ClientName,
+                label2.`name` AS manager,
+			    label3.`name` AS officer,
+                label4.name as dsr,
+                
                 tbl_customer_order.id as orderId,
                 tbl_customer_order.order_code as OrderCode,
                 tbl_customer_order.delivery_date as DeliveryDate,
                 tbl_customer_order.payment_status as PaymentStatus,
                 tbl_customer_order.indent_no,
-                client_info.name as ClientName,
-                client_info.client_code as ClientCode,
+                
+                
                 client_info.virtual_account_no as VirtualAccountNo,
                 employee_info.name as EmployeeName,
                 combainedOrderDetails.ProductQuantityString as ProductQuantityString
+                
                 FROM `tbl_customer_order`
+                
+                LEFT JOIN tbl_client_employee_relation ON tbl_client_employee_relation.client_id=tbl_customer_order.order_for_client_id
+
+                left join employee_info as label4 on label4.id = tbl_client_employee_relation.handler_id
+			    LEFT JOIN tbl_empolyees_relation as label4_relation ON label4.id=label4_relation.info_id
+
+			    LEFT JOIN tbl_empolyees_relation as label3_relation on label4_relation.parent_id=label3_relation.id
+			    LEFT JOIN employee_info AS label3 ON label3_relation.info_id=label3.id
+			
+			    LEFT JOIN tbl_empolyees_relation as label2_relation on label3_relation.parent_id=label2_relation.id
+			    LEFT JOIN employee_info AS label2 ON label2_relation.info_id=label2.id
+			
                 left join client_info on  tbl_customer_order.taker_id =client_info.id
                 left join tbl_empolyees_relation on tbl_customer_order.taker_id = tbl_empolyees_relation.info_id
                 left join employee_info on tbl_empolyees_relation.info_id = employee_info.id

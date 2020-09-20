@@ -25,23 +25,21 @@
         }
         ?>
 
-<!--<div class="portlet box blue ">-->
-<!---->
+<div class="portlet box blue ">
 <?php
-//	 $myCIRef =& get_instance();
-//     $myCIRef->load->view('orders/oder_filter');
-//?>
-<!---->
-<!--</div>-->
+	 $myCIRef =& get_instance();
+     $myCIRef->load->view('orders/oder_filter');
+?>
+</div>
 
         <div class="portlet box blue">
             <div class="portlet-title">
                 <div class="caption">
                     <i class="fa fa-cogs"></i>Order Lists </div>
-                <div class="actions">
-                    <a href="javascript:;" class="btn btn-default btn-sm">
-                        <i class="fa fa-download"></i> Export/Download </a>
-                </div>
+<!--                <div class="actions">-->
+<!--                    <a href="javascript:;" class="btn btn-default btn-sm">-->
+<!--                        <i class="fa fa-download"></i> Export/Download </a>-->
+<!--                </div>-->
             </div>
             <div class="portlet-body">
 			<form id="table-form">
@@ -51,15 +49,17 @@
                         <th class="table-checkbox">
                             <input type="checkbox" class="group-checkable" data-set="#sample_3 .checkboxes" />
                         </th>
+                        <th> Client Code </th>
+                        <th> Distributor Name </th>
+                        <th> Manager</th>
+                        <th> Officer</th>
+                        <th> DSR</th>
                         <th> OrderCode </th>
                         <th> DeliveryDate </th>
-                        <th> PaymentStatus </th>
-                        <th> ClientName </th>
-                        <th> ClientCode </th>
-                        <th> VirtualAccountNo </th>
-                        <th> EmployeeName </th>
                         <th> Product </th>
                         <th> Quantity </th>
+                        <th> VirtualAccountNo </th>
+                        <th> Is Paid </th>
                         <th> Indent no </th>
                         <th> Action </th>
                     </tr>
@@ -72,13 +72,14 @@
                     ?>
                         <tr class="odd gradeX">
                             <td><input type="checkbox" class="checkboxes" value="1" /></td>
+                            <td> <?php echo $data['ClientCode'] ?>  </td>
+                            <td> <?php echo $data['ClientName'] ?>  </td>
+                            <td> <?php echo $data['manager'] ?>  </td>
+                            <td> <?php echo $data['officer'] ?>  </td>
+                            <td> <?php echo $data['dsr'] ?>  </td>
                             <td> <?php echo $data['OrderCode'] ?>  </td>
 							<td> <?php echo $data['DeliveryDate'] ?>  </td>
-							<td> <?php echo $data['PaymentStatus'] ?>  </td>
-                            <td> <?php echo $data['ClientName'] ?>  </td>
-							<td> <?php echo $data['ClientCode'] ?>  </td>
-							<td> <?php echo $data['VirtualAccountNo'] ?>  </td>
-							<td> <?php echo $data['EmployeeName'] ?>  </td>
+
                             <td><?php foreach ($productList as $product) {
                                     echo "" . $product['product_code'] . "</br>";
                                 } ?></td>
@@ -96,9 +97,15 @@
                                     echo "" . $order . " </br>";
                                 }
                                 ?></td>
-							
-							
-							<!-- ----------------------- the action buttons for payments -----------------  -->
+                            <td> <?php echo $data['VirtualAccountNo'] ?>  </td>
+
+                            <td style="background: <?php if ($data['PaymentStatus'] ==0) {
+                                echo "yellow";
+                            } else {
+                                echo "#00d95a";
+                            } ?>" > <?php if($data['PaymentStatus']==0){echo 'NO';}else{echo 'YES';} ?>  </td>
+
+
                             <td> <?php
                                 if ($data['indent_no']!=null){
                                     echo $data['indent_no'];
@@ -107,6 +114,7 @@
                                 }
                                 ?>
                             </td>
+                            <!-- ----------------------- the action buttons for payments -----------------  -->
                             <td >
                                 <div class="clearfix">
 
@@ -120,9 +128,9 @@
                                         <i class="fa fa-edit"></i>
                                     </a>
 									
-									<a href="#" class="btn btn-sm green" style="margin-bottom: 5px;   width: 100%;"> Print
-                                        <i class="fa fa-print"></i>
-                                    </a>
+<!--									<a href="#" class="btn btn-sm green" style="margin-bottom: 5px;   width: 100%;"> Print-->
+<!--                                        <i class="fa fa-print"></i>-->
+<!--                                    </a>-->
 <!--                                    <a href="#" onclick="return confirm('Are you sure you want to Grant the payment');" class="btn btn-sm red" style="margin-bottom: 5px; width: 100%;"> Notify-->
 <!--                                        <i class="fa fa-envelope"></i>-->
 <!--                                    </a>-->
@@ -145,7 +153,10 @@
         </form>
     </div>
 </div>
-
+<div class="scroll-buttons">
+    <button id="slideLeft" class="btn" type="button"> ⬅️Scroll left</button>
+    <button id="slideRight" class="btn" type="button">Scroll right ➡️</button>
+</div>
 <script type="text/javascript">
 
     function indentInput(id) {
@@ -171,6 +182,20 @@
             });
         }
     }
+
+    $('#slideRight').click(function (e) {
+        e.preventDefault();
+        $('.table-scrollable').animate({
+            scrollLeft: "+=200px"
+        }, "fast");
+    });
+
+    $('#slideLeft').click(function (e) {
+        e.preventDefault();
+        $('.table-scrollable').animate({
+            scrollLeft: "-=200px"
+        }, "fast");
+    });
 
     $(document).ready(function () {
 
