@@ -34,8 +34,9 @@ class OrdersModel extends CI_Model{
                 
                 FROM `tbl_customer_order`
                 
-                LEFT JOIN tbl_client_employee_relation ON tbl_client_employee_relation.client_id=tbl_customer_order.order_for_client_id
-
+                left join client_info on tbl_customer_order.order_for_client_id = client_info.id
+                left join tbl_client_employee_relation on tbl_client_employee_relation.client_id = client_info.id
+				
                 left join employee_info as label4 on label4.id = tbl_client_employee_relation.handler_id
 			    LEFT JOIN tbl_empolyees_relation as label4_relation ON label4.id=label4_relation.info_id
 
@@ -45,7 +46,6 @@ class OrdersModel extends CI_Model{
 			    LEFT JOIN tbl_empolyees_relation as label2_relation on label3_relation.parent_id=label2_relation.id
 			    LEFT JOIN employee_info AS label2 ON label2_relation.info_id=label2.id
 			
-                left join client_info on  tbl_customer_order.taker_id =client_info.id
                 left join tbl_empolyees_relation on tbl_customer_order.taker_id = tbl_empolyees_relation.info_id
                 left join employee_info on tbl_empolyees_relation.info_id = employee_info.id
                 LEFT JOIN 

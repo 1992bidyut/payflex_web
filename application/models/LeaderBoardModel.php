@@ -62,6 +62,8 @@ class LeaderBoardModel extends CI_Model{
 
             tbl_customer_order.id as orderID,
             tbl_customer_order.indent_no,
+            tbl_customer_order.indent_date,
+            tbl_customer_order.delivery_date,
 
             tbl_payment.order_code, 
             tbl_payment.id as paymentID,
@@ -84,8 +86,9 @@ class LeaderBoardModel extends CI_Model{
 				
             left join tbl_customer_order on tbl_customer_order.order_code = tbl_payment.order_code
             left join client_info on tbl_customer_order.order_for_client_id = client_info.id
+            left join tbl_client_employee_relation on tbl_client_employee_relation.client_id = client_info.id
 				
-            left join employee_info as label4 on label4.id = tbl_customer_order.taker_id
+            left join employee_info as label4 on label4.id = tbl_client_employee_relation.handler_id
 			LEFT JOIN tbl_empolyees_relation as label4_relation ON label4.id=label4_relation.info_id
 
 			LEFT JOIN tbl_empolyees_relation as label3_relation on label4_relation.parent_id=label3_relation.id

@@ -15,30 +15,29 @@ class Payment_Model extends CI_Model
         tbl_payment.amount,
         tbl_payment.order_id,
         tbl_payment.action_flag,
-        tbl_payment.submitted_date,
-        tbl_payment_image_relation.id as payment_image_relation_id,
-        tbl_payment_image_relation.image_id,
-        tbl_payment_image_relation.user_id,
-        tbl_payment_image_relation.payment_id,
-        tbl_image.id,
-        tbl_image.trxid,
-        tbl_image.image_name,
-        tbl_image.user_id,
-        tbl_image.request_time,
-        tbl_image.upload_time,
-        tbl_image.image_discription,
-        tbl_image.image_type_id,
-        tbl_image.purpose,
+        tbl_payment.submitted_date
         ')
             ->from('tbl_payment')
             ->join('tbl_financial_institution_list','tbl_financial_institution_list.id = tbl_payment.financial_institution_id','left')
             ->join('tbl_payment_mode','tbl_payment_mode.id = tbl_payment.payment_mode_id','left')
-            ->join('tbl_payment_image_relation','tbl_payment_image_relation.payment_id = tbl_payment.id','left')
-            ->join('tbl_image','tbl_image.id = tbl_payment_image_relation.image_id')
             ->where('tbl_payment.order_code',$order_code);
         $result = $this->db->get();
         return $result->result_array();
     }//
+
+    public function getImageName($paymentID){
+        $this->db->select('tbl_payment_image_relation.*,tbl_image.image_name')
+            ->from('tbl_payment_image_relation')
+            ->join('tbl_image','tbl_image.id = tbl_payment_image_relation.image_id')
+            ->where('tbl_payment_image_relation.payment_id',$paymentID);
+        $result = $this->db->get();
+        $res=$result->result_array();
+        if (!empty($res)){
+            return$res[0]['image_name'];
+        }else{
+            return null;
+        }
+    }
     public function getOrderDetail($order_code){
         $order_type =2;
         $multipleWhere = ['order_details.order_type' => $order_type, 'tbl_customer_order.order_code' => $order_code];
@@ -47,6 +46,7 @@ class Payment_Model extends CI_Model
             tbl_customer_order.order_code,
             tbl_customer_order.taking_date,
             tbl_customer_order.delivery_date,
+            tbl_customer_order.indent_no,
             order_details.txid as detail_trxid,
             order_details.client_id,
             order_details.product_id,
@@ -128,3 +128,20 @@ class Payment_Model extends CI_Model
     }
 
 }
+
+//tbl_payment_image_relation.id as payment_image_relation_id,
+//        tbl_payment_image_relation.image_id,
+//        tbl_payment_image_relation.user_id,
+//        tbl_payment_image_relation.payment_id,
+//        tbl_image.id,
+//        tbl_image.trxid,
+//        tbl_image.image_name,
+//        tbl_image.user_id,
+//        tbl_image.request_time,
+//        tbl_image.upload_time,
+//        tbl_image.image_discription,
+//        tbl_image.image_type_id,
+//        tbl_image.purpose,
+//
+//    ->join('tbl_payment_image_relation','tbl_payment_image_relation.payment_id = tbl_payment.id','left')
+//    ->join('tbl_image','tbl_image.id = tbl_payment_image_relation.image_id')

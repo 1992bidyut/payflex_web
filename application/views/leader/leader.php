@@ -62,6 +62,7 @@
                             <th> Product</th>
                             <th> Quantity</th>
                             <th> Order No.</th>
+                            <th> Order Date</th>
                             <th> PaymentID</th>
                             <th> Payment Mode</th>
                             <th> Bank name</th>
@@ -106,6 +107,7 @@
                                         }
                                         ?></td>
                                     <td> <?php echo $data['order_code'] ?>  </td>
+                                    <td> <?php echo $data['delivery_date'] ?>  </td>
                                     <td> <?php echo $data['paymentID'] ?>  </td>
                                     <td> <?php echo $data['methode_name'] ?>  </td>
                                     <td> <?php echo $data['bank_name'] ?>  </td>
@@ -137,14 +139,12 @@
                                             $liveImageBasePath = "https://payflex.onukit.com/total/asset/images/";
 
                                             $imageName = $data['image_name'];
-                                            $imagePath = $remorteImageBasePath . $data['clientId'] . "/";
+                                            $imagePath = $localImgageBasePath . $data['clientId'] . "/";
                                             $imagePath .= $imageName;
                                             echo '<img style="width: 100%; hight:10px;" src="' . $imagePath . '" alt="' . $imageName . '">';
                                         } else {
                                             echo "No image Attached";
                                         }
-
-
                                         ?>  </td>
 
                                     <!-- ----------------------- the action buttons for payments -----------------  -->

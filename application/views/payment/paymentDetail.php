@@ -45,20 +45,20 @@
                     <td>Plant:</td>
                     <td><?php echo $orderDetail[0]['plant'] ?></td>
                 </tr>
-                <tr>
-                    <td>Delivery Location:</td>
-                    <td>
-                        <?php
-                        foreach ($clientContact as $contact) {
-                            if ($contact['type_id'] == 4) {
-                                echo $contact['contact_value'];
-                            } else {
-                                echo "";
-                            }
-                        }
-                        ?>
-                    </td>
-                </tr>
+<!--                <tr>-->
+<!--                    <td>Delivery Location:</td>-->
+<!--                    <td>-->
+<!--                        --><?php
+//                        foreach ($clientContact as $contact) {
+//                            if ($contact['type_id'] == 4) {
+//                                echo $contact['contact_value'];
+//                            } else {
+//                                echo "";
+//                            }
+//                        }
+//                        ?>
+<!--                    </td>-->
+<!--                </tr>-->
                 <tr>
                     <td>Mobile:</td>
                     <td>
@@ -78,13 +78,13 @@
         <div class="receiver-table">
             <table border="1" class="table table-bordered" width="100%" height="100%">
                 <tr>
-                    <td>Recieved Date:</td>
+                    <td>Order Date:</td>
                     <td></td>
                 </tr>
-                <tr>
-                    <td>Serial No.</td>
-                    <td></td>
-                </tr>
+<!--                <tr>-->
+<!--                    <td>Serial No.</td>-->
+<!--                    <td></td>-->
+<!--                </tr>-->
                 <tr>
                     <td>Order No:</td>
                     <td><?php echo $orderDetail[0]['order_code']; ?></td>
@@ -94,12 +94,12 @@
                     <td><?php echo $clientInfo['client_code']; ?></td>
                 </tr>
                 <tr>
-                    <td>Collection Doc Ref:</td>
+                    <td>Collection No.</td>
                     <td></td>
                 </tr>
                 <tr>
-                    <td>Other Ref & Amount:</td>
-                    <td></td>
+                    <td>Indent No.</td>
+                    <td><?php if ($orderDetail[0]['indent_no']!=null){echo $orderDetail[0]['indent_no'];}else{echo "";} ?></td>
                 </tr>
             </table>
         </div>
@@ -181,16 +181,16 @@
                         $liveImageBasePath = "https://payflex.onukit.com/total/asset/images/";
 
                         $imageName = $payment['image_name'];
-                        $imagePath = $remorteImageBasePath . $clientInfo['client_id'] . "/";
+                        $imagePath = $localImgageBasePath . $clientInfo['client_id'] . "/";
                         $imagePath .= $imageName;
-                    } ?>
+                    ?>
                     <tr>
                         <td colspan="6">
-                            <!--                    <img class="img-responsive" alt="IMAGE" height="20%"-->
                             <img alt="IMAGE" id="paymentProof" height="150px" src="<?php echo $imagePath; ?>" />
                         </td>
                     </tr>
                 <?php   }
+                }
                 ?>
 
             </tbody>
@@ -210,7 +210,7 @@
             <tbody>
                 <tr>
                     <td rowspan="2"></td>
-                    <td>Indent No.</td>
+                    <td></td>
                 </tr>
 
                 <tr>

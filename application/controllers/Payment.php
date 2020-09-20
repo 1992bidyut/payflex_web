@@ -31,6 +31,12 @@ class Payment extends CI_Controller
         if (count($orderDetail)>0){
             $clientInfo=$this->ClientModel->getClient($orderDetail[0]['client_id']);
             $clientContact=$this->ClientModel->getClientsContact($orderDetail[0]['client_id']);
+            $counter=0;
+            foreach ($paymentDetail as $payment){
+                $image_name=$this->Payment_Model->getImageName($payment['payment_id']);
+                $paymentDetail[$counter]['image_name']=$image_name;
+                $counter++;
+            }
 
 //             echo json_encode(array('paymentDetail' => $paymentDetail,
 //            'orderDetail' => $orderDetail,
@@ -46,13 +52,11 @@ class Payment extends CI_Controller
         }else{
 
             $this->load->model('LeaderBoardModel');
-//            $getDate= date("Y-m-d H:m:s");
-//            $getDate = strtotime($getDate);
-//            $getDate = strtotime("-0 h", $getDate);
+
             $getDate=$this->getServerDate();
 
             $date = strtotime($getDate);
-            $date = strtotime("-7 day", $date);
+            $date = strtotime("-1 day", $date);
             $startDate=date("Y-m-d", $date);
             //set filter date in session
             $sessionData=$this->session->userdata();
@@ -120,7 +124,7 @@ class Payment extends CI_Controller
         $this->load->model('LeaderBoardModel');
         $getDate= date("Y-m-d H:m:s");
         $getDate = strtotime($getDate);
-        $getDate = strtotime("-0 h", $getDate);
+        $getDate = strtotime("-6 h", $getDate);
         return $getDate=date("Y-m-d", $getDate);
     }
 
