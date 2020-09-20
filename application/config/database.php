@@ -70,7 +70,7 @@ $active_record = TRUE;
 //$db['default']['char_set'] = "utf8mb4";
 //$db['default']['dbcollat'] = "utf8mb4_unicode_ci";
 
-
+//
 //$db['default']['hostname'] = "localhost";
 //$db['default']['username'] = "root";
 //$db['default']['password'] = "";

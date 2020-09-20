@@ -73,8 +73,8 @@ class OrdersModel extends CI_Model{
         return $resource->result_array();
     }
 
-    public function updateIndent($order_code,$indentNumber,$date){
-        $this->db->where('tbl_customer_order.order_code', $order_code);
+    public function updateIndent($orderId,$indentNumber,$date){
+        $this->db->where('tbl_customer_order.id', $orderId);
         $data['indent_date']=$date;
         $data['indent_no']=$indentNumber;
         $data['indent_flag']=1;
