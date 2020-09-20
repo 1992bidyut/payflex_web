@@ -167,7 +167,7 @@
             console.log(id);
             console.log(indentNo);
             $.ajax({
-                url: "<?php echo base_url('payment/indentUpdate') ?>",
+                url: "<?php echo base_url('OrderLists/indentUpdate') ?>",
                 type: "POST",
                 data: {id: id,indent_number: indentNo},
                 success: function (response) {

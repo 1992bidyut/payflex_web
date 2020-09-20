@@ -43,5 +43,21 @@ class OrderLists extends CI_Controller{
         $getDate = strtotime("-0 h", $getDate);
         return $getDate=date("Y-m-d", $getDate);
     }
+
+    public function indentUpdate(){
+        $id=$this->input->post('id');
+        $indent_number = $this->input->post('indent_number');
+        $this->load->model('OrdersModel');
+
+        if ($this->OrdersModel->updateIndent($id,$indent_number,$this->getServerDate())){
+            $this->session->set_flashdata('success_msg','Accepted successfully');
+            redirect('OrderLists');
+        }
+        else
+        {
+            $this->session->set_flashdata('error_msg','Not Accepted!');
+            redirect('OrderLists');
+        }
+    }
 }
 ?>
