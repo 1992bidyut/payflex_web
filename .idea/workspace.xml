@@ -21,10 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="571daff3-120e-4fae-92da-81dcf9e1bc68" name="Default Changelist" comment="show order details in order list and indent in orderlist(start)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/models/OrdersModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/OrdersModel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/leader/leader_filter.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/leader/leader_filter.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/orders/oder_filter.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/orders/oder_filter.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/orders/orderlistview.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/orders/orderlistview.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/leader/leader.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/leader/leader.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -151,14 +148,7 @@
       <workItem from="1600529213593" duration="647000" />
       <workItem from="1600531138104" duration="6479000" />
       <workItem from="1600587963518" duration="1699000" />
-      <workItem from="1600609504507" duration="7825000" />
-    </task>
-    <task id="LOCAL-00013" summary="printing page fix">
-      <created>1598292318604</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1598292318604</updated>
+      <workItem from="1600609504507" duration="8778000" />
     </task>
     <task id="LOCAL-00014" summary="printing page fix">
       <created>1598292837056</created>
@@ -496,7 +486,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600627062454</updated>
     </task>
-    <option name="localTasksCounter" value="62" />
+    <task id="LOCAL-00062" summary="show order details in order list and indent in orderlist(start)">
+      <created>1600630923273</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1600630923274</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -568,10 +565,10 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="555" y="51" key="VCS.ChangeListViewerDialog/0.0.1536.834@0.0.1536.834" timestamp="1597831983474" />
-    <state x="361" y="137" key="Vcs.Push.Dialog.v2" timestamp="1600627064502">
+    <state x="361" y="137" key="Vcs.Push.Dialog.v2" timestamp="1600630925364">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="361" y="137" key="Vcs.Push.Dialog.v2/0.0.1536.834/1920.0.1366.738@0.0.1536.834" timestamp="1600627064502" />
+    <state x="361" y="137" key="Vcs.Push.Dialog.v2/0.0.1536.834/1920.0.1366.738@0.0.1536.834" timestamp="1600630925364" />
     <state x="361" y="137" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1598413759238" />
     <state x="561" y="232" width="413" height="352" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog" timestamp="1597174798873">
       <screen x="0" y="0" width="1536" height="824" />

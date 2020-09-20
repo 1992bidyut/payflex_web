@@ -151,8 +151,8 @@
                                     <td>
                                         <div class="clearfix">
 
-                                            <a id="<?php echo "indent" . $data['order_code'] ?>"
-                                               onclick="indentInput(<?php echo $data['order_code'] ?>)"
+                                            <a id="<?php echo "indent" . $data['orderID'] ?>"
+                                               onclick="indentInput(<?php echo $data['orderID'] ?>)"
                                                class="btn btn-sm <?php if ($data['indent_no'] !=null) {
                                                    echo "green-dark";
                                                } else {
