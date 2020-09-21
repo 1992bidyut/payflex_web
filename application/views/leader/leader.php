@@ -73,6 +73,7 @@
                             <th> Indent No</th>
                             <th> Collection No</th>
                             <th> Image/Attachment</th>
+                            <th> Replace</th>
                             <th> Action</th>
                         </tr>
                         </thead>
@@ -147,6 +148,16 @@
                                         }
                                         ?>  </td>
 
+<!--                                    replace tag-->
+                                    <td> <?php
+                                        if ($data['replace_tag']!=null){
+                                            echo $data['replace_tag'];
+                                        } else{
+                                            echo "";
+                                        }
+                                        ?>
+                                    </td>
+
                                     <!-- ----------------------- the action buttons for payments -----------------  -->
                                     <td>
                                         <div class="clearfix">
@@ -168,6 +179,16 @@
                                                } else {
                                                    echo "blue";
                                                } ?>" style="margin-bottom: 5px; width: 100%;" > Collection
+                                                <i class="fa fa-edit"></i>
+                                            </a>
+
+                                            <a id="<?php echo "replace" . $data['paymentID'] ?>"
+                                               onclick="replaceInput(<?php echo $data['paymentID'] ?>)"
+                                               class="btn btn-sm <?php if ($data['replace_tag'] != null) {
+                                                   echo "red";
+                                               } else {
+                                                   echo "green-dark";
+                                               } ?>" style="margin-bottom: 5px; width: 100%;" > Replace
                                                 <i class="fa fa-edit"></i>
                                             </a>
 
@@ -234,6 +255,30 @@
         });
     }
 
+    function replaceInput(id) {
+        var replaceTag = prompt("Please type the replace tag", "");
+        if (replaceTag == null || replaceTag == "") {
+            console.log("no input");
+        } else {
+            console.log(id);
+            console.log(replaceTag);
+            $.ajax({
+                url: "<?php echo base_url('payment/replaceUpdate') ?>",
+                type: "POST",
+                data: {id: id,replace_tag: replaceTag},
+                success: function (response) {
+                    console.log("AJAX Success Called!");
+                    $("#replace" + id).fadeTo("slow", 0.3, function () {
+                        $(this).css('background-color', 'green-dark');
+                    })
+                },
+                error: function () {
+                    console.log("AJAX error Called!");
+                }
+            });
+        }
+    }
+
     function indentInput(id) {
         var indentNo = prompt("Please type the indent number:", "");
         if (indentNo == null || indentNo == "") {
@@ -242,7 +287,7 @@
             console.log(id);
             console.log(indentNo);
             $.ajax({
-                url: "<?php echo base_url('payment/indentUpdate') ?>",
+                url: "<?php echo base_url('OrderLists/indentUpdate') ?>",
                 type: "POST",
                 data: {id: id,indent_number: indentNo},
                 success: function (response) {
@@ -258,16 +303,16 @@
         }
     }
     function collectionInput(id) {
-        var indentNo = prompt("Please type the collection number:", "");
-        if (indentNo == null || indentNo == "") {
+        var collectionNo = prompt("Please type the collection number:", "");
+        if (collectionNo == null || collectionNo == "") {
             console.log("no input");
         } else {
             console.log(id);
-            console.log(indentNo);
+            console.log(collectionNo);
             $.ajax({
                 url: "<?php echo base_url('payment/collectionUpdate') ?>",
                 type: "POST",
-                data: {id: id,collection_number: indentNo},
+                data: {id: id,collection_number: collectionNo},
                 success: function (response) {
                     console.log("AJAX Success Called!");
                     $("#collection" + id).fadeTo("slow", 0.3, function () {

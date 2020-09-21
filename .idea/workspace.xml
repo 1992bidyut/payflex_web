@@ -19,12 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="571daff3-120e-4fae-92da-81dcf9e1bc68" name="Default Changelist" comment="show order details in order list and indent in orderlist(start)">
+    <list default="true" id="571daff3-120e-4fae-92da-81dcf9e1bc68" name="Default Changelist" comment="payment details modification">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/config/database.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/controllers/Payment.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Payment.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/models/LeaderBoardModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/LeaderBoardModel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/models/OrdersModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/OrdersModel.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/models/Payment_Model.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/Payment_Model.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/models/SearchModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/SearchModel.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/views/leader/leader.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/leader/leader.php" afterDir="false" />
@@ -155,14 +153,7 @@
       <workItem from="1600529213593" duration="647000" />
       <workItem from="1600531138104" duration="6479000" />
       <workItem from="1600587963518" duration="1699000" />
-      <workItem from="1600609504507" duration="15203000" />
-    </task>
-    <task id="LOCAL-00015" summary="printing page fix">
-      <created>1598292957307</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1598292957307</updated>
+      <workItem from="1600609504507" duration="19880000" />
     </task>
     <task id="LOCAL-00016" summary="printing page fix">
       <created>1598293043755</created>
@@ -500,7 +491,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600631663399</updated>
     </task>
-    <option name="localTasksCounter" value="64" />
+    <task id="LOCAL-00064" summary="payment details modification">
+      <created>1600642870558</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1600642870558</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -532,7 +530,8 @@
     <MESSAGE value="leaderboard data export, but not formated, finance report panel and data export" />
     <MESSAGE value="data table mod, webapp\assets\pages\scripts\table-datatables-managed" />
     <MESSAGE value="show order details in order list and indent in orderlist(start)" />
-    <option name="LAST_COMMIT_MESSAGE" value="show order details in order list and indent in orderlist(start)" />
+    <MESSAGE value="payment details modification" />
+    <option name="LAST_COMMIT_MESSAGE" value="payment details modification" />
   </component>
   <component name="WindowStateProjectService">
     <state x="655" y="254" key="#Notifications" timestamp="1597486857716">
@@ -572,10 +571,10 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="555" y="51" key="VCS.ChangeListViewerDialog/0.0.1536.834@0.0.1536.834" timestamp="1597831983474" />
-    <state x="361" y="137" key="Vcs.Push.Dialog.v2" timestamp="1600630925364">
+    <state x="361" y="137" key="Vcs.Push.Dialog.v2" timestamp="1600642872692">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="361" y="137" key="Vcs.Push.Dialog.v2/0.0.1536.834/1920.0.1366.738@0.0.1536.834" timestamp="1600630925364" />
+    <state x="361" y="137" key="Vcs.Push.Dialog.v2/0.0.1536.834/1920.0.1366.738@0.0.1536.834" timestamp="1600642872692" />
     <state x="361" y="137" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1598413759238" />
     <state x="561" y="232" width="413" height="352" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog" timestamp="1597174798873">
       <screen x="0" y="0" width="1536" height="824" />

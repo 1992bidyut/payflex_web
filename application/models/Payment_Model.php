@@ -95,6 +95,18 @@ class Payment_Model extends CI_Model
         }
     }
 
+    public function updateReplace($id,$replace_tag){
+        $data['action_flag']=4;
+        $data['replace_tag']=$replace_tag;
+        $this->db->where('tbl_payment.id', $id);
+        if ($this->db->update('tbl_payment', $data)) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
     public function getFinancierExportData($startDate,$endDate){
         $reportSQL= "SELECT 
             client_info.client_code,

@@ -120,6 +120,22 @@ class Payment extends CI_Controller
         }
     }
 
+    public function replaceUpdate(){
+        $id=$this->input->post('id');
+        $replace_tag= $this->input->post('replace_tag');
+        $this->load->model('Payment_Model');
+
+        if ($this->Payment_Model->updateReplace($id,$replace_tag)){
+            $this->session->set_flashdata('success_msg','Accepted successfully');
+            redirect('LeaderBoard');
+        }
+        else
+        {
+            $this->session->set_flashdata('error_msg','Not Accepted!');
+            redirect('LeaderBoard');
+        }
+    }
+
     private function getServerDate(){
         $this->load->model('LeaderBoardModel');
         $getDate= date("Y-m-d H:m:s");

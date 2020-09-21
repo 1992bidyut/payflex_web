@@ -79,7 +79,7 @@
             <table border="1" class="table table-bordered" width="100%" height="100%">
                 <tr>
                     <td>Order Date:</td>
-                    <td></td>
+                    <td><?php echo $orderDetail[0]['delivery_date']; ?></td>
                 </tr>
 <!--                <tr>-->
 <!--                    <td>Serial No.</td>-->
@@ -159,7 +159,7 @@
                     <td>Mode</td>
                     <td>Name of Bank</td>
                     <td>Reference No.</td>
-                    <td>Date</td>
+                    <td>Payment Date</td>
                     <td>Amount</td>
                 </tr>
             </thead>
