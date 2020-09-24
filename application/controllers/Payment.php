@@ -122,10 +122,10 @@ class Payment extends CI_Controller
 
     public function replaceUpdate(){
         $id=$this->input->post('id');
-        $replace_tag= $this->input->post('replace_tag');
+        $flag= $this->input->post('flag');
         $this->load->model('Payment_Model');
 
-        if ($this->Payment_Model->updateReplace($id,$replace_tag)){
+        if ($this->Payment_Model->updateReplace($id,$flag)){
             $this->session->set_flashdata('success_msg','Accepted successfully');
             redirect('LeaderBoard');
         }

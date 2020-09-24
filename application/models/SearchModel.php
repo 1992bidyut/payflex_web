@@ -108,7 +108,8 @@ class SearchModel extends CI_Model
 			tbl_payment.amount,
 			tbl_payment.action_flag,
 			tbl_payment.collection_no,
-			tbl_payment.replace_tag,			
+			tbl_payment.replace_tag,
+			tbl_payment.isEditable,			
 
 			tbl_payment_image_relation.id as pirid, 
 			tbl_image.id,

@@ -15,7 +15,8 @@ class Payment_Model extends CI_Model
         tbl_payment.amount,
         tbl_payment.order_id,
         tbl_payment.action_flag,
-        tbl_payment.submitted_date
+        tbl_payment.submitted_date,
+        tbl_payment.collection_no
         ')
             ->from('tbl_payment')
             ->join('tbl_financial_institution_list','tbl_financial_institution_list.id = tbl_payment.financial_institution_id','left')
@@ -51,6 +52,7 @@ class Payment_Model extends CI_Model
             order_details.client_id,
             order_details.product_id,
             product_details.p_name,
+            product_type.type as p_type,
             product_details.product_code,
             order_details.quantityes,
             order_details.order_type,
@@ -64,6 +66,7 @@ class Payment_Model extends CI_Model
             ->join('product_details','order_details.product_id = product_details.id')
             ->join('tbl_product_price','product_details.id = tbl_product_price.product_id')
             ->join('plant_detail','plant_detail.id = order_details.plant')
+            ->join('product_type','product_type.id = product_details.p_type')
             ->where('order_details.order_type',$order_type)
             ->where('tbl_customer_order.order_code',$order_code)
             ->where('tbl_product_price.is_active',1);
@@ -95,9 +98,14 @@ class Payment_Model extends CI_Model
         }
     }
 
-    public function updateReplace($id,$replace_tag){
-        $data['action_flag']=4;
-        $data['replace_tag']=$replace_tag;
+    public function updateReplace($id,$flag){
+        $data=array();
+        if ($flag==1){
+            $data['action_flag']=4;
+        }else{
+            $data['action_flag']=1;
+        }
+        $data['isEditable']=$flag;
         $this->db->where('tbl_payment.id', $id);
         if ($this->db->update('tbl_payment', $data)) {
             return true;
@@ -111,6 +119,7 @@ class Payment_Model extends CI_Model
         $reportSQL= "SELECT 
             client_info.client_code,
             client_info.name,
+            client_info.virtual_account_no,
             tbl_financial_institution_list.id as bank_id,
             tbl_financial_institution_list.bank_name,
             tbl_payment_mode.id as methode_id,

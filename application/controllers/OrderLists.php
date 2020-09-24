@@ -59,5 +59,20 @@ class OrderLists extends CI_Controller{
             redirect('OrderLists');
         }
     }
+    public function editUpdate(){
+        $id=$this->input->post('id');
+        $flag= $this->input->post('flag');
+        $this->load->model('OrdersModel');
+
+        if ($this->OrdersModel->updateEdit($id,$flag)){
+            $this->session->set_flashdata('success_msg','Accepted successfully');
+            redirect('LeaderBoard');
+        }
+        else
+        {
+            $this->session->set_flashdata('error_msg','Not Accepted!');
+            redirect('LeaderBoard');
+        }
+    }
 }
 ?>

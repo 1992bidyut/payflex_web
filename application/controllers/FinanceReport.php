@@ -72,6 +72,7 @@ class FinanceReport extends CI_Controller{
             }else{
                 $temp['COLLECTION NO.']="";
             }
+            $temp['VIRTUAL ACCOUNT NO.']=$rawData[$count]['virtual_account_no'];
             $exportedData[$count]=$temp;
 //            echo print_r($temp)."</br>";
         }

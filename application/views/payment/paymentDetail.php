@@ -28,7 +28,7 @@
     <br>
     <div class="distributor-receiver-table">
         <div class="distributor-table">
-            <table border="1" class="table table-bordered" width="100%" height="100%">
+            <table border="1" class="table table-bordered" >
                 <tr>
                     <td>Distributor Name:</td>
                     <td><?php echo $clientInfo['name'] ?></td>
@@ -45,20 +45,6 @@
                     <td>Plant:</td>
                     <td><?php echo $orderDetail[0]['plant'] ?></td>
                 </tr>
-<!--                <tr>-->
-<!--                    <td>Delivery Location:</td>-->
-<!--                    <td>-->
-<!--                        --><?php
-//                        foreach ($clientContact as $contact) {
-//                            if ($contact['type_id'] == 4) {
-//                                echo $contact['contact_value'];
-//                            } else {
-//                                echo "";
-//                            }
-//                        }
-//                        ?>
-<!--                    </td>-->
-<!--                </tr>-->
                 <tr>
                     <td>Mobile:</td>
                     <td>
@@ -81,10 +67,6 @@
                     <td>Order Date:</td>
                     <td><?php echo $orderDetail[0]['delivery_date']; ?></td>
                 </tr>
-<!--                <tr>-->
-<!--                    <td>Serial No.</td>-->
-<!--                    <td></td>-->
-<!--                </tr>-->
                 <tr>
                     <td>Order No:</td>
                     <td><?php echo $orderDetail[0]['order_code']; ?></td>
@@ -92,10 +74,6 @@
                 <tr>
                     <td>Customer Code:</td>
                     <td><?php echo $clientInfo['client_code']; ?></td>
-                </tr>
-                <tr>
-                    <td>Collection No.</td>
-                    <td></td>
                 </tr>
                 <tr>
                     <td>Indent No.</td>
@@ -131,7 +109,7 @@
                 $totalAmount = 0;
                 foreach ($orderDetail as $detail) {
                     echo "<tr><td>" . $detailCount . "</td>";
-                    echo "<td>" . $detail['p_name'] . "</td>";
+                    echo "<td>" . $detail['p_name'] . " [".$detail['p_type']."]</td>";
                     echo "<td>" . $detail['product_code'] . "</td>";
                     echo "<td>" . $detail['p_wholesalePrice'] . "</td>";
                     echo "<td>" . $detail['quantityes'] . "</td>";
@@ -159,6 +137,7 @@
                     <td>Mode</td>
                     <td>Name of Bank</td>
                     <td>Reference No.</td>
+                    <td>Collection No.</td>
                     <td>Payment Date</td>
                     <td>Amount</td>
                 </tr>
@@ -171,6 +150,7 @@
                     echo "<td>" . $payment['methode_name'] . "</td>";
                     echo "<td>" . $payment['bank_name'] . "</td>";
                     echo "<td>" . $payment['reference_no'] . "</td>";
+                    echo "<td>" . $payment['collection_no'] . "</td>";
                     echo "<td>" . $payment['payment_date_time'] . "</td>";
                     echo "<td>" . $payment['amount'] . "</td></tr>";
                     $paymentCount++;
@@ -178,10 +158,10 @@
                     if (!empty($payment['image_name'])) {
                         $localImgageBasePath = "http://localhost/payflex/asset/images/";
                         $remorteImageBasePath = "http://demo.onuserver.com/payFlex/asset/images/";
-                        $liveImageBasePath = "https://payflex.onukit.com/total/asset/images/";
+                        $liveImageBasePath = "https://payflex.onukit.com/total/asset/images/payment/";
 
                         $imageName = $payment['image_name'];
-                        $imagePath = $localImgageBasePath . $clientInfo['client_id'] . "/";
+                        $imagePath = $liveImageBasePath . $clientInfo['client_id'] . "/";
                         $imagePath .= $imageName;
                     ?>
                     <tr>

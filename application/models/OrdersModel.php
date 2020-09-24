@@ -26,7 +26,10 @@ class OrdersModel extends CI_Model{
                 tbl_customer_order.payment_status as PaymentStatus,
                 tbl_customer_order.indent_no,
                 tbl_customer_order.total_costs,
-                
+                tbl_customer_order.plant_id,
+                tbl_customer_order.insert_time,
+                tbl_customer_order.isEditable,
+                plant_detail.plant as plantName,                
                 
                 client_info.virtual_account_no as VirtualAccountNo,
                 employee_info.name as EmployeeName,
@@ -48,9 +51,9 @@ class OrdersModel extends CI_Model{
 			
                 left join tbl_empolyees_relation on tbl_customer_order.taker_id = tbl_empolyees_relation.info_id
                 left join employee_info on tbl_empolyees_relation.info_id = employee_info.id
+                left join plant_detail on plant_detail.id = tbl_customer_order.plant_id
                 LEFT JOIN 
-                (
-                    SELECT 
+                (SELECT 
                     customer_order_id, 
                     GROUP_CONCAT(product_code,  '=', quantityes SEPARATOR '; ') as ProductQuantityString 
                     FROM (
@@ -65,7 +68,7 @@ class OrdersModel extends CI_Model{
                 ) as combainedOrderDetails ON combainedOrderDetails.customer_order_id=tbl_customer_order.id
                 where tbl_customer_order.delivery_date >= '".$startDate."' and tbl_customer_order.delivery_date <= '".$endDate."'
             ) as myOderList
-            ORDER BY myOderList.DeliveryDate DESC";
+            ORDER BY myOderList.insert_time DESC";
 //
        // $this->db->select($leaderSQL);
         $resource = $this->db->query($leaderSQL);
@@ -79,6 +82,17 @@ class OrdersModel extends CI_Model{
         $data['indent_date']=$date;
         $data['indent_no']=$indentNumber;
         $data['indent_flag']=1;
+        if ($this->db->update('tbl_customer_order', $data)) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    public function updateEdit($id,$flag){
+        $data['isEditable']=$flag;
+        $this->db->where('tbl_customer_order.id', $id);
         if ($this->db->update('tbl_customer_order', $data)) {
             return true;
         }

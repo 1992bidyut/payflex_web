@@ -56,6 +56,7 @@
                         <th> DSR</th>
                         <th> Order No.</th>
                         <th> Order Date </th>
+                        <th> Plant </th>
                         <th> Product </th>
                         <th> Quantity </th>
                         <th> Order Amount </th>
@@ -79,6 +80,14 @@
                             <td> <?php echo $data['dsr'] ?>  </td>
                             <td> <?php echo $data['OrderCode'] ?>  </td>
 							<td> <?php echo $data['DeliveryDate'] ?>  </td>
+                            <td> <?php
+                                if ($data['plantName']!=null){
+                                    echo $data['plantName'];
+                                } else{
+                                    echo "";
+                                }
+                                ?>
+                            </td>
 
                             <td><?php foreach ($productList as $product) {
                                     echo "" . $product['product_code'] . "</br>";
@@ -125,6 +134,17 @@
                                        } else {
                                            echo "yellow";
                                        } ?>" style="margin-bottom: 5px; width: 100%;" > Indent
+                                        <i class="fa fa-edit"></i>
+                                    </a>
+
+                                    <a id="<?php echo "replace" . $data['orderId'] ?>"
+                                       onclick="enableEdit(<?php echo $data['orderId'] ?>,<?php echo $data['isEditable'] ?>)"
+                                       class="btn btn-sm <?php if ($data['isEditable'] != 0) {
+                                           echo "red";
+                                       } else {
+                                           echo "green-dark";
+                                       } ?>" style="margin-bottom: 5px; width: 100%;" >
+                                        <?php if ($data['isEditable'] == 0) {echo "Allow Edit";}else{echo "Disallow Edit";}?>
                                         <i class="fa fa-edit"></i>
                                     </a>
 									
@@ -181,6 +201,30 @@
                 }
             });
         }
+    }
+
+    function enableEdit(id,flag) {
+        console.log(id);
+        var setFlag;
+        if (flag==0){
+            setFlag=1
+        }else {
+            setFlag=0;
+        }
+        $.ajax({
+            url: "<?php echo base_url('OrderLists/editUpdate') ?>",
+            type: "POST",
+            data: {id: id,flag: setFlag},
+            success: function (response) {
+                console.log("AJAX Success Called!");
+                $("#replace" + id).fadeTo("slow", 0.3, function () {
+                    $(this).css('background-color', 'green-dark');
+                })
+            },
+            error: function () {
+                console.log("AJAX error Called!");
+            }
+        });
     }
 
     $('#slideRight').click(function (e) {

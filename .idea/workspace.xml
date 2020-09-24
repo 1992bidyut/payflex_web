@@ -19,13 +19,18 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="571daff3-120e-4fae-92da-81dcf9e1bc68" name="Default Changelist" comment="payment details modification">
+    <list default="true" id="571daff3-120e-4fae-92da-81dcf9e1bc68" name="Default Changelist" comment="replace tag/comment add">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/FinanceReport.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/FinanceReport.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/OrderLists.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/OrderLists.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/controllers/Payment.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Payment.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/models/LeaderBoardModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/LeaderBoardModel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/models/OrdersModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/OrdersModel.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/models/Payment_Model.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/Payment_Model.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/models/SearchModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/SearchModel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/finance/finance_report.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/finance/finance_report.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/views/leader/leader.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/leader/leader.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/orders/orderlistview.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/orders/orderlistview.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/views/payment/paymentDetail.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/payment/paymentDetail.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -153,14 +158,12 @@
       <workItem from="1600529213593" duration="647000" />
       <workItem from="1600531138104" duration="6479000" />
       <workItem from="1600587963518" duration="1699000" />
-      <workItem from="1600609504507" duration="19880000" />
-    </task>
-    <task id="LOCAL-00016" summary="printing page fix">
-      <created>1598293043755</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1598293043755</updated>
+      <workItem from="1600609504507" duration="19920000" />
+      <workItem from="1600715566162" duration="6136000" />
+      <workItem from="1600803127655" duration="275000" />
+      <workItem from="1600894592570" duration="4302000" />
+      <workItem from="1600903884359" duration="1791000" />
+      <workItem from="1600905945821" duration="325000" />
     </task>
     <task id="LOCAL-00017" summary="dashboard fixing">
       <created>1598293591872</created>
@@ -498,7 +501,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600642870558</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="replace tag/comment add">
+      <created>1600647593216</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1600647593216</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -531,7 +541,8 @@
     <MESSAGE value="data table mod, webapp\assets\pages\scripts\table-datatables-managed" />
     <MESSAGE value="show order details in order list and indent in orderlist(start)" />
     <MESSAGE value="payment details modification" />
-    <option name="LAST_COMMIT_MESSAGE" value="payment details modification" />
+    <MESSAGE value="replace tag/comment add" />
+    <option name="LAST_COMMIT_MESSAGE" value="replace tag/comment add" />
   </component>
   <component name="WindowStateProjectService">
     <state x="655" y="254" key="#Notifications" timestamp="1597486857716">
@@ -571,10 +582,10 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="555" y="51" key="VCS.ChangeListViewerDialog/0.0.1536.834@0.0.1536.834" timestamp="1597831983474" />
-    <state x="361" y="137" key="Vcs.Push.Dialog.v2" timestamp="1600642872692">
+    <state x="361" y="137" key="Vcs.Push.Dialog.v2" timestamp="1600647595458">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="361" y="137" key="Vcs.Push.Dialog.v2/0.0.1536.834/1920.0.1366.738@0.0.1536.834" timestamp="1600642872692" />
+    <state x="361" y="137" key="Vcs.Push.Dialog.v2/0.0.1536.834/1920.0.1366.738@0.0.1536.834" timestamp="1600647595458" />
     <state x="361" y="137" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1598413759238" />
     <state x="561" y="232" width="413" height="352" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog" timestamp="1597174798873">
       <screen x="0" y="0" width="1536" height="824" />
@@ -598,10 +609,11 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="530" y="205" key="git4idea.merge.GitMergeDialog/0.0.1536.834/1920.0.1366.738@0.0.1536.834" timestamp="1598277224717" />
-    <state x="425" y="189" key="run.anything.popup" timestamp="1597808823928">
+    <state x="425" y="189" key="run.anything.popup" timestamp="1600899853727">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1597253903389" />
+    <state x="425" y="189" key="run.anything.popup/0.0.1536.834/1920.0.1366.738@0.0.1536.834" timestamp="1600899853727" />
     <state x="425" y="189" key="run.anything.popup/0.0.1536.834@0.0.1536.834" timestamp="1597808823928" />
     <state x="498" y="178" width="672" height="538" key="search.everywhere.popup" timestamp="1597183940953">
       <screen x="0" y="0" width="1536" height="824" />
@@ -623,7 +635,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/application/views/payment/paymentDetail.php</url>
-          <line>89</line>
+          <line>71</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>

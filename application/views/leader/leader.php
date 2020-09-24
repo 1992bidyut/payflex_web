@@ -137,10 +137,10 @@
                                         if (!empty($data['image_name'])) {
                                             $localImgageBasePath = "http://localhost/payflex/asset/images/";
                                             $remorteImageBasePath = "http://demo.onuserver.com/payFlex/asset/images/";
-                                            $liveImageBasePath = "https://payflex.onukit.com/total/asset/images/";
+                                            $liveImageBasePath = "https://payflex.onukit.com/total/asset/images/payment/";
 
                                             $imageName = $data['image_name'];
-                                            $imagePath = $localImgageBasePath . $data['clientId'] . "/";
+                                            $imagePath = $liveImageBasePath . $data['clientId'] . "/";
                                             $imagePath .= $imageName;
                                             echo '<img style="width: 100%; hight:10px;" src="' . $imagePath . '" alt="' . $imageName . '">';
                                         } else {
@@ -148,7 +148,7 @@
                                         }
                                         ?>  </td>
 
-<!--                                    replace tag-->
+                                    <!--                                    replace tag-->
                                     <td> <?php
                                         if ($data['replace_tag']!=null){
                                             echo $data['replace_tag'];
@@ -183,12 +183,13 @@
                                             </a>
 
                                             <a id="<?php echo "replace" . $data['paymentID'] ?>"
-                                               onclick="replaceInput(<?php echo $data['paymentID'] ?>)"
-                                               class="btn btn-sm <?php if ($data['replace_tag'] != null) {
+                                               onclick="replaceInput(<?php echo $data['paymentID'] ?>,<?php echo $data['isEditable'] ?>)"
+                                               class="btn btn-sm <?php if ($data['isEditable'] != 0) {
                                                    echo "red";
                                                } else {
                                                    echo "green-dark";
-                                               } ?>" style="margin-bottom: 5px; width: 100%;" > Replace
+                                               } ?>" style="margin-bottom: 5px; width: 100%;" >
+                                                <?php if ($data['isEditable'] == 0) {echo "Allow Edit";}else{echo "Disallow Edit";}?>
                                                 <i class="fa fa-edit"></i>
                                             </a>
 
@@ -255,17 +256,18 @@
         });
     }
 
-    function replaceInput(id) {
-        var replaceTag = prompt("Please type the replace tag", "");
-        if (replaceTag == null || replaceTag == "") {
-            console.log("no input");
-        } else {
+    function replaceInput(id,flag) {
             console.log(id);
-            console.log(replaceTag);
+            var setFlag;
+            if (flag==0){
+                setFlag=1
+            }else {
+                setFlag=0;
+            }
             $.ajax({
                 url: "<?php echo base_url('payment/replaceUpdate') ?>",
                 type: "POST",
-                data: {id: id,replace_tag: replaceTag},
+                data: {id: id,flag: setFlag},
                 success: function (response) {
                     console.log("AJAX Success Called!");
                     $("#replace" + id).fadeTo("slow", 0.3, function () {
@@ -276,7 +278,6 @@
                     console.log("AJAX error Called!");
                 }
             });
-        }
     }
 
     function indentInput(id) {

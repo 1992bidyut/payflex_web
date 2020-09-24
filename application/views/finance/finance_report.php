@@ -61,6 +61,7 @@
                         <th> AMOUNT </th>
                         <th> PAYMENT DATE </th>
                         <th> COLLECTION NUMBER </th>
+                        <th> VIRTUAL ACCOUNT NO </th>
 
                     </tr>
                     </thead>
@@ -97,6 +98,7 @@
                             <td> <?php echo $data['amount'] ?>  </td>
 							<td> <?php echo $data['payment_date_time'] ?>  </td>
                             <td> <?php if ($data['collection_no']!=null){echo $data['collection_no'];}else{echo "";} ?>  </td>
+                            <td> <?php echo $data['virtual_account_no'] ?>  </td>
                         </tr>
                     <?php
                         }
