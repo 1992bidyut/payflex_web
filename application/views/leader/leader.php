@@ -140,7 +140,7 @@
                                         <?php //echo $data['image_name']
                                         if (!empty($data['image_name'])) {
                                             $localImgageBasePath = "http://localhost/payflex/asset/images/";
-                                            $remorteImageBasePath = "http://demo.onuserver.com/payFlex/asset/images/";
+                                            $remorteImageBasePath = "http://demo.onuserver.com/payFlex/asset/images/payment/";
                                             $liveImageBasePath = "https://payflex.onukit.com/total/asset/images/payment/";
 
                                             $imageName = $data['image_name'];
