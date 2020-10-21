@@ -19,11 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="571daff3-120e-4fae-92da-81dcf9e1bc68" name="Default Changelist" comment="allow and disallow edit from leaderboard and order list also print modification">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/leader/leader.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/leader/leader.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/payment/paymentDetail.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/payment/paymentDetail.php" afterDir="false" />
-    </list>
+    <list default="true" id="571daff3-120e-4fae-92da-81dcf9e1bc68" name="Default Changelist" comment="allow and disallow edit from leaderboard and order list also print modification" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -161,14 +157,7 @@
       <workItem from="1601660550788" duration="17000" />
       <workItem from="1603217967423" duration="4259000" />
       <workItem from="1603300005983" duration="1452000" />
-      <workItem from="1603311208464" duration="207000" />
-    </task>
-    <task id="LOCAL-00020" summary="dashboard fixing">
-      <created>1598294808566</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1598294808566</updated>
+      <workItem from="1603311208464" duration="617000" />
     </task>
     <task id="LOCAL-00021" summary="dashboard fixing">
       <created>1598295193649</created>
@@ -506,7 +495,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603300550401</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL-00069" summary="allow and disallow edit from leaderboard and order list also print modification">
+      <created>1603311440237</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1603311440239</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -581,10 +577,10 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="555" y="51" key="VCS.ChangeListViewerDialog/0.0.1536.834@0.0.1536.834" timestamp="1597831983474" />
-    <state x="361" y="137" key="Vcs.Push.Dialog.v2" timestamp="1603300553145">
+    <state x="361" y="137" key="Vcs.Push.Dialog.v2" timestamp="1603311474384">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="361" y="137" key="Vcs.Push.Dialog.v2/0.0.1536.834/1920.0.1366.738@0.0.1536.834" timestamp="1603300553145" />
+    <state x="361" y="137" key="Vcs.Push.Dialog.v2/0.0.1536.834/1920.0.1366.738@0.0.1536.834" timestamp="1603311474384" />
     <state x="361" y="137" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1598413759238" />
     <state x="561" y="232" width="413" height="352" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog" timestamp="1597174798873">
       <screen x="0" y="0" width="1536" height="824" />
