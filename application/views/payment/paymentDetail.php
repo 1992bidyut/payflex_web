@@ -161,7 +161,7 @@
                         $liveImageBasePath = "https://payflex.onukit.com/total/asset/images/payment/";
 
                         $imageName = $payment['image_name'];
-                        $imagePath = $liveImageBasePath . $clientInfo['client_id'] . "/";
+                        $imagePath = $remorteImageBasePath . $clientInfo['client_id'] . "/";
                         $imagePath .= $imageName;
                     ?>
                     <tr>
