@@ -97,6 +97,7 @@ class SearchModel extends CI_Model
 
             tbl_customer_order.id as orderID,
             tbl_customer_order.indent_no,
+            tbl_customer_order.indent_remark,
             tbl_customer_order.indent_date,
             tbl_customer_order.delivery_date,
 
@@ -107,9 +108,10 @@ class SearchModel extends CI_Model
 			tbl_payment.submitted_date,
 			tbl_payment.amount,
 			tbl_payment.action_flag,
-			tbl_payment.collection_no,
+			tbl_payment.collection_no, 
+			tbl_payment.collection_remark,	
 			tbl_payment.replace_tag,
-			tbl_payment.isEditable,			
+			tbl_payment.isEditable,
 
 			tbl_payment_image_relation.id as pirid, 
 			tbl_image.id,

@@ -85,17 +85,34 @@ class Payment_Model extends CI_Model
         }
     }
 
-    public function updateCollection($id,$collectionNumber,$date){
+   public function updateCollection($id,$collectionNumber,$date){
+        $collection_remark="";
+        $old_collection=$this->getOldCollection($id);
+        if ($old_collection!=null){
+            $collection_remark="Old Collection: ".$old_collection." New Collection: ".$collectionNumber;
+        }else{
+            $collection_remark="New Collection: ".$collectionNumber;
+        }
         $this->db->where('tbl_payment.id', $id);
         $data['action_flag']=3;
         $data['collection_date']=$date;
         $data['collection_no']=$collectionNumber;
+        $data['collection_remark']=$collection_remark;
         if ($this->db->update('tbl_payment', $data)) {
             return true;
         }
         else {
             return false;
         }
+    }
+
+    public function getOldCollection($id){
+        $this->db->select('tbl_payment.collection_no')
+            ->from('tbl_payment')
+            ->where('tbl_payment.id',$id);
+        $result = $this->db->get();
+        $res=$result->result_array();
+        return $res[0]['collection_no'];
     }
 
     public function updateReplace($id,$flag){
@@ -130,7 +147,7 @@ class Payment_Model extends CI_Model
             tbl_payment.reference_no,
             tbl_customer_order.indent_date,
             tbl_customer_order.indent_no,
-			tbl_payment.collection_no
+            tbl_payment.collection_no
             
             FROM tbl_payment
             LEFT JOIN tbl_financial_institution_list ON tbl_financial_institution_list.id=tbl_payment.financial_institution_id

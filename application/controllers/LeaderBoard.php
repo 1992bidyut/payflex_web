@@ -3,16 +3,16 @@
 class LeaderBoard extends CI_Controller{
     function __construct() {
         parent::__construct();
-		if(empty($this->session->userdata('user_id'))){
-			return redirect('login');
-		}
-		$this->load->model('LeaderBoardModel');
+        if(empty($this->session->userdata('user_id'))){
+            return redirect('login');
+        }
+        $this->load->model('LeaderBoardModel');
         $this->load->model('Payment_Model');
         $this->load->model('ProductModel');
     }
     
     public function index()
-	{
+    {
         $getDate=$this->getServerDate();
 
         $date = strtotime($getDate);
@@ -24,7 +24,7 @@ class LeaderBoard extends CI_Controller{
         $sessionData['lead_to']=(string)$getDate;
 
         $this->session->set_userdata($sessionData);
-	    $leaderBoardData = $this->LeaderBoardModel->searchPaymentInfo($startDate,(string)$getDate);
+        $leaderBoardData = $this->LeaderBoardModel->searchPaymentInfo($startDate,(string)$getDate);
         $productList=$this->ProductModel->getProductList();//
 
 //        $explodeValue1= explode(";",$leaderBoardData[2]['ProductQuantityString']);
@@ -42,14 +42,14 @@ class LeaderBoard extends CI_Controller{
 //            echo "From list name:  ".$product['p_name']." and order: ".$order."</br>";
 //        }
 
-		$dataArray = array('paymentInfoArray'=>$leaderBoardData,'productList'=>$productList);
-		$datas['content'] = $this->load->view('leader/leader', $dataArray, true);
-		$this->load->view( 'layouts/main_template',$datas);
-		//
-	}
+        $dataArray = array('paymentInfoArray'=>$leaderBoardData,'productList'=>$productList);
+        $datas['content'] = $this->load->view('leader/leader', $dataArray, true);
+        $this->load->view( 'layouts/main_template',$datas);
+        //
+    }
 
 
-	public function exportLeaderBoardData(){
+    public function exportLeaderBoardData(){
         $sessionNewData=$this->session->userdata();
         $toDate=$sessionNewData['lead_to'];
         $fromDate=$sessionNewData['lead_from'];
@@ -81,7 +81,7 @@ class LeaderBoard extends CI_Controller{
         $this->load->model('LeaderBoardModel');
         $getDate= date("Y-m-d H:m:s");
         $getDate = strtotime($getDate);
-        $getDate = strtotime("-0 h", $getDate);
+        $getDate = strtotime("-6 h", $getDate);
         return $getDate=date("Y-m-d", $getDate);
     }
 }

@@ -71,7 +71,9 @@
                             <th> Submitted date time</th>
                             <th> Amount</th>
                             <th> Indent No</th>
+                            <th> Indent Remark</th>
                             <th> Collection No</th>
+                            <th> Collection Remark</th>
                             <th> Image/Attachment</th>
                             <th> Replace</th>
                             <th> Action</th>
@@ -124,6 +126,7 @@
                                         }
                                         ?>
                                     </td>
+                                    <td> <?php echo $data['indent_remark'] ?>  </td>
                                     <td> <?php
                                         if ($data['collection_no']!=null){
                                             echo $data['collection_no'];
@@ -132,6 +135,7 @@
                                         }
                                         ?>
                                     </td>
+                                    <td> <?php echo $data['collection_remark'] ?>  </td>
                                     <td>
                                         <?php //echo $data['image_name']
                                         if (!empty($data['image_name'])) {
@@ -168,7 +172,12 @@
                                                    echo "green-dark";
                                                } else {
                                                    echo "yellow";
-                                               } ?>" style="margin-bottom: 5px; width: 100%;" > Indent
+                                               } ?>" style="margin-bottom: 5px; width: 100%;" >
+                                                <?php if ($data['indent_no'] !=null) {
+                                                    echo "Edit Indent";
+                                                } else {
+                                                    echo "Indent";
+                                                } ?>
                                                 <i class="fa fa-edit"></i>
                                             </a>
 
@@ -178,7 +187,12 @@
                                                    echo "green-dark";
                                                } else {
                                                    echo "blue";
-                                               } ?>" style="margin-bottom: 5px; width: 100%;" > Collection
+                                               } ?>" style="margin-bottom: 5px; width: 100%;" >
+                                                <?php if ($data['collection_no'] != null) {
+                                                    echo "Edit Collection";
+                                                } else {
+                                                    echo "Collection";
+                                                } ?>
                                                 <i class="fa fa-edit"></i>
                                             </a>
 

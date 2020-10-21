@@ -2,14 +2,14 @@
 class LeaderBoardModel extends CI_Model{
 
     public function searchPaymentInfo($fromDate,$todate)
-	{
+    {
         $contact       = $this->input->get('contact');
         $from          = $this->input->get('from');
         $to            = $this->input->get('to');
         $message       = $this->input->get('smsBody');
         $smsStatusCode = $this->input->get('smsStatusCode');
 
-		/*
+        /*
         if($contact=='' and $from =='' and $to =='' and $message =='' and $smsStatusCode =='')
         {
             $this->db->like('entryDate', date('Y-m-d'),'after')
@@ -49,55 +49,57 @@ class LeaderBoardModel extends CI_Model{
             $this->db->where('status_group_id',$smsStatusCode);
             $this->db->where('cd_user_id',$id);
         }
-		*/
+        */
 
         $leaderSQL= "
         select * from (Select  
-			client_info.id as clientId,
-			client_info.client_code,
-			client_info.name as clientName,
-			label2.`name` AS manager,
-			label3.`name` AS officer,
+            client_info.id as clientId,
+            client_info.client_code,
+            client_info.name as clientName,
+            label2.`name` AS manager,
+            label3.`name` AS officer,
             label4.name as dsr,
 
             tbl_customer_order.id as orderID,
             tbl_customer_order.indent_no,
+            tbl_customer_order.indent_remark,
             tbl_customer_order.indent_date,
             tbl_customer_order.delivery_date,
 
             tbl_payment.order_code, 
             tbl_payment.id as paymentID,
-			tbl_payment.reference_no,
-			tbl_payment.payment_date_time, 
-			tbl_payment.submitted_date,
-			tbl_payment.amount,
-			tbl_payment.action_flag, 
-			tbl_payment.collection_no,
-			tbl_payment.replace_tag,
-			tbl_payment.isEditable,
-			
-			tbl_payment_image_relation.id as pirid, 
-			tbl_image.id,
-			tbl_image.image_name, 
-			tbl_payment_mode.methode_name,
+            tbl_payment.reference_no,
+            tbl_payment.payment_date_time, 
+            tbl_payment.submitted_date,
+            tbl_payment.amount,
+            tbl_payment.action_flag, 
+            tbl_payment.collection_no,
+            tbl_payment.collection_remark,
+            tbl_payment.replace_tag,
+            tbl_payment.isEditable,
+
+            tbl_payment_image_relation.id as pirid, 
+            tbl_image.id,
+            tbl_image.image_name, 
+            tbl_payment_mode.methode_name,
             tbl_financial_institution_list.bank_name,
 
             combainedOrderDetails.ProductQuantityString
 
             from tbl_payment
-				
+                
             left join tbl_customer_order on tbl_customer_order.order_code = tbl_payment.order_code
             left join client_info on tbl_customer_order.order_for_client_id = client_info.id
             left join tbl_client_employee_relation on tbl_client_employee_relation.client_id = client_info.id
-				
+                
             left join employee_info as label4 on label4.id = tbl_client_employee_relation.handler_id
-			LEFT JOIN tbl_empolyees_relation as label4_relation ON label4.id=label4_relation.info_id
+            LEFT JOIN tbl_empolyees_relation as label4_relation ON label4.id=label4_relation.info_id
 
-			LEFT JOIN tbl_empolyees_relation as label3_relation on label4_relation.parent_id=label3_relation.id
-			LEFT JOIN employee_info AS label3 ON label3_relation.info_id=label3.id
-			
-			LEFT JOIN tbl_empolyees_relation as label2_relation on label3_relation.parent_id=label2_relation.id
-			LEFT JOIN employee_info AS label2 ON label2_relation.info_id=label2.id
+            LEFT JOIN tbl_empolyees_relation as label3_relation on label4_relation.parent_id=label3_relation.id
+            LEFT JOIN employee_info AS label3 ON label3_relation.info_id=label3.id
+            
+            LEFT JOIN tbl_empolyees_relation as label2_relation on label3_relation.parent_id=label2_relation.id
+            LEFT JOIN employee_info AS label2 ON label2_relation.info_id=label2.id
 
             left join tbl_payment_mode on tbl_payment_mode.id =  tbl_payment.payment_mode_id
             left join tbl_payment_image_relation on tbl_payment_image_relation.payment_id = tbl_payment.id
@@ -115,14 +117,14 @@ class LeaderBoardModel extends CI_Model{
 
        // $this->db->select($leaderSQL);
         $resource = $this->db->query($leaderSQL);
-		// echo $this->db->last_query();
+        // echo $this->db->last_query();
         // die();
         return $resource->result_array();
     }
 }
 
 
-//		$leaderSQL = "select * from (Select  client_info.id as client_id,
+//      $leaderSQL = "select * from (Select  client_info.id as client_id,
 //        client_info.name as clientName,
 //        employee_info.name as EmployeeName,
 //        tbl_payment.order_code,

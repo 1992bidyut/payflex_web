@@ -31,7 +31,7 @@ class Login extends CI_Controller {
             // var_dump($password);
             // die();
             $user_array = $this->user_model->loginValid($username,$password);
-//            echo print_r($user_array);
+            // echo print_r($user_array);
 //            if($user_array['user_type'] == 3 || $user_array['permission'] == 1 )
             if($user_array['user_type'] != 3){
                 $this->session->set_userdata(

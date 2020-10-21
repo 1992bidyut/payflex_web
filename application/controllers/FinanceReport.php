@@ -14,7 +14,7 @@ class FinanceReport extends CI_Controller{
         $getDate= $this->getServerDate();
 
         $date = strtotime($getDate);
-        $date = strtotime("-7 day", $date);
+        $date = strtotime("-1 day", $date);
         $startDate=date("Y-m-d", $date);
         //set filter date in session
         $sessionData=$this->session->userdata();

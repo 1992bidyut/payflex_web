@@ -1,12 +1,12 @@
 <div class="portlet-title">
     <div class="caption">
-        Search/Filter Option(<?php
-        $getDate= date("Y-m-d H:m:s");
-        $getDate = strtotime($getDate);
-        $getDate = strtotime("-6 h", $getDate);
-        $getDate=date("Y-m-d", $getDate);
-        echo $getDate;
-        ?>)
+        Search/Filter Option(<?php 
+            $getDate= date("Y-m-d H:m:s");
+            $getDate = strtotime($getDate);
+            $getDate = strtotime("-6 h", $getDate);
+            $getDate=date("Y-m-d", $getDate);
+            echo $getDate; 
+            ?>)
     </div>
 
 </div>

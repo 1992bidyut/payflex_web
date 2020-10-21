@@ -7,6 +7,7 @@ class Export_excel
 	public function exportData($data,$filename)
 	{
 		$filename = "finance_report_" . date('Ymd') . ".xls";
+
 		header("Content-Disposition: attachment; filename=\"$filename\"");
 		header('Content-Description: File Transfer');
 		header("Content-Type: application/vnd.ms-excel");

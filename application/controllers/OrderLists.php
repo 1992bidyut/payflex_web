@@ -38,9 +38,10 @@ class OrderLists extends CI_Controller{
 		$this->load->view( 'layouts/main_template',$datas);
 	}
     private function getServerDate(){
+        $this->load->model('LeaderBoardModel');
         $getDate= date("Y-m-d H:m:s");
         $getDate = strtotime($getDate);
-        $getDate = strtotime("-0 h", $getDate);
+        $getDate = strtotime("-6 h", $getDate);
         return $getDate=date("Y-m-d", $getDate);
     }
 

@@ -15,7 +15,7 @@
         <!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
          <ul class="page-sidebar-menu   " data-keep-expanded="true" data-auto-scroll="true" data-slide-speed="200">
 			<li class="nav-item ">
-                <a href="<?php echo base_url('dashboard/index');?>" class="nav-link nav-toggle">
+                <a href="<?php echo site_url('dashboard/index');?>" class="nav-link nav-toggle">
                     <i class="icon-home"></i>
                     <span class="title">Dashboard</span>
                     <!-- <span class="arrow"></span> -->
@@ -24,7 +24,7 @@
 
 
             <li class="nav-item ">
-                <a href="<?php echo base_url('LeaderBoard');?>" class="nav-link nav-toggle">
+                <a href="<?php echo site_url('LeaderBoard');?>" class="nav-link nav-toggle">
                     <i class="fa fa-money" aria-hidden="true"></i>
                     <span class="title">Leaderboard</span>
                     <!-- <span class="arrow"></span> -->
@@ -33,7 +33,7 @@
 
 
             <li class="nav-item ">
-                 <a href="<?php echo base_url('OrderLists');?>" class="nav-link nav-toggle">
+                 <a href="<?php echo site_url('OrderLists');?>" class="nav-link nav-toggle">
                     <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                     <span class="title">Orders List</span>
                     <!-- <span class="arrow"></span> -->

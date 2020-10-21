@@ -27,7 +27,7 @@
 
 <div class="portlet box blue ">
 <?php
-	 $myCIRef =& get_instance();
+     $myCIRef =& get_instance();
      $myCIRef->load->view('orders/oder_filter');
 ?>
 </div>
@@ -42,7 +42,7 @@
 <!--                </div>-->
             </div>
             <div class="portlet-body">
-			<form id="table-form">
+            <form id="table-form">
                 <table class="table table-striped table-bordered table-hover table-checkable order-column" id="sample_4">
                     <thead>
                     <tr>
@@ -62,13 +62,14 @@
                         <th> Order Amount </th>
                         <th> Is Paid </th>
                         <th> Indent no </th>
+                        <th> Indent Remark </th>
                         <th> Action </th>
                     </tr>
                     </thead>
                     <tbody>
                     <?php if ($paymentInfoArray>0): ?>
                     <?php
-					
+                    
                         foreach($paymentInfoArray as $data){
                     ?>
                         <tr class="odd gradeX">
@@ -79,7 +80,7 @@
                             <td> <?php echo $data['officer'] ?>  </td>
                             <td> <?php echo $data['dsr'] ?>  </td>
                             <td> <?php echo $data['OrderCode'] ?>  </td>
-							<td> <?php echo $data['DeliveryDate'] ?>  </td>
+                            <td> <?php echo $data['DeliveryDate'] ?>  </td>
                             <td> <?php
                                 if ($data['plantName']!=null){
                                     echo $data['plantName'];
@@ -123,6 +124,7 @@
                                 }
                                 ?>
                             </td>
+                            <td> <?php echo $data['indent_remark'] ?>  </td>
                             <!-- ----------------------- the action buttons for payments -----------------  -->
                             <td >
                                 <div class="clearfix">
@@ -133,7 +135,12 @@
                                            echo "green-dark";
                                        } else {
                                            echo "yellow";
-                                       } ?>" style="margin-bottom: 5px; width: 100%;" > Indent
+                                       } ?>" style="margin-bottom: 5px; width: 100%;" >
+                                        <?php if ($data['indent_no'] !=null) {
+                                            echo "Edit Indent";
+                                        } else {
+                                            echo "Indent";
+                                        } ?>
                                         <i class="fa fa-edit"></i>
                                     </a>
 
@@ -147,8 +154,8 @@
                                         <?php if ($data['isEditable'] == 0) {echo "Allow Edit";}else{echo "Disallow Edit";}?>
                                         <i class="fa fa-edit"></i>
                                     </a>
-									
-<!--									<a href="#" class="btn btn-sm green" style="margin-bottom: 5px;   width: 100%;"> Print-->
+                                    
+<!--                                    <a href="#" class="btn btn-sm green" style="margin-bottom: 5px;   width: 100%;"> Print-->
 <!--                                        <i class="fa fa-print"></i>-->
 <!--                                    </a>-->
 <!--                                    <a href="#" onclick="return confirm('Are you sure you want to Grant the payment');" class="btn btn-sm red" style="margin-bottom: 5px; width: 100%;"> Notify-->

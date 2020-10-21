@@ -26,10 +26,12 @@ class OrdersModel extends CI_Model{
                 tbl_customer_order.payment_status as PaymentStatus,
                 tbl_customer_order.indent_no,
                 tbl_customer_order.total_costs,
-                tbl_customer_order.plant_id,
+                tbl_customer_order.plant_id, 
                 tbl_customer_order.insert_time,
                 tbl_customer_order.isEditable,
-                plant_detail.plant as plantName,                
+                tbl_customer_order.isSubmitted,
+                tbl_customer_order.indent_remark,
+                plant_detail.plant as plantName,
                 
                 client_info.virtual_account_no as VirtualAccountNo,
                 employee_info.name as EmployeeName,
@@ -53,7 +55,8 @@ class OrdersModel extends CI_Model{
                 left join employee_info on tbl_empolyees_relation.info_id = employee_info.id
                 left join plant_detail on plant_detail.id = tbl_customer_order.plant_id
                 LEFT JOIN 
-                (SELECT 
+                (
+                    SELECT 
                     customer_order_id, 
                     GROUP_CONCAT(product_code,  '=', quantityes SEPARATOR '; ') as ProductQuantityString 
                     FROM (
@@ -67,9 +70,9 @@ class OrdersModel extends CI_Model{
                     GROUP BY orderwithPName.customer_order_id
                 ) as combainedOrderDetails ON combainedOrderDetails.customer_order_id=tbl_customer_order.id
                 where tbl_customer_order.delivery_date >= '".$startDate."' and tbl_customer_order.delivery_date <= '".$endDate."'
-            ) as myOderList
+            and tbl_customer_order.isSubmitted = '1' ) as myOderList
             ORDER BY myOderList.insert_time DESC";
-//
+//and tbl_customer_order.isSubmitted = '1'
        // $this->db->select($leaderSQL);
         $resource = $this->db->query($leaderSQL);
 		// echo $this->db->last_query();
@@ -77,11 +80,19 @@ class OrdersModel extends CI_Model{
         return $resource->result_array();
     }
 
-    public function updateIndent($orderId,$indentNumber,$date){
+   public function updateIndent($orderId,$indentNumber,$date){
+        $indent_remark="";
+        $old_indent=$this->getOldIndent($orderId);
+        if ($old_indent!=null){
+            $indent_remark="Old Indent: ".$old_indent." New Indent: ".$indentNumber;
+        }else{
+            $indent_remark="New Indent: ".$indentNumber;
+        }
         $this->db->where('tbl_customer_order.id', $orderId);
         $data['indent_date']=$date;
         $data['indent_no']=$indentNumber;
         $data['indent_flag']=1;
+        $data['indent_remark']=$indent_remark;
         if ($this->db->update('tbl_customer_order', $data)) {
             return true;
         }
@@ -90,7 +101,16 @@ class OrdersModel extends CI_Model{
         }
     }
 
-    public function updateEdit($id,$flag){
+    public function getOldIndent($id){
+        $this->db->select('tbl_customer_order.indent_no')
+            ->from('tbl_customer_order')
+            ->where('tbl_customer_order.id',$id);
+        $result = $this->db->get();
+        $res=$result->result_array();
+        return $res[0]['indent_no'];
+    }
+
+     public function updateEdit($id,$flag){
         $data['isEditable']=$flag;
         $this->db->where('tbl_customer_order.id', $id);
         if ($this->db->update('tbl_customer_order', $data)) {

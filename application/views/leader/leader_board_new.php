@@ -133,11 +133,12 @@
                                         <?php //echo $data['image_name']
                                         if (!empty($data['image_name'])) {
                                             $localImgageBasePath = "http://localhost/payflex/asset/images/";
+                                            $localImgageBasePath2 = "http://localhost/asset/images/";
                                             $remorteImageBasePath = "http://demo.onuserver.com/payFlex/asset/images/";
                                             $liveImageBasePath = "https://payflex.onukit.com/total/asset/images/";
 
                                             $imageName = $data['image_name'];
-                                            $imagePath = $localImgageBasePath . $data['clientId'] . "/";
+                                            $imagePath = $liveImageBasePath . $data['clientId'] . "/";
                                             $imagePath .= $imageName;
                                             echo '<img style="width: 100%; hight:10px;" src="' . $imagePath . '" alt="' . $imageName . '">';
                                         } else {
@@ -214,7 +215,7 @@
 <script type="text/javascript">
     //    Accept payment
 
-    document.getElementsByName('sample_3_length').value = "6";
+    document.getElementsByName('sample_3_length').value = "2";
 
     function acceptPayment(id) {
         console.log("Accept Click! " + id);
