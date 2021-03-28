@@ -1,4 +1,4 @@
-<div class="portlet-title">
+<div class="portlet-title" style="background-color: #F8981C">
     <div class="caption">
         Search/Filter Option(<?php 
             $getDate= date("Y-m-d H:m:s");
@@ -123,7 +123,7 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <button type="submit" class="btn blue">Search</button>
+                <button type="submit" class="btn" style="background-color: #F8981C;color: #ffffff">Search</button>
             </div>
         </div>
 

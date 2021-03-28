@@ -51,7 +51,7 @@ class Client extends CI_Controller
         $this->load->library('form_validation'); //required
 
         $this->form_validation->set_rules('name', 'Distributor Name:', 'required');
-        $this->form_validation->set_rules('representative_name', 'Representative Name:', 'required');
+//        $this->form_validation->set_rules('representative_name', 'Representative Name:', 'required');
         $this->form_validation->set_rules('client_code', 'Client Code:', 'required');
         $this->form_validation->set_rules('virtual_account_no', 'Virtual A/C No:', 'required');
         $this->form_validation->set_rules('assign_dsr', 'Assign DSR', 'required');
@@ -74,78 +74,118 @@ class Client extends CI_Controller
             );
             $this->load->view('layouts/main_template', $datas);
         } else {
+            $orderFlexUserArray = array();
             $formArray = array();
+            $orderFlexUserArray['catagory_id']=1;
             $formArray['name'] = $this->input->post('name');
+            $orderFlexUserArray['name']=$this->input->post('name');
             $formArray['representative_name'] = $this->input->post('representative_name');
             $formArray['client_code'] = $this->input->post('client_code');
+            $orderFlexUserArray['client_code']=$this->input->post('client_code');
             $formArray['virtual_account_no'] = $this->input->post('virtual_account_no');
+            $existClient=$this->ClientModel->getClientByCode($orderFlexUserArray['client_code']);
+            if (empty($existClient)){
+                if ($this->input->post('is_user') == false) {
+                    echo "User not validated!";
+                    echo validation_errors();
+                } else {
+                    // echo "User Validated!";
+                    $userArray = array();
 
-            if ($this->input->post('is_user') == false) {
-                echo "User not validated!";
-                echo validation_errors();
-            } else {
-                // echo "User Validated!";
-                $userArray = array();
-                $this->form_validation->set_rules('username', 'Username', 'required');
-                $this->form_validation->set_rules('password', 'Password', 'required|min_length[3]');
-                $this->form_validation->set_rules('confirm_password', 'Confirm Password', 'required|matches[password]');
-                // if ($this->input->post('is_user') == true) {
-                if ($this->form_validation->run() == true) {
-                    $userArray['username'] = $this->input->post('username');
-                    $userArray['password'] = sha1($this->input->post('passsword'));
-                    $userArray['user_type'] = 3;
-                    $userArray['created_time'] = date('Y-m-d');
-                    $formArray['user_id'] = $this->ClientModel->createUserIfActive($userArray);
+                    $this->form_validation->set_rules('username', 'Username', 'required');
+                    $this->form_validation->set_rules('password', 'Password', 'required|min_length[3]');
+                    $this->form_validation->set_rules('confirm_password', 'Confirm Password', 'required|matches[password]');
+                    // if ($this->input->post('is_user') == true) {
+                    if ($this->form_validation->run() == true) {
+                        $password=$this->input->post('password');
+                        $rePassword=$this->input->post('confirm_password');
+                        if ($password===$rePassword){
+                            $userArray['username'] = $this->input->post('username');
+                            $userArray['password'] = sha1($password);
+                            $userArray['user_type'] = 3;
+                            $userArray['created_time'] = date('Y-m-d');
+                            $formArray['user_id'] = $this->ClientModel->createUserIfActive($userArray);
+                        }
+                    }
+                    //}
                 }
+
+                $formArray['catagory_id'] = 1;
+                $formArray['office_id'] = 0;
+                $formArray['client_parent_id'] = 0;
+                $formArray['created_date_time'] = date('Y-m-d');
+                $formArray['is_active'] = $this->input->post('is_active');
+                //user id insertion into client_info from tbl_user and get user_is for pari table
+                //if ($this->form_validation->run('createClient') == true) {
+                $client_inserted_id = $this->ClientModel->createClient($formArray);
                 //}
-            }
 
-            $formArray['catagory_id'] = 1;
-            $formArray['office_id'] = 0;
-            $formArray['client_parent_id'] = 0;
-            $formArray['created_date_time'] = date('Y-m-d');
-            $formArray['is_active'] = $this->input->post('is_active');
-            //user id insertion into client_info from tbl_user and get user_is for pari table
-            //if ($this->form_validation->run('createClient') == true) {
-            $client_inserted_id = $this->ClientModel->createClient($formArray);
-            //}
+                //contact insertion
+                $contactArray = array();
+                $contactArray = [];
+                $contact_counter = $this->input->post('contact_counter');
+                if ($contact_counter == "" || $contact_counter == 0 || $contact_counter == NULL) {
+                    $contact_counter = 1;
+                }
+                for ($i = 1; $i <= $contact_counter; $i++) {
+                    $this->form_validation->set_rules('contact_value_' . $i, 'Contact Value', 'required');
+                }
+                for ($i = 1; $i <= $contact_counter; $i++) {
+                    array_push($contactArray, [
+                        'contact_value' => $this->input->post('contact_value_' . $i),
+                        'contact_type_id' => $this->input->post('contact_type_id_' . $i),
+                        'owner_id' => $client_inserted_id,
+                        'owner_type' => 3,
+                    ]);
+                }
+                //if ($this->form_validation->run('contactValue') == TRUE) {
+                $this->ClientModel->createContacts($contactArray);
+                //}
+                //client employee relation = $ceRelation
+                $orderFlexUserArray['office_id']=0;
+                $orderFlexUserArray['client_parent_id']=0;
 
-            //contact insertion
-            $contactArray = array();
-            $contactArray = [];
-            $contact_counter = $this->input->post('contact_counter');
-            if ($contact_counter == "" || $contact_counter == 0 || $contact_counter == NULL) {
-                $contact_counter = 2;
+                $ceRelation = array();
+                $ceRelation['client_id'] = $client_inserted_id;
+                $ceRelation['client_pairID'] = $this->input->post('assign_dsr');
+                $orderFlexUserArray['client_pairID']=$this->input->post('assign_dsr');
+                $explodedString = explode(".", $ceRelation['client_pairID']);
+                $ceRelation['handler_id'] = end($explodedString);
+                $orderFlexUserArray['handler_id']=end($explodedString);
+                //$this->session->set_flashdata('success_clientPaid_handler_insertion', 'Client successfully created');
+                $ceRelation['is_active'] = 1;
+                $this->ClientModel->insertClientPairAndHandlerID($ceRelation);
+                echo json_encode($orderFlexUserArray);
+                $this->clientCurl("https://clients.onukit.com/totalforecast/0v1/Clt_add", "admin@total.com","abcdtotal",$orderFlexUserArray);
+                $this->session->set_flashdata('success', 'Client successfully created');
+            }else{
+                $this->session->set_flashdata('success', 'This client already registered!');
             }
-            for ($i = 1; $i <= $contact_counter; $i++) {
-                $this->form_validation->set_rules('contact_value_' . $i, 'Contact Value', 'required');
-            }
-            for ($i = 1; $i <= $contact_counter; $i++) {
-                array_push($contactArray, [
-                    'contact_value' => $this->input->post('contact_value_' . $i),
-                    'contact_type_id' => $this->input->post('contact_type_id_' . $i),
-                    'owner_id' => $client_inserted_id,
-                    'owner_type' => 3,
-                ]);
-            }
-            //if ($this->form_validation->run('contactValue') == TRUE) {
-            $this->ClientModel->createContacts($contactArray);
-            //}
-            //client employee relation = $ceRelation
-            $ceRelation = array();
-            $ceRelation['client_id'] = $client_inserted_id;
-            $ceRelation['client_pairID'] = $this->input->post('assign_dsr');
-            $explodedString = explode(".", $ceRelation['client_pairID']);
-            $ceRelation['handler_id'] = end($explodedString);
-            //$this->session->set_flashdata('success_clientPaid_handler_insertion', 'Client successfully created');
-            $ceRelation['is_active'] = 1;
-            $this->ClientModel->insertClientPairAndHandlerID($ceRelation);
-
-            $this->session->set_flashdata('success', 'Client successfully created');
             redirect(base_url() . 'client/clientList');
         }
     }
+    public function clientCurl($url,$username,$password,$request_body){
+        $myJSonDatum = json_encode($request_body);
+        if($ch=curl_init($url)){
+            $curl_header = array();
+            $curl_header[] = 'username: '.$username;
+            $curl_header[] = 'password: '.$password;
+            curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json','Content-Length: ' . strlen($myJSonDatum)));
+            curl_setopt( $ch , CURLOPT_HEADER , 1 ) ;
+//            curl_setopt( $ch, CURLOPT_USERPWD , $username . ':' . $password ) ; //basic_auth
+            curl_setopt($ch, CURLOPT_HTTPHEADER, $curl_header);// add username pass in header
 
+            curl_setopt( $ch , CURLOPT_TIMEOUT , 30 ) ;
+            curl_setopt($ch, CURLOPT_POST, 1);
+            curl_setopt($ch, CURLOPT_POSTFIELDS,$myJSonDatum);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            $curl_response=curl_exec($ch);
+            $response=json_decode($curl_response);
+            curl_close($ch);
+
+            echo $response;
+        }
+    }
 
     //TODO: "create update function" - Mohsin
     public function updateClient($client_id)
@@ -159,7 +199,7 @@ class Client extends CI_Controller
         $client_info = $this->ClientModel->getClient($client_id);
 
         $this->form_validation->set_rules('name', 'Distributor Name:', 'required');
-        $this->form_validation->set_rules('representative_name', 'Representative Name:', 'required');
+//        $this->form_validation->set_rules('representative_name', 'Representative Name:', 'required');
         $this->form_validation->set_rules('client_code', 'Client Code:', 'required');
         $this->form_validation->set_rules('virtual_account_no', 'Virtual A/C No:', 'required');
         $contact_counter = $this->input->post('contact_counter');
@@ -342,6 +382,7 @@ class Client extends CI_Controller
                     $newPassword = sha1($this->input->post('newPassword'));
                     $confirmNewPassword = sha1($this->input->post('confirmNewPassword'));
                     $userArray['password'] = sha1($this->input->post('newPassword'));
+
                     $this->ClientModel->changePassword($user_id, $userArray);
                     $this->session->set_flashdata('success', 'User credentials successfully updated.');
                     redirect(base_url() . 'client/updateClient/' . $clientId);

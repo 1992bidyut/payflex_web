@@ -3,7 +3,7 @@
         <div class="widget-thumb widget-bg-color-white text-uppercase margin-bottom-20 bordered">
             <h4 class="widget-thumb-heading"><?php echo $wtTitle; ?></h4>
             <div class="widget-thumb-wrap">
-                <i class="widget-thumb-icon <?php echo $wtBGColor ." ".$wtIcon;?>"></i>
+                <i class="widget-thumb-icon <?php echo $wtIcon;?>"style="background-color: <?php echo $wtBGColor;?>"></i>
                 <div class="widget-thumb-body">
                     <span class="widget-thumb-subtitle"><?php echo $wtSubTitle; ?></span>
                     <a href="<?php echo base_url($wtHREF);?>">

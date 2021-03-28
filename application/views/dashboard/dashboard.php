@@ -9,16 +9,16 @@
             $myCIRef->load->view('dashboard/widgetThumb', array( 'wtID'=>$wtID, 'wtTitle'=>$wtTitle, 'wtSubTitle'=>$wtSubTitle, 'wtBGColor'=>$wtBGColor,'wtIcon'=>$wtIcon,'wtHREF'=>$wtHREF));
         };
         //--------------------------------  TODAY'S Order count  -------------------------------->    
-        addWtView("OrderCountBox","TODAY's Order","Count","bg-yellow","icon-anchor","Dashboard/orderDetailsTable/");
+        addWtView("OrderCountBox","TODAY's Order","Count","#F8981C","icon-anchor","Dashboard/orderDetailsTable/");
 //        $this->load->view('dashboard/widgetThumb', array( 'wtID'=>"OrderCountBox", 'wtTitle'=>"TODAY's Order", 'wtSubTitle'=>"Count", 'wtBGColor'=>"bg-yellow",'wtIcon'=>"icon-plus",'wtHREF'=>"Dashboard/orderDetailsTable/"));
         //--------------------------------  TODAY'S Payment Counts  -----------------------------his->
-        addWtView("PaymentCountBox","TODAY'S Payment","Count","bg-blue","icon-trophy","Dashboard/orderDetailsTable/");
+        addWtView("PaymentCountBox","TODAY'S Payment","Count","#0C4DA2","icon-trophy","Dashboard/orderDetailsTable/");
         //---------------- Payment Validated Count ---------------->>
-        addWtView("PaymentValidatedCountBox","Today's Granted Payment","Granted","bg-green","icon-check","Dashboard/orderDetailsTable/");
+        addWtView("PaymentValidatedCountBox","Today's Granted Payment","Granted","#4295D1","icon-check","Dashboard/orderDetailsTable/");
         //----------------------------Payment Amount Total---->>
-        addWtView("PaymentAmountTotalBox","Today's Payment Amount","Total","bg-blue","icon-wallet","Dashboard/orderDetailsTable/");
+        addWtView("PaymentAmountTotalBox","Today's Payment Amount","Total","#E30033","icon-wallet","Dashboard/orderDetailsTable/");
         //----------------------------Payment Target Amount---->>
-        addWtView("PaymentTargetAmountBox","Today's Target Amount","Amount","bg-red","icon-target","Dashboard/orderDetailsTable/");
+        addWtView("PaymentTargetAmountBox","Today's Target Amount","Amount","#4C4D4F","icon-target","Dashboard/orderDetailsTable/");
 
 
     ?>

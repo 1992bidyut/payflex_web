@@ -19,7 +19,31 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="571daff3-120e-4fae-92da-81dcf9e1bc68" name="Default Changelist" comment="allow and disallow edit from leaderboard and order list also print modification" />
+    <list default="true" id="571daff3-120e-4fae-92da-81dcf9e1bc68" name="Default Changelist" comment="allow and disallow edit from leaderboard and order list also print modification">
+      <change afterPath="$PROJECT_DIR$/application/controllers/OfferForClient.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/views/offer/offer.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/views/offer/registration.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/del_logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/offer_1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/offer_2.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/config/database.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Client.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Client.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/models/ClientModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/ClientModel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/client/clientShow.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/client/clientShow.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/dashboard/dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/dashboard/dashboard.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/dashboard/widgetThumb.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/dashboard/widgetThumb.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/employee/employeeShow.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/employee/employeeShow.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/finance/finance_filter.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/finance/finance_filter.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/finance/finance_report.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/finance/finance_report.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/layouts/main_template.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/layouts/main_template.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/leader/leader.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/leader/leader.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/leader/leader_filter.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/leader/leader_filter.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/orders/oder_filter.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/orders/oder_filter.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/orders/orderlistview.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/orders/orderlistview.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/user/usersList.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/user/usersList.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/logo.png" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -81,19 +105,21 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/application/views/finance" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Query" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\local_server\htdocs\payflex\webapp\application\views\finance" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\local_server\htdocs\payflex\webapp\application\views\leader" />
       <recent name="D:\local_server\htdocs\payflex\webapp\application\views" />
       <recent name="C:\MAMP\htdocs\payflex_web\assets\global\css" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\local_server\htdocs\payflex\webapp\Query" />
+      <recent name="D:\local_server\htdocs\payflex\webapp\assets\images" />
+      <recent name="D:\local_server\htdocs\payflex\webapp\application\views\finance" />
     </key>
   </component>
   <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
@@ -157,14 +183,27 @@
       <workItem from="1601660550788" duration="17000" />
       <workItem from="1603217967423" duration="4259000" />
       <workItem from="1603300005983" duration="1452000" />
-      <workItem from="1603311208464" duration="617000" />
-    </task>
-    <task id="LOCAL-00021" summary="dashboard fixing">
-      <created>1598295193649</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1598295193649</updated>
+      <workItem from="1603311208464" duration="1286000" />
+      <workItem from="1603981989637" duration="4577000" />
+      <workItem from="1604434154077" duration="74000" />
+      <workItem from="1604434235472" duration="4783000" />
+      <workItem from="1606635827661" duration="4710000" />
+      <workItem from="1606698032922" duration="19000" />
+      <workItem from="1606699555103" duration="756000" />
+      <workItem from="1606707420114" duration="11000" />
+      <workItem from="1609456181084" duration="484000" />
+      <workItem from="1609529598528" duration="26000" />
+      <workItem from="1609589495065" duration="2559000" />
+      <workItem from="1609621176102" duration="2194000" />
+      <workItem from="1609924504839" duration="644000" />
+      <workItem from="1610135212734" duration="613000" />
+      <workItem from="1612299903827" duration="861000" />
+      <workItem from="1613452244707" duration="6047000" />
+      <workItem from="1613542257386" duration="369000" />
+      <workItem from="1615661239366" duration="166000" />
+      <workItem from="1616656007613" duration="2692000" />
+      <workItem from="1616781516879" duration="949000" />
+      <workItem from="1616914288091" duration="3698000" />
     </task>
     <task id="LOCAL-00022" summary="dashboard fixing">
       <created>1598295682197</created>
@@ -502,7 +541,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603311440239</updated>
     </task>
-    <option name="localTasksCounter" value="70" />
+    <task id="LOCAL-00070" summary="allow and disallow edit from leaderboard and order list also print modification">
+      <created>1603311898599</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1603311898599</updated>
+    </task>
+    <option name="localTasksCounter" value="71" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -559,28 +605,29 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="657" y="285" width="488" height="264" key="MultipleFileMergeDialog/0.0.1536.834/1920.0.1366.738@0.0.1536.834" timestamp="1597333331997" />
-    <state x="498" y="140" key="NewPhpClassDialog" timestamp="1600195935565">
+    <state x="498" y="140" key="NewPhpClassDialog" timestamp="1604434738929">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="498" y="140" key="NewPhpClassDialog/0.0.1536.834/1920.0.1366.738@0.0.1536.834" timestamp="1600195935565" />
-    <state x="604" y="336" key="NewPhpFileDialog" timestamp="1597327754886">
+    <state x="498" y="140" key="NewPhpClassDialog/0.0.1536.834/1920.0.1366.738@0.0.1536.834" timestamp="1604434738929" />
+    <state x="604" y="336" key="NewPhpFileDialog" timestamp="1604437762884">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="604" y="332" key="NewPhpFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1597323368425" />
-    <state x="604" y="336" key="NewPhpFileDialog/0.0.1536.834/1920.0.1366.738@0.0.1536.834" timestamp="1597327754886" />
-    <state x="212" y="30" key="SettingsEditor" timestamp="1597595199864">
+    <state x="604" y="336" key="NewPhpFileDialog/0.0.1536.834/1920.0.1366.738@0.0.1536.834" timestamp="1604437762884" />
+    <state x="212" y="30" key="SettingsEditor" timestamp="1604434696147">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="380" y="106" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1597323342006" />
+    <state x="212" y="30" key="SettingsEditor/0.0.1536.834/1920.0.1366.738@0.0.1536.834" timestamp="1604434696147" />
     <state x="212" y="30" key="SettingsEditor/0.0.1536.834@0.0.1536.834" timestamp="1597595199864" />
     <state x="555" y="51" key="VCS.ChangeListViewerDialog" timestamp="1597831983474">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="555" y="51" key="VCS.ChangeListViewerDialog/0.0.1536.834@0.0.1536.834" timestamp="1597831983474" />
-    <state x="361" y="137" key="Vcs.Push.Dialog.v2" timestamp="1603311474384">
+    <state x="361" y="137" key="Vcs.Push.Dialog.v2" timestamp="1603311900522">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="361" y="137" key="Vcs.Push.Dialog.v2/0.0.1536.834/1920.0.1366.738@0.0.1536.834" timestamp="1603311474384" />
+    <state x="361" y="137" key="Vcs.Push.Dialog.v2/0.0.1536.834/1920.0.1366.738@0.0.1536.834" timestamp="1603311900522" />
     <state x="361" y="137" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1598413759238" />
     <state x="561" y="232" width="413" height="352" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog" timestamp="1597174798873">
       <screen x="0" y="0" width="1536" height="824" />
@@ -604,34 +651,41 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="530" y="205" key="git4idea.merge.GitMergeDialog/0.0.1536.834/1920.0.1366.738@0.0.1536.834" timestamp="1598277224717" />
-    <state x="425" y="189" key="run.anything.popup" timestamp="1600899853727">
+    <state x="425" y="189" key="run.anything.popup" timestamp="1604434266693">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1597253903389" />
-    <state x="425" y="189" key="run.anything.popup/0.0.1536.834/1920.0.1366.738@0.0.1536.834" timestamp="1600899853727" />
+    <state x="425" y="189" key="run.anything.popup/0.0.1536.834/1920.0.1366.738@0.0.1536.834" timestamp="1604434266693" />
     <state x="425" y="189" key="run.anything.popup/0.0.1536.834@0.0.1536.834" timestamp="1597808823928" />
-    <state x="498" y="178" width="672" height="538" key="search.everywhere.popup" timestamp="1597183940953">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="498" y="180" width="672" height="545" key="search.everywhere.popup" timestamp="1604434262059">
+      <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/-1920.8.1920.1040/0.0.1920.1040/1920.-368.1080.1880@0.0.1920.1040" timestamp="1596710911768" />
     <state x="498" y="178" width="672" height="538" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1597183940953" />
+    <state x="498" y="180" width="672" height="545" key="search.everywhere.popup/0.0.1536.834/1920.0.1366.738@0.0.1536.834" timestamp="1604434262059" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="php-line-method">
-          <url>file://$PROJECT_DIR$/application/controllers/Client.php</url>
-          <line>143</line>
-          <properties>
-            <option name="className" value="\Client" />
-            <option name="methodName" value="createClient2" />
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/application/views/payment/paymentDetail.php</url>
           <line>71</line>
           <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/application/controllers/Client.php</url>
+          <line>383</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/application/controllers/Client.php</url>
+          <line>155</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/application/controllers/Client.php</url>
+          <line>164</line>
+          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -95,7 +95,7 @@ License: You must have a valid license purchased only from themeforest(the above
             <div class="page-logo">
                 payFlex
                 <a href="<?php echo base_url('dashboard/index'); ?>">
-                    <img class="logo-default img-responsive" width="100" height="100" style="margin-top: 10px" src="<?php echo base_url('assets/images/logo.png'); ?>" alt="logo" />
+                    <img class="logo-default img-responsive" width="60" height="60" style="margin-top: 10px" src="<?php echo base_url('assets/images/logo.png'); ?>" alt="logo" />
                 </a>
                 <div class="menu-toggler sidebar-toggler">
                     <!-- DOC: Remove the above "hide" to enable the sidebar toggler button on header -->
@@ -130,7 +130,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
                         <li>
                             <a href="<?php echo base_url('Mask/userMaskInfoShow'); ?>">
-                                <button type="button" class="btn btn-primary" style="border-radius: 15px;">
+                                <button type="button" class="btn btn-primary" style="border-radius: 15px; background-color: #ED5826">
                                     Payment Notification <span class="badge badge-danger"><b>
                                             <?php
                                             echo $this->session->userdata('currentMaskRequest');
@@ -142,7 +142,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
                         <li class="dropdown dropdown-user dropdown-dark">
                             <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                                <span class="username username-hide-on-mobile"> <?php echo $this->session->userdata('user_name'); ?> </span>
+                                <span class="username username-hide-on-mobile" style="color: #ED5826"> <?php echo $this->session->userdata('user_name'); ?> </span>
                                 <!-- DOC: Do not remove below empty space(&nbsp;) as its purposely used -->
                                 <img alt="" class="img-circle" src="<?php echo base_url('assets/layouts/layout4/img/avatar.png'); ?>" /> </a>
                             <ul class="dropdown-menu dropdown-menu-default">

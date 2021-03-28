@@ -32,7 +32,7 @@
 ?>
 </div>
 
-        <div class="portlet box blue">
+        <div class="portlet box" style="background-color: #F8981C">
             <div class="portlet-title">
                 <div class="caption">
                     <i class="fa fa-cogs"></i>Order Lists </div>

@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-md-12">
             <!-- BEGIN EXAMPLE TABLE PORTLET-->
-            <div class="portlet box blue">
+            <div class="portlet box" style="background-color: #F8981C">
                 <div class="portlet-title">
                     <div class="caption">
                         <i class="fa fa-cogs"></i>SHOW ALL USER </div>
