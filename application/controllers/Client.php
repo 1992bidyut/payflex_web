@@ -155,7 +155,7 @@ class Client extends CI_Controller
                 //$this->session->set_flashdata('success_clientPaid_handler_insertion', 'Client successfully created');
                 $ceRelation['is_active'] = 1;
                 $this->ClientModel->insertClientPairAndHandlerID($ceRelation);
-                echo json_encode($orderFlexUserArray);
+//                echo json_encode($orderFlexUserArray);
                 $this->clientCurl("https://clients.onukit.com/totalforecast/0v1/Clt_add", "admin@total.com","abcdtotal",$orderFlexUserArray);
                 $this->session->set_flashdata('success', 'Client successfully created');
             }else{
