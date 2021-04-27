@@ -311,7 +311,6 @@ class ClientModel extends CI_Model
         else
             return false;
     }
-
     public function getClientByCode($code){
         $this->db->select('*');
         $this->db->from('client_info');
@@ -320,5 +319,4 @@ class ClientModel extends CI_Model
         $result = $rslt->result_array();
         return $result;
     }
-
 }

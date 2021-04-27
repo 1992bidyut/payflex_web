@@ -1,4 +1,14 @@
-RewriteEngine On
+
+Options +FollowSymLinks
+Options -Indexes
+DirectoryIndex index.php
+RewriteEngine on
+RewriteCond $1 !^(index\.php|img|css|js|robots\.txt|favicon\.ico)
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ index.php/$1 [L]
+RewriteRule ^(.*)$ index.php?/$1 [L,QSA]
+
+
+addType audio/3gpp 3gp
+addType video/3gpp 3gp
+AddType image/jpeg .jpeg .jpg .jpe .JPG

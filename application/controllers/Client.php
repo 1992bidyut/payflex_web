@@ -155,7 +155,7 @@ class Client extends CI_Controller
                 //$this->session->set_flashdata('success_clientPaid_handler_insertion', 'Client successfully created');
                 $ceRelation['is_active'] = 1;
                 $this->ClientModel->insertClientPairAndHandlerID($ceRelation);
-//                echo json_encode($orderFlexUserArray);
+                //echo json_encode($orderFlexUserArray);
                 $this->clientCurl("https://clients.onukit.com/totalforecast/0v1/Clt_add", "admin@total.com","abcdtotal",$orderFlexUserArray);
                 $this->session->set_flashdata('success', 'Client successfully created');
             }else{
@@ -190,6 +190,7 @@ class Client extends CI_Controller
     //TODO: "create update function" - Mohsin
     public function updateClient($client_id)
     {
+        $orderFlexUserArray = array();
         $operation = 'update';
         $this->load->model('ClientModel');
 
@@ -232,38 +233,52 @@ class Client extends CI_Controller
             $this->load->view('layouts/main_template', $datas);
         } else {
             $formArray = array();
+            $orderFlexUserArray['catagory_id']=1;
             $formArray['name'] = $this->input->post('name');
+            $orderFlexUserArray['name']=$this->input->post('name');
             $formArray['representative_name'] = $this->input->post('representative_name');
             $formArray['client_code'] = $this->input->post('client_code');
+            $orderFlexUserArray['client_code']=$this->input->post('client_code');
             $formArray['virtual_account_no'] = $this->input->post('virtual_account_no');
             $formArray['is_active'] = $this->input->post('is_active');
 
             $this->ClientModel->updateClient($client_id, $formArray);
 
             //checking if handler exist against the client id
+            $orderFlexUserArray['office_id']=0;
+            $orderFlexUserArray['client_parent_id']=0;
             if (empty($this->ClientModel->checkClientEmployeeRelation($client_id))) {
                 $ceRelation = array();
                 $ceRelation['client_id'] = $client_id;
                 $ceRelation['client_pairID'] = $this->input->post('assign_dsr');
+                $orderFlexUserArray['client_pairID']=$this->input->post('assign_dsr');
                 $explodedString = explode(".", $ceRelation['client_pairID']);
                 $ceRelation['handler_id'] = end($explodedString);
+                $orderFlexUserArray['handler_id']=end($explodedString);
                 //$this->session->set_flashdata('success_clientPaid_handler_insertion', 'Client successfully created');
                 $ceRelation['is_active'] = 0;
                 $this->ClientModel->insertClientPairAndHandlerID($ceRelation);
                 $this->session->set_flashdata('success', 'Client successfully updated.');
+//                $this->clientCurl("https://clients.onukit.com/totalforecast/0v1/Client_update", "admin@total.com","abcdtotal",$orderFlexUserArray);
+                $this->clientCurl("http://local.orderflex/Client_update", "admin@total.com","abcdtotal",$orderFlexUserArray);
                 redirect(base_url() . 'client/clientList');
+            }else{
+                //update handler
+                $ceRelationUpdate = array();
+                //$ceRelationUpdate['client_id'] = $this->input->post('client_id');
+                $ceRelationUpdate['client_pairID'] = $this->input->post('assign_dsr');
+                $orderFlexUserArray['client_pairID']=$this->input->post('assign_dsr');
+                $explodedString = explode(".", $ceRelationUpdate['client_pairID']);
+                $ceRelationUpdate['handler_id'] = end($explodedString);
+                $orderFlexUserArray['handler_id']=end($explodedString);
+                //$this->session->set_flashdata('success_clientPaid_handler_insertion', 'Client successfully created');
+                //$ceRelation['is_active'] = 1;
+                $this->ClientModel->updateDsr($client_id, $ceRelationUpdate);
+//                echo json_encode($orderFlexUserArray);
+//                die();
+//                $this->clientCurl("https://clients.onukit.com/totalforecast/0v1/Client_update", "admin@total.com","abcdtotal",$orderFlexUserArray);
+                $this->clientCurl("http://local.orderflex/Client_update", "admin@total.com","abcdtotal",$orderFlexUserArray);
             }
-
-            //update handler
-            $ceRelationUpdate = array();
-            //$ceRelationUpdate['client_id'] = $this->input->post('client_id');
-            $ceRelationUpdate['client_pairID'] = $this->input->post('assign_dsr');
-            $explodedString = explode(".", $ceRelationUpdate['client_pairID']);
-            $ceRelationUpdate['handler_id'] = end($explodedString);
-            //$this->session->set_flashdata('success_clientPaid_handler_insertion', 'Client successfully created');
-            //$ceRelation['is_active'] = 1;
-            $this->ClientModel->updateDsr($client_id, $ceRelationUpdate);
-
 
             // update contact
             $contactArray = array();

@@ -33,6 +33,7 @@
             <div w3-include-html="leader_filter.php"></div>
 
         </div>
+<!--            --><?php //checkPermission(1)?>
 
         <div class="portlet box" style="background-color: #F8981C">
             <div class="portlet-title">
@@ -140,11 +141,11 @@
                                         <?php //echo $data['image_name']
                                         if (!empty($data['image_name'])) {
                                             $localImgageBasePath = "http://localhost/payflex/asset/images/";
-                                            $remorteImageBasePath = "http://demo.onuserver.com/payFlex/asset/images/payment/";
+                                            $remorteImageBasePath = "http://demo.onuserver.com/payFlex/asset/images/";
                                             $liveImageBasePath = "https://payflex.onukit.com/total/asset/images/payment/";
 
                                             $imageName = $data['image_name'];
-                                            $imagePath = $remorteImageBasePath . $data['clientId'] . "/";
+                                            $imagePath = $liveImageBasePath . $data['clientId'] . "/";
                                             $imagePath .= $imageName;
                                             echo '<img style="width: 100%; hight:10px;" src="' . $imagePath . '" alt="' . $imageName . '">';
                                         } else {
@@ -244,7 +245,7 @@
     </div>
 </div>
 <div class="scroll-buttons">
-    <button id="slideLeft" class="btn" type="button"> ⬅️Scroll left</button>
+    <button id="slideLeft" class="btn" type="button" >⬅️Scroll left</button>
     <button id="slideRight" class="btn" type="button">Scroll right ➡️</button>
 </div>
 <script type="text/javascript">

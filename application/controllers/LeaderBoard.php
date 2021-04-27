@@ -9,6 +9,7 @@ class LeaderBoard extends CI_Controller{
         $this->load->model('LeaderBoardModel');
         $this->load->model('Payment_Model');
         $this->load->model('ProductModel');
+
     }
     
     public function index()

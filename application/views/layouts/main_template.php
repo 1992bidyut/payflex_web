@@ -822,8 +822,8 @@ License: You must have a valid license purchased only from themeforest(the above
 
     <!-- BEGIN FOOTER -->
     <div class="page-footer">
-        <div class="page-footer-inner"> 2014 &copy; Metronic by keenthemes.
-            <a href="http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes" title="Purchase Metronic just for 27$ and get lifetime updates for free" target="_blank">Purchase Metronic!</a>
+        <div class="page-footer-inner"> 2020 &copy; PayFlex by 
+            <a href="http://onutiative.com/" target="_blank">Onutiative Ltd.</a>
         </div>
         <div class="scroll-to-top">
             <i class="icon-arrow-up"></i>

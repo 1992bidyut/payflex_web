@@ -48,9 +48,9 @@
         urlQueryString = startDate+"/"+endDate;
         
         setValFromAjaxToDiv("#OrderCountBox", "dashboard/orderCounts/", urlQueryString );
-		setValFromAjaxToDiv("#PaymentCountBox", "dashboard/paymentCounts/", urlQueryString );
-		setValFromAjaxToDiv("#PaymentValidatedCountBox", "dashboard/validatedPaymentCounts/", urlQueryString );
-		setValFromAjaxToDiv("#PaymentAmountTotalBox", "dashboard/todayPayment/", urlQueryString );
-		setValFromAjaxToDiv("#PaymentTargetAmountBox", "dashboard/targetPayment/", urlQueryString );
+        setValFromAjaxToDiv("#PaymentCountBox", "dashboard/paymentCounts/", urlQueryString );
+        setValFromAjaxToDiv("#PaymentValidatedCountBox", "dashboard/validatedPaymentCounts/", urlQueryString );
+        setValFromAjaxToDiv("#PaymentAmountTotalBox", "dashboard/todayPayment/", urlQueryString );
+        setValFromAjaxToDiv("#PaymentTargetAmountBox", "dashboard/targetPayment/", urlQueryString );
     });
 </script>

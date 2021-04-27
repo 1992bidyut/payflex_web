@@ -19,6 +19,22 @@ class User_model extends CI_Model
 		return $sqlReturn;
 	}
 
+	public function getPermission($userid,$moduleid){
+		$query = $this->db->select('*')
+			->from('tbl_userpermission')
+			->where('tbl_userpermission.userid',$userid)
+			->where('tbl_userpermission.isActive',1)
+			->where('tbl_userpermission.moduleid',$moduleid)
+			->get();
+		if($query->num_rows() === 1 )
+		{
+			$sqlReturn = $query->result_array();
+		}else{
+			$sqlReturn = false;
+		}
+		//	die($this->db->last_query());
+		return $sqlReturn;
+	}
 
 
 	//FOR GETTING ALL USER BY SANKER

@@ -121,9 +121,9 @@
 
 
 
-        <div class="form-group" >
-            <div class="col-md-offset-2 col-md-10" >
-                <button type="submit" class="btn" style="background-color: #F8981C;color: #ffffff">Search</button>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <button type="submit" class="btn" style="background-color: #F8981C; color: #ffffff">Search</button>
             </div>
         </div>
 
