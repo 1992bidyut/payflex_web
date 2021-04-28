@@ -29,11 +29,12 @@
             <?php
             $myCIRef =& get_instance();
             $myCIRef->load->view('leader/leader_filter');
+            $myCIRef->load->helper('prefix_auhentication_helper');
+            $permissionIndex=checkPermission();
             ?>
             <div w3-include-html="leader_filter.php"></div>
 
         </div>
-<!--            --><?php //checkPermission(1)?>
 
         <div class="portlet box" style="background-color: #F8981C">
             <div class="portlet-title">
@@ -168,7 +169,7 @@
                                         <div class="clearfix">
 
                                             <a id="<?php echo "indent" . $data['orderID'] ?>"
-                                               onclick="indentInput(<?php echo $data['orderID'] ?>)"
+                                               onclick="indentInput(<?php echo $data['orderID'] ?>,<?php echo $permissionIndex; ?>)"
                                                class="btn btn-sm <?php if ($data['indent_no'] !=null) {
                                                    echo "green-dark";
                                                } else {
@@ -183,7 +184,7 @@
                                             </a>
 
                                             <a id="<?php echo "collection" . $data['paymentID'] ?>"
-                                               onclick="collectionInput(<?php echo $data['paymentID'] ?>)"
+                                               onclick="collectionInput(<?php echo $data['paymentID'] ?>,<?php echo $permissionIndex; ?>)"
                                                class="btn btn-sm <?php if ($data['collection_no'] != null) {
                                                    echo "green-dark";
                                                } else {
@@ -198,7 +199,7 @@
                                             </a>
 
                                             <a id="<?php echo "replace" . $data['paymentID'] ?>"
-                                               onclick="replaceInput(<?php echo $data['paymentID'] ?>,<?php echo $data['isEditable'] ?>)"
+                                               onclick="replaceInput(<?php echo $data['paymentID'] ?>,<?php echo $data['isEditable'] ?>,<?php echo $permissionIndex; ?>)"
                                                class="btn btn-sm <?php if ($data['isEditable'] != 0) {
                                                    echo "red";
                                                } else {
@@ -215,7 +216,7 @@
                                             </a>
 
                                             <a id="<?php echo "accepted" . $data['paymentID'] ?>"
-                                               onclick="acceptPayment(<?php echo $data['paymentID'] ?>)"
+                                               onclick="acceptPayment(<?php echo $data['paymentID'] ?>,<?php echo $permissionIndex; ?>)"
                                                class="btn btn-sm <?php if ($data['action_flag'] == 1 || $data['action_flag'] == 2 || $data['action_flag'] == 3) {
                                                    echo "green-dark";
                                                } else {
@@ -250,10 +251,64 @@
 </div>
 <script type="text/javascript">
     //    Accept payment
+    var SUPER_EDITING=1;
+    var ORDER_EDITING=2;
+    var PAYMENT_EDITING=3;
+    var ONLY_VIEWER=4;
+    var EDITING=5;
+    var API_COMMUNICATOR=6;
 
     document.getElementsByName('sample_3_length').value = "-1";
 
-    function acceptPayment(id) {
+    function acceptPayment(id,permissionIndex) {
+        console.log('acceptPayment Index>'+permissionIndex);
+        if (permissionIndex==SUPER_EDITING||permissionIndex==EDITING){
+            acceptPaymentAJAX(id);
+        }else if (permissionIndex==PAYMENT_EDITING){
+            acceptPaymentAJAX(id);
+        }else {
+            alert("Sorry! You are not authorize to do this operation.");
+        }
+    }
+
+
+
+    function collectionInput(id,permissionIndex) {
+        console.log('collectionInput Index>'+permissionIndex);
+        console.log('indentInput Index>'+permissionIndex);
+        if (permissionIndex==SUPER_EDITING||permissionIndex==EDITING){
+            collectionInputAJAX(id)
+        }else if (permissionIndex==PAYMENT_EDITING){
+            collectionInputAJAX(id)
+        }else {
+            alert("Sorry! You are not authorize to do this operation.");
+        }
+
+    }
+
+    function indentInput(id,permissionIndex) {
+        console.log('indentInput Index>'+permissionIndex);
+        if (permissionIndex==SUPER_EDITING||permissionIndex==EDITING){
+            indentInputAJAX(id)
+        }else if (permissionIndex==ORDER_EDITING){
+            indentInputAJAX(id)
+        }else {
+            alert("Sorry! You are not authorize to do this operation.");
+        }
+    }
+
+    function replaceInput(id,flag,permissionIndex) {
+        console.log('replaceInput Index>'+permissionIndex);
+        if (permissionIndex==SUPER_EDITING||permissionIndex==EDITING){
+            replaceInputAJAX(id,flag);
+        }else if (permissionIndex==PAYMENT_EDITING){
+            replaceInputAJAX(id,flag);
+        }else {
+            alert("Sorry! You are authorize to do this operation.");
+        }
+    }
+
+    function acceptPaymentAJAX(id) {
         console.log("Accept Click! " + id);
         $.ajax({
             url: "<?php echo base_url('payment/paymentAccept') ?>",
@@ -271,31 +326,32 @@
         });
     }
 
-    function replaceInput(id,flag) {
-            console.log(id);
-            var setFlag;
-            if (flag==0){
-                setFlag=1
-            }else {
-                setFlag=0;
+    function replaceInputAJAX(id,flag) {
+        console.log(id);
+        var setFlag;
+        if (flag==0){
+            setFlag=1
+        }else {
+            setFlag=0;
+        }
+        $.ajax({
+            url: "<?php echo base_url('payment/replaceUpdate') ?>",
+            type: "POST",
+            data: {id: id,flag: setFlag},
+            success: function (response) {
+                console.log("AJAX Success Called!");
+                $("#replace" + id).fadeTo("slow", 0.3, function () {
+                    $(this).css('background-color', 'green-dark');
+                })
+            },
+            error: function () {
+                console.log("AJAX error Called!");
             }
-            $.ajax({
-                url: "<?php echo base_url('payment/replaceUpdate') ?>",
-                type: "POST",
-                data: {id: id,flag: setFlag},
-                success: function (response) {
-                    console.log("AJAX Success Called!");
-                    $("#replace" + id).fadeTo("slow", 0.3, function () {
-                        $(this).css('background-color', 'green-dark');
-                    })
-                },
-                error: function () {
-                    console.log("AJAX error Called!");
-                }
-            });
+        });
     }
 
-    function indentInput(id) {
+
+    function indentInputAJAX(id) {
         var indentNo = prompt("Please type the indent number:", "");
         if (indentNo == null || indentNo == "") {
             console.log("no input");
@@ -318,7 +374,9 @@
             });
         }
     }
-    function collectionInput(id) {
+
+
+    function collectionInputAJAX(id) {
         var collectionNo = prompt("Please type the collection number:", "");
         if (collectionNo == null || collectionNo == "") {
             console.log("no input");

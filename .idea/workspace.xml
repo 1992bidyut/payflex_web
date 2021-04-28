@@ -19,9 +19,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="571daff3-120e-4fae-92da-81dcf9e1bc68" name="Default Changelist" comment="client reg bug fix">
+    <list default="true" id="5e7ca26e-4c96-43b3-9f01-a75fd596ae8b" name="Default" comment="orderflex client info update api integration">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/Client.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Client.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/helpers/helper_prefix.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/helpers/prefix_auhentication_helper.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/models/User_model.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/User_model.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/leader/leader.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/leader/leader.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/orders/orderlistview.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/orders/orderlistview.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,502 +35,67 @@
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="CSS File" />
-      </list>
-    </option>
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="master" />
-      </map>
-    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitToolBoxStore">
-    <option name="projectConfigVersion" value="2" />
-    <option name="recentBranches">
-      <RecentBranches>
-        <option name="branchesForRepo">
-          <list>
-            <RecentBranchesForRepo>
-              <option name="branches">
-                <list>
-                  <RecentBranch>
-                    <option name="branchName" value="master" />
-                    <option name="lastUsedInstant" value="1598392409" />
-                  </RecentBranch>
-                  <RecentBranch>
-                    <option name="branchName" value="bdn_dev" />
-                    <option name="lastUsedInstant" value="1598392408" />
-                  </RecentBranch>
-                </list>
-              </option>
-              <option name="repositoryRootUrl" value="file://$PROJECT_DIR$" />
-            </RecentBranchesForRepo>
-          </list>
-        </option>
-      </RecentBranches>
-    </option>
+  <component name="PhpServers">
+    <servers />
   </component>
-  <component name="PhpDebugGeneral" listening_started="true" />
-  <component name="ProjectId" id="1fig0yWIAnMif1XcwFQ0DLNpMCa" />
+  <component name="ProjectId" id="1rlM55WzxD75lDAXUmZa5cZbo82" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="DatabaseDriversLRU" value="sqlserver&#10;mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Query" />
-    <property name="list.type.of.created.stylesheet" value="CSS" />
-    <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\local_server\htdocs\payflex\webapp\application\views\leader" />
-      <recent name="D:\local_server\htdocs\payflex\webapp\application\views" />
-      <recent name="C:\MAMP\htdocs\payflex_web\assets\global\css" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\local_server\htdocs\payflex\webapp\Query" />
-      <recent name="D:\local_server\htdocs\payflex\webapp\assets\images" />
-      <recent name="D:\local_server\htdocs\payflex\webapp\application\views\finance" />
+      <recent name="D:\XAMPP\htdocs\user.infobuzzer.net\application\views\operatorRoute" />
+      <recent name="D:\XAMPP\htdocs\user.infobuzzer.net\application\models" />
+      <recent name="D:\XAMPP\htdocs\user.infobuzzer.net\application\controllers" />
+      <recent name="D:\XAMPP\htdocs\user.infobuzzer.net\application\views" />
+      <recent name="D:\XAMPP\htdocs\MetronicCI\application\controllers" />
     </key>
   </component>
-  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
+  <component name="RunManager">
+    <configuration default="true" type="js.build_tools.gulp">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+      <method v="2" />
+    </configuration>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="571daff3-120e-4fae-92da-81dcf9e1bc68" name="Default Changelist" comment="" />
-      <created>1596706108773</created>
+      <changelist id="5e7ca26e-4c96-43b3-9f01-a75fd596ae8b" name="Default" comment="" />
+      <created>1489325858154</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1596706108773</updated>
-      <workItem from="1596706110093" duration="11047000" />
-      <workItem from="1596797024482" duration="719000" />
-      <workItem from="1596857361145" duration="1195000" />
-      <workItem from="1596879823858" duration="9005000" />
-      <workItem from="1596941177397" duration="1164000" />
-      <workItem from="1597027472132" duration="891000" />
-      <workItem from="1597028926597" duration="3163000" />
-      <workItem from="1597032113630" duration="16716000" />
-      <workItem from="1597076139624" duration="498000" />
-      <workItem from="1597115412819" duration="1543000" />
-      <workItem from="1597155321416" duration="846000" />
-      <workItem from="1597167800540" duration="14279000" />
-      <workItem from="1597167800540" duration="9143000" />
-      <workItem from="1597182746518" duration="1177000" />
-      <workItem from="1597233818926" duration="3696000" />
-      <workItem from="1597243318428" duration="7477000" />
-      <workItem from="1597292377482" duration="3709000" />
-      <workItem from="1597322077924" duration="2953000" />
-      <workItem from="1597481868591" duration="1424000" />
-      <workItem from="1597486592330" duration="3515000" />
-      <workItem from="1597507480618" duration="334000" />
-      <workItem from="1597507844859" duration="7000" />
-      <workItem from="1597593099776" duration="987000" />
-      <workItem from="1597594111441" duration="888000" />
-      <workItem from="1597595141785" duration="1203000" />
-      <workItem from="1597723498974" duration="1896000" />
-      <workItem from="1597736939593" duration="146000" />
-      <workItem from="1597770358438" duration="1059000" />
-      <workItem from="1598219736739" duration="1450000" />
-      <workItem from="1598289768592" duration="6471000" />
-      <workItem from="1598382110348" duration="853000" />
-      <workItem from="1598392694742" duration="11276000" />
-      <workItem from="1600179182906" duration="8193000" />
-      <workItem from="1600243929989" duration="6851000" />
-      <workItem from="1600321606434" duration="1370000" />
-      <workItem from="1600529213593" duration="647000" />
-      <workItem from="1600531138104" duration="6479000" />
-      <workItem from="1600587963518" duration="1699000" />
-      <workItem from="1600609504507" duration="19920000" />
-      <workItem from="1600715566162" duration="6136000" />
-      <workItem from="1600803127655" duration="275000" />
-      <workItem from="1600894592570" duration="4302000" />
-      <workItem from="1600903884359" duration="1791000" />
-      <workItem from="1600905945821" duration="742000" />
-      <workItem from="1601086209853" duration="50000" />
-      <workItem from="1601340158313" duration="1362000" />
-      <workItem from="1601556340495" duration="597000" />
-      <workItem from="1601660550788" duration="17000" />
-      <workItem from="1603217967423" duration="4259000" />
-      <workItem from="1603300005983" duration="1452000" />
-      <workItem from="1603311208464" duration="1286000" />
-      <workItem from="1603981989637" duration="4577000" />
-      <workItem from="1604434154077" duration="74000" />
-      <workItem from="1604434235472" duration="4783000" />
-      <workItem from="1606635827661" duration="4710000" />
-      <workItem from="1606698032922" duration="19000" />
-      <workItem from="1606699555103" duration="756000" />
-      <workItem from="1606707420114" duration="11000" />
-      <workItem from="1609456181084" duration="484000" />
-      <workItem from="1609529598528" duration="26000" />
-      <workItem from="1609589495065" duration="2559000" />
-      <workItem from="1609621176102" duration="2194000" />
-      <workItem from="1609924504839" duration="644000" />
-      <workItem from="1610135212734" duration="613000" />
-      <workItem from="1612299903827" duration="861000" />
-      <workItem from="1613452244707" duration="6047000" />
-      <workItem from="1613542257386" duration="369000" />
-      <workItem from="1615661239366" duration="166000" />
-      <workItem from="1616656007613" duration="2692000" />
-      <workItem from="1616781516879" duration="949000" />
-      <workItem from="1616914288091" duration="4537000" />
+      <updated>1489325858154</updated>
+      <workItem from="1619546040987" duration="1379000" />
+      <workItem from="1619574033414" duration="13913000" />
     </task>
-    <task id="LOCAL-00023" summary="dashboard fixing">
-      <created>1598295874486</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
+    <task id="LOCAL-00001" summary="orderflex client info update api integration">
+      <created>1619489083586</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1598295874486</updated>
+      <updated>1619489083586</updated>
     </task>
-    <task id="LOCAL-00024" summary="dashboard fixing and side bar change">
-      <created>1598305395549</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1598305395549</updated>
-    </task>
-    <task id="LOCAL-00025" summary="image path bug">
-      <created>1598394424202</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1598394424202</updated>
-    </task>
-    <task id="LOCAL-00026" summary="image path bug">
-      <created>1598394641204</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1598394641204</updated>
-    </task>
-    <task id="LOCAL-00027" summary="image path bug">
-      <created>1598395024094</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1598395024094</updated>
-    </task>
-    <task id="LOCAL-00028" summary="image path bug">
-      <created>1598395433802</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1598395433802</updated>
-    </task>
-    <task id="LOCAL-00029" summary="image path bug">
-      <created>1598396009222</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1598396009222</updated>
-    </task>
-    <task id="LOCAL-00030" summary="image path bug">
-      <created>1598396232392</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1598396232392</updated>
-    </task>
-    <task id="LOCAL-00031" summary="image path bug">
-      <created>1598402851485</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1598402851485</updated>
-    </task>
-    <task id="LOCAL-00032" summary="search update to product list">
-      <created>1598410228063</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1598410228063</updated>
-    </task>
-    <task id="LOCAL-00033" summary="search update to product list">
-      <created>1598410378207</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1598410378207</updated>
-    </task>
-    <task id="LOCAL-00034" summary="search update to product list">
-      <created>1598410657039</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1598410657039</updated>
-    </task>
-    <task id="LOCAL-00035" summary="search update to product list">
-      <created>1598410750338</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1598410750338</updated>
-    </task>
-    <task id="LOCAL-00036" summary="search update to product list">
-      <created>1598410903146</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1598410903146</updated>
-    </task>
-    <task id="LOCAL-00037" summary="search update to product list">
-      <created>1598411176998</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1598411176998</updated>
-    </task>
-    <task id="LOCAL-00038" summary="search update to product list">
-      <created>1598411310390</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1598411310390</updated>
-    </task>
-    <task id="LOCAL-00039" summary="search update to product list">
-      <created>1598411424659</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1598411424659</updated>
-    </task>
-    <task id="LOCAL-00040" summary="search update to product list">
-      <created>1598413648604</created>
-      <option name="number" value="00040" />
-      <option name="presentableId" value="LOCAL-00040" />
-      <option name="project" value="LOCAL" />
-      <updated>1598413648604</updated>
-    </task>
-    <task id="LOCAL-00041" summary="search update to product list">
-      <created>1598413757235</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
-      <option name="project" value="LOCAL" />
-      <updated>1598413757235</updated>
-    </task>
-    <task id="LOCAL-00042" summary="search update to product list">
-      <created>1598417568200</created>
-      <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL-00042" />
-      <option name="project" value="LOCAL" />
-      <updated>1598417568200</updated>
-    </task>
-    <task id="LOCAL-00043" summary="search update to product list">
-      <created>1598465680602</created>
-      <option name="number" value="00043" />
-      <option name="presentableId" value="LOCAL-00043" />
-      <option name="project" value="LOCAL" />
-      <updated>1598465680602</updated>
-    </task>
-    <task id="LOCAL-00044" summary="search update to product list">
-      <created>1598465989823</created>
-      <option name="number" value="00044" />
-      <option name="presentableId" value="LOCAL-00044" />
-      <option name="project" value="LOCAL" />
-      <updated>1598465989823</updated>
-    </task>
-    <task id="LOCAL-00045" summary="search update to product list">
-      <created>1598466242927</created>
-      <option name="number" value="00045" />
-      <option name="presentableId" value="LOCAL-00045" />
-      <option name="project" value="LOCAL" />
-      <updated>1598466242927</updated>
-    </task>
-    <task id="LOCAL-00046" summary="search update to product list">
-      <created>1598466495283</created>
-      <option name="number" value="00046" />
-      <option name="presentableId" value="LOCAL-00046" />
-      <option name="project" value="LOCAL" />
-      <updated>1598466495283</updated>
-    </task>
-    <task id="LOCAL-00047" summary="search update to product list">
-      <created>1598467534499</created>
-      <option name="number" value="00047" />
-      <option name="presentableId" value="LOCAL-00047" />
-      <option name="project" value="LOCAL" />
-      <updated>1598467534499</updated>
-    </task>
-    <task id="LOCAL-00048" summary="search update to product list">
-      <created>1598467609601</created>
-      <option name="number" value="00048" />
-      <option name="presentableId" value="LOCAL-00048" />
-      <option name="project" value="LOCAL" />
-      <updated>1598467609601</updated>
-    </task>
-    <task id="LOCAL-00049" summary="search update to product list">
-      <created>1598467730629</created>
-      <option name="number" value="00049" />
-      <option name="presentableId" value="LOCAL-00049" />
-      <option name="project" value="LOCAL" />
-      <updated>1598467730629</updated>
-    </task>
-    <task id="LOCAL-00050" summary="search update to product list">
-      <created>1598468305393</created>
-      <option name="number" value="00050" />
-      <option name="presentableId" value="LOCAL-00050" />
-      <option name="project" value="LOCAL" />
-      <updated>1598468305394</updated>
-    </task>
-    <task id="LOCAL-00051" summary="search update to product list">
-      <created>1598468910472</created>
-      <option name="number" value="00051" />
-      <option name="presentableId" value="LOCAL-00051" />
-      <option name="project" value="LOCAL" />
-      <updated>1598468910472</updated>
-    </task>
-    <task id="LOCAL-00052" summary="leaderboard data export, but not formated, finance report panel and data export">
-      <created>1598480694484</created>
-      <option name="number" value="00052" />
-      <option name="presentableId" value="LOCAL-00052" />
-      <option name="project" value="LOCAL" />
-      <updated>1598480694484</updated>
-    </task>
-    <task id="LOCAL-00053" summary="leaderboard data export, but not formated, finance report panel and data export">
-      <created>1598480740595</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL-00053" />
-      <option name="project" value="LOCAL" />
-      <updated>1598480740595</updated>
-    </task>
-    <task id="LOCAL-00054" summary="leaderboard data export, but not formated, finance report panel and data export">
-      <created>1598480875959</created>
-      <option name="number" value="00054" />
-      <option name="presentableId" value="LOCAL-00054" />
-      <option name="project" value="LOCAL" />
-      <updated>1598480875959</updated>
-    </task>
-    <task id="LOCAL-00055" summary="data table mod, webapp\assets\pages\scripts\table-datatables-managed">
-      <created>1600116764374</created>
-      <option name="number" value="00055" />
-      <option name="presentableId" value="LOCAL-00055" />
-      <option name="project" value="LOCAL" />
-      <updated>1600116764374</updated>
-    </task>
-    <task id="LOCAL-00056" summary="show order details in order list and indent in orderlist(start)">
-      <created>1600280712419</created>
-      <option name="number" value="00056" />
-      <option name="presentableId" value="LOCAL-00056" />
-      <option name="project" value="LOCAL" />
-      <updated>1600280712421</updated>
-    </task>
-    <task id="LOCAL-00057" summary="show order details in order list and indent in orderlist(start)">
-      <created>1600609570743</created>
-      <option name="number" value="00057" />
-      <option name="presentableId" value="LOCAL-00057" />
-      <option name="project" value="LOCAL" />
-      <updated>1600609570744</updated>
-    </task>
-    <task id="LOCAL-00058" summary="show order details in order list and indent in orderlist(start)">
-      <created>1600625688572</created>
-      <option name="number" value="00058" />
-      <option name="presentableId" value="LOCAL-00058" />
-      <option name="project" value="LOCAL" />
-      <updated>1600625688576</updated>
-    </task>
-    <task id="LOCAL-00059" summary="show order details in order list and indent in orderlist(start)">
-      <created>1600626059616</created>
-      <option name="number" value="00059" />
-      <option name="presentableId" value="LOCAL-00059" />
-      <option name="project" value="LOCAL" />
-      <updated>1600626059616</updated>
-    </task>
-    <task id="LOCAL-00060" summary="show order details in order list and indent in orderlist(start)">
-      <created>1600626262925</created>
-      <option name="number" value="00060" />
-      <option name="presentableId" value="LOCAL-00060" />
-      <option name="project" value="LOCAL" />
-      <updated>1600626262925</updated>
-    </task>
-    <task id="LOCAL-00061" summary="show order details in order list and indent in orderlist(start)">
-      <created>1600627062454</created>
-      <option name="number" value="00061" />
-      <option name="presentableId" value="LOCAL-00061" />
-      <option name="project" value="LOCAL" />
-      <updated>1600627062454</updated>
-    </task>
-    <task id="LOCAL-00062" summary="show order details in order list and indent in orderlist(start)">
-      <created>1600630923273</created>
-      <option name="number" value="00062" />
-      <option name="presentableId" value="LOCAL-00062" />
-      <option name="project" value="LOCAL" />
-      <updated>1600630923274</updated>
-    </task>
-    <task id="LOCAL-00063" summary="show order details in order list and indent in orderlist(start)">
-      <created>1600631663398</created>
-      <option name="number" value="00063" />
-      <option name="presentableId" value="LOCAL-00063" />
-      <option name="project" value="LOCAL" />
-      <updated>1600631663399</updated>
-    </task>
-    <task id="LOCAL-00064" summary="payment details modification">
-      <created>1600642870558</created>
-      <option name="number" value="00064" />
-      <option name="presentableId" value="LOCAL-00064" />
-      <option name="project" value="LOCAL" />
-      <updated>1600642870558</updated>
-    </task>
-    <task id="LOCAL-00065" summary="replace tag/comment add">
-      <created>1600647593216</created>
-      <option name="number" value="00065" />
-      <option name="presentableId" value="LOCAL-00065" />
-      <option name="project" value="LOCAL" />
-      <updated>1600647593216</updated>
-    </task>
-    <task id="LOCAL-00066" summary="allow and disallow edit from leaderboard and order list also print modification">
-      <created>1600906607829</created>
-      <option name="number" value="00066" />
-      <option name="presentableId" value="LOCAL-00066" />
-      <option name="project" value="LOCAL" />
-      <updated>1600906607831</updated>
-    </task>
-    <task id="LOCAL-00067" summary="allow and disallow edit from leaderboard and order list also print modification">
-      <created>1603300103134</created>
-      <option name="number" value="00067" />
-      <option name="presentableId" value="LOCAL-00067" />
-      <option name="project" value="LOCAL" />
-      <updated>1603300103135</updated>
-    </task>
-    <task id="LOCAL-00068" summary="allow and disallow edit from leaderboard and order list also print modification">
-      <created>1603300550401</created>
-      <option name="number" value="00068" />
-      <option name="presentableId" value="LOCAL-00068" />
-      <option name="project" value="LOCAL" />
-      <updated>1603300550401</updated>
-    </task>
-    <task id="LOCAL-00069" summary="allow and disallow edit from leaderboard and order list also print modification">
-      <created>1603311440237</created>
-      <option name="number" value="00069" />
-      <option name="presentableId" value="LOCAL-00069" />
-      <option name="project" value="LOCAL" />
-      <updated>1603311440239</updated>
-    </task>
-    <task id="LOCAL-00070" summary="allow and disallow edit from leaderboard and order list also print modification">
-      <created>1603311898599</created>
-      <option name="number" value="00070" />
-      <option name="presentableId" value="LOCAL-00070" />
-      <option name="project" value="LOCAL" />
-      <updated>1603311898599</updated>
-    </task>
-    <task id="LOCAL-00071" summary="client reg bug fix">
-      <created>1616918392542</created>
-      <option name="number" value="00071" />
-      <option name="presentableId" value="LOCAL-00071" />
-      <option name="project" value="LOCAL" />
-      <updated>1616918392543</updated>
-    </task>
-    <option name="localTasksCounter" value="72" />
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -545,54 +113,110 @@
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="validation bug fix and make an new example testView" />
-    <MESSAGE value="payment form" />
-    <MESSAGE value="Payment Details bug fix" />
-    <MESSAGE value="implement printing and marge mohsin work" />
-    <MESSAGE value="DESC ORDER BY" />
-    <MESSAGE value="printing page fix" />
-    <MESSAGE value="dashboard fixing" />
-    <MESSAGE value="dashboard fixing and side bar change" />
-    <MESSAGE value="image path bug" />
-    <MESSAGE value="search update to product list" />
-    <MESSAGE value="leaderboard data export, but not formated, finance report panel and data export" />
-    <MESSAGE value="data table mod, webapp\assets\pages\scripts\table-datatables-managed" />
-    <MESSAGE value="show order details in order list and indent in orderlist(start)" />
-    <MESSAGE value="payment details modification" />
-    <MESSAGE value="replace tag/comment add" />
-    <MESSAGE value="allow and disallow edit from leaderboard and order list also print modification" />
-    <MESSAGE value="client reg bug fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="client reg bug fix" />
+    <MESSAGE value="orderflex client info update api integration" />
+    <option name="LAST_COMMIT_MESSAGE" value="orderflex client info update api integration" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="361" y="137" key="Vcs.Push.Dialog.v2" timestamp="1616918394365">
+    <state x="2266" y="424" key="NewPhpFileDialog" timestamp="1619482479954">
+      <screen x="1920" y="132" width="1024" height="738" />
+    </state>
+    <state x="2266" y="424" key="NewPhpFileDialog/0.0.1536.834/1920.132.1024.738@1920.132.1024.738" timestamp="1619482479954" />
+    <state x="361" y="137" key="Vcs.Push.Dialog.v2" timestamp="1619489102117">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="361" y="137" key="Vcs.Push.Dialog.v2/0.0.1536.834/1920.0.1366.738@0.0.1536.834" timestamp="1616918394365" />
+    <state x="361" y="137" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1619489102117" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/application/views/payment/paymentDetail.php</url>
-          <line>71</line>
-          <option name="timeStamp" value="2" />
+          <url>file://$PROJECT_DIR$/application/views/dashboard/dashboard.php</url>
+          <line>42</line>
+          <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/application/controllers/Client.php</url>
-          <line>383</line>
-          <option name="timeStamp" value="3" />
+          <line>78</line>
+          <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/application/controllers/Client.php</url>
-          <line>155</line>
-          <option name="timeStamp" value="5" />
+          <line>80</line>
+          <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/application/controllers/Client.php</url>
-          <line>164</line>
-          <option name="timeStamp" value="6" />
+          <line>83</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/application/controllers/Client.php</url>
+          <line>235</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/application/controllers/Client.php</url>
+          <line>240</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/application/controllers/Client.php</url>
+          <line>237</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/application/controllers/Client.php</url>
+          <line>144</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/application/controllers/Client.php</url>
+          <line>145</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/application/controllers/Client.php</url>
+          <line>150</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/application/controllers/Client.php</url>
+          <line>153</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/application/controllers/Client.php</url>
+          <line>248</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/application/controllers/Client.php</url>
+          <line>247</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/application/controllers/Client.php</url>
+          <line>253</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/application/controllers/Client.php</url>
+          <line>256</line>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/application/controllers/Client.php</url>
+          <line>269</line>
+          <option name="timeStamp" value="21" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -27,8 +27,10 @@
 
 <div class="portlet box blue ">
 <?php
-     $myCIRef =& get_instance();
-     $myCIRef->load->view('orders/oder_filter');
+    $myCIRef =& get_instance();
+    $myCIRef->load->view('orders/oder_filter');
+    $myCIRef->load->helper('prefix_auhentication_helper');
+    $permissionIndex=checkPermission();
 ?>
 </div>
 
@@ -130,7 +132,7 @@
                                 <div class="clearfix">
 
                                     <a id="<?php echo "indent" . $data['orderId'] ?>"
-                                       onclick="indentInput(<?php echo $data['orderId'] ?>)"
+                                       onclick="indentInput(<?php echo $data['orderId'] ?>,<?php echo $permissionIndex; ?>)"
                                        class="btn btn-sm <?php if ($data['indent_no'] !=null) {
                                            echo "green-dark";
                                        } else {
@@ -145,7 +147,7 @@
                                     </a>
 
                                     <a id="<?php echo "replace" . $data['orderId'] ?>"
-                                       onclick="enableEdit(<?php echo $data['orderId'] ?>,<?php echo $data['isEditable'] ?>)"
+                                       onclick="enableEdit(<?php echo $data['orderId'] ?>,<?php echo $data['isEditable'] ?>,<?php echo $permissionIndex; ?>)"
                                        class="btn btn-sm <?php if ($data['isEditable'] != 0) {
                                            echo "red";
                                        } else {
@@ -185,8 +187,35 @@
     <button id="slideRight" class="btn" type="button">Scroll right ➡️</button>
 </div>
 <script type="text/javascript">
+    var SUPER_EDITING=1;
+    var ORDER_EDITING=2;
+    var PAYMENT_EDITING=3;
+    var ONLY_VIEWER=4;
+    var EDITING=5;
+    var API_COMMUNICATOR=6;
 
-    function indentInput(id) {
+    function indentInput(id,permissionIndex) {
+        console.log('indentInput Index>'+permissionIndex);
+        if (permissionIndex==SUPER_EDITING||permissionIndex==EDITING){
+            indentInputAJAX(id)
+        }else if (permissionIndex==ORDER_EDITING){
+            indentInputAJAX(id)
+        }else {
+            alert("Sorry! You are not authorize to do this operation.");
+        }
+    }
+
+    function enableEdit(id,flag,permissionIndex) {
+        if (permissionIndex==SUPER_EDITING||permissionIndex==EDITING){
+            enableEditAJAX(id,flag)
+        }else if (permissionIndex==ORDER_EDITING){
+            enableEditAJAX(id,flag)
+        }else {
+            alert("Sorry! You are not authorize to do this operation.");
+        }
+    }
+
+    function indentInputAJAX(id) {
         var indentNo = prompt("Please type the indent number:", "");
         if (indentNo == null || indentNo == "") {
             console.log("no input");
@@ -210,7 +239,8 @@
         }
     }
 
-    function enableEdit(id,flag) {
+
+    function enableEditAJAX(id,flag) {
         console.log(id);
         var setFlag;
         if (flag==0){
